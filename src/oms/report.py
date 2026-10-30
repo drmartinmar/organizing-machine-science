@@ -135,7 +135,7 @@ def make_report(run_dir: Path, out_dir: Path, design_order: list[str] | None = N
     colors = plt.cm.tab10(np.linspace(0, 1, 10))
     cmap = {d: colors[i % 10] for i, d in enumerate(order)}
 
-    # Fig 1: Type I vs Type II (precision vs focal recall), the evaluation-architecture frontier
+    # Fig 1: precision against coverage by design
     fig, ax = plt.subplots(figsize=(6.4, 4.8))
     for d in order:
         sub = df[df["design"] == d]
@@ -144,22 +144,22 @@ def make_report(run_dir: Path, out_dir: Path, design_order: list[str] | None = N
         x, y = sub["focal_recall"].astype(float), sub["precision"].astype(float)
         ax.scatter(x, y, s=22, alpha=0.35, color=cmap[d])
         ax.errorbar(x.mean(), y.mean(), xerr=_se(x), yerr=_se(y), fmt="o", ms=9, color=cmap[d], label=d, capsize=3)
-    ax.set_xlabel("Focal recall (1 − Type II error rate)")
-    ax.set_ylabel("Precision (1 − Type I error rate)")
+    ax.set_xlabel("Coverage (share of focal mechanisms recovered)")
+    ax.set_ylabel("Precision (share of reported claims true)")
     ax.set_xlim(-0.03, 1.03); ax.set_ylim(-0.03, 1.03)
-    ax.set_title("Validity frontier by organizational design")
+    ax.set_title("Precision against coverage by organizational design")
     ax.legend(fontsize=7, loc="lower left")
     fig.tight_layout(); fig.savefig(out_dir / "fig1_validity_frontier.png", dpi=200); plt.close(fig)
 
     # Fig 2: confident-false ("Potemkin") rate and consensus conformity in contrarian worlds
     fig, axes = plt.subplots(1, 2, figsize=(10, 4.2))
     _bar(axes[0], df, "confident_false_rate", order, cmap, "Confident-false rate (all worlds)")
-    _bar(axes[1], contr, "consensus_conformity", order, cmap, "Consensus conformity (contrarian worlds)")
+    _bar(axes[1], contr, "consensus_conformity", order, cmap, "Prior-conformity error (contrarian worlds)")
     fig.tight_layout(); fig.savefig(out_dir / "fig2_slop_and_conformity.png", dpi=200); plt.close(fig)
 
     # Fig 3: discovery of unpublished truths and calibration
     fig, axes = plt.subplots(1, 2, figsize=(10, 4.2))
-    _bar(axes[0], df, "discovery_rate", order, cmap, "Discovery rate (unpublished focal truths)")
+    _bar(axes[0], df, "discovery_rate", order, cmap, "Recovery of unpublished focal truths")
     _bar(axes[1], df, "brier", order, cmap, "Brier score (lower is better)")
     fig.tight_layout(); fig.savefig(out_dir / "fig3_discovery_calibration.png", dpi=200); plt.close(fig)
 
