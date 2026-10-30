@@ -685,6 +685,30 @@
       "interaction_sign": "negative",
       "magnitude": -0.352,
       "focal": false
+    },
+    {
+      "cause": "environmental_turbulence",
+      "moderator": "hq_attention",
+      "outcome": "unit_performance",
+      "interaction_sign": "positive",
+      "magnitude": 0.1315,
+      "focal": false
+    },
+    {
+      "cause": "it_integration",
+      "moderator": "hq_attention",
+      "outcome": "unit_performance",
+      "interaction_sign": "negative",
+      "magnitude": -0.0838,
+      "focal": false
+    },
+    {
+      "cause": "it_integration",
+      "moderator": "hq_attention",
+      "outcome": "coordination_cost",
+      "interaction_sign": "positive",
+      "magnitude": 0.1478,
+      "focal": false
     }
   ],
   "mediations": [
@@ -694,6 +718,11 @@
       "outcome": "local_knowledge_use",
       "indirect_sign": "negative",
       "magnitude": -0.1348,
+      "legs": [
+        -0.42,
+        0.321
+      ],
+      "meets_threshold": true,
       "focal": false
     },
     {
@@ -702,6 +731,11 @@
       "outcome": "coordination_cost",
       "indirect_sign": "negative",
       "magnitude": -0.2692,
+      "legs": [
+        -0.42,
+        0.641
+      ],
+      "meets_threshold": true,
       "focal": false
     },
     {
@@ -710,6 +744,11 @@
       "outcome": "unit_performance",
       "indirect_sign": "negative",
       "magnitude": -0.0618,
+      "legs": [
+        0.109,
+        -0.567
+      ],
+      "meets_threshold": true,
       "focal": false
     },
     {
@@ -718,6 +757,11 @@
       "outcome": "unit_performance",
       "indirect_sign": "positive",
       "magnitude": 0.1053,
+      "legs": [
+        0.321,
+        0.328
+      ],
+      "meets_threshold": true,
       "focal": true
     },
     {
@@ -726,6 +770,11 @@
       "outcome": "unit_performance",
       "indirect_sign": "negative",
       "magnitude": -0.3634,
+      "legs": [
+        0.641,
+        -0.567
+      ],
+      "meets_threshold": true,
       "focal": true
     }
   ],
@@ -810,5 +859,6 @@
     "interaction": 0.08,
     "mediation_edge": 0.1,
     "mediation_focal": 0.05
-  }
+  },
+  "semantics": "local effects at the center of the distribution (all variables at their structural mean) under do-interventions; signs are reported at the relevance thresholds, raw magnitudes are kept"
 }

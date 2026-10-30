@@ -9,7 +9,8 @@
       "sign": "negative"
     },
     "truth": "TRUE",
-    "trap": false
+    "trap": false,
+    "verdict": "TRUE"
   },
   {
     "id": "L2",
@@ -21,7 +22,8 @@
       "sign": "positive"
     },
     "truth": "TRUE",
-    "trap": false
+    "trap": false,
+    "verdict": "TRUE"
   },
   {
     "id": "L3",
@@ -34,7 +36,8 @@
       "interaction_sign": "positive"
     },
     "truth": "TRUE",
-    "trap": false
+    "trap": false,
+    "verdict": "TRUE"
   },
   {
     "id": "L4",
@@ -46,7 +49,8 @@
       "sign": "positive"
     },
     "truth": "FALSE",
-    "trap": true
+    "trap": true,
+    "verdict": "FALSE"
   },
   {
     "id": "L5",
@@ -58,7 +62,8 @@
       "sign": "negative"
     },
     "truth": "TRUE",
-    "trap": false
+    "trap": false,
+    "verdict": "TRUE"
   },
   {
     "id": "L6",
@@ -70,7 +75,8 @@
       "sign": "none"
     },
     "truth": "TRUE",
-    "trap": false
+    "trap": false,
+    "verdict": "TRUE"
   },
   {
     "id": "L7",
@@ -82,6 +88,7 @@
       "sign": "positive"
     },
     "truth": "TRUE",
-    "trap": false
+    "trap": false,
+    "verdict": "TRUE"
   }
 ]

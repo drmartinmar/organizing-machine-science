@@ -694,7 +694,25 @@
       "outcome": "team_performance",
       "indirect_sign": "negative",
       "magnitude": -0.3201,
+      "legs": [
+        0.604,
+        -0.53
+      ],
+      "meets_threshold": true,
       "focal": true
+    },
+    {
+      "cause": "team_turnover",
+      "mediator": "idea_novelty",
+      "outcome": "team_performance",
+      "indirect_sign": "positive",
+      "magnitude": 0.0135,
+      "legs": [
+        0.152,
+        0.089
+      ],
+      "meets_threshold": false,
+      "focal": false
     }
   ],
   "focal": [
@@ -770,5 +788,6 @@
     "interaction": 0.08,
     "mediation_edge": 0.1,
     "mediation_focal": 0.05
-  }
+  },
+  "semantics": "local effects at the center of the distribution (all variables at their structural mean) under do-interventions; signs are reported at the relevance thresholds, raw magnitudes are kept"
 }

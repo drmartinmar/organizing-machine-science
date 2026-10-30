@@ -169,6 +169,13 @@ def synthesizer_messages(brief: str, codebook: str, theory: dict | None, analysi
     if evaluation_rule == "hierarchy":
         system += ("\n\nGovernance: the critic has veto power. Claims the critic rejected must not appear in the final "
                    "report; claims marked 'revise' may appear only in the revised form the critic asked for.")
+    elif evaluation_rule == "and":
+        system += ("\n\nGovernance: the critic has veto power. Only claims the critic accepted as stated may appear in "
+                   "the final report; claims marked 'revise' or 'reject' will be removed.")
+    elif evaluation_rule == "or":
+        system += ("\n\nGovernance: the critic's review is advisory. Claims the critic accepted will be included in the "
+                   "final report even if you drop them; you may also keep claims the critic questioned if the evidence "
+                   "supports them.")
     elif evaluation_rule == "polyarchy":
         system += ("\n\nGovernance: the critic's review is advisory. You may keep a claim the critic rejected if you judge "
                    "the evidence sufficient; say why in the rationale.")

@@ -801,6 +801,14 @@
       "interaction_sign": "positive",
       "magnitude": 0.251,
       "focal": true
+    },
+    {
+      "cause": "feedback_quality",
+      "moderator": "tech_investment",
+      "outcome": "creative_output",
+      "interaction_sign": "positive",
+      "magnitude": 0.1734,
+      "focal": false
     }
   ],
   "mediations": [
@@ -810,6 +818,11 @@
       "outcome": "routine_output",
       "indirect_sign": "positive",
       "magnitude": 0.2184,
+      "legs": [
+        0.691,
+        0.316
+      ],
+      "meets_threshold": true,
       "focal": false
     },
     {
@@ -818,6 +831,11 @@
       "outcome": "perceived_autonomy",
       "indirect_sign": "negative",
       "magnitude": -0.4125,
+      "legs": [
+        0.691,
+        -0.597
+      ],
+      "meets_threshold": true,
       "focal": false
     },
     {
@@ -826,6 +844,11 @@
       "outcome": "trust_in_management",
       "indirect_sign": "negative",
       "magnitude": -0.2577,
+      "legs": [
+        0.691,
+        -0.373
+      ],
+      "meets_threshold": true,
       "focal": false
     },
     {
@@ -834,6 +857,11 @@
       "outcome": "feedback_frequency",
       "indirect_sign": "positive",
       "magnitude": 0.2861,
+      "legs": [
+        0.691,
+        0.414
+      ],
+      "meets_threshold": true,
       "focal": false
     },
     {
@@ -842,6 +870,11 @@
       "outcome": "creative_output",
       "indirect_sign": "negative",
       "magnitude": -0.0412,
+      "legs": [
+        -0.123,
+        0.335
+      ],
+      "meets_threshold": true,
       "focal": false
     },
     {
@@ -850,6 +883,11 @@
       "outcome": "creative_output",
       "indirect_sign": "negative",
       "magnitude": -0.2609,
+      "legs": [
+        -0.597,
+        0.437
+      ],
+      "meets_threshold": true,
       "focal": true
     },
     {
@@ -858,7 +896,25 @@
       "outcome": "creative_output",
       "indirect_sign": "negative",
       "magnitude": -0.125,
+      "legs": [
+        -0.373,
+        0.335
+      ],
+      "meets_threshold": true,
       "focal": true
+    },
+    {
+      "cause": "monitoring_intensity",
+      "mediator": "feedback_frequency",
+      "outcome": "creative_output",
+      "indirect_sign": "positive",
+      "magnitude": 0.029,
+      "legs": [
+        0.414,
+        0.07
+      ],
+      "meets_threshold": false,
+      "focal": false
     }
   ],
   "focal": [
@@ -947,5 +1003,6 @@
     "interaction": 0.08,
     "mediation_edge": 0.1,
     "mediation_focal": 0.05
-  }
+  },
+  "semantics": "local effects at the center of the distribution (all variables at their structural mean) under do-interventions; signs are reported at the relevance thresholds, raw magnitudes are kept"
 }

@@ -7,9 +7,9 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-METRICS = ["n_claims", "precision", "focal_recall", "f1_focal", "discovery_rate", "parroting_rate",
-           "consensus_conformity", "trap_rate", "confident_false_rate", "brier", "overconfidence",
-           "citation_errors", "n_false", "n_focal_missed"]
+METRICS = ["n_claims", "n_raw_claims", "n_dropped_claims", "precision", "precision_lenient", "n_weak", "focal_recall",
+           "f1_focal", "discovery_rate", "parroting_rate", "consensus_conformity", "n_textbook_assertions", "trap_rate",
+           "confident_false_rate", "brier", "overconfidence", "citation_errors", "n_false", "n_focal_missed", "empty_report"]
 
 
 def rescore(run_dir: Path, worlds_root: Path) -> int:
@@ -30,12 +30,24 @@ def rescore(run_dir: Path, worlds_root: Path) -> int:
         raw = [{k: v for k, v in c.items() if k in ("id", "type", "cause", "outcome", "sign", "moderator", "interaction_sign",
                                                      "mediator", "indirect_sign", "confidence", "basis", "rationale")}
                for c in r.get("claims", [])]
-        metrics, ann = score(raw, worlds[wid])
+        n_raw = _raw_claim_count(Path(run_dir) / "transcripts" / f"{r['design']}__{wid}.json")
+        metrics, ann = score(raw, worlds[wid], n_raw_claims=n_raw)
         r["metrics"], r["claims"] = metrics, ann
         out.append(json.dumps(r, ensure_ascii=False))
         n += 1
     path.write_text("\n".join(out) + ("\n" if out else ""))
     return n
+
+
+def _raw_claim_count(transcript_path: Path) -> int | None:
+    """Number of claims in the final model output before normalization (from the stored transcript)."""
+    if not transcript_path.exists():
+        return None
+    t = json.loads(transcript_path.read_text())
+    steps = [st for st in t.get("transcript", []) if st.get("role") in ("synthesizer", "solo") and isinstance(st.get("response"), dict)]
+    if not steps:
+        return None
+    return len(steps[-1]["response"].get("claims", []) or [])
 
 
 def load_results(run_dir: Path) -> pd.DataFrame:
@@ -159,7 +171,8 @@ def make_report(run_dir: Path, out_dir: Path, design_order: list[str] | None = N
     lines = [f"# Results: {run_dir.name}", "",
              f"Runs: {len(df)} (designs: {len(order)}, worlds: {df['world_id'].nunique()}).", "",
              "## Means by design (all worlds)", "",
-             markdown_table(overall.reindex(order), ["n_runs", "n_claims", "precision", "focal_recall", "discovery_rate",
+             markdown_table(overall.reindex(order), ["n_runs", "n_claims", "n_dropped_claims", "empty_report", "precision",
+                                                     "precision_lenient", "focal_recall", "discovery_rate",
                                                      "confident_false_rate", "parroting_rate", "trap_rate", "brier",
                                                      "citation_errors", "n_calls"]),
              "", "## Standard errors (across worlds)", "",

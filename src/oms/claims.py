@@ -137,23 +137,27 @@ def same_claim(a: dict, b: dict) -> bool:
 
 
 def evaluate_claim(claim: dict, truth: dict) -> dict:
-    """Evaluate a canonical claim against ``truth_table`` output."""
+    """Evaluate a canonical claim against ``truth_table`` output.
+
+    Verdicts: ``TRUE`` (asserted sign matches the truth at the relevance threshold), ``WEAK`` (the asserted
+    direction matches a structurally present effect that is below the relevance threshold), ``FALSE`` (wrong
+    direction, asserted absence of a present effect, or asserted presence of a structurally absent relation).
+    """
     t = claim["type"]
-    res: dict[str, Any] = {"verdict": "FALSE", "truth_value": None}
+    res: dict[str, Any] = {"verdict": "FALSE", "truth_value": None, "magnitude": None}
     if t == "effect":
         row = next((e for e in truth["effects"] if e["cause"] == claim["cause"] and e["outcome"] == claim["outcome"]), None)
         if row is None:
             return res
-        res["truth_value"] = row["sign"]
-        res["magnitude"] = row["magnitude"]
-        res["verdict"] = "TRUE" if row["sign"] == claim["sign"] else "FALSE"
+        res["truth_value"], res["magnitude"] = row["sign"], row["magnitude"]
+        res["verdict"] = _verdict(claim["sign"], row["sign"], row["magnitude"])
     elif t == "moderation":
         row = next((m for m in truth["moderations"] if {m["cause"], m["moderator"]} == {claim["cause"], claim["moderator"]}
                     and m["outcome"] == claim["outcome"]), None)
         tv = row["interaction_sign"] if row else "none"
-        res["truth_value"] = tv
-        res["magnitude"] = row["magnitude"] if row else 0.0
-        res["verdict"] = "TRUE" if tv == claim["interaction_sign"] else "FALSE"
+        mag = row["magnitude"] if row else 0.0
+        res["truth_value"], res["magnitude"] = tv, mag
+        res["verdict"] = _verdict(claim["interaction_sign"], tv, mag)
     elif t == "mediation":
         row = next((m for m in truth["mediations"] if m["cause"] == claim["cause"] and m["mediator"] == claim["mediator"]
                     and m["outcome"] == claim["outcome"]), None)
@@ -161,11 +165,24 @@ def evaluate_claim(claim: dict, truth: dict) -> dict:
             res["truth_value"] = "none"
             res["verdict"] = "FALSE"
         else:
-            res["truth_value"] = row["indirect_sign"]
-            res["magnitude"] = row["magnitude"]
-            ok = claim.get("indirect_sign") in (None, row["indirect_sign"])
-            res["verdict"] = "TRUE" if ok else "FALSE"
-    # annotations
+            res["truth_value"], res["magnitude"] = row["indirect_sign"], row["magnitude"]
+            sign_ok = claim.get("indirect_sign") in (None, row["indirect_sign"])
+            if not sign_ok:
+                res["verdict"] = "FALSE"
+            elif row.get("meets_threshold", True):
+                res["verdict"] = "TRUE"
+            else:
+                res["verdict"] = "WEAK"
     res["trap"] = t == "effect" and [claim["cause"], claim["outcome"]] in truth.get("trap_pairs", []) and claim["sign"] != "none"
     res["consensus"] = any(same_claim(claim, c) for c in truth.get("consensus", []))
     return res
+
+
+def _verdict(asserted: str, truth_sign: str, magnitude: float) -> str:
+    if asserted == truth_sign:
+        return "TRUE"
+    if asserted != "none" and truth_sign == "none" and magnitude is not None and abs(magnitude) > 1e-9:
+        raw_sign = "positive" if magnitude > 0 else "negative"
+        if raw_sign == asserted:
+            return "WEAK"
+    return "FALSE"

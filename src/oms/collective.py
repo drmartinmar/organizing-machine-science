@@ -31,7 +31,7 @@ from typing import Any
 import pandas as pd
 
 from . import roles
-from .claims import normalize_claim, same_relation
+from .claims import normalize_claim, same_relation, same_claim
 from .llm import Backend, LLMResponse
 from .sandbox import run_analysis
 
@@ -48,7 +48,7 @@ class OrgDesign:
     name: str
     structure: str = "pipeline"            # solo | pipeline | two_theorists
     sequence: str = "theory_first"         # theory_first | data_first
-    evaluation: str = "none"               # none | polyarchy | hierarchy
+    evaluation: str = "none"               # none | polyarchy (advisory) | hierarchy (veto, revisions allowed) | and | or
     team_structure: str = "connected"      # connected | isolated (two_theorists)
     critic_model: str | None = None
     theorist_models: list[str | None] = field(default_factory=lambda: [None, None])
@@ -73,6 +73,7 @@ class RunResult:
     code_failures: int
     draft_claims: list[dict] = field(default_factory=list)
     critic_verdicts: list[dict] = field(default_factory=list)
+    n_raw_claims: int = 0
     error: str | None = None
 
     def to_json(self) -> dict:
@@ -95,6 +96,7 @@ class Collective:
         self.tokens = 0
         self.code_runs = 0
         self.code_failures = 0
+        self.last_raw_count = 0
         self.names = self.spec.names
         self.public_lit = [{"id": l["id"], "text": l["text"], "claim": l["claim"]} for l in world["literature"]]
         self.brief_min = (f"Setting: {self.spec.setting}. Research question: {self.spec.research_question} "
@@ -130,8 +132,10 @@ class Collective:
 
     def _norm_claims(self, raw: Any) -> list[dict]:
         if not isinstance(raw, dict):
+            self.last_raw_count = 0
             return []
         out = []
+        self.last_raw_count = len(raw.get("claims", []) or [])
         for c in raw.get("claims", []) or []:
             n = normalize_claim(c, self.names)
             if n is not None:
@@ -202,19 +206,36 @@ class Collective:
             f"Analysis plan: {analysis.get('plan','')}\n\nScript:\n```python\n{analysis.get('code','')}\n```\n\n"
             f"Output:\n```\n{(analysis.get('output') or '')[-3500:]}\n```\n\nAnalyst's findings:\n```json\n"
             f"{json.dumps(analysis.get('findings', []), indent=1)}\n```")
-        binding = self.d.evaluation == "hierarchy"
+        binding = self.d.evaluation in ("hierarchy", "and")
         msgs = roles.critic_messages(self.w["brief"], self.w["codebook"], claims, evidence, binding)
         out = self._call("critic", msgs, roles.critic_schema(), model=model, extra_meta={"n_claims": len(claims)})
         return out if isinstance(out, dict) else {"verdicts": [], "concerns": ""}
 
     # ----- governance ---------------------------------------------------------
     def apply_veto(self, final_claims: list[dict], draft_claims: list[dict], verdicts: list[dict]) -> list[dict]:
-        """Hierarchy: keep only final claims whose relation the critic accepted or asked to revise."""
+        """``hierarchy`` (pilot rule): keep final claims about relations the critic accepted or asked to revise."""
         by_id = {c["id"]: c for c in draft_claims}
         allowed = [by_id[v["claim_id"]] for v in verdicts
                    if v.get("verdict") in ("accept", "revise") and v.get("claim_id") in by_id]
-        kept = [c for c in final_claims if any(same_relation(c, a) for a in allowed)]
-        return kept
+        return [c for c in final_claims if any(same_relation(c, a) for a in allowed)]
+
+    def apply_and(self, final_claims: list[dict], draft_claims: list[dict], verdicts: list[dict]) -> list[dict]:
+        """Strict hierarchy (AND): a claim survives only if the lead kept it and the critic accepted that same
+        claim (same relation and same asserted sign)."""
+        by_id = {c["id"]: c for c in draft_claims}
+        accepted = [by_id[v["claim_id"]] for v in verdicts if v.get("verdict") == "accept" and v.get("claim_id") in by_id]
+        return [c for c in final_claims if any(same_claim(c, a) for a in accepted)]
+
+    def apply_or(self, final_claims: list[dict], draft_claims: list[dict], verdicts: list[dict]) -> list[dict]:
+        """Polyarchy (OR): a draft claim survives if either the lead kept it in the final report or the critic
+        accepted it."""
+        by_id = {c["id"]: c for c in draft_claims}
+        accepted = [by_id[v["claim_id"]] for v in verdicts if v.get("verdict") == "accept" and v.get("claim_id") in by_id]
+        out = list(final_claims)
+        for a in accepted:
+            if not any(same_relation(a, c) for c in out):
+                out.append(a)
+        return out
 
     # ----- orchestration ------------------------------------------------------
     def run(self) -> RunResult:
@@ -276,19 +297,25 @@ class Collective:
                     analysis = self.analyst(t["claims"])
                 draft = self.synthesizer(theory, analysis, None)
                 final = draft
-                if d.evaluation in ("polyarchy", "hierarchy") and draft["claims"]:
+                if d.evaluation in ("polyarchy", "hierarchy", "and", "or") and draft["claims"]:
                     critique = self.critic(draft["claims"], analysis, model=d.critic_model)
                     final = self.synthesizer(theory, analysis, critique,
                                              extra="Your earlier draft of the final claims:\n```json\n" +
                                                    json.dumps(draft["claims"], indent=1) + "\n```")
+                    verdicts = critique.get("verdicts", [])
                     if d.evaluation == "hierarchy":
-                        final["claims"] = self.apply_veto(final["claims"], draft["claims"], critique.get("verdicts", []))
+                        final["claims"] = self.apply_veto(final["claims"], draft["claims"], verdicts)
+                    elif d.evaluation == "and":
+                        final["claims"] = self.apply_and(final["claims"], draft["claims"], verdicts)
+                    elif d.evaluation == "or":
+                        final["claims"] = self.apply_or(final["claims"], draft["claims"], verdicts)
             return RunResult(design=d.name, world_id=self.spec.world_id, final_claims=final.get("claims", []),
                              report={k: final.get(k) for k in ("theory_summary", "limitations")},
                              transcript=self.transcript, n_calls=self.n_calls, total_tokens=self.tokens,
                              wall_s=round(time.time() - t0, 1), code_runs=self.code_runs, code_failures=self.code_failures,
                              draft_claims=draft.get("claims", []) if isinstance(draft, dict) else [],
-                             critic_verdicts=(critique or {}).get("verdicts", []))
+                             critic_verdicts=(critique or {}).get("verdicts", []),
+                             n_raw_claims=self.last_raw_count)
         except Exception as e:  # keep the run in the record even if it crashed
             return RunResult(design=d.name, world_id=self.spec.world_id, final_claims=[], report={},
                              transcript=self.transcript, n_calls=self.n_calls, total_tokens=self.tokens,

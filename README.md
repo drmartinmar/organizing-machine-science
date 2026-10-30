@@ -22,12 +22,12 @@ collective's *organizational design* can be varied while holding model capabilit
 
 | Path | Contents |
 |---|---|
-| `src/oms/worlds.py` | World generator: linear structural causal models with interactions; three templates (`turnover`, `monitoring`, `decentralization`), each in an `orthodox` and a `contrarian` variant (textbook sign reversed); planted literature whose truth status is *computed* against the world |
+| `src/oms/worlds.py` | World generator: linear structural causal models with interactions; three templates (`turnover`, `monitoring`, `decentralization`), each in an `orthodox` and a `contrarian` variant (textbook sign reversed); an intervention-based truth oracle; planted literature whose status in the world is *computed*; world format 2 adds a brief that states identification assumptions and relevance thresholds (the pilot used format 1) |
 | `src/oms/claims.py` | Structured claim schema (effect / moderation / mediation with signs and calibrated confidence) and exact evaluation of a claim against a world's truth |
-| `src/oms/collective.py` | Research collectives as organizations: `solo`, `pipeline`, `two_theorists`; `theory_first` / `data_first` sequencing; `none` / `polyarchy` / `hierarchy` evaluation; `connected` / `isolated` theorist networks; heterogeneous critic model; and a no-LLM `mechanical` baseline |
+| `src/oms/collective.py` | Research collectives as organizations: `solo`, `pipeline`, `two_theorists`; `theory_first` / `data_first` sequencing; `none` / `polyarchy` (advisory) / `hierarchy` (veto, revisions allowed) / `and` / `or` evaluation rules; `connected` / `isolated` theorist exposure; heterogeneous critic model; and a no-LLM `mechanical` reference procedure |
 | `src/oms/roles.py` | Role prompts and output schemas (theorist, analyst, critic, lead, solo), held constant across designs |
 | `src/oms/sandbox.py` | Executes analyst-written Python on the world's data in a contained subprocess |
-| `src/oms/scoring.py` | Metrics: precision, focal recall, discovery of unpublished truths, parroting, consensus conformity, trap rate, confident-false ("Potemkin") rate, Brier score, citation errors |
+| `src/oms/scoring.py` | Metrics: strict and lenient precision (WEAK = right direction, below threshold), coverage of focal truths, recovery of unpublished truths, literature overlap, prior-conformity error over false textbook claims, trap rate, confident-false rate, abstention and malformed-output counts, Brier score, citation checks |
 | `src/oms/llm.py` | Backends: any OpenAI-compatible endpoint, the OpenAI Codex CLI, a deterministic mock; **record/replay cache** so every published run reproduces exactly without model access |
 | `src/oms/experiments.py`, `report.py`, `cli.py` | Factorial harness, aggregation, figures, CLI |
 | `worlds/` | The six pilot worlds (data, codebook, brief, literature, hidden truth) |
@@ -41,7 +41,7 @@ collective's *organizational design* can be varied while holding model capabilit
 ```bash
 python -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
-pytest -q                                   # 26 tests, no model access needed
+pytest -q                                   # 34 tests, no model access needed
 
 oms worlds --seeds 1                        # (re)build the six pilot worlds deterministically
 oms inspect worlds/turnover-contrarian-s1   # show a world's hidden truth and which abstracts are false there
@@ -92,17 +92,20 @@ schema with `--output-schema`. Every request and response is in `runs/pilot_code
 | Lever | Values | Theory being tested on machine collectives |
 |---|---|---|
 | Division of labor | `solo` vs `pipeline` (theorist, analyst, lead) | specialization and the division of cognitive labor |
-| Evaluation architecture | `none` / `polyarchy` (advisory critic) / `hierarchy` (critic with veto) | Sah and Stiglitz (1986): hierarchies reduce Type I errors at the cost of Type II errors |
+| Evaluation architecture | `none` / `polyarchy` (advisory) / `hierarchy` (veto, revisions allowed) / `and` (strict hierarchy) / `or` (polyarchy) | Sah and Stiglitz (1986): hierarchies make fewer acceptance errors and more rejection errors than polyarchies |
 | Member heterogeneity | same model vs critic on a different model | error correlation; Hong and Page (2004) |
 | Sequencing | `theory_first` vs `data_first` | theory-driven vs phenomenon-driven discovery; prior conformity |
-| Communication structure | `connected` vs `isolated` theorists | Lazer and Friedman (2007); Fang, Lee and Schilling (2010): isolation preserves diversity |
+| Proposal exposure | `connected` vs `isolated` theorists | sequential influence on proposal diversity (in the spirit of Lazer and Friedman 2007 and Fang, Lee and Schilling 2010, without their network dynamics) |
 
 ## Status and honesty notes
 
 * This is a prototype. The worlds are linear-Gaussian with pairwise interactions and no unobserved confounding;
   extending the generator to nonlinear, panel and partially unobserved worlds is planned work (see the proposal).
 * The pilot is small (6 worlds × 9 designs, one seed, 54 runs). Its numbers are preliminary evidence that the instrument
-  discriminates between designs, not estimates of population effects.
+  discriminates between designs, not estimates of population effects. It ran on world format 1 and on the `polyarchy`
+  (advisory) and `hierarchy` (veto with revisions) rules; its scores were recomputed with the current oracle from the stored claims.
+* An adversarial model review before submission led to the intervention-based oracle, the WEAK verdict, the prior-conformity
+  metric over false textbook claims, the AND/OR rules and the format-2 brief; see the technical appendix, Section K.
 * The mock backend is a *parrot* (it restates the planted literature); it exists to test the pipeline, not to stand
   in for a model.
 * The author directed the design of this study and prototype and used AI coding and writing assistants extensively

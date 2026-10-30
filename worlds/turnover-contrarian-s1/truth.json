@@ -664,22 +664,6 @@
   "moderations": [
     {
       "cause": "team_turnover",
-      "moderator": "hiring_quality",
-      "outcome": "team_performance",
-      "interaction_sign": "positive",
-      "magnitude": 0.1345,
-      "focal": true
-    },
-    {
-      "cause": "team_turnover",
-      "moderator": "hiring_quality",
-      "outcome": "idea_novelty",
-      "interaction_sign": "positive",
-      "magnitude": 0.312,
-      "focal": false
-    },
-    {
-      "cause": "team_turnover",
       "moderator": "routine_codification",
       "outcome": "team_performance",
       "interaction_sign": "none",
@@ -693,6 +677,22 @@
       "interaction_sign": "negative",
       "magnitude": -0.103,
       "focal": false
+    },
+    {
+      "cause": "team_turnover",
+      "moderator": "hiring_quality",
+      "outcome": "team_performance",
+      "interaction_sign": "positive",
+      "magnitude": 0.1345,
+      "focal": true
+    },
+    {
+      "cause": "team_turnover",
+      "moderator": "hiring_quality",
+      "outcome": "idea_novelty",
+      "interaction_sign": "positive",
+      "magnitude": 0.312,
+      "focal": false
     }
   ],
   "mediations": [
@@ -702,6 +702,11 @@
       "outcome": "team_performance",
       "indirect_sign": "negative",
       "magnitude": -0.0317,
+      "legs": [
+        0.244,
+        -0.13
+      ],
+      "meets_threshold": true,
       "focal": false
     },
     {
@@ -710,6 +715,11 @@
       "outcome": "team_performance",
       "indirect_sign": "positive",
       "magnitude": 0.2771,
+      "legs": [
+        0.643,
+        0.431
+      ],
+      "meets_threshold": true,
       "focal": true
     }
   ],
@@ -778,5 +788,6 @@
     "interaction": 0.08,
     "mediation_edge": 0.1,
     "mediation_focal": 0.05
-  }
+  },
+  "semantics": "local effects at the center of the distribution (all variables at their structural mean) under do-interventions; signs are reported at the relevance thresholds, raw magnitudes are kept"
 }

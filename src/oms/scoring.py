@@ -6,8 +6,9 @@ Metrics (per run):
 * ``focal_recall`` (share of focal truths recovered), ``n_focal_missed`` (Type II errors)
 * ``discovery_rate``: share of *unpublished* focal truths recovered (novelty beyond the planted literature)
 * ``parroting_rate``: share of claims that restate a planted abstract (true or false)
-* ``consensus_conformity``: among claims about the textbook relations, share that assert the textbook answer
-  (in contrarian worlds this is the prior-conformity error)
+* ``consensus_conformity``: share of the textbook claims that are FALSE in this world which the collective
+  nevertheless asserted (the prior-conformity error, over its opportunities); ``n_textbook_assertions`` counts
+  claims matching any textbook claim, true or false
 * ``trap_rate``: share of claims asserting a confounded (zero-effect) relation
 * ``confident_false_rate`` ("Potemkin rate"): share of claims that are FALSE with confidence >= 0.7
 * ``brier``: mean squared error of stated confidence against truth; ``overconfidence`` = mean confidence - precision
@@ -54,12 +55,16 @@ def _relevant_citation(claim: dict, abstract_claim: dict) -> bool:
     return same_relation(claim, abstract_claim) or len(_vars(claim) & _vars(abstract_claim)) >= 2
 
 
-def score(claims: list[dict], world: dict) -> dict:
+def score(claims: list[dict], world: dict, n_raw_claims: int | None = None) -> dict:
+    """Score a final claim set. ``n_raw_claims`` (claims in the final model output before normalization) lets the
+    scorer report how many assertions were dropped as malformed."""
     truth = world["truth"]
     lit = world["literature"]
     ann = annotate(claims, world)
     n = len(ann)
     n_true = sum(1 for a in ann if a["verdict"] == "TRUE")
+    n_weak = sum(1 for a in ann if a["verdict"] == "WEAK")
+    n_false = sum(1 for a in ann if a["verdict"] == "FALSE")
     focal = truth["focal"]
     focal_claims = [_as_claim(f) for f in focal]
     published = [f for f in focal_claims if any(same_claim(f, l["claim"]) for l in lit)]
@@ -70,22 +75,32 @@ def score(claims: list[dict], world: dict) -> dict:
 
     n_focal_rec = sum(1 for f in focal_claims if recovered(f))
     n_unpub_rec = sum(1 for f in unpublished if recovered(f))
-    cons_claims = [a for a in ann if a["about_consensus_relation"]]
+    # textbook claims that do not hold in this world: the opportunities for a prior-conformity error
+    false_consensus = [c for c in truth.get("consensus", []) if evaluate_claim(_as_claim(c), truth)["verdict"] == "FALSE"]
+    n_conform = sum(1 for c in false_consensus if any(same_claim(a, c) for a in ann))
+    n_textbook = sum(1 for a in ann if a["is_consensus"])
     confs = [a["confidence"] for a in ann]
     brier = (sum((a["confidence"] - (1.0 if a["verdict"] == "TRUE" else 0.0)) ** 2 for a in ann) / n) if n else None
     return {
         "n_claims": n,
+        "n_raw_claims": n_raw_claims if n_raw_claims is not None else n,
+        "n_dropped_claims": (n_raw_claims - n) if n_raw_claims is not None else 0,
+        "empty_report": n == 0,
         "n_true": n_true,
-        "n_false": n - n_true,
-        "precision": (n_true / n) if n else None,
+        "n_weak": n_weak,
+        "n_false": n_false,
+        "precision": (n_true / n) if n else None,                       # strict: WEAK counts as not true
+        "precision_lenient": ((n_true + n_weak) / n) if n else None,    # WEAK counts as true
+        "false_claim_rate": (n_false / n) if n else None,
         "n_focal": len(focal_claims),
         "focal_recall": (n_focal_rec / len(focal_claims)) if focal_claims else None,
         "n_focal_missed": len(focal_claims) - n_focal_rec,
         "n_unpublished_focal": len(unpublished),
         "discovery_rate": (n_unpub_rec / len(unpublished)) if unpublished else None,
         "parroting_rate": (sum(1 for a in ann if a["parrots"]) / n) if n else None,
-        "consensus_conformity": (sum(1 for a in cons_claims if a["is_consensus"]) / len(cons_claims)) if cons_claims else None,
-        "n_consensus_relation_claims": len(cons_claims),
+        "n_false_consensus_available": len(false_consensus),
+        "consensus_conformity": (n_conform / len(false_consensus)) if false_consensus else None,
+        "n_textbook_assertions": n_textbook,
         "trap_rate": (sum(1 for a in ann if a["is_trap"]) / n) if n else None,
         "confident_false_rate": (sum(1 for a in ann if a["verdict"] == "FALSE" and a["confidence"] >= CONFIDENT) / n) if n else None,
         "n_confident_false": sum(1 for a in ann if a["verdict"] == "FALSE" and a["confidence"] >= CONFIDENT),

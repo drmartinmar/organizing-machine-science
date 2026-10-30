@@ -163,6 +163,43 @@ def total_interaction_effect(spec: WorldSpec, cause: str, moderator: str, outcom
     return float(out)
 
 
+# ---------------------------------------------------------------------------
+# General oracle: deterministic forward simulation under interventions
+# ---------------------------------------------------------------------------
+
+def simulate_do(spec: WorldSpec, interventions: dict[str, float]) -> dict[str, float]:
+    """Evaluate the structural equations with all noise terms at zero, holding the intervened variables at the
+    given values (their incoming edges are cut). Every other variable sits at its structural center (zero)."""
+    vals: dict[str, float] = {}
+    for name in topological_order(spec):
+        if name in interventions:
+            vals[name] = float(interventions[name])
+            continue
+        x = 0.0
+        for e in spec.edges:
+            if e.effect == name:
+                x += e.coef * vals[e.cause]
+        for it in spec.interactions:
+            if it.effect == name:
+                x += it.coef * vals[it.cause] * vals[it.moderator]
+        vals[name] = x
+    return vals
+
+
+def do_effect(spec: WorldSpec, cause: str, outcome: str, h: float = 0.01) -> float:
+    """Local causal effect of ``cause`` on ``outcome`` at the center of the distribution: the derivative of
+    E[outcome | do(cause)] at cause = 0 with every other variable at zero (central difference)."""
+    return (simulate_do(spec, {cause: h})[outcome] - simulate_do(spec, {cause: -h})[outcome]) / (2 * h)
+
+
+def do_interaction(spec: WorldSpec, cause: str, moderator: str, outcome: str, h: float = 0.01) -> float:
+    """How the local effect of ``cause`` on ``outcome`` changes per unit of ``moderator``: the mixed second
+    derivative of E[outcome | do(cause), do(moderator)] at zero. This captures interactions specified directly,
+    interactions propagated through mediators, and interactions inherited from upstream causes."""
+    f = lambda a, b: simulate_do(spec, {cause: a, moderator: b})[outcome]
+    return (f(h, h) - f(h, -h) - f(-h, h) + f(-h, -h)) / (4 * h * h)
+
+
 def topological_order(spec: WorldSpec) -> list[str]:
     parents: dict[str, set[str]] = {n: set() for n in spec.names}
     for e in spec.edges:
@@ -211,83 +248,97 @@ def sign_of(x: float, thr: float) -> str:
 
 
 def truth_table(spec: WorldSpec) -> dict:
-    """All scoreable truths for a world.
+    """All scoreable truths for a world, computed with the intervention oracle.
 
-    Returns a dict with lists ``effects`` (every ordered observed pair, total
-    effect sign), ``moderations`` (every (cause, moderator, outcome) that has a
-    non-trivial total interaction effect, plus explicit zeros for consensus
-    claims), ``mediations`` (every direct two-edge chain), and the list of
-    ``focal`` truths that a good collective should recover.
+    ``effects``: every ordered observed pair with the local causal effect (sign at the relevance threshold and the
+    raw magnitude). ``moderations``: every unordered pair and outcome whose mixed effect is non-negligible, plus the
+    consensus moderation relations (so that textbook claims always have a row). ``mediations``: every direct two-edge
+    chain with both legs non-zero (raw magnitudes kept; thresholds applied at scoring time). ``focal``: the truths a
+    collective is expected to recover.
     """
     names = spec.names
-    T = total_effects(spec)
-    idx = _index(spec)
     effects = []
     for c in names:
         for o in names:
             if c == o:
                 continue
-            te = float(T[idx[o], idx[c]])
+            te = do_effect(spec, c, o)
             effects.append({"cause": c, "outcome": o, "sign": sign_of(te, EFFECT_THR), "magnitude": round(te, 4)})
     moderations = []
-    seen = set()
-    for it in spec.interactions:
-        for o in names:
-            key = (frozenset({it.cause, it.moderator}), o)
-            if key in seen:
-                continue
-            seen.add(key)
-            tie = total_interaction_effect(spec, it.cause, it.moderator, o)
-            if abs(tie) >= INTER_THR or o == spec.focal_outcome:
-                moderations.append({
-                    "cause": it.cause, "moderator": it.moderator, "outcome": o,
-                    "interaction_sign": sign_of(tie, INTER_THR), "magnitude": round(tie, 4),
-                    "focal": bool(it.focal and o == spec.focal_outcome),
-                })
+    consensus_pairs = {(frozenset({cc["cause"], cc["moderator"]}), cc["outcome"]) for cc in spec.consensus if cc.get("type") == "moderation"}
+    focal_pairs = {(frozenset({it.cause, it.moderator})) for it in spec.interactions if it.focal}
+    for i, a in enumerate(names):
+        for b in names[i + 1:]:
+            for o in names:
+                if o in (a, b):
+                    continue
+                v = do_interaction(spec, a, b, o)
+                key = (frozenset({a, b}), o)
+                if abs(v) >= INTER_THR or key in consensus_pairs or abs(v) > 1e-9:
+                    moderations.append({"cause": a, "moderator": b, "outcome": o,
+                                        "interaction_sign": sign_of(v, INTER_THR), "magnitude": round(v, 4),
+                                        "focal": bool(frozenset({a, b}) in focal_pairs and o == spec.focal_outcome
+                                                      and abs(v) >= INTER_THR)})
     mediations = []
     for e1 in spec.edges:
         for e2 in spec.edges:
-            if e1.effect == e2.cause and e1.cause != e2.effect:
-                if abs(e1.coef) >= MED_EDGE_THR and abs(e2.coef) >= MED_EDGE_THR:
-                    mediations.append({
-                        "cause": e1.cause, "mediator": e1.effect, "outcome": e2.effect,
-                        "indirect_sign": sign_of(e1.coef * e2.coef, 1e-9),
-                        "magnitude": round(e1.coef * e2.coef, 4),
-                        "focal": bool(e1.cause == spec.focal_cause and e2.effect == spec.focal_outcome
-                                       and e1.effect in spec.designated_mediators
-                                       and abs(e1.coef * e2.coef) >= MED_FOCAL_THR),
-                    })
-    # focal truths: what a good collective should recover
+            if e1.effect == e2.cause and e1.cause != e2.effect and abs(e1.coef) > 1e-9 and abs(e2.coef) > 1e-9:
+                strong = abs(e1.coef) >= MED_EDGE_THR and abs(e2.coef) >= MED_EDGE_THR
+                mediations.append({
+                    "cause": e1.cause, "mediator": e1.effect, "outcome": e2.effect,
+                    "indirect_sign": sign_of(e1.coef * e2.coef, 1e-9),
+                    "magnitude": round(e1.coef * e2.coef, 4),
+                    "legs": [round(e1.coef, 4), round(e2.coef, 4)],
+                    "meets_threshold": bool(strong),
+                    "focal": bool(e1.cause == spec.focal_cause and e2.effect == spec.focal_outcome
+                                   and e1.effect in spec.designated_mediators and strong
+                                   and abs(e1.coef * e2.coef) >= MED_FOCAL_THR),
+                })
     focal: list[dict] = []
     fc, fo = spec.focal_cause, spec.focal_outcome
-    te = float(T[idx[fo], idx[fc]])
+    te = do_effect(spec, fc, fo)
     focal.append({"type": "effect", "cause": fc, "outcome": fo, "sign": sign_of(te, EFFECT_THR), "magnitude": round(te, 4)})
     for m in moderations:
-        if m["focal"] and m["interaction_sign"] != "none":
+        if m["focal"]:
             focal.append({"type": "moderation", **{k: m[k] for k in ("cause", "moderator", "outcome", "interaction_sign", "magnitude")}})
     for m in mediations:
         if m["focal"]:
             focal.append({"type": "mediation", **{k: m[k] for k in ("cause", "mediator", "outcome", "indirect_sign", "magnitude")}})
     for e in spec.edges:
         if e.focal:
-            te_e = float(T[idx[e.effect], idx[e.cause]])
+            te_e = do_effect(spec, e.cause, e.effect)
             item = {"type": "effect", "cause": e.cause, "outcome": e.effect, "sign": sign_of(te_e, EFFECT_THR), "magnitude": round(te_e, 4)}
             if item not in focal and item["sign"] != "none":
                 focal.append(item)
     return {"effects": effects, "moderations": moderations, "mediations": mediations, "focal": focal,
             "trap_pairs": [list(p) for p in spec.trap_pairs], "consensus": spec.consensus,
-            "thresholds": {"effect": EFFECT_THR, "interaction": INTER_THR, "mediation_edge": MED_EDGE_THR, "mediation_focal": MED_FOCAL_THR}}
+            "thresholds": {"effect": EFFECT_THR, "interaction": INTER_THR, "mediation_edge": MED_EDGE_THR, "mediation_focal": MED_FOCAL_THR},
+            "semantics": "local effects at the center of the distribution (all variables at their structural mean) under do-interventions; "
+                         "signs are reported at the relevance thresholds, raw magnitudes are kept"}
 
 
 # ---------------------------------------------------------------------------
 # Literature rendering
 # ---------------------------------------------------------------------------
 
+def _interpretation_sentence(c: dict, lab) -> str:
+    """The causal proposition the abstract is scored on, stated explicitly in its text."""
+    if c["type"] == "effect":
+        if c["sign"] == "none":
+            return f"The authors conclude that {lab(c['cause'])} has no effect on {lab(c['outcome'])}."
+        return (f"The authors interpret this as a causal effect: higher {lab(c['cause'])} "
+                f"{'raises' if c['sign'] == 'positive' else 'lowers'} {lab(c['outcome'])}.")
+    if c["type"] == "moderation":
+        return (f"The authors interpret this as {lab(c['moderator'])} making the effect of {lab(c['cause'])} on "
+                f"{lab(c['outcome'])} more {'positive' if c['interaction_sign'] == 'positive' else 'negative'}.")
+    return f"The authors interpret {lab(c['mediator'])} as the mechanism through which {lab(c['cause'])} affects {lab(c['outcome'])}."
+
+
 def _dir_word(sign: str) -> str:
     return {"positive": "higher", "negative": "lower", "none": "no different"}[sign]
 
 
-def render_literature(spec: WorldSpec, rng: np.random.Generator) -> list[dict]:
+def render_literature(spec: WorldSpec, rng: np.random.Generator, causal_language: bool = True) -> list[dict]:
     """Turn LitItems into abstracts with a (hidden) truth status."""
     from .claims import evaluate_claim  # local import to avoid cycle
     truth = truth_table(spec)
@@ -314,10 +365,12 @@ def render_literature(spec: WorldSpec, rng: np.random.Generator) -> list[dict]:
         else:
             raise ValueError(c["type"])
         text = f"{item.design} {finding}"
+        if causal_language:
+            text += " " + _interpretation_sentence(c, lab)
         if item.mechanism:
             text += f" {item.mechanism}"
         status = evaluate_claim(c, truth)
-        out.append({"id": f"L{k}", "text": text, "claim": c, "truth": status["verdict"],
+        out.append({"id": f"L{k}", "text": text, "claim": c, "truth": status["verdict"], "verdict": status["verdict"],
                     "trap": status.get("trap", False)})
     return out
 
@@ -610,7 +663,7 @@ def codebook_markdown(spec: WorldSpec) -> str:
     return "\n".join(lines) + "\n"
 
 
-def brief_markdown(spec: WorldSpec, literature: list[dict]) -> str:
+def brief_markdown(spec: WorldSpec, literature: list[dict], identification_note: bool = True) -> str:
     lines = [f"# Research brief", "",
              f"**Setting.** {spec.setting.capitalize()}.", "",
              f"**Research question.** {spec.research_question}", "",
@@ -618,6 +671,14 @@ def brief_markdown(spec: WorldSpec, literature: list[dict]) -> str:
              "**Prior literature available to the team** (summaries of earlier studies in comparable settings; cite them by ID):", ""]
     for l in literature:
         lines.append(f"- **[{l['id']}]** {l['text']}")
+    if identification_note:
+        lines += ["", "**What may be assumed about the data.** Causes precede their effects within the observation window; every "
+                  "common cause of any two variables in the codebook is itself in the codebook; relations are approximately "
+                  "linear with possible pairwise interactions. Under these assumptions a regression adjusted for the relevant "
+                  "codebook variables identifies the causal effect, and a mediator must not be held constant when a total effect "
+                  "is the target. Report an effect only if its standardized magnitude is practically meaningful (about 0.1 or "
+                  "more), moderation only if the slope changes by about 0.08 or more per unit of the moderator, and a mechanism "
+                  "only if both of its links are meaningful."]
     lines += ["", "**Deliverable.** A set of causal claims about what determines the focal outcome, each stated with the exact "
               "variable names in the codebook, a calibrated confidence in [0, 1], and its evidential basis (data analysis, "
               "literature IDs, or both). Claims may assert positive, negative or no effects, moderation (whether the "
@@ -626,18 +687,20 @@ def brief_markdown(spec: WorldSpec, literature: list[dict]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def save_world(spec: WorldSpec, root: Path) -> Path:
+def save_world(spec: WorldSpec, root: Path, world_format: int = 2) -> Path:
     out = root / spec.world_id
     out.mkdir(parents=True, exist_ok=True)
     df = generate_data(spec)
     df.to_csv(out / "data.csv", index=False)
     rng = np.random.default_rng(_stable_seed(spec.template, spec.variant, spec.seed) + 1)
-    lit = render_literature(spec, rng)
-    (out / "spec.json").write_text(json.dumps(spec.to_json(), indent=2))
+    lit = render_literature(spec, rng, causal_language=(world_format >= 2))
+    spec_json = spec.to_json()
+    spec_json["world_format"] = world_format   # 1 = pilot worlds (associational abstracts, no identification note)
+    (out / "spec.json").write_text(json.dumps(spec_json, indent=2))
     (out / "truth.json").write_text(json.dumps(truth_table(spec), indent=2))
     (out / "literature.json").write_text(json.dumps(lit, indent=2))
     (out / "codebook.md").write_text(codebook_markdown(spec))
-    (out / "brief.md").write_text(brief_markdown(spec, lit))
+    (out / "brief.md").write_text(brief_markdown(spec, lit, identification_note=(world_format >= 2)))
     public_lit = [{"id": l["id"], "text": l["text"]} for l in lit]
     (out / "literature_public.json").write_text(json.dumps(public_lit, indent=2))
     return out
@@ -645,9 +708,12 @@ def save_world(spec: WorldSpec, root: Path) -> Path:
 
 def load_world(path: Path) -> dict:
     path = Path(path)
-    spec = WorldSpec.from_json(json.loads((path / "spec.json").read_text()))
+    raw = json.loads((path / "spec.json").read_text())
+    world_format = raw.pop("world_format", 1)
+    spec = WorldSpec.from_json(raw)
     return {
         "spec": spec,
+        "world_format": world_format,
         "path": path,
         "truth": json.loads((path / "truth.json").read_text()),
         "literature": json.loads((path / "literature.json").read_text()),
