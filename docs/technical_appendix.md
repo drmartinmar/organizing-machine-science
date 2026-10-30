@@ -1,8 +1,8 @@
 ---
 title: "Technical Appendix: Organizing Machine Science"
 subtitle: "A ground-truth testbed for the organizational design of AI research collectives"
-author: "Yongchao Martin Ma"
-date: "October 2026"
+date: "Anonymized for review"
+
 ---
 
 # Technical Appendix

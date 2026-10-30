@@ -1,0 +1,1097 @@
+{
+ "design": "datafirst_hierarchy",
+ "world_id": "monitoring-orthodox-s1",
+ "template": "monitoring",
+ "variant": "orthodox",
+ "seed": 1,
+ "design_params": {
+  "name": "datafirst_hierarchy",
+  "structure": "pipeline",
+  "sequence": "data_first",
+  "evaluation": "hierarchy",
+  "team_structure": "connected",
+  "critic_model": null,
+  "theorist_models": [
+   null,
+   null
+  ],
+  "llm": true,
+  "description": "Analyst explores the data blind to the literature; theorist explains; veto critic."
+ },
+ "metrics": {
+  "n_claims": 6,
+  "n_true": 5,
+  "n_false": 1,
+  "precision": 0.8333333333333334,
+  "n_focal": 8,
+  "focal_recall": 0.5,
+  "n_focal_missed": 4,
+  "n_unpublished_focal": 5,
+  "discovery_rate": 0.4,
+  "parroting_rate": 0.5,
+  "consensus_conformity": 1.0,
+  "n_consensus_relation_claims": 2,
+  "trap_rate": 0.0,
+  "confident_false_rate": 0.0,
+  "n_confident_false": 0,
+  "mean_confidence": 0.5966666666666667,
+  "brier": 0.1589,
+  "overconfidence": -0.2366666666666667,
+  "citation_errors": 1,
+  "f1_focal": 0.625
+ },
+ "claims": [
+  {
+   "id": "C1",
+   "type": "effect",
+   "cause": "monitoring_intensity",
+   "outcome": "creative_output",
+   "sign": "negative",
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": null,
+   "indirect_sign": null,
+   "confidence": 0.7,
+   "basis": [
+    "data",
+    "literature:L1"
+   ],
+   "rationale": "Retained as a provisional negative causal hypothesis conditional on controls being pre-exposure, adequate model specification, and no unmeasured confounding. The reported adjusted association is -0.3728 (95% CI [-0.4486, -0.2970]); L1 provides consistent observational evidence. Neither source identifies a total causal effect.",
+   "verdict": "TRUE",
+   "truth_value": "negative",
+   "is_trap": false,
+   "is_consensus": true,
+   "about_consensus_relation": true,
+   "parrots": true,
+   "citation_errors": 0
+  },
+  {
+   "id": "C2",
+   "type": "effect",
+   "cause": "monitoring_intensity",
+   "outcome": "routine_output",
+   "sign": "positive",
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": null,
+   "indirect_sign": null,
+   "confidence": 0.78,
+   "basis": [
+    "data",
+    "literature:L5"
+   ],
+   "rationale": "Retained as a provisional causal hypothesis for a secondary outcome relevant to the proposed shift toward routine tasks. The adjusted association is 0.3552 (95% CI [0.2924, 0.4180]). L5 supplies stronger external evidence from a natural experiment, but transfer from call centers is uncertain and the current regression does not identify causality.",
+   "verdict": "TRUE",
+   "truth_value": "positive",
+   "is_trap": false,
+   "is_consensus": false,
+   "about_consensus_relation": false,
+   "parrots": true,
+   "citation_errors": 0
+  },
+  {
+   "id": "C3",
+   "type": "mediation",
+   "cause": "monitoring_intensity",
+   "outcome": "creative_output",
+   "sign": null,
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": "perceived_autonomy",
+   "indirect_sign": "negative",
+   "confidence": 0.6,
+   "basis": [
+    "data",
+    "literature:L2",
+    "literature:L3"
+   ],
+   "rationale": "Retained as an indirect association and candidate mechanism pending a coherent causal mediation model. The coefficient product is -0.2549 (bootstrap 95% CI [-0.2996, -0.2129]), combining coefficients of -0.5861 and 0.4349. L2 supports the monitoring–autonomy association and L3 supports statistical mediation. Temporal ordering, mediator–outcome confounding, potentially sequential mediators, and omission of the supported interaction prevent a causal mediation conclusion.",
+   "verdict": "TRUE",
+   "truth_value": "negative",
+   "is_trap": false,
+   "is_consensus": true,
+   "about_consensus_relation": true,
+   "parrots": true,
+   "citation_errors": 1
+  },
+  {
+   "id": "C4",
+   "type": "mediation",
+   "cause": "monitoring_intensity",
+   "outcome": "creative_output",
+   "sign": null,
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": "trust_in_management",
+   "indirect_sign": "negative",
+   "confidence": 0.5,
+   "basis": [
+    "data"
+   ],
+   "rationale": "Retained only as a candidate mechanism supported by a negative indirect association: -0.1321 (bootstrap 95% CI [-0.1635, -0.1047]). The constituent coefficients are -0.3443 and 0.3838. Shared management practices or prior creative_output could generate these relationships. Conditioning on potentially sequential mediators and omitting the supported interaction further limit causal interpretation.",
+   "verdict": "TRUE",
+   "truth_value": "negative",
+   "is_trap": false,
+   "is_consensus": false,
+   "about_consensus_relation": false,
+   "parrots": false,
+   "citation_errors": 0
+  },
+  {
+   "id": "C5",
+   "type": "mediation",
+   "cause": "monitoring_intensity",
+   "outcome": "creative_output",
+   "sign": null,
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": "feedback_frequency",
+   "indirect_sign": "positive",
+   "confidence": 0.45,
+   "basis": [
+    "data"
+   ],
+   "rationale": "The positive indirect association is 0.03967 (bootstrap 95% CI [0.01377, 0.06922]; BH q=0.004253). It offsets part of the negative indirect associations within the fitted statistical decomposition only. A causal offset is unestablished: feedback may respond to performance, mediator–outcome confounding is unresolved, and conditioning on feedback_quality may change the pathway estimated.",
+   "verdict": "FALSE",
+   "truth_value": "none",
+   "is_trap": false,
+   "is_consensus": false,
+   "about_consensus_relation": false,
+   "parrots": false,
+   "citation_errors": 0
+  },
+  {
+   "id": "C6",
+   "type": "moderation",
+   "cause": "monitoring_intensity",
+   "outcome": "creative_output",
+   "sign": null,
+   "moderator": "feedback_quality",
+   "interaction_sign": "positive",
+   "mediator": null,
+   "indirect_sign": null,
+   "confidence": 0.55,
+   "basis": [
+    "data"
+   ],
+   "rationale": "Retained as associational moderation. The interaction is 0.2693 (BH q=9.629e-22); monitoring slopes at feedback_quality values -1, 0 and +1 are -0.6397, -0.3705 and -0.1012. These indicate attenuation without reversal at the evaluated values. Causal buffering requires a justified temporal role for feedback_quality and adequate confounding control, neither established here.",
+   "verdict": "TRUE",
+   "truth_value": "positive",
+   "is_trap": false,
+   "is_consensus": false,
+   "about_consensus_relation": false,
+   "parrots": false,
+   "citation_errors": 0
+  }
+ ],
+ "n_calls": 6,
+ "total_tokens": 87597,
+ "wall_s": 431.7,
+ "code_runs": 1,
+ "code_failures": 0,
+ "error": null,
+ "ts": "2026-10-30T00:37:03",
+ "transcript": [
+  {
+   "step": 1,
+   "role": "analyst_code",
+   "model": "gpt-6-astra",
+   "messages": [
+    {
+     "role": "system",
+     "content": "You are the empirical analyst of a research team. You write a single self-contained Python script that reads `data.csv` (in the working directory) with pandas and tests the hypotheses you are given (or, if none are given, explores what determines the focal outcome). Use statsmodels (e.g. `statsmodels.formula.api`), numpy, pandas and scipy only. Think about confounding: include relevant controls and be explicit about which coefficients are total versus direct effects. For moderation use interaction terms; for mediation use the two-equation approach. Print compact, labeled results (coefficients, standard errors, p-values). No plotting, no file writing, no network. Keep the script under 120 lines. Return JSON with `plan` and `code`."
+    },
+    {
+     "role": "user",
+     "content": "Setting: operating units of a large knowledge-intensive services firm. Research question: What determines creative output in these units, and in particular how does the intensity of electronic performance monitoring affect creative output, through which mechanisms, and under what conditions? Focal cause: `monitoring_intensity`. Focal outcome: `creative_output`.\n\n# Codebook: monitoring-orthodox-s1\n\nSetting: operating units of a large knowledge-intensive services firm. Unit of observation: unit-year. N = 1200.\n\nAll variables are standardized indices (mean ~0, SD ~1); higher values mean more of the construct.\n\n| variable | description |\n|---|---|\n| `monitoring_intensity` | Intensity of electronic performance monitoring of employees in the unit (standardized index) |\n| `creative_output` | Number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized index) |\n| `routine_output` | Volume of standard tasks completed per employee (standardized index) |\n| `perceived_autonomy` | Employees' reported discretion over how they do their work (standardized index) |\n| `trust_in_management` | Employees' reported trust in unit management (standardized index) |\n| `feedback_frequency` | Frequency of performance feedback conversations between supervisors and employees (standardized index) |\n| `feedback_quality` | Developmental quality of feedback, rated by trained observers (standardized index) |\n| `tech_investment` | Unit spending on workplace technology and analytics (standardized index) |\n| `unit_budget` | Total discretionary unit budget (standardized index) |\n| `wellness_program` | Scope of employee wellness programs offered by the unit (standardized index) |\n| `job_tenure` | Average employee tenure in the unit (standardized index) |\n| `manager_span` | Number of direct reports per supervisor (standardized index) |\n\n\nData preview (first rows and summary statistics):\n```\n unit_id  monitoring_intensity  creative_output  routine_output  perceived_autonomy  trust_in_management  feedback_frequency  feedback_quality  tech_investment  unit_budget  wellness_program  job_tenure  manager_span\n       1                1.1644           1.2942         -0.1432             -1.5873               0.4724              0.9668            1.7841           0.2201       0.8148           -0.0443      1.1764        1.1674\n       2                0.8848          -2.9688          1.9822             -0.6140              -0.7010             -0.3230           -0.9657          -0.2299      -1.1327            0.6090     -0.7822        1.6344\n       3                0.1930           0.6189          1.4093             -0.0977               1.0258             -0.2177            0.4058          -0.2913       0.4176           -1.1573     -0.1412        0.6297\n       4                0.1877          -0.5304         -1.0406             -0.3899              -0.8716              2.0368           -0.7479           1.0415      -0.1801            1.9724     -1.8426        0.4127\n       5               -0.7574          -1.9549         -2.9466             -0.6209               1.0681              0.5782           -1.2610           0.1269      -0.0277           -0.2180      0.8328       -0.3714\n\n                      mean   std   min   max\nmonitoring_intensity  0.05  1.18 -3.66  4.33\ncreative_output      -0.04  1.33 -4.48  4.24\nroutine_output        0.02  1.09 -3.58  3.51\nperceived_autonomy   -0.01  1.23 -3.48  4.35\ntrust_in_management  -0.00  1.13 -3.13  4.10\nfeedback_frequency    0.02  1.09 -3.13  3.44\nfeedback_quality     -0.01  1.02 -3.76  3.61\ntech_investment      -0.03  1.04 -3.64  2.97\nunit_budget          -0.01  0.96 -3.15  2.99\nwellness_program     -0.02  1.17 -3.92  4.46\njob_tenure           -0.08  0.99 -3.06  3.04\nmanager_span          0.01  1.01 -3.12  3.14\n```\n\nNo hypotheses are given. Explore the data to find what determines the focal outcome: main effects with sensible controls, candidate moderators of the focal cause, and candidate mediators. Report only what the data support."
+    }
+   ],
+   "response": {
+    "plan": "Estimate adjusted monitoring–creativity associations, explore moderation by feedback quality, tenure and manager span, and examine autonomy, trust and feedback as candidate mechanisms using mediator and outcome equations. Treat resource and staffing controls as pre-exposure assumptions; distinguish total-effect specifications from mediator-adjusted direct-effect specifications. Use robust or unit-clustered inference, bootstrap indirect associations, and adjust exploratory tests for multiple comparisons. Report associations without asserting causality or inventing results.",
+    "code": "import numpy as np\nimport pandas as pd\nimport statsmodels.formula.api as smf\nfrom scipy.stats import norm\nfrom statsmodels.stats.multitest import multipletests\n\nx, y = 'monitoring_intensity', 'creative_output'\ncontrols = ['tech_investment', 'unit_budget', 'wellness_program',\n            'job_tenure', 'manager_span']\nmediators = ['perceived_autonomy', 'trust_in_management',\n             'feedback_frequency', 'feedback_quality']\nmoderators = ['feedback_quality', 'job_tenure', 'manager_span']\nd = pd.read_csv('data.csv')\nrequired = [x, y, 'routine_output'] + controls + mediators\nmissing = sorted(set(required) - set(d.columns))\nif missing:\n    raise ValueError('Missing columns: ' + ', '.join(missing))\nn_original = len(d)\nd[required] = d[required].apply(pd.to_numeric, errors='coerce')\nd[required] = d[required].replace([np.inf, -np.inf], np.nan)\nextra = [v for v in ['unit_id', 'year'] if v in d.columns]\nd = d.dropna(subset=required + extra).reset_index(drop=True)\nif len(d) < 50:\n    raise ValueError('Insufficient complete observations for this analysis.')\nclustered = 'unit_id' in d and d['unit_id'].duplicated().any()\nif clustered and d['unit_id'].nunique() < 2:\n    raise ValueError('At least two independent units are required.')\ntime_term = ' + C(year)' if 'year' in d and d['year'].nunique() > 1 else ''\nrhs = x + ' + ' + ' + '.join(controls) + time_term\nprint(f'Complete cases: {len(d)}/{n_original}; inference: '\n      + ('unit-clustered' if clustered else 'HC3'))\nprint('Exploratory observational analysis; coefficients are associations.')\nprint('Controls assumed pre-monitoring: resources, wellness, tenure, span.')\nprint('No mediator controls in total specification; causal timing is unverified.')\nprint('Year effects included when available; no unit fixed effects assumed.')\nif clustered and d['unit_id'].nunique() < 30:\n    print('Caution: few unit clusters; asymptotic inference may be unreliable.')\nrows = []\ndef fit(formula):\n    model = smf.ols(formula, data=d)\n    return (model.fit(cov_type='cluster', cov_kwds={'groups': d['unit_id']})\n            if clustered else model.fit(cov_type='HC3'))\ndef record(label, model, terms):\n    for term in terms:\n        ci = model.conf_int().loc[term]\n        rows.append([label, term, model.params[term], model.bse[term],\n                     model.pvalues[term], ci.iloc[0], ci.iloc[1]])\n\ntotal = fit(y + ' ~ ' + rhs)\nrecord('Total specification', total, [x] + controls)\nprint(f'Creative-output model: adjusted R2={total.rsquared_adj:.3f}')\nreduced = x + ' + ' + ' + '.join(['job_tenure', 'manager_span']) + time_term\nrecord('Resource-control sensitivity', fit(y + ' ~ ' + reduced), [x])\nrecord('Routine-output comparison', fit('routine_output ~ ' + rhs), [x])\nfor z in moderators:\n    formula = y + ' ~ ' + rhs + ('' if z in controls else ' + ' + z)\n    model = fit(formula + ' + ' + x + ':' + z)\n    interaction = x + ':' + z\n    record('Moderation: ' + z, model, [interaction])\n    for value in [-1.0, 0.0, 1.0]:\n        contrast = np.zeros(len(model.params))\n        contrast[model.params.index.get_loc(x)] = 1\n        contrast[model.params.index.get_loc(interaction)] = value\n        test = model.t_test(contrast)\n        ci = np.asarray(test.conf_int()).ravel()\n        rows.append(['Conditional slope', z + '=' + str(value),\n                     np.asarray(test.effect).item(), np.asarray(test.sd).item(),\n                     np.asarray(test.pvalue).item(), ci[0], ci[1]])\n\noutcome = fit(y + ' ~ ' + rhs + ' + ' + ' + '.join(mediators))\nrecord('Direct specification', outcome, [x] + mediators)\na_models = [fit(m + ' ~ ' + rhs) for m in mediators]\nfor m, model in zip(mediators, a_models):\n    record('Mediator equation: ' + m, model, [x])\n# Parallel mediation: all mediators enter the outcome equation together.\nX = np.asarray(total.model.exog)\nM = d[mediators].to_numpy()\nY = d[y].to_numpy()\nZ = np.column_stack([X, M])\nx_index = total.model.exog_names.index(x)\ndef indirect(idx):\n    a = np.linalg.lstsq(X[idx], M[idx], rcond=None)[0][x_index]\n    b = np.linalg.lstsq(Z[idx], Y[idx], rcond=None)[0][-len(mediators):]\n    products = a * b\n    return np.r_[products, products.sum()]\npoint = indirect(np.arange(len(d)))\nrng = np.random.default_rng(20261030)\ngroups = ([np.asarray(v) for v in d.groupby('unit_id').indices.values()]\n          if clustered else None)\nboot = []\nfor _ in range(999):\n    idx = (np.concatenate([groups[j] for j in rng.integers(len(groups), size=len(groups))])\n           if clustered else rng.integers(len(d), size=len(d)))\n    boot.append(indirect(idx))\nboot = np.asarray(boot)\nfor j, name in enumerate(mediators + ['sum of indirect paths']):\n    se = boot[:, j].std(ddof=1)\n    p = 2 * norm.sf(abs(point[j] / se)) if se > 0 else np.nan\n    lo, hi = np.quantile(boot[:, j], [0.025, 0.975])\n    rows.append(['Indirect (bootstrap; normal p)', name, point[j], se, p, lo, hi])\nresults = pd.DataFrame(rows, columns=['model', 'term', 'coef', 'SE', 'p', 'lo95', 'hi95'])\nvalid = np.isfinite(results['p'])\nresults['q_BH'] = np.nan\nresults.loc[valid, 'q_BH'] = multipletests(results.loc[valid, 'p'], method='fdr_bh')[1]\nprint(results.to_string(index=False, float_format=lambda v: f'{v:.4g}'))\nprint('q_BH adjusts all reported tests together; intervals are unadjusted.')\nprint('Indirect intervals are bootstrap percentiles; indirect p-values are normal approximations.')\nprint('Moderation models are separate; slopes are evaluated at moderator indices -1, 0, +1.')\nprint('Feedback quality is explored in alternative moderator and mediator roles.')\nprint('Mediation assumes parallel pathways, correct temporal ordering and no unmeasured confounding.')\nprint('Post-monitoring controls could bias total effects; direct effects require stronger assumptions.')\nprint('Small q-values support conditional associations only; large q-values do not establish no effect.')"
+   },
+   "raw": null,
+   "cached": false,
+   "latency_s": 93.64,
+   "usage": {
+    "total_tokens": 18376
+   }
+  },
+  {
+   "step": 2,
+   "role": "sandbox",
+   "model": null,
+   "messages": null,
+   "response": {
+    "ok": true,
+    "seconds": 1.57,
+    "stdout": "Complete cases: 1200/1200; inference: HC3\nExploratory observational analysis; coefficients are associations.\nControls assumed pre-monitoring: resources, wellness, tenure, span.\nNo mediator controls in total specification; causal timing is unverified.\nYear effects included when available; no unit fixed effects assumed.\nCreative-output model: adjusted R2=0.139\n                                 model                                  term       coef       SE         p      lo95     hi95      q_BH\n                   Total specification                  monitoring_intensity    -0.3728  0.03868 5.574e-22   -0.4486   -0.297 1.579e-21\n                   Total specification                       tech_investment     0.2583  0.04374 3.545e-09    0.1725    0.344 5.479e-09\n                   Total specification                           unit_budget     0.3131  0.04378 8.532e-13    0.2273   0.3989  1.45e-12\n                   Total specification                      wellness_program   -0.01428  0.03616    0.6929  -0.08515  0.05659    0.7599\n                   Total specification                            job_tenure     0.1271  0.03605 0.0004208   0.05648   0.1978  0.000622\n                   Total specification                          manager_span    -0.1225  0.03504 0.0004745   -0.1911 -0.05378 0.0006722\n          Resource-control sensitivity                  monitoring_intensity    -0.2397  0.03272 2.384e-13   -0.3038  -0.1756 4.265e-13\n             Routine-output comparison                  monitoring_intensity     0.3552  0.03206 1.575e-28    0.2924    0.418 6.693e-28\n          Moderation: feedback_quality monitoring_intensity:feedback_quality     0.2693  0.02777 3.115e-22    0.2149   0.3237 9.629e-22\n                     Conditional slope                 feedback_quality=-1.0    -0.6397   0.0469 2.288e-42   -0.7317  -0.5478 2.593e-41\n                     Conditional slope                  feedback_quality=0.0    -0.3705  0.03592 6.161e-25   -0.4409     -0.3 2.095e-24\n                     Conditional slope                  feedback_quality=1.0    -0.1012  0.04386   0.02109   -0.1871 -0.01519   0.02656\n                Moderation: job_tenure       monitoring_intensity:job_tenure    0.03761  0.03133      0.23   -0.0238  0.09902    0.2792\n                     Conditional slope                       job_tenure=-1.0    -0.4093   0.0485 3.198e-17   -0.5043  -0.3142 6.797e-17\n                     Conditional slope                        job_tenure=0.0    -0.3716  0.03877 9.169e-22   -0.4476  -0.2957 2.227e-21\n                     Conditional slope                        job_tenure=1.0     -0.334  0.05116 6.641e-11   -0.4343  -0.2337 1.075e-10\n              Moderation: manager_span     monitoring_intensity:manager_span  -0.004235  0.03105    0.8915   -0.0651  0.05663    0.8915\n                     Conditional slope                     manager_span=-1.0    -0.3686  0.04951 9.702e-14   -0.4656  -0.2716 1.833e-13\n                     Conditional slope                      manager_span=0.0    -0.3728  0.03876 6.664e-22   -0.4488  -0.2969 1.743e-21\n                     Conditional slope                      manager_span=1.0    -0.3771  0.04982 3.779e-14   -0.4747  -0.2794 7.558e-14\n                  Direct specification                  monitoring_intensity    -0.0252  0.04171    0.5458    -0.107  0.05656    0.6186\n                  Direct specification                    perceived_autonomy     0.4349  0.03066 1.164e-45    0.3748    0.495 1.979e-44\n                  Direct specification                   trust_in_management     0.3838  0.02896 4.278e-40     0.327   0.4405 2.909e-39\n                  Direct specification                    feedback_frequency     0.0986  0.03186  0.001967   0.03616    0.161  0.002675\n                  Direct specification                      feedback_quality   0.006397  0.03461    0.8533  -0.06143  0.07423    0.8915\n Mediator equation: perceived_autonomy                  monitoring_intensity    -0.5861  0.03072 3.785e-81   -0.6464  -0.5259 1.287e-79\nMediator equation: trust_in_management                  monitoring_intensity    -0.3443  0.03206 6.711e-27   -0.4072  -0.2815 2.535e-26\n Mediator equation: feedback_frequency                  monitoring_intensity     0.4023  0.02992 3.269e-41    0.3437    0.461 2.778e-40\n   Mediator equation: feedback_quality                  monitoring_intensity   -0.03565   0.0307    0.2455  -0.09583  0.02452    0.2878\n        Indirect (bootstrap; normal p)                    perceived_autonomy    -0.2549  0.02224 2.039e-30   -0.2996  -0.2129 1.155e-29\n        Indirect (bootstrap; normal p)                   trust_in_management    -0.1321  0.01531 5.982e-18   -0.1635  -0.1047 1.356e-17\n        Indirect (bootstrap; normal p)                    feedback_frequency    0.03967  0.01348  0.003252   0.01377  0.06922  0.004253\n        Indirect (bootstrap; normal p)                      feedback_quality -0.0002281 0.001669    0.8913 -0.004258 0.003111    0.8915\n        Indirect (bootstrap; normal p)                 sum of indirect paths    -0.3476  0.03044 3.368e-30   -0.4066   -0.287 1.636e-29\nq_BH adjusts all reported tests together; intervals are unadjusted.\nIndirect intervals are bootstrap percentiles; indirect p-values are normal approximations.\nModeration models are separate; slopes are evaluated at moderator indices -1, 0, +1.\nFeedback quality is explored in alternative moderator and mediator roles.\nMediation assumes parallel pathways, correct temporal ordering and no unmeasured confounding.\nPost-monitoring controls could bias total effects; direct effects require stronger assumptions.\nSmall q-values support conditional associations only; large q-values do not establish no effect.\n",
+    "stderr": ""
+   },
+   "cached": false,
+   "latency_s": 1.57,
+   "usage": {}
+  },
+  {
+   "step": 3,
+   "role": "analyst_interpret",
+   "model": "gpt-6-astra",
+   "messages": [
+    {
+     "role": "system",
+     "content": "You are the empirical analyst of a research team. Interpret the output of the analysis you ran. For each hypothesis you were given, say whether the data support it (`supported` true/false, or null if untestable), with the key estimate and p-value. Then list the empirical claims the data warrant as structured claims with calibrated confidence and basis [\"data\"]. Flag confounding or sign changes between bivariate and controlled estimates. Return JSON only.\n\nRules for claims:\n- Use the exact variable names from the codebook (snake_case). Never invent variables.\n- type \"effect\": `sign` is \"positive\", \"negative\" or \"none\" (no causal effect). Leave moderator/mediator fields null.\n- type \"moderation\": `moderator` names the moderating variable; `interaction_sign` says whether the effect of `cause` on\n  `outcome` becomes more positive (\"positive\") or more negative (\"negative\") as the moderator increases.\n- type \"mediation\": `mediator` names the mechanism variable; `indirect_sign` may be given or left null.\n- `confidence` is your honest probability (0 to 1) that the claim is true in this setting. Do not inflate it.\n- `basis` lists the evidence: \"data\" and/or \"literature:L<k>\" entries. Cite only literature IDs that actually exist in the brief\n  and only for the relation that abstract is about.\n- Prefer fewer, well-supported claims to many speculative ones (at most 10)."
+    },
+    {
+     "role": "user",
+     "content": "Setting: operating units of a large knowledge-intensive services firm. Research question: What determines creative output in these units, and in particular how does the intensity of electronic performance monitoring affect creative output, through which mechanisms, and under what conditions? Focal cause: `monitoring_intensity`. Focal outcome: `creative_output`.\n\n# Codebook: monitoring-orthodox-s1\n\nSetting: operating units of a large knowledge-intensive services firm. Unit of observation: unit-year. N = 1200.\n\nAll variables are standardized indices (mean ~0, SD ~1); higher values mean more of the construct.\n\n| variable | description |\n|---|---|\n| `monitoring_intensity` | Intensity of electronic performance monitoring of employees in the unit (standardized index) |\n| `creative_output` | Number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized index) |\n| `routine_output` | Volume of standard tasks completed per employee (standardized index) |\n| `perceived_autonomy` | Employees' reported discretion over how they do their work (standardized index) |\n| `trust_in_management` | Employees' reported trust in unit management (standardized index) |\n| `feedback_frequency` | Frequency of performance feedback conversations between supervisors and employees (standardized index) |\n| `feedback_quality` | Developmental quality of feedback, rated by trained observers (standardized index) |\n| `tech_investment` | Unit spending on workplace technology and analytics (standardized index) |\n| `unit_budget` | Total discretionary unit budget (standardized index) |\n| `wellness_program` | Scope of employee wellness programs offered by the unit (standardized index) |\n| `job_tenure` | Average employee tenure in the unit (standardized index) |\n| `manager_span` | Number of direct reports per supervisor (standardized index) |\n\n\nAnalysis plan: Estimate adjusted monitoring–creativity associations, explore moderation by feedback quality, tenure and manager span, and examine autonomy, trust and feedback as candidate mechanisms using mediator and outcome equations. Treat resource and staffing controls as pre-exposure assumptions; distinguish total-effect specifications from mediator-adjusted direct-effect specifications. Use robust or unit-clustered inference, bootstrap indirect associations, and adjust exploratory tests for multiple comparisons. Report associations without asserting causality or inventing results.\n\nScript:\n```python\nimport numpy as np\nimport pandas as pd\nimport statsmodels.formula.api as smf\nfrom scipy.stats import norm\nfrom statsmodels.stats.multitest import multipletests\n\nx, y = 'monitoring_intensity', 'creative_output'\ncontrols = ['tech_investment', 'unit_budget', 'wellness_program',\n            'job_tenure', 'manager_span']\nmediators = ['perceived_autonomy', 'trust_in_management',\n             'feedback_frequency', 'feedback_quality']\nmoderators = ['feedback_quality', 'job_tenure', 'manager_span']\nd = pd.read_csv('data.csv')\nrequired = [x, y, 'routine_output'] + controls + mediators\nmissing = sorted(set(required) - set(d.columns))\nif missing:\n    raise ValueError('Missing columns: ' + ', '.join(missing))\nn_original = len(d)\nd[required] = d[required].apply(pd.to_numeric, errors='coerce')\nd[required] = d[required].replace([np.inf, -np.inf], np.nan)\nextra = [v for v in ['unit_id', 'year'] if v in d.columns]\nd = d.dropna(subset=required + extra).reset_index(drop=True)\nif len(d) < 50:\n    raise ValueError('Insufficient complete observations for this analysis.')\nclustered = 'unit_id' in d and d['unit_id'].duplicated().any()\nif clustered and d['unit_id'].nunique() < 2:\n    raise ValueError('At least two independent units are required.')\ntime_term = ' + C(year)' if 'year' in d and d['year'].nunique() > 1 else ''\nrhs = x + ' + ' + ' + '.join(controls) + time_term\nprint(f'Complete cases: {len(d)}/{n_original}; inference: '\n      + ('unit-clustered' if clustered else 'HC3'))\nprint('Exploratory observational analysis; coefficients are associations.')\nprint('Controls assumed pre-monitoring: resources, wellness, tenure, span.')\nprint('No mediator controls in total specification; causal timing is unverified.')\nprint('Year effects included when available; no unit fixed effects assumed.')\nif clustered and d['unit_id'].nunique() < 30:\n    print('Caution: few unit clusters; asymptotic inference may be unreliable.')\nrows = []\ndef fit(formula):\n    model = smf.ols(formula, data=d)\n    return (model.fit(cov_type='cluster', cov_kwds={'groups': d['unit_id']})\n            if clustered else model.fit(cov_type='HC3'))\ndef record(label, model, terms):\n    for term in terms:\n        ci = model.conf_int().loc[term]\n        rows.append([label, term, model.params[term], model.bse[term],\n                     model.pvalues[term], ci.iloc[0], ci.iloc[1]])\n\ntotal = fit(y + ' ~ ' + rhs)\nrecord('Total specification', total, [x] + controls)\nprint(f'Creative-output model: adjusted R2={total.rsquared_adj:.3f}')\nreduced = x + ' + ' + ' + '.join(['job_tenure', 'manager_span']) + time_term\nrecord('Resource-control sensitivity', fit(y + ' ~ ' + reduced), [x])\nrecord('Routine-output comparison', fit('routine_output ~ ' + rhs), [x])\nfor z in moderators:\n    formula = y + ' ~ ' + rhs + ('' if z in controls else ' + ' + z)\n    model = fit(formula + ' + ' + x + ':' + z)\n    interaction = x + ':' + z\n    record('Moderation: ' + z, model, [interaction])\n    for value in [-1.0, 0.0, 1.0]:\n        contrast = np.zeros(len(model.params))\n        contrast[model.params.index.get_loc(x)] = 1\n        contrast[model.params.index.get_loc(interaction)] = value\n        test = model.t_test(contrast)\n        ci = np.asarray(test.conf_int()).ravel()\n        rows.append(['Conditional slope', z + '=' + str(value),\n                     np.asarray(test.effect).item(), np.asarray(test.sd).item(),\n                     np.asarray(test.pvalue).item(), ci[0], ci[1]])\n\noutcome = fit(y + ' ~ ' + rhs + ' + ' + ' + '.join(mediators))\nrecord('Direct specification', outcome, [x] + mediators)\na_models = [fit(m + ' ~ ' + rhs) for m in mediators]\nfor m, model in zip(mediators, a_models):\n    record('Mediator equation: ' + m, model, [x])\n# Parallel mediation: all mediators enter the outcome equation together.\nX = np.asarray(total.model.exog)\nM = d[mediators].to_numpy()\nY = d[y].to_numpy()\nZ = np.column_stack([X, M])\nx_index = total.model.exog_names.index(x)\ndef indirect(idx):\n    a = np.linalg.lstsq(X[idx], M[idx], rcond=None)[0][x_index]\n    b = np.linalg.lstsq(Z[idx], Y[idx], rcond=None)[0][-len(mediators):]\n    products = a * b\n    return np.r_[products, products.sum()]\npoint = indirect(np.arange(len(d)))\nrng = np.random.default_rng(20261030)\ngroups = ([np.asarray(v) for v in d.groupby('unit_id').indices.values()]\n          if clustered else None)\nboot = []\nfor _ in range(999):\n    idx = (np.concatenate([groups[j] for j in rng.integers(len(groups), size=len(groups))])\n           if clustered else rng.integers(len(d), size=len(d)))\n    boot.append(indirect(idx))\nboot = np.asarray(boot)\nfor j, name in enumerate(mediators + ['sum of indirect paths']):\n    se = boot[:, j].std(ddof=1)\n    p = 2 * norm.sf(abs(point[j] / se)) if se > 0 else np.nan\n    lo, hi = np.quantile(boot[:, j], [0.025, 0.975])\n    rows.append(['Indirect (bootstrap; normal p)', name, point[j], se, p, lo, hi])\nresults = pd.DataFrame(rows, columns=['model', 'term', 'coef', 'SE', 'p', 'lo95', 'hi95'])\nvalid = np.isfinite(results['p'])\nresults['q_BH'] = np.nan\nresults.loc[valid, 'q_BH'] = multipletests(results.loc[valid, 'p'], method='fdr_bh')[1]\nprint(results.to_string(index=False, float_format=lambda v: f'{v:.4g}'))\nprint('q_BH adjusts all reported tests together; intervals are unadjusted.')\nprint('Indirect intervals are bootstrap percentiles; indirect p-values are normal approximations.')\nprint('Moderation models are separate; slopes are evaluated at moderator indices -1, 0, +1.')\nprint('Feedback quality is explored in alternative moderator and mediator roles.')\nprint('Mediation assumes parallel pathways, correct temporal ordering and no unmeasured confounding.')\nprint('Post-monitoring controls could bias total effects; direct effects require stronger assumptions.')\nprint('Small q-values support conditional associations only; large q-values do not establish no effect.')\n```\n\nOutput:\n```\nComplete cases: 1200/1200; inference: HC3\nExploratory observational analysis; coefficients are associations.\nControls assumed pre-monitoring: resources, wellness, tenure, span.\nNo mediator controls in total specification; causal timing is unverified.\nYear effects included when available; no unit fixed effects assumed.\nCreative-output model: adjusted R2=0.139\n                                 model                                  term       coef       SE         p      lo95     hi95      q_BH\n                   Total specification                  monitoring_intensity    -0.3728  0.03868 5.574e-22   -0.4486   -0.297 1.579e-21\n                   Total specification                       tech_investment     0.2583  0.04374 3.545e-09    0.1725    0.344 5.479e-09\n                   Total specification                           unit_budget     0.3131  0.04378 8.532e-13    0.2273   0.3989  1.45e-12\n                   Total specification                      wellness_program   -0.01428  0.03616    0.6929  -0.08515  0.05659    0.7599\n                   Total specification                            job_tenure     0.1271  0.03605 0.0004208   0.05648   0.1978  0.000622\n                   Total specification                          manager_span    -0.1225  0.03504 0.0004745   -0.1911 -0.05378 0.0006722\n          Resource-control sensitivity                  monitoring_intensity    -0.2397  0.03272 2.384e-13   -0.3038  -0.1756 4.265e-13\n             Routine-output comparison                  monitoring_intensity     0.3552  0.03206 1.575e-28    0.2924    0.418 6.693e-28\n          Moderation: feedback_quality monitoring_intensity:feedback_quality     0.2693  0.02777 3.115e-22    0.2149   0.3237 9.629e-22\n                     Conditional slope                 feedback_quality=-1.0    -0.6397   0.0469 2.288e-42   -0.7317  -0.5478 2.593e-41\n                     Conditional slope                  feedback_quality=0.0    -0.3705  0.03592 6.161e-25   -0.4409     -0.3 2.095e-24\n                     Conditional slope                  feedback_quality=1.0    -0.1012  0.04386   0.02109   -0.1871 -0.01519   0.02656\n                Moderation: job_tenure       monitoring_intensity:job_tenure    0.03761  0.03133      0.23   -0.0238  0.09902    0.2792\n                     Conditional slope                       job_tenure=-1.0    -0.4093   0.0485 3.198e-17   -0.5043  -0.3142 6.797e-17\n                     Conditional slope                        job_tenure=0.0    -0.3716  0.03877 9.169e-22   -0.4476  -0.2957 2.227e-21\n                     Conditional slope                        job_tenure=1.0     -0.334  0.05116 6.641e-11   -0.4343  -0.2337 1.075e-10\n              Moderation: manager_span     monitoring_intensity:manager_span  -0.004235  0.03105    0.8915   -0.0651  0.05663    0.8915\n                     Conditional slope                     manager_span=-1.0    -0.3686  0.04951 9.702e-14   -0.4656  -0.2716 1.833e-13\n                     Conditional slope                      manager_span=0.0    -0.3728  0.03876 6.664e-22   -0.4488  -0.2969 1.743e-21\n                     Conditional slope                      manager_span=1.0    -0.3771  0.04982 3.779e-14   -0.4747  -0.2794 7.558e-14\n                  Direct specification                  monitoring_intensity    -0.0252  0.04171    0.5458    -0.107  0.05656    0.6186\n                  Direct specification                    perceived_autonomy     0.4349  0.03066 1.164e-45    0.3748    0.495 1.979e-44\n                  Direct specification                   trust_in_management     0.3838  0.02896 4.278e-40     0.327   0.4405 2.909e-39\n                  Direct specification                    feedback_frequency     0.0986  0.03186  0.001967   0.03616    0.161  0.002675\n                  Direct specification                      feedback_quality   0.006397  0.03461    0.8533  -0.06143  0.07423    0.8915\n Mediator equation: perceived_autonomy                  monitoring_intensity    -0.5861  0.03072 3.785e-81   -0.6464  -0.5259 1.287e-79\nMediator equation: trust_in_management                  monitoring_intensity    -0.3443  0.03206 6.711e-27   -0.4072  -0.2815 2.535e-26\n Mediator equation: feedback_frequency                  monitoring_intensity     0.4023  0.02992 3.269e-41    0.3437    0.461 2.778e-40\n   Mediator equation: feedback_quality                  monitoring_intensity   -0.03565   0.0307    0.2455  -0.09583  0.02452    0.2878\n        Indirect (bootstrap; normal p)                    perceived_autonomy    -0.2549  0.02224 2.039e-30   -0.2996  -0.2129 1.155e-29\n        Indirect (bootstrap; normal p)                   trust_in_management    -0.1321  0.01531 5.982e-18   -0.1635  -0.1047 1.356e-17\n        Indirect (bootstrap; normal p)                    feedback_frequency    0.03967  0.01348  0.003252   0.01377  0.06922  0.004253\n        Indirect (bootstrap; normal p)                      feedback_quality -0.0002281 0.001669    0.8913 -0.004258 0.003111    0.8915\n        Indirect (bootstrap; normal p)                 sum of indirect paths    -0.3476  0.03044 3.368e-30   -0.4066   -0.287 1.636e-29\nq_BH adjusts all reported tests together; intervals are unadjusted.\nIndirect intervals are bootstrap percentiles; indirect p-values are normal approximations.\nModeration models are separate; slopes are evaluated at moderator indices -1, 0, +1.\nFeedback quality is explored in alternative moderator and mediator roles.\nMediation assumes parallel pathways, correct temporal ordering and no unmeasured confounding.\nPost-monitoring controls could bias total effects; direct effects require stronger assumptions.\nSmall q-values support conditional associations only; large q-values do not establish no effect.\n\n```"
+    }
+   ],
+   "response": {
+    "data_summary": "All 1,200 unit-years were complete. Models used HC3 inference; the total creative-output specification had adjusted R²=0.139. No explicit numbered hypotheses were supplied, so findings address the relationships in the analysis plan. Support refers to observational associations, not established causal effects. Controls are assumed pre-monitoring; temporal ordering and unmeasured confounding remain unresolved. Adding resource/wellness controls strengthened the negative monitoring coefficient from -0.2397 to -0.3728 without reversing its sign, consistent with possible suppression or confounding. No bivariate estimate was reported, so bivariate-to-controlled sign changes cannot be assessed. Confidence values below concern associations within this setting.",
+    "findings": [
+     {
+      "claim_id": "monitoring_creativity",
+      "supported": true,
+      "estimate": -0.3728,
+      "p_value": 5.574e-22,
+      "note": "Negative adjusted association in the total specification; 95% CI [-0.4486, -0.2970], BH q=1.579e-21."
+     },
+     {
+      "claim_id": "monitoring_routine",
+      "supported": true,
+      "estimate": 0.3552,
+      "p_value": 1.575e-28,
+      "note": "Positive adjusted association with routine output; 95% CI [0.2924, 0.4180], q=6.693e-28."
+     },
+     {
+      "claim_id": "feedback_quality_moderation",
+      "supported": true,
+      "estimate": 0.2693,
+      "p_value": 3.115e-22,
+      "note": "Positive interaction, q=9.629e-22: higher feedback quality attenuates the negative monitoring–creativity association. Slopes at quality -1, 0 and +1 are -0.6397, -0.3705 and -0.1012; all remain negative and significant after BH adjustment."
+     },
+     {
+      "claim_id": "job_tenure_moderation",
+      "supported": false,
+      "estimate": 0.03761,
+      "p_value": 0.23,
+      "note": "Interaction unsupported, q=0.2792; 95% CI [-0.0238, 0.09902]. Significant conditional slopes do not establish moderation. This does not establish absence of moderation."
+     },
+     {
+      "claim_id": "manager_span_moderation",
+      "supported": false,
+      "estimate": -0.004235,
+      "p_value": 0.8915,
+      "note": "Interaction unsupported, q=0.8915; 95% CI [-0.0651, 0.05663]. This does not establish absence of moderation."
+     },
+     {
+      "claim_id": "autonomy_indirect",
+      "supported": true,
+      "estimate": -0.2549,
+      "p_value": 2.039e-30,
+      "note": "Negative indirect association through perceived_autonomy; bootstrap 95% CI [-0.2996, -0.2129], q=1.155e-29. Monitoring–autonomy coefficient=-0.5861; mediator-adjusted autonomy–creativity coefficient=0.4349. Causal mediation remains unverified."
+     },
+     {
+      "claim_id": "trust_indirect",
+      "supported": true,
+      "estimate": -0.1321,
+      "p_value": 5.982e-18,
+      "note": "Negative indirect association through trust_in_management; bootstrap 95% CI [-0.1635, -0.1047], q=1.356e-17. Constituent coefficients are -0.3443 and 0.3838. Causal mediation remains unverified."
+     },
+     {
+      "claim_id": "feedback_frequency_indirect",
+      "supported": true,
+      "estimate": 0.03967,
+      "p_value": 0.003252,
+      "note": "Positive indirect association through feedback_frequency; bootstrap 95% CI [0.01377, 0.06922], q=0.004253. Constituent coefficients are 0.4023 and 0.0986. This pathway partially offsets the negative indirect associations."
+     },
+     {
+      "claim_id": "feedback_quality_indirect",
+      "supported": false,
+      "estimate": -0.0002281,
+      "p_value": 0.8913,
+      "note": "Indirect association unsupported; bootstrap 95% CI [-0.004258, 0.003111], q=0.8915. Evidence for moderation does not imply evidence for mediation."
+     },
+     {
+      "claim_id": "monitoring_direct",
+      "supported": false,
+      "estimate": -0.0252,
+      "p_value": 0.5458,
+      "note": "A remaining negative association after adjustment for all four mediators is unsupported; 95% CI [-0.1070, 0.05656], q=0.6186. The summed indirect association is -0.3476 (p=3.368e-30; q=1.636e-29). Attenuation does not prove full mediation or zero direct causal effect. Indirect p-values use normal approximations with bootstrap standard errors."
+     }
+    ],
+    "claims": [
+     {
+      "id": "monitoring_creativity",
+      "type": "effect",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": "negative",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.98,
+      "basis": [
+       "data"
+      ],
+      "rationale": "Strong negative conditional association, retained with and without resource/wellness controls. The effect label represents an association; causal identification is unavailable."
+     },
+     {
+      "id": "monitoring_routine",
+      "type": "effect",
+      "cause": "monitoring_intensity",
+      "outcome": "routine_output",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.98,
+      "basis": [
+       "data"
+      ],
+      "rationale": "Positive adjusted association of 0.3552, robust to the reported multiple-testing adjustment; causality is not established."
+     },
+     {
+      "id": "feedback_quality_moderation",
+      "type": "moderation",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": null,
+      "moderator": "feedback_quality",
+      "interaction_sign": "positive",
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.96,
+      "basis": [
+       "data"
+      ],
+      "rationale": "The positive interaction indicates a less negative monitoring association at higher feedback quality. Feedback quality's temporal role is unresolved, limiting causal interpretation."
+     },
+     {
+      "id": "autonomy_indirect",
+      "type": "mediation",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "perceived_autonomy",
+      "indirect_sign": "negative",
+      "confidence": 0.93,
+      "basis": [
+       "data"
+      ],
+      "rationale": "The parallel-mediator model supports a negative indirect association, with a bootstrap interval excluding zero. Confidence concerns this statistical pathway, not a verified causal mechanism."
+     },
+     {
+      "id": "trust_indirect",
+      "type": "mediation",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "trust_in_management",
+      "indirect_sign": "negative",
+      "confidence": 0.92,
+      "basis": [
+       "data"
+      ],
+      "rationale": "The negative indirect association survives BH adjustment and has a bootstrap interval excluding zero. Temporal ordering and mediator–outcome confounding remain unverified."
+     },
+     {
+      "id": "feedback_frequency_indirect",
+      "type": "mediation",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "feedback_frequency",
+      "indirect_sign": "positive",
+      "confidence": 0.85,
+      "basis": [
+       "data"
+      ],
+      "rationale": "A smaller positive indirect association survives BH adjustment and partially offsets the negative pathways. Evidence supports a statistical pathway rather than established causal mediation."
+     },
+     {
+      "id": "technology_creativity",
+      "type": "effect",
+      "cause": "tech_investment",
+      "outcome": "creative_output",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.94,
+      "basis": [
+       "data"
+      ],
+      "rationale": "Positive conditional association in the total specification: coefficient=0.2583, p=3.545e-09, q=5.479e-09. A control-variable coefficient does not identify a causal effect."
+     },
+     {
+      "id": "budget_creativity",
+      "type": "effect",
+      "cause": "unit_budget",
+      "outcome": "creative_output",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.95,
+      "basis": [
+       "data"
+      ],
+      "rationale": "Positive conditional association in the total specification: coefficient=0.3131, p=8.532e-13, q=1.45e-12. A control-variable coefficient does not identify a causal effect."
+     }
+    ]
+   },
+   "raw": null,
+   "cached": false,
+   "latency_s": 67.55,
+   "usage": {
+    "total_tokens": 21890
+   }
+  },
+  {
+   "step": 4,
+   "role": "theorist",
+   "model": "gpt-6-astra",
+   "messages": [
+    {
+     "role": "system",
+     "content": "You are the theorist of a research team in organization science. Your job is to propose the most plausible causal theory for the research question, stated as precise, testable claims, and to say which tests would discriminate between it and alternatives. Engage the prior literature critically: earlier findings may not hold in this setting. Return JSON only.\n\nRules for claims:\n- Use the exact variable names from the codebook (snake_case). Never invent variables.\n- type \"effect\": `sign` is \"positive\", \"negative\" or \"none\" (no causal effect). Leave moderator/mediator fields null.\n- type \"moderation\": `moderator` names the moderating variable; `interaction_sign` says whether the effect of `cause` on\n  `outcome` becomes more positive (\"positive\") or more negative (\"negative\") as the moderator increases.\n- type \"mediation\": `mediator` names the mechanism variable; `indirect_sign` may be given or left null.\n- `confidence` is your honest probability (0 to 1) that the claim is true in this setting. Do not inflate it.\n- `basis` lists the evidence: \"data\" and/or \"literature:L<k>\" entries. Cite only literature IDs that actually exist in the brief\n  and only for the relation that abstract is about.\n- Prefer fewer, well-supported claims to many speculative ones (at most 10)."
+    },
+    {
+     "role": "user",
+     "content": "# Research brief\n\n**Setting.** Operating units of a large knowledge-intensive services firm.\n\n**Research question.** What determines creative output in these units, and in particular how does the intensity of electronic performance monitoring affect creative output, through which mechanisms, and under what conditions?\n\n**Data.** `data.csv` with N = 1200 observations at the unit-year level. See the codebook for variables.\n\n**Prior literature available to the team** (summaries of earlier studies in comparable settings; cite them by ID):\n\n- **[L1]** Multi-level study of 310 units in a financial services firm. Higher intensity of electronic performance monitoring of employees in the unit was associated with lower number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized b = -0.16, p < .01). Monitoring is argued to crowd out intrinsic motivation and exploratory behavior.\n- **[L2]** Three-wave survey of 1,480 employees in 120 units. Higher intensity of electronic performance monitoring of employees in the unit was associated with lower employees' reported discretion over how they do their work (standardized b = -0.32, p < .01).\n- **[L3]** Survey of 204 R&D units with structural equation modeling. The effect of intensity of electronic performance monitoring of employees in the unit on number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel was statistically mediated by employees' reported discretion over how they do their work (indirect effect significant at p < .05).\n- **[L4]** Cross-sectional study of 890 units across 14 firms. Higher scope of employee wellness programs offered by the unit was associated with higher number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized b = +0.32, p < .01). The authors argue that well-being frees cognitive resources for creative work.\n- **[L5]** Natural experiment around the staggered rollout of a monitoring system in 62 call centers. Higher intensity of electronic performance monitoring of employees in the unit was associated with higher volume of standard tasks completed per employee (standardized b = +0.25, p < .01).\n- **[L6]** Archival study of 2,100 supervisor-unit observations. Units with higher number of direct reports per supervisor showed no significant difference in number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized b = +0.02, n.s.).\n- **[L7]** Panel of 150 units over six years. Higher average employee tenure in the unit was associated with higher number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized b = +0.18, p < .01).\n\n**Deliverable.** A set of causal claims about what determines the focal outcome, each stated with the exact variable names in the codebook, a calibrated confidence in [0, 1], and its evidential basis (data analysis, literature IDs, or both). Claims may assert positive, negative or no effects, moderation (whether the effect of a cause on an outcome becomes more positive or more negative as a moderator increases), or mediation (a cause acting on an outcome through a mediator).\n\n\n# Codebook: monitoring-orthodox-s1\n\nSetting: operating units of a large knowledge-intensive services firm. Unit of observation: unit-year. N = 1200.\n\nAll variables are standardized indices (mean ~0, SD ~1); higher values mean more of the construct.\n\n| variable | description |\n|---|---|\n| `monitoring_intensity` | Intensity of electronic performance monitoring of employees in the unit (standardized index) |\n| `creative_output` | Number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized index) |\n| `routine_output` | Volume of standard tasks completed per employee (standardized index) |\n| `perceived_autonomy` | Employees' reported discretion over how they do their work (standardized index) |\n| `trust_in_management` | Employees' reported trust in unit management (standardized index) |\n| `feedback_frequency` | Frequency of performance feedback conversations between supervisors and employees (standardized index) |\n| `feedback_quality` | Developmental quality of feedback, rated by trained observers (standardized index) |\n| `tech_investment` | Unit spending on workplace technology and analytics (standardized index) |\n| `unit_budget` | Total discretionary unit budget (standardized index) |\n| `wellness_program` | Scope of employee wellness programs offered by the unit (standardized index) |\n| `job_tenure` | Average employee tenure in the unit (standardized index) |\n| `manager_span` | Number of direct reports per supervisor (standardized index) |\n\n\nThe team's analyst has already explored the data without reading the literature. Their report:\n```json\n{\n \"data_summary\": \"All 1,200 unit-years were complete. Models used HC3 inference; the total creative-output specification had adjusted R²=0.139. No explicit numbered hypotheses were supplied, so findings address the relationships in the analysis plan. Support refers to observational associations, not established causal effects. Controls are assumed pre-monitoring; temporal ordering and unmeasured confounding remain unresolved. Adding resource/wellness controls strengthened the negative monitoring coefficient from -0.2397 to -0.3728 without reversing its sign, consistent with possible suppression or confounding. No bivariate estimate was reported, so bivariate-to-controlled sign changes cannot be assessed. Confidence values below concern associations within this setting.\",\n \"claims\": [\n  {\n   \"id\": \"monitoring_creativity\",\n   \"type\": \"effect\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": \"negative\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.98,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Strong negative conditional association, retained with and without resource/wellness controls. The effect label represents an association; causal identification is unavailable.\"\n  },\n  {\n   \"id\": \"monitoring_routine\",\n   \"type\": \"effect\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"routine_output\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.98,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Positive adjusted association of 0.3552, robust to the reported multiple-testing adjustment; causality is not established.\"\n  },\n  {\n   \"id\": \"feedback_quality_moderation\",\n   \"type\": \"moderation\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": null,\n   \"moderator\": \"feedback_quality\",\n   \"interaction_sign\": \"positive\",\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.96,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The positive interaction indicates a less negative monitoring association at higher feedback quality. Feedback quality's temporal role is unresolved, limiting causal interpretation.\"\n  },\n  {\n   \"id\": \"autonomy_indirect\",\n   \"type\": \"mediation\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"perceived_autonomy\",\n   \"indirect_sign\": \"negative\",\n   \"confidence\": 0.93,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The parallel-mediator model supports a negative indirect association, with a bootstrap interval excluding zero. Confidence concerns this statistical pathway, not a verified causal mechanism.\"\n  },\n  {\n   \"id\": \"trust_indirect\",\n   \"type\": \"mediation\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"trust_in_management\",\n   \"indirect_sign\": \"negative\",\n   \"confidence\": 0.92,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The negative indirect association survives BH adjustment and has a bootstrap interval excluding zero. Temporal ordering and mediator–outcome confounding remain unverified.\"\n  },\n  {\n   \"id\": \"feedback_frequency_indirect\",\n   \"type\": \"mediation\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"feedback_frequency\",\n   \"indirect_sign\": \"positive\",\n   \"confidence\": 0.85,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"A smaller positive indirect association survives BH adjustment and partially offsets the negative pathways. Evidence supports a statistical pathway rather than established causal mediation.\"\n  },\n  {\n   \"id\": \"technology_creativity\",\n   \"type\": \"effect\",\n   \"cause\": \"tech_investment\",\n   \"outcome\": \"creative_output\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.94,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Positive conditional association in the total specification: coefficient=0.2583, p=3.545e-09, q=5.479e-09. A control-variable coefficient does not identify a causal effect.\"\n  },\n  {\n   \"id\": \"budget_creativity\",\n   \"type\": \"effect\",\n   \"cause\": \"unit_budget\",\n   \"outcome\": \"creative_output\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.95,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Positive conditional association in the total specification: coefficient=0.3131, p=8.532e-13, q=1.45e-12. A control-variable coefficient does not identify a causal effect.\"\n  }\n ]\n}\n```\nBuild a theory that explains these patterns; you may also propose claims the analyst did not test.\n\nReturn: theory_summary, claims, proposed_tests (what analyses would test the claims), limitations."
+    }
+   ],
+   "response": {
+    "theory_summary": "Electronic monitoring shifts effort toward measurable, standard tasks and away from exploration. Its predicted negative total effect on creative_output combines negative pathways through perceived_autonomy and trust_in_management with a smaller positive pathway through feedback_frequency. Higher feedback_quality makes monitoring more useful for learning and therefore weakens its creative cost. Resources also matter: tech_investment and unit_budget may enable experimentation while supporting monitoring, potentially masking part of monitoring's negative relationship with creativity. This account extends L1–L3 by distinguishing harmful discretion and trust pathways from helpful feedback. All causal claims below are provisional interpretations of the supplied observational report.",
+    "claims": [
+     {
+      "id": "C1",
+      "type": "effect",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": "negative",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.8,
+      "basis": [
+       "data",
+       "literature:L1"
+      ],
+      "rationale": "Monitoring is predicted to reduce creative_output on average by discouraging exploration. The negative association persists across reported specifications and agrees with L1. Its strengthening from -0.2397 to -0.3728 after resource/wellness adjustment is compatible with masking by resources, but does not establish that explanation or identify the total causal effect."
+     },
+     {
+      "id": "C2",
+      "type": "effect",
+      "cause": "monitoring_intensity",
+      "outcome": "routine_output",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.82,
+      "basis": [
+       "data",
+       "literature:L5"
+      ],
+      "rationale": "Monitoring clarifies task expectations and encourages completion of measurable work. The adjusted association of 0.3552 agrees with L5's natural-experiment evidence, although call-center results may transfer imperfectly to knowledge-intensive services."
+     },
+     {
+      "id": "C3",
+      "type": "mediation",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "perceived_autonomy",
+      "indirect_sign": "negative",
+      "confidence": 0.74,
+      "basis": [
+       "data",
+       "literature:L2",
+       "literature:L3"
+      ],
+      "rationale": "Monitoring is hypothesized to reduce perceived_autonomy, restricting employees' willingness and ability to experiment. L2 supports the first link, and L3 supports statistical mediation. The reported negative indirect association is consistent with this mechanism, but neither statistical mediation nor temporal surveys alone establish it causally."
+     },
+     {
+      "id": "C4",
+      "type": "mediation",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "trust_in_management",
+      "indirect_sign": "negative",
+      "confidence": 0.62,
+      "basis": [
+       "data"
+      ],
+      "rationale": "Monitoring may signal managerial distrust, reducing trust_in_management and willingness to pursue uncertain ideas. The negative indirect association supports this possibility. The proposed directions of the individual links require verification because the report supplies only the indirect sign."
+     },
+     {
+      "id": "C5",
+      "type": "mediation",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "feedback_frequency",
+      "indirect_sign": "positive",
+      "confidence": 0.59,
+      "basis": [
+       "data"
+      ],
+      "rationale": "Monitoring may generate more feedback conversations, creating opportunities to identify problems and refine ideas. This would partially offset its negative pathways. The smaller positive indirect association is consistent with this account, but individual path signs and causal ordering remain unverified."
+     },
+     {
+      "id": "C6",
+      "type": "moderation",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": null,
+      "moderator": "feedback_quality",
+      "interaction_sign": "positive",
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.69,
+      "basis": [
+       "data"
+      ],
+      "rationale": "Developmental feedback helps employees use monitoring information to learn, making its effect on creative_output less negative as feedback_quality increases. The positive interaction supports attenuation; it does not establish that monitoring becomes beneficial at observed feedback_quality levels."
+     },
+     {
+      "id": "C7",
+      "type": "effect",
+      "cause": "tech_investment",
+      "outcome": "creative_output",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.61,
+      "basis": [
+       "data"
+      ],
+      "rationale": "Technology may expand access to information and tools for experimentation. The positive conditional coefficient of 0.2583 is consistent with this account, but investment could also follow prior creativity or reflect shared resource advantages. The reported control coefficient does not identify a total causal effect."
+     },
+     {
+      "id": "C8",
+      "type": "effect",
+      "cause": "unit_budget",
+      "outcome": "creative_output",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.64,
+      "basis": [
+       "data"
+      ],
+      "rationale": "Discretionary resources may fund experimentation and permit uncertain projects. The positive conditional coefficient of 0.3131 supports this interpretation, but successful units may receive larger budgets. If unit_budget funds tech_investment, controlling for tech_investment excludes part of the budget's total effect."
+     }
+    ],
+    "limitations": "No raw data were inspected; evidence comes from the supplied analyst report and literature summaries. Confidence values concern causal claims, not the analyst's confidence in associations. Temporal ordering, selection into monitoring, and unmeasured confounding remain unresolved. HC3 inference does not address within-unit dependence if units recur across years. Mediators may influence one another, undermining a simple parallel-path interpretation. Resource adjustment could remove confounding, block mediation, or introduce bias depending on timing. L4's cross-sectional wellness association may reflect resource advantages rather than a wellness effect; no setting-specific wellness result was reported. L6's nonsignificant result does not establish a zero manager_span effect. L7 motivates investigating job_tenure, but does not resolve selection or establish transferability. The reported adjusted R² of 0.139 leaves substantial variation unexplained.",
+    "proposed_tests": [
+     "Estimate the total monitoring_intensity effect on later creative_output and routine_output using a randomized unit-level rollout if feasible. Otherwise, evaluate plausibly exogenous rollout timing with an event-study design, checking pretrends and anticipation. If repeated unit identifiers are available, use unit and year effects and inference clustered at the assignment or unit level. This distinguishes monitoring effects from monitoring adopted in response to declining performance.",
+     "Measure monitoring_intensity before perceived_autonomy, trust_in_management, and feedback_frequency, and measure creative_output subsequently. Report both component paths for each indirect effect. Compare parallel and sequential mediator models, assess mediator–outcome confounding sensitivity, and bootstrap at the unit level. Temporal separation improves the test but does not alone identify causal mediation.",
+     "Use a factorial experiment varying monitoring_intensity and a developmental-feedback intervention targeting feedback_quality. Test their interaction on creative_output. In observational analyses, prioritize pre-monitoring feedback_quality, assess overlap and nonlinearities, and report monitoring slopes with confidence intervals across its observed range. This distinguishes a buffering condition from feedback_quality that changes in response to monitoring.",
+     "Vary feedback_frequency independently of feedback_quality where feasible. Test whether additional conversations improve creative_output at comparable quality. This discriminates a frequency mechanism from frequency serving as a proxy for developmental feedback.",
+     "Establish the timing of unit_budget, tech_investment, and wellness_program before choosing adjustment sets. Compare nested specifications on the same observations and assess whether pre-monitoring resources predict both monitoring_intensity and creative_output. Use plausibly exogenous budget or technology allocations to test resource effects, estimating unit_budget's total effect without controlling for downstream tech_investment.",
+     "Test wellness_program using pre-program outcomes and resources, and test lagged job_tenure while allowing nonlinear associations. For manager_span, use an equivalence test with a prespecified substantively negligible effect range. These analyses assess whether L4, L6, and L7 transfer to this setting without treating significance or nonsignificance as causal proof.",
+     "Measure creative_output and routine_output over multiple follow-up periods after monitoring changes. Immediate routine gains accompanied by delayed creative losses would support the proposed shift toward measurable work; improvements in both outcomes would favor a broader learning explanation."
+    ]
+   },
+   "raw": null,
+   "cached": false,
+   "latency_s": 104.01,
+   "usage": {
+    "total_tokens": 19127
+   }
+  },
+  {
+   "step": 5,
+   "role": "synthesizer",
+   "model": "gpt-6-astra",
+   "messages": [
+    {
+     "role": "system",
+     "content": "You are the lead of a research team and write its final report: a short theory summary, a set of final causal claims with calibrated confidence and evidential basis, and limitations. Integrate the theorist's proposal, the analyst's evidence and (if present) the critic's review. Keep a claim only if you can defend it with the evidence in front of you; drop or re-sign claims the data contradict; lower confidence where support is thin. Return JSON only.\n\nRules for claims:\n- Use the exact variable names from the codebook (snake_case). Never invent variables.\n- type \"effect\": `sign` is \"positive\", \"negative\" or \"none\" (no causal effect). Leave moderator/mediator fields null.\n- type \"moderation\": `moderator` names the moderating variable; `interaction_sign` says whether the effect of `cause` on\n  `outcome` becomes more positive (\"positive\") or more negative (\"negative\") as the moderator increases.\n- type \"mediation\": `mediator` names the mechanism variable; `indirect_sign` may be given or left null.\n- `confidence` is your honest probability (0 to 1) that the claim is true in this setting. Do not inflate it.\n- `basis` lists the evidence: \"data\" and/or \"literature:L<k>\" entries. Cite only literature IDs that actually exist in the brief\n  and only for the relation that abstract is about.\n- Prefer fewer, well-supported claims to many speculative ones (at most 10).\n\nGovernance: the critic has veto power. Claims the critic rejected must not appear in the final report; claims marked 'revise' may appear only in the revised form the critic asked for."
+    },
+    {
+     "role": "user",
+     "content": "# Research brief\n\n**Setting.** Operating units of a large knowledge-intensive services firm.\n\n**Research question.** What determines creative output in these units, and in particular how does the intensity of electronic performance monitoring affect creative output, through which mechanisms, and under what conditions?\n\n**Data.** `data.csv` with N = 1200 observations at the unit-year level. See the codebook for variables.\n\n**Prior literature available to the team** (summaries of earlier studies in comparable settings; cite them by ID):\n\n- **[L1]** Multi-level study of 310 units in a financial services firm. Higher intensity of electronic performance monitoring of employees in the unit was associated with lower number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized b = -0.16, p < .01). Monitoring is argued to crowd out intrinsic motivation and exploratory behavior.\n- **[L2]** Three-wave survey of 1,480 employees in 120 units. Higher intensity of electronic performance monitoring of employees in the unit was associated with lower employees' reported discretion over how they do their work (standardized b = -0.32, p < .01).\n- **[L3]** Survey of 204 R&D units with structural equation modeling. The effect of intensity of electronic performance monitoring of employees in the unit on number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel was statistically mediated by employees' reported discretion over how they do their work (indirect effect significant at p < .05).\n- **[L4]** Cross-sectional study of 890 units across 14 firms. Higher scope of employee wellness programs offered by the unit was associated with higher number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized b = +0.32, p < .01). The authors argue that well-being frees cognitive resources for creative work.\n- **[L5]** Natural experiment around the staggered rollout of a monitoring system in 62 call centers. Higher intensity of electronic performance monitoring of employees in the unit was associated with higher volume of standard tasks completed per employee (standardized b = +0.25, p < .01).\n- **[L6]** Archival study of 2,100 supervisor-unit observations. Units with higher number of direct reports per supervisor showed no significant difference in number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized b = +0.02, n.s.).\n- **[L7]** Panel of 150 units over six years. Higher average employee tenure in the unit was associated with higher number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized b = +0.18, p < .01).\n\n**Deliverable.** A set of causal claims about what determines the focal outcome, each stated with the exact variable names in the codebook, a calibrated confidence in [0, 1], and its evidential basis (data analysis, literature IDs, or both). Claims may assert positive, negative or no effects, moderation (whether the effect of a cause on an outcome becomes more positive or more negative as a moderator increases), or mediation (a cause acting on an outcome through a mediator).\n\n\n# Codebook: monitoring-orthodox-s1\n\nSetting: operating units of a large knowledge-intensive services firm. Unit of observation: unit-year. N = 1200.\n\nAll variables are standardized indices (mean ~0, SD ~1); higher values mean more of the construct.\n\n| variable | description |\n|---|---|\n| `monitoring_intensity` | Intensity of electronic performance monitoring of employees in the unit (standardized index) |\n| `creative_output` | Number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized index) |\n| `routine_output` | Volume of standard tasks completed per employee (standardized index) |\n| `perceived_autonomy` | Employees' reported discretion over how they do their work (standardized index) |\n| `trust_in_management` | Employees' reported trust in unit management (standardized index) |\n| `feedback_frequency` | Frequency of performance feedback conversations between supervisors and employees (standardized index) |\n| `feedback_quality` | Developmental quality of feedback, rated by trained observers (standardized index) |\n| `tech_investment` | Unit spending on workplace technology and analytics (standardized index) |\n| `unit_budget` | Total discretionary unit budget (standardized index) |\n| `wellness_program` | Scope of employee wellness programs offered by the unit (standardized index) |\n| `job_tenure` | Average employee tenure in the unit (standardized index) |\n| `manager_span` | Number of direct reports per supervisor (standardized index) |\n\n\nTheorist's proposal:\n```json\n{\n \"theory_summary\": \"Electronic monitoring shifts effort toward measurable, standard tasks and away from exploration. Its predicted negative total effect on creative_output combines negative pathways through perceived_autonomy and trust_in_management with a smaller positive pathway through feedback_frequency. Higher feedback_quality makes monitoring more useful for learning and therefore weakens its creative cost. Resources also matter: tech_investment and unit_budget may enable experimentation while supporting monitoring, potentially masking part of monitoring's negative relationship with creativity. This account extends L1–L3 by distinguishing harmful discretion and trust pathways from helpful feedback. All causal claims below are provisional interpretations of the supplied observational report.\",\n \"claims\": [\n  {\n   \"id\": \"C1\",\n   \"type\": \"effect\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": \"negative\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.8,\n   \"basis\": [\n    \"data\",\n    \"literature:L1\"\n   ],\n   \"rationale\": \"Monitoring is predicted to reduce creative_output on average by discouraging exploration. The negative association persists across reported specifications and agrees with L1. Its strengthening from -0.2397 to -0.3728 after resource/wellness adjustment is compatible with masking by resources, but does not establish that explanation or identify the total causal effect.\"\n  },\n  {\n   \"id\": \"C2\",\n   \"type\": \"effect\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"routine_output\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.82,\n   \"basis\": [\n    \"data\",\n    \"literature:L5\"\n   ],\n   \"rationale\": \"Monitoring clarifies task expectations and encourages completion of measurable work. The adjusted association of 0.3552 agrees with L5's natural-experiment evidence, although call-center results may transfer imperfectly to knowledge-intensive services.\"\n  },\n  {\n   \"id\": \"C3\",\n   \"type\": \"mediation\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"perceived_autonomy\",\n   \"indirect_sign\": \"negative\",\n   \"confidence\": 0.74,\n   \"basis\": [\n    \"data\",\n    \"literature:L2\",\n    \"literature:L3\"\n   ],\n   \"rationale\": \"Monitoring is hypothesized to reduce perceived_autonomy, restricting employees' willingness and ability to experiment. L2 supports the first link, and L3 supports statistical mediation. The reported negative indirect association is consistent with this mechanism, but neither statistical mediation nor temporal surveys alone establish it causally.\"\n  },\n  {\n   \"id\": \"C4\",\n   \"type\": \"mediation\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"trust_in_management\",\n   \"indirect_sign\": \"negative\",\n   \"confidence\": 0.62,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Monitoring may signal managerial distrust, reducing trust_in_management and willingness to pursue uncertain ideas. The negative indirect association supports this possibility. The proposed directions of the individual links require verification because the report supplies only the indirect sign.\"\n  },\n  {\n   \"id\": \"C5\",\n   \"type\": \"mediation\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"feedback_frequency\",\n   \"indirect_sign\": \"positive\",\n   \"confidence\": 0.59,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Monitoring may generate more feedback conversations, creating opportunities to identify problems and refine ideas. This would partially offset its negative pathways. The smaller positive indirect association is consistent with this account, but individual path signs and causal ordering remain unverified.\"\n  },\n  {\n   \"id\": \"C6\",\n   \"type\": \"moderation\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": null,\n   \"moderator\": \"feedback_quality\",\n   \"interaction_sign\": \"positive\",\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.69,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Developmental feedback helps employees use monitoring information to learn, making its effect on creative_output less negative as feedback_quality increases. The positive interaction supports attenuation; it does not establish that monitoring becomes beneficial at observed feedback_quality levels.\"\n  },\n  {\n   \"id\": \"C7\",\n   \"type\": \"effect\",\n   \"cause\": \"tech_investment\",\n   \"outcome\": \"creative_output\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.61,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Technology may expand access to information and tools for experimentation. The positive conditional coefficient of 0.2583 is consistent with this account, but investment could also follow prior creativity or reflect shared resource advantages. The reported control coefficient does not identify a total causal effect.\"\n  },\n  {\n   \"id\": \"C8\",\n   \"type\": \"effect\",\n   \"cause\": \"unit_budget\",\n   \"outcome\": \"creative_output\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.64,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Discretionary resources may fund experimentation and permit uncertain projects. The positive conditional coefficient of 0.3131 supports this interpretation, but successful units may receive larger budgets. If unit_budget funds tech_investment, controlling for tech_investment excludes part of the budget's total effect.\"\n  }\n ],\n \"proposed_tests\": [\n  \"Estimate the total monitoring_intensity effect on later creative_output and routine_output using a randomized unit-level rollout if feasible. Otherwise, evaluate plausibly exogenous rollout timing with an event-study design, checking pretrends and anticipation. If repeated unit identifiers are available, use unit and year effects and inference clustered at the assignment or unit level. This distinguishes monitoring effects from monitoring adopted in response to declining performance.\",\n  \"Measure monitoring_intensity before perceived_autonomy, trust_in_management, and feedback_frequency, and measure creative_output subsequently. Report both component paths for each indirect effect. Compare parallel and sequential mediator models, assess mediator–outcome confounding sensitivity, and bootstrap at the unit level. Temporal separation improves the test but does not alone identify causal mediation.\",\n  \"Use a factorial experiment varying monitoring_intensity and a developmental-feedback intervention targeting feedback_quality. Test their interaction on creative_output. In observational analyses, prioritize pre-monitoring feedback_quality, assess overlap and nonlinearities, and report monitoring slopes with confidence intervals across its observed range. This distinguishes a buffering condition from feedback_quality that changes in response to monitoring.\",\n  \"Vary feedback_frequency independently of feedback_quality where feasible. Test whether additional conversations improve creative_output at comparable quality. This discriminates a frequency mechanism from frequency serving as a proxy for developmental feedback.\",\n  \"Establish the timing of unit_budget, tech_investment, and wellness_program before choosing adjustment sets. Compare nested specifications on the same observations and assess whether pre-monitoring resources predict both monitoring_intensity and creative_output. Use plausibly exogenous budget or technology allocations to test resource effects, estimating unit_budget's total effect without controlling for downstream tech_investment.\",\n  \"Test wellness_program using pre-program outcomes and resources, and test lagged job_tenure while allowing nonlinear associations. For manager_span, use an equivalence test with a prespecified substantively negligible effect range. These analyses assess whether L4, L6, and L7 transfer to this setting without treating significance or nonsignificance as causal proof.\",\n  \"Measure creative_output and routine_output over multiple follow-up periods after monitoring changes. Immediate routine gains accompanied by delayed creative losses would support the proposed shift toward measurable work; improvements in both outcomes would favor a broader learning explanation.\"\n ],\n \"limitations\": \"No raw data were inspected; evidence comes from the supplied analyst report and literature summaries. Confidence values concern causal claims, not the analyst's confidence in associations. Temporal ordering, selection into monitoring, and unmeasured confounding remain unresolved. HC3 inference does not address within-unit dependence if units recur across years. Mediators may influence one another, undermining a simple parallel-path interpretation. Resource adjustment could remove confounding, block mediation, or introduce bias depending on timing. L4's cross-sectional wellness association may reflect resource advantages rather than a wellness effect; no setting-specific wellness result was reported. L6's nonsignificant result does not establish a zero manager_span effect. L7 motivates investigating job_tenure, but does not resolve selection or establish transferability. The reported adjusted R² of 0.139 leaves substantial variation unexplained.\"\n}\n```\n\nAnalyst's report:\n```json\n{\n \"plan\": \"Estimate adjusted monitoring–creativity associations, explore moderation by feedback quality, tenure and manager span, and examine autonomy, trust and feedback as candidate mechanisms using mediator and outcome equations. Treat resource and staffing controls as pre-exposure assumptions; distinguish total-effect specifications from mediator-adjusted direct-effect specifications. Use robust or unit-clustered inference, bootstrap indirect associations, and adjust exploratory tests for multiple comparisons. Report associations without asserting causality or inventing results.\",\n \"data_summary\": \"All 1,200 unit-years were complete. Models used HC3 inference; the total creative-output specification had adjusted R²=0.139. No explicit numbered hypotheses were supplied, so findings address the relationships in the analysis plan. Support refers to observational associations, not established causal effects. Controls are assumed pre-monitoring; temporal ordering and unmeasured confounding remain unresolved. Adding resource/wellness controls strengthened the negative monitoring coefficient from -0.2397 to -0.3728 without reversing its sign, consistent with possible suppression or confounding. No bivariate estimate was reported, so bivariate-to-controlled sign changes cannot be assessed. Confidence values below concern associations within this setting.\",\n \"findings\": [\n  {\n   \"claim_id\": \"monitoring_creativity\",\n   \"supported\": true,\n   \"estimate\": -0.3728,\n   \"p_value\": 5.574e-22,\n   \"note\": \"Negative adjusted association in the total specification; 95% CI [-0.4486, -0.2970], BH q=1.579e-21.\"\n  },\n  {\n   \"claim_id\": \"monitoring_routine\",\n   \"supported\": true,\n   \"estimate\": 0.3552,\n   \"p_value\": 1.575e-28,\n   \"note\": \"Positive adjusted association with routine output; 95% CI [0.2924, 0.4180], q=6.693e-28.\"\n  },\n  {\n   \"claim_id\": \"feedback_quality_moderation\",\n   \"supported\": true,\n   \"estimate\": 0.2693,\n   \"p_value\": 3.115e-22,\n   \"note\": \"Positive interaction, q=9.629e-22: higher feedback quality attenuates the negative monitoring–creativity association. Slopes at quality -1, 0 and +1 are -0.6397, -0.3705 and -0.1012; all remain negative and significant after BH adjustment.\"\n  },\n  {\n   \"claim_id\": \"job_tenure_moderation\",\n   \"supported\": false,\n   \"estimate\": 0.03761,\n   \"p_value\": 0.23,\n   \"note\": \"Interaction unsupported, q=0.2792; 95% CI [-0.0238, 0.09902]. Significant conditional slopes do not establish moderation. This does not establish absence of moderation.\"\n  },\n  {\n   \"claim_id\": \"manager_span_moderation\",\n   \"supported\": false,\n   \"estimate\": -0.004235,\n   \"p_value\": 0.8915,\n   \"note\": \"Interaction unsupported, q=0.8915; 95% CI [-0.0651, 0.05663]. This does not establish absence of moderation.\"\n  },\n  {\n   \"claim_id\": \"autonomy_indirect\",\n   \"supported\": true,\n   \"estimate\": -0.2549,\n   \"p_value\": 2.039e-30,\n   \"note\": \"Negative indirect association through perceived_autonomy; bootstrap 95% CI [-0.2996, -0.2129], q=1.155e-29. Monitoring–autonomy coefficient=-0.5861; mediator-adjusted autonomy–creativity coefficient=0.4349. Causal mediation remains unverified.\"\n  },\n  {\n   \"claim_id\": \"trust_indirect\",\n   \"supported\": true,\n   \"estimate\": -0.1321,\n   \"p_value\": 5.982e-18,\n   \"note\": \"Negative indirect association through trust_in_management; bootstrap 95% CI [-0.1635, -0.1047], q=1.356e-17. Constituent coefficients are -0.3443 and 0.3838. Causal mediation remains unverified.\"\n  },\n  {\n   \"claim_id\": \"feedback_frequency_indirect\",\n   \"supported\": true,\n   \"estimate\": 0.03967,\n   \"p_value\": 0.003252,\n   \"note\": \"Positive indirect association through feedback_frequency; bootstrap 95% CI [0.01377, 0.06922], q=0.004253. Constituent coefficients are 0.4023 and 0.0986. This pathway partially offsets the negative indirect associations.\"\n  },\n  {\n   \"claim_id\": \"feedback_quality_indirect\",\n   \"supported\": false,\n   \"estimate\": -0.0002281,\n   \"p_value\": 0.8913,\n   \"note\": \"Indirect association unsupported; bootstrap 95% CI [-0.004258, 0.003111], q=0.8915. Evidence for moderation does not imply evidence for mediation.\"\n  },\n  {\n   \"claim_id\": \"monitoring_direct\",\n   \"supported\": false,\n   \"estimate\": -0.0252,\n   \"p_value\": 0.5458,\n   \"note\": \"A remaining negative association after adjustment for all four mediators is unsupported; 95% CI [-0.1070, 0.05656], q=0.6186. The summed indirect association is -0.3476 (p=3.368e-30; q=1.636e-29). Attenuation does not prove full mediation or zero direct causal effect. Indirect p-values use normal approximations with bootstrap standard errors.\"\n  }\n ],\n \"claims\": [\n  {\n   \"id\": \"monitoring_creativity\",\n   \"type\": \"effect\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": \"negative\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.98,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Strong negative conditional association, retained with and without resource/wellness controls. The effect label represents an association; causal identification is unavailable.\"\n  },\n  {\n   \"id\": \"monitoring_routine\",\n   \"type\": \"effect\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"routine_output\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.98,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Positive adjusted association of 0.3552, robust to the reported multiple-testing adjustment; causality is not established.\"\n  },\n  {\n   \"id\": \"feedback_quality_moderation\",\n   \"type\": \"moderation\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": null,\n   \"moderator\": \"feedback_quality\",\n   \"interaction_sign\": \"positive\",\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.96,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The positive interaction indicates a less negative monitoring association at higher feedback quality. Feedback quality's temporal role is unresolved, limiting causal interpretation.\"\n  },\n  {\n   \"id\": \"autonomy_indirect\",\n   \"type\": \"mediation\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"perceived_autonomy\",\n   \"indirect_sign\": \"negative\",\n   \"confidence\": 0.93,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The parallel-mediator model supports a negative indirect association, with a bootstrap interval excluding zero. Confidence concerns this statistical pathway, not a verified causal mechanism.\"\n  },\n  {\n   \"id\": \"trust_indirect\",\n   \"type\": \"mediation\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"trust_in_management\",\n   \"indirect_sign\": \"negative\",\n   \"confidence\": 0.92,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The negative indirect association survives BH adjustment and has a bootstrap interval excluding zero. Temporal ordering and mediator–outcome confounding remain unverified.\"\n  },\n  {\n   \"id\": \"feedback_frequency_indirect\",\n   \"type\": \"mediation\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"feedback_frequency\",\n   \"indirect_sign\": \"positive\",\n   \"confidence\": 0.85,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"A smaller positive indirect association survives BH adjustment and partially offsets the negative pathways. Evidence supports a statistical pathway rather than established causal mediation.\"\n  },\n  {\n   \"id\": \"technology_creativity\",\n   \"type\": \"effect\",\n   \"cause\": \"tech_investment\",\n   \"outcome\": \"creative_output\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.94,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Positive conditional association in the total specification: coefficient=0.2583, p=3.545e-09, q=5.479e-09. A control-variable coefficient does not identify a causal effect.\"\n  },\n  {\n   \"id\": \"budget_creativity\",\n   \"type\": \"effect\",\n   \"cause\": \"unit_budget\",\n   \"outcome\": \"creative_output\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.95,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Positive conditional association in the total specification: coefficient=0.3131, p=8.532e-13, q=1.45e-12. A control-variable coefficient does not identify a causal effect.\"\n  }\n ],\n \"output_excerpt\": \"     0.23   -0.0238  0.09902    0.2792\\n                     Conditional slope                       job_tenure=-1.0    -0.4093   0.0485 3.198e-17   -0.5043  -0.3142 6.797e-17\\n                     Conditional slope                        job_tenure=0.0    -0.3716  0.03877 9.169e-22   -0.4476  -0.2957 2.227e-21\\n                     Conditional slope                        job_tenure=1.0     -0.334  0.05116 6.641e-11   -0.4343  -0.2337 1.075e-10\\n              Moderation: manager_span     monitoring_intensity:manager_span  -0.004235  0.03105    0.8915   -0.0651  0.05663    0.8915\\n                     Conditional slope                     manager_span=-1.0    -0.3686  0.04951 9.702e-14   -0.4656  -0.2716 1.833e-13\\n                     Conditional slope                      manager_span=0.0    -0.3728  0.03876 6.664e-22   -0.4488  -0.2969 1.743e-21\\n                     Conditional slope                      manager_span=1.0    -0.3771  0.04982 3.779e-14   -0.4747  -0.2794 7.558e-14\\n                  Direct specification                  monitoring_intensity    -0.0252  0.04171    0.5458    -0.107  0.05656    0.6186\\n                  Direct specification                    perceived_autonomy     0.4349  0.03066 1.164e-45    0.3748    0.495 1.979e-44\\n                  Direct specification                   trust_in_management     0.3838  0.02896 4.278e-40     0.327   0.4405 2.909e-39\\n                  Direct specification                    feedback_frequency     0.0986  0.03186  0.001967   0.03616    0.161  0.002675\\n                  Direct specification                      feedback_quality   0.006397  0.03461    0.8533  -0.06143  0.07423    0.8915\\n Mediator equation: perceived_autonomy                  monitoring_intensity    -0.5861  0.03072 3.785e-81   -0.6464  -0.5259 1.287e-79\\nMediator equation: trust_in_management                  monitoring_intensity    -0.3443  0.03206 6.711e-27   -0.4072  -0.2815 2.535e-26\\n Mediator equation: feedback_frequency                  monitoring_intensity     0.4023  0.02992 3.269e-41    0.3437    0.461 2.778e-40\\n   Mediator equation: feedback_quality                  monitoring_intensity   -0.03565   0.0307    0.2455  -0.09583  0.02452    0.2878\\n        Indirect (bootstrap; normal p)                    perceived_autonomy    -0.2549  0.02224 2.039e-30   -0.2996  -0.2129 1.155e-29\\n        Indirect (bootstrap; normal p)                   trust_in_management    -0.1321  0.01531 5.982e-18   -0.1635  -0.1047 1.356e-17\\n        Indirect (bootstrap; normal p)                    feedback_frequency    0.03967  0.01348  0.003252   0.01377  0.06922  0.004253\\n        Indirect (bootstrap; normal p)                      feedback_quality -0.0002281 0.001669    0.8913 -0.004258 0.003111    0.8915\\n        Indirect (bootstrap; normal p)                 sum of indirect paths    -0.3476  0.03044 3.368e-30   -0.4066   -0.287 1.636e-29\\nq_BH adjusts all reported tests together; intervals are unadjusted.\\nIndirect intervals are bootstrap percentiles; indirect p-values are normal approximations.\\nModeration models are separate; slopes are evaluated at moderator indices -1, 0, +1.\\nFeedback quality is explored in alternative moderator and mediator roles.\\nMediation assumes parallel pathways, correct temporal ordering and no unmeasured confounding.\\nPost-monitoring controls could bias total effects; direct effects require stronger assumptions.\\nSmall q-values support conditional associations only; large q-values do not establish no effect.\\n\"\n}\n```"
+    }
+   ],
+   "response": {
+    "theory_summary": "The evidence supports a provisional account in which monitoring_intensity reduces creative_output while increasing routine_output. Reduced perceived_autonomy and trust_in_management are plausible negative mechanisms, partly offset by increased feedback_frequency. Higher feedback_quality appears to buffer the creative cost of monitoring. These are causal interpretations of observational associations, not identified causal effects.",
+    "claims": [
+     {
+      "id": "C1",
+      "type": "effect",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": "negative",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.78,
+      "basis": [
+       "data",
+       "literature:L1"
+      ],
+      "rationale": "The adjusted association is -0.3728 (95% CI [-0.4486, -0.2970]) and remains negative across reported adjustment sets. Agreement with L1 supports a negative total-effect hypothesis, although selection into monitoring and unmeasured confounding remain unresolved."
+     },
+     {
+      "id": "C2",
+      "type": "effect",
+      "cause": "monitoring_intensity",
+      "outcome": "routine_output",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.82,
+      "basis": [
+       "data",
+       "literature:L5"
+      ],
+      "rationale": "The adjusted association is 0.3552 (95% CI [0.2924, 0.4180]). L5's natural experiment provides additional support for a positive causal effect, with uncertainty about transfer from call centers to this setting."
+     },
+     {
+      "id": "C3",
+      "type": "mediation",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "perceived_autonomy",
+      "indirect_sign": "negative",
+      "confidence": 0.72,
+      "basis": [
+       "data",
+       "literature:L2",
+       "literature:L3"
+      ],
+      "rationale": "Monitoring predicts lower perceived_autonomy (-0.5861), which predicts higher creative_output conditional on the other mediators (0.4349). The indirect association is -0.2549 (bootstrap 95% CI [-0.2996, -0.2129]). L2 supports the first link and L3 supports statistical mediation; causal ordering and mediator–outcome confounding remain unverified."
+     },
+     {
+      "id": "C4",
+      "type": "mediation",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "trust_in_management",
+      "indirect_sign": "negative",
+      "confidence": 0.62,
+      "basis": [
+       "data"
+      ],
+      "rationale": "Constituent coefficients of -0.3443 and 0.3838 support the proposed negative pathway. The indirect association is -0.1321 (bootstrap 95% CI [-0.1635, -0.1047]). This is consistent with monitoring undermining trust, but does not establish that mechanism causally."
+     },
+     {
+      "id": "C5",
+      "type": "mediation",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "feedback_frequency",
+      "indirect_sign": "positive",
+      "confidence": 0.57,
+      "basis": [
+       "data"
+      ],
+      "rationale": "Positive constituent coefficients of 0.4023 and 0.0986 yield an indirect association of 0.03967 (bootstrap 95% CI [0.01377, 0.06922]; BH q=0.004253). More frequent feedback is a plausible partial offset to the negative pathways, but causal mediation assumptions are untested."
+     },
+     {
+      "id": "C6",
+      "type": "moderation",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": null,
+      "moderator": "feedback_quality",
+      "interaction_sign": "positive",
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.67,
+      "basis": [
+       "data"
+      ],
+      "rationale": "The interaction is positive (0.2693; BH q=9.629e-22). Monitoring slopes at feedback_quality values -1, 0 and +1 are -0.6397, -0.3705 and -0.1012, supporting attenuation rather than reversal at these values. A causal buffering interpretation depends on feedback_quality's temporal role and adequate confounding control."
+     }
+    ],
+    "limitations": "This report uses supplied summaries without independent data verification. Confidence values concern causal truth, not statistical significance. Observational unit-year models cannot resolve reverse causation, exposure selection or unmeasured confounding. Resource controls may be confounders or downstream variables; HC3 inference does not address within-unit dependence if units recur. Parallel mediation assumes temporal ordering, no relevant unmeasured confounding and an adequate representation of relationships among mediators. The nonsignificant mediator-adjusted monitoring coefficient establishes neither zero direct effect nor full mediation. Unsupported job_tenure and manager_span interactions and feedback_quality mediation are omitted without asserting absence. Positive tech_investment and unit_budget control coefficients are insufficiently identified to retain as causal claims. L4, L6 and L7 do not establish setting-specific wellness, manager-span or tenure effects."
+   },
+   "raw": null,
+   "cached": false,
+   "latency_s": 48.67,
+   "usage": {
+    "total_tokens": 8682
+   }
+  },
+  {
+   "step": 6,
+   "role": "critic",
+   "model": "gpt-6-astra",
+   "messages": [
+    {
+     "role": "system",
+     "content": "You are the critic (referee) of a research team. Your job is adversarial: for each proposed claim, decide whether the evidence presented actually supports it in this setting. Check (1) whether a data analysis tested the claim at all, (2) confounding and alternative explanations given the variables in the codebook, (3) whether the claim merely restates prior literature that may not hold here, (4) whether the stated confidence is justified, and (5) whether literature IDs are cited correctly. Verdicts: accept, revise (fixable with a stated change), reject. Be specific and brief. Return JSON only.\n\nYour verdicts are binding: rejected claims will be removed from the team's final report."
+    },
+    {
+     "role": "user",
+     "content": "# Research brief\n\n**Setting.** Operating units of a large knowledge-intensive services firm.\n\n**Research question.** What determines creative output in these units, and in particular how does the intensity of electronic performance monitoring affect creative output, through which mechanisms, and under what conditions?\n\n**Data.** `data.csv` with N = 1200 observations at the unit-year level. See the codebook for variables.\n\n**Prior literature available to the team** (summaries of earlier studies in comparable settings; cite them by ID):\n\n- **[L1]** Multi-level study of 310 units in a financial services firm. Higher intensity of electronic performance monitoring of employees in the unit was associated with lower number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized b = -0.16, p < .01). Monitoring is argued to crowd out intrinsic motivation and exploratory behavior.\n- **[L2]** Three-wave survey of 1,480 employees in 120 units. Higher intensity of electronic performance monitoring of employees in the unit was associated with lower employees' reported discretion over how they do their work (standardized b = -0.32, p < .01).\n- **[L3]** Survey of 204 R&D units with structural equation modeling. The effect of intensity of electronic performance monitoring of employees in the unit on number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel was statistically mediated by employees' reported discretion over how they do their work (indirect effect significant at p < .05).\n- **[L4]** Cross-sectional study of 890 units across 14 firms. Higher scope of employee wellness programs offered by the unit was associated with higher number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized b = +0.32, p < .01). The authors argue that well-being frees cognitive resources for creative work.\n- **[L5]** Natural experiment around the staggered rollout of a monitoring system in 62 call centers. Higher intensity of electronic performance monitoring of employees in the unit was associated with higher volume of standard tasks completed per employee (standardized b = +0.25, p < .01).\n- **[L6]** Archival study of 2,100 supervisor-unit observations. Units with higher number of direct reports per supervisor showed no significant difference in number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized b = +0.02, n.s.).\n- **[L7]** Panel of 150 units over six years. Higher average employee tenure in the unit was associated with higher number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized b = +0.18, p < .01).\n\n**Deliverable.** A set of causal claims about what determines the focal outcome, each stated with the exact variable names in the codebook, a calibrated confidence in [0, 1], and its evidential basis (data analysis, literature IDs, or both). Claims may assert positive, negative or no effects, moderation (whether the effect of a cause on an outcome becomes more positive or more negative as a moderator increases), or mediation (a cause acting on an outcome through a mediator).\n\n\n# Codebook: monitoring-orthodox-s1\n\nSetting: operating units of a large knowledge-intensive services firm. Unit of observation: unit-year. N = 1200.\n\nAll variables are standardized indices (mean ~0, SD ~1); higher values mean more of the construct.\n\n| variable | description |\n|---|---|\n| `monitoring_intensity` | Intensity of electronic performance monitoring of employees in the unit (standardized index) |\n| `creative_output` | Number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized index) |\n| `routine_output` | Volume of standard tasks completed per employee (standardized index) |\n| `perceived_autonomy` | Employees' reported discretion over how they do their work (standardized index) |\n| `trust_in_management` | Employees' reported trust in unit management (standardized index) |\n| `feedback_frequency` | Frequency of performance feedback conversations between supervisors and employees (standardized index) |\n| `feedback_quality` | Developmental quality of feedback, rated by trained observers (standardized index) |\n| `tech_investment` | Unit spending on workplace technology and analytics (standardized index) |\n| `unit_budget` | Total discretionary unit budget (standardized index) |\n| `wellness_program` | Scope of employee wellness programs offered by the unit (standardized index) |\n| `job_tenure` | Average employee tenure in the unit (standardized index) |\n| `manager_span` | Number of direct reports per supervisor (standardized index) |\n\n\nProposed claims:\n```json\n[\n {\n  \"id\": \"C1\",\n  \"type\": \"effect\",\n  \"cause\": \"monitoring_intensity\",\n  \"outcome\": \"creative_output\",\n  \"sign\": \"negative\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.78,\n  \"basis\": [\n   \"data\",\n   \"literature:L1\"\n  ],\n  \"rationale\": \"The adjusted association is -0.3728 (95% CI [-0.4486, -0.2970]) and remains negative across reported adjustment sets. Agreement with L1 supports a negative total-effect hypothesis, although selection into monitoring and unmeasured confounding remain unresolved.\"\n },\n {\n  \"id\": \"C2\",\n  \"type\": \"effect\",\n  \"cause\": \"monitoring_intensity\",\n  \"outcome\": \"routine_output\",\n  \"sign\": \"positive\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.82,\n  \"basis\": [\n   \"data\",\n   \"literature:L5\"\n  ],\n  \"rationale\": \"The adjusted association is 0.3552 (95% CI [0.2924, 0.4180]). L5's natural experiment provides additional support for a positive causal effect, with uncertainty about transfer from call centers to this setting.\"\n },\n {\n  \"id\": \"C3\",\n  \"type\": \"mediation\",\n  \"cause\": \"monitoring_intensity\",\n  \"outcome\": \"creative_output\",\n  \"sign\": null,\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": \"perceived_autonomy\",\n  \"indirect_sign\": \"negative\",\n  \"confidence\": 0.72,\n  \"basis\": [\n   \"data\",\n   \"literature:L2\",\n   \"literature:L3\"\n  ],\n  \"rationale\": \"Monitoring predicts lower perceived_autonomy (-0.5861), which predicts higher creative_output conditional on the other mediators (0.4349). The indirect association is -0.2549 (bootstrap 95% CI [-0.2996, -0.2129]). L2 supports the first link and L3 supports statistical mediation; causal ordering and mediator–outcome confounding remain unverified.\"\n },\n {\n  \"id\": \"C4\",\n  \"type\": \"mediation\",\n  \"cause\": \"monitoring_intensity\",\n  \"outcome\": \"creative_output\",\n  \"sign\": null,\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": \"trust_in_management\",\n  \"indirect_sign\": \"negative\",\n  \"confidence\": 0.62,\n  \"basis\": [\n   \"data\"\n  ],\n  \"rationale\": \"Constituent coefficients of -0.3443 and 0.3838 support the proposed negative pathway. The indirect association is -0.1321 (bootstrap 95% CI [-0.1635, -0.1047]). This is consistent with monitoring undermining trust, but does not establish that mechanism causally.\"\n },\n {\n  \"id\": \"C5\",\n  \"type\": \"mediation\",\n  \"cause\": \"monitoring_intensity\",\n  \"outcome\": \"creative_output\",\n  \"sign\": null,\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": \"feedback_frequency\",\n  \"indirect_sign\": \"positive\",\n  \"confidence\": 0.57,\n  \"basis\": [\n   \"data\"\n  ],\n  \"rationale\": \"Positive constituent coefficients of 0.4023 and 0.0986 yield an indirect association of 0.03967 (bootstrap 95% CI [0.01377, 0.06922]; BH q=0.004253). More frequent feedback is a plausible partial offset to the negative pathways, but causal mediation assumptions are untested.\"\n },\n {\n  \"id\": \"C6\",\n  \"type\": \"moderation\",\n  \"cause\": \"monitoring_intensity\",\n  \"outcome\": \"creative_output\",\n  \"sign\": null,\n  \"moderator\": \"feedback_quality\",\n  \"interaction_sign\": \"positive\",\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.67,\n  \"basis\": [\n   \"data\"\n  ],\n  \"rationale\": \"The interaction is positive (0.2693; BH q=9.629e-22). Monitoring slopes at feedback_quality values -1, 0 and +1 are -0.6397, -0.3705 and -0.1012, supporting attenuation rather than reversal at these values. A causal buffering interpretation depends on feedback_quality's temporal role and adequate confounding control.\"\n }\n]\n```\n\nEvidence presented by the team:\nAnalysis plan: Estimate adjusted monitoring–creativity associations, explore moderation by feedback quality, tenure and manager span, and examine autonomy, trust and feedback as candidate mechanisms using mediator and outcome equations. Treat resource and staffing controls as pre-exposure assumptions; distinguish total-effect specifications from mediator-adjusted direct-effect specifications. Use robust or unit-clustered inference, bootstrap indirect associations, and adjust exploratory tests for multiple comparisons. Report associations without asserting causality or inventing results.\n\nScript:\n```python\nimport numpy as np\nimport pandas as pd\nimport statsmodels.formula.api as smf\nfrom scipy.stats import norm\nfrom statsmodels.stats.multitest import multipletests\n\nx, y = 'monitoring_intensity', 'creative_output'\ncontrols = ['tech_investment', 'unit_budget', 'wellness_program',\n            'job_tenure', 'manager_span']\nmediators = ['perceived_autonomy', 'trust_in_management',\n             'feedback_frequency', 'feedback_quality']\nmoderators = ['feedback_quality', 'job_tenure', 'manager_span']\nd = pd.read_csv('data.csv')\nrequired = [x, y, 'routine_output'] + controls + mediators\nmissing = sorted(set(required) - set(d.columns))\nif missing:\n    raise ValueError('Missing columns: ' + ', '.join(missing))\nn_original = len(d)\nd[required] = d[required].apply(pd.to_numeric, errors='coerce')\nd[required] = d[required].replace([np.inf, -np.inf], np.nan)\nextra = [v for v in ['unit_id', 'year'] if v in d.columns]\nd = d.dropna(subset=required + extra).reset_index(drop=True)\nif len(d) < 50:\n    raise ValueError('Insufficient complete observations for this analysis.')\nclustered = 'unit_id' in d and d['unit_id'].duplicated().any()\nif clustered and d['unit_id'].nunique() < 2:\n    raise ValueError('At least two independent units are required.')\ntime_term = ' + C(year)' if 'year' in d and d['year'].nunique() > 1 else ''\nrhs = x + ' + ' + ' + '.join(controls) + time_term\nprint(f'Complete cases: {len(d)}/{n_original}; inference: '\n      + ('unit-clustered' if clustered else 'HC3'))\nprint('Exploratory observational analysis; coefficients are associations.')\nprint('Controls assumed pre-monitoring: resources, wellness, tenure, span.')\nprint('No mediator controls in total specification; causal timing is unverified.')\nprint('Year effects included when available; no unit fixed effects assumed.')\nif clustered and d['unit_id'].nunique() < 30:\n    print('Caution: few unit clusters; asymptotic inference may be unreliable.')\nrows = []\ndef fit(formula):\n    model = smf.ols(formula, data=d)\n    return (model.fit(cov_type='cluster', cov_kwds={'groups': d['unit_id']})\n            if clustered else model.fit(cov_type='HC3'))\ndef record(label, model, terms):\n    for term in terms:\n        ci = model.conf_int().loc[term]\n        rows.append([label, term, model.params[term], model.bse[term],\n                     model.pvalues[term], ci.iloc[0], ci.iloc[1]])\n\ntotal = fit(y + ' ~ ' + rhs)\nrecord('Total specification', total, [x] + controls)\nprint(f'Creative-output model: adjusted R2={total.rsquared_adj:.3f}')\nreduced = x + ' + ' + ' + '.join(['job_tenure', 'manager_span']) + time_term\nrecord('Resource-control sensitivity', fit(y + ' ~ ' + reduced), [x])\nrecord('Routine-output comparison', fit('routine_output ~ ' + rhs), [x])\nfor z in moderators:\n    formula = y + ' ~ ' + rhs + ('' if z in controls else ' + ' + z)\n    model = fit(formula + ' + ' + x + ':' + z)\n    interaction = x + ':' + z\n    record('Moderation: ' + z, model, [interaction])\n    for value in [-1.0, 0.0, 1.0]:\n        contrast = np.zeros(len(model.params))\n        contrast[model.params.index.get_loc(x)] = 1\n        contrast[model.params.index.get_loc(interaction)] = value\n        test = model.t_test(contrast)\n        ci = np.asarray(test.conf_int()).ravel()\n        rows.append(['Conditional slope', z + '=' + str(value),\n                     np.asarray(test.effect).item(), np.asarray(test.sd).item(),\n                     np.asarray(test.pvalue).item(), ci[0], ci[1]])\n\noutcome = fit(y + ' ~ ' + rhs + ' + ' + ' + '.join(mediators))\nrecord('Direct specification', outcome, [x] + mediators)\na_models = [fit(m + ' ~ ' + rhs) for m in mediators]\nfor m, model in zip(mediators, a_models):\n    record('Mediator equation: ' + m, model, [x])\n# Parallel mediation: all mediators enter the outcome equation together.\nX = np.asarray(total.model.exog)\nM = d[mediators].to_numpy()\nY = d[y].to_numpy()\nZ = np.column_stack([X, M])\nx_index = total.model.exog_names.index(x)\ndef indirect(idx):\n    a = np.linalg.lstsq(X[idx], M[idx], rcond=None)[0][x_index]\n    b = np.linalg.lstsq(Z[idx], Y[idx], rcond=None)[0][-len(mediators):]\n    products = a * b\n    return np.r_[products, products.sum()]\npoint = indirect(np.arange(len(d)))\nrng = np.random.default_rng(20261030)\ngroups = ([np.asarray(v) for v in d.groupby('unit_id').indices.values()]\n          if clustered else None)\nboot = []\nfor _ in range(999):\n    idx = (np.concatenate([groups[j] for j in rng.integers(len(groups), size=len(groups))])\n           if clustered else rng.integers(len(d), size=len(d)))\n    boot.append(indirect(idx))\nboot = np.asarray(boot)\nfor j, name in enumerate(mediators + ['sum of indirect paths']):\n    se = boot[:, j].std(ddof=1)\n    p = 2 * norm.sf(abs(point[j] / se)) if se > 0 else np.nan\n    lo, hi = np.quantile(boot[:, j], [0.025, 0.975])\n    rows.append(['Indirect (bootstrap; normal p)', name, point[j], se, p, lo, hi])\nresults = pd.DataFrame(rows, columns=['model', 'term', 'coef', 'SE', 'p', 'lo95', 'hi95'])\nvalid = np.isfinite(results['p'])\nresults['q_BH'] = np.nan\nresults.loc[valid, 'q_BH'] = multipletests(results.loc[valid, 'p'], method='fdr_bh')[1]\nprint(results.to_string(index=False, float_format=lambda v: f'{v:.4g}'))\nprint('q_BH adjusts all reported tests together; intervals are unadjusted.')\nprint('Indirect intervals are bootstrap percentiles; indirect p-values are normal approximations.')\nprint('Moderation models are separate; slopes are evaluated at moderator indices -1, 0, +1.')\nprint('Feedback quality is explored in alternative moderator and mediator roles.')\nprint('Mediation assumes parallel pathways, correct temporal ordering and no unmeasured confounding.')\nprint('Post-monitoring controls could bias total effects; direct effects require stronger assumptions.')\nprint('Small q-values support conditional associations only; large q-values do not establish no effect.')\n```\n\nOutput:\n```\n     0.23   -0.0238  0.09902    0.2792\n                     Conditional slope                       job_tenure=-1.0    -0.4093   0.0485 3.198e-17   -0.5043  -0.3142 6.797e-17\n                     Conditional slope                        job_tenure=0.0    -0.3716  0.03877 9.169e-22   -0.4476  -0.2957 2.227e-21\n                     Conditional slope                        job_tenure=1.0     -0.334  0.05116 6.641e-11   -0.4343  -0.2337 1.075e-10\n              Moderation: manager_span     monitoring_intensity:manager_span  -0.004235  0.03105    0.8915   -0.0651  0.05663    0.8915\n                     Conditional slope                     manager_span=-1.0    -0.3686  0.04951 9.702e-14   -0.4656  -0.2716 1.833e-13\n                     Conditional slope                      manager_span=0.0    -0.3728  0.03876 6.664e-22   -0.4488  -0.2969 1.743e-21\n                     Conditional slope                      manager_span=1.0    -0.3771  0.04982 3.779e-14   -0.4747  -0.2794 7.558e-14\n                  Direct specification                  monitoring_intensity    -0.0252  0.04171    0.5458    -0.107  0.05656    0.6186\n                  Direct specification                    perceived_autonomy     0.4349  0.03066 1.164e-45    0.3748    0.495 1.979e-44\n                  Direct specification                   trust_in_management     0.3838  0.02896 4.278e-40     0.327   0.4405 2.909e-39\n                  Direct specification                    feedback_frequency     0.0986  0.03186  0.001967   0.03616    0.161  0.002675\n                  Direct specification                      feedback_quality   0.006397  0.03461    0.8533  -0.06143  0.07423    0.8915\n Mediator equation: perceived_autonomy                  monitoring_intensity    -0.5861  0.03072 3.785e-81   -0.6464  -0.5259 1.287e-79\nMediator equation: trust_in_management                  monitoring_intensity    -0.3443  0.03206 6.711e-27   -0.4072  -0.2815 2.535e-26\n Mediator equation: feedback_frequency                  monitoring_intensity     0.4023  0.02992 3.269e-41    0.3437    0.461 2.778e-40\n   Mediator equation: feedback_quality                  monitoring_intensity   -0.03565   0.0307    0.2455  -0.09583  0.02452    0.2878\n        Indirect (bootstrap; normal p)                    perceived_autonomy    -0.2549  0.02224 2.039e-30   -0.2996  -0.2129 1.155e-29\n        Indirect (bootstrap; normal p)                   trust_in_management    -0.1321  0.01531 5.982e-18   -0.1635  -0.1047 1.356e-17\n        Indirect (bootstrap; normal p)                    feedback_frequency    0.03967  0.01348  0.003252   0.01377  0.06922  0.004253\n        Indirect (bootstrap; normal p)                      feedback_quality -0.0002281 0.001669    0.8913 -0.004258 0.003111    0.8915\n        Indirect (bootstrap; normal p)                 sum of indirect paths    -0.3476  0.03044 3.368e-30   -0.4066   -0.287 1.636e-29\nq_BH adjusts all reported tests together; intervals are unadjusted.\nIndirect intervals are bootstrap percentiles; indirect p-values are normal approximations.\nModeration models are separate; slopes are evaluated at moderator indices -1, 0, +1.\nFeedback quality is explored in alternative moderator and mediator roles.\nMediation assumes parallel pathways, correct temporal ordering and no unmeasured confounding.\nPost-monitoring controls could bias total effects; direct effects require stronger assumptions.\nSmall q-values support conditional associations only; large q-values do not establish no effect.\n\n```\n\nAnalyst's findings:\n```json\n[\n {\n  \"claim_id\": \"monitoring_creativity\",\n  \"supported\": true,\n  \"estimate\": -0.3728,\n  \"p_value\": 5.574e-22,\n  \"note\": \"Negative adjusted association in the total specification; 95% CI [-0.4486, -0.2970], BH q=1.579e-21.\"\n },\n {\n  \"claim_id\": \"monitoring_routine\",\n  \"supported\": true,\n  \"estimate\": 0.3552,\n  \"p_value\": 1.575e-28,\n  \"note\": \"Positive adjusted association with routine output; 95% CI [0.2924, 0.4180], q=6.693e-28.\"\n },\n {\n  \"claim_id\": \"feedback_quality_moderation\",\n  \"supported\": true,\n  \"estimate\": 0.2693,\n  \"p_value\": 3.115e-22,\n  \"note\": \"Positive interaction, q=9.629e-22: higher feedback quality attenuates the negative monitoring\\u2013creativity association. Slopes at quality -1, 0 and +1 are -0.6397, -0.3705 and -0.1012; all remain negative and significant after BH adjustment.\"\n },\n {\n  \"claim_id\": \"job_tenure_moderation\",\n  \"supported\": false,\n  \"estimate\": 0.03761,\n  \"p_value\": 0.23,\n  \"note\": \"Interaction unsupported, q=0.2792; 95% CI [-0.0238, 0.09902]. Significant conditional slopes do not establish moderation. This does not establish absence of moderation.\"\n },\n {\n  \"claim_id\": \"manager_span_moderation\",\n  \"supported\": false,\n  \"estimate\": -0.004235,\n  \"p_value\": 0.8915,\n  \"note\": \"Interaction unsupported, q=0.8915; 95% CI [-0.0651, 0.05663]. This does not establish absence of moderation.\"\n },\n {\n  \"claim_id\": \"autonomy_indirect\",\n  \"supported\": true,\n  \"estimate\": -0.2549,\n  \"p_value\": 2.039e-30,\n  \"note\": \"Negative indirect association through perceived_autonomy; bootstrap 95% CI [-0.2996, -0.2129], q=1.155e-29. Monitoring\\u2013autonomy coefficient=-0.5861; mediator-adjusted autonomy\\u2013creativity coefficient=0.4349. Causal mediation remains unverified.\"\n },\n {\n  \"claim_id\": \"trust_indirect\",\n  \"supported\": true,\n  \"estimate\": -0.1321,\n  \"p_value\": 5.982e-18,\n  \"note\": \"Negative indirect association through trust_in_management; bootstrap 95% CI [-0.1635, -0.1047], q=1.356e-17. Constituent coefficients are -0.3443 and 0.3838. Causal mediation remains unverified.\"\n },\n {\n  \"claim_id\": \"feedback_frequency_indirect\",\n  \"supported\": true,\n  \"estimate\": 0.03967,\n  \"p_value\": 0.003252,\n  \"note\": \"Positive indirect association through feedback_frequency; bootstrap 95% CI [0.01377, 0.06922], q=0.004253. Constituent coefficients are 0.4023 and 0.0986. This pathway partially offsets the negative indirect associations.\"\n },\n {\n  \"claim_id\": \"feedback_quality_indirect\",\n  \"supported\": false,\n  \"estimate\": -0.0002281,\n  \"p_value\": 0.8913,\n  \"note\": \"Indirect association unsupported; bootstrap 95% CI [-0.004258, 0.003111], q=0.8915. Evidence for moderation does not imply evidence for mediation.\"\n },\n {\n  \"claim_id\": \"monitoring_direct\",\n  \"supported\": false,\n  \"estimate\": -0.0252,\n  \"p_value\": 0.5458,\n  \"note\": \"A remaining negative association after adjustment for all four mediators is unsupported; 95% CI [-0.1070, 0.05656], q=0.6186. The summed indirect association is -0.3476 (p=3.368e-30; q=1.636e-29). Attenuation does not prove full mediation or zero direct causal effect. Indirect p-values use normal approximations with bootstrap standard errors.\"\n }\n]\n```"
+    }
+   ],
+   "response": {
+    "verdicts": [
+     {
+      "claim_id": "C1",
+      "verdict": "revise",
+      "reason": "The analysis supports a negative adjusted association, not an identified total causal effect. L1 is cited correctly but is also observational. State a negative causal hypothesis conditional on pre-exposure controls and no unmeasured confounding. The claimed robustness across adjustment sets is not visible in the supplied output.",
+      "suggested_confidence": null
+     },
+     {
+      "claim_id": "C2",
+      "verdict": "revise",
+      "reason": "The reported regression tests the positive association. L5 is correctly cited and provides stronger external causal evidence, but transfer from call centers remains uncertain and this regression does not identify causality. Present a provisional causal hypothesis; retain routine_output only as a secondary outcome relevant to the creative_output question.",
+      "suggested_confidence": null
+     },
+     {
+      "claim_id": "C3",
+      "verdict": "revise",
+      "reason": "The negative coefficient product and bootstrap interval support statistical mediation through perceived_autonomy. L2 and L3 are correctly cited. Causal mediation requires unverified temporal ordering and confounding assumptions; correlated or sequential mediators undermine the parallel-path interpretation. The outcome equation also omits the reported monitoring_intensity-by-feedback_quality interaction. Recast as an indirect association pending a coherent mediation model.",
+      "suggested_confidence": null
+     },
+     {
+      "claim_id": "C4",
+      "verdict": "revise",
+      "reason": "The negative indirect association through trust_in_management is tested and supported. It does not establish that monitoring undermines trust: management practices or prior creative_output could affect both. Conditioning on other potentially sequential mediators and omitting the supported interaction further limit interpretation. Retain as a candidate mechanism, not an established causal pathway.",
+      "suggested_confidence": null
+     },
+     {
+      "claim_id": "C5",
+      "verdict": "revise",
+      "reason": "The positive indirect association through feedback_frequency is supported, including after the reported BH adjustment. Calling it a causal offset requires temporal ordering and mediator–outcome confounding control that are absent. Feedback may respond to performance, and conditioning on feedback_quality may alter the pathway being estimated. Describe an offset within the fitted statistical decomposition only.",
+      "suggested_confidence": null
+     },
+     {
+      "claim_id": "C6",
+      "verdict": "revise",
+      "reason": "The reported interaction tests and supports attenuation of the monitoring_intensity–creative_output association as feedback_quality increases; the stated slopes correctly indicate attenuation without reversal at the evaluated values. Causal buffering is unestablished because feedback_quality's timing and confounding are unresolved. State associational moderation unless a pre-exposure moderator and adequate identification can be justified.",
+      "suggested_confidence": null
+     }
+    ],
+    "concerns": "All six claims have relevant statistical tests; none identifies a causal effect in this setting. The rationales acknowledge this, but the causal claim labels still overstate the evidence. Resource and staffing controls may be consequences of monitoring; persistent unit differences and reverse causation remain plausible. The truncated output omits sample retention, clustering status, and several headline estimates, which are available only in the analyst's summary. Unit-year dependence cannot be assessed without unit identifiers. The supplied evidence does not calibrate numerical probabilities of causal truth, so replacement confidence values are left unspecified. All cited literature IDs match their stated uses.",
+    "suggested_additional_analyses": [
+     "Provide complete output, retained sample size, unit and year coverage, cluster counts, and all adjustment-set sensitivity estimates.",
+     "Specify temporal ordering and a causal diagram covering resources, staffing, feedback, autonomy, and trust; justify each adjustment variable.",
+     "If longitudinal identifiers exist, examine within-unit estimates with year effects and unit-clustered inference, while assessing time-varying confounding and reverse causation.",
+     "Re-estimate mediation with the monitoring_intensity-by-feedback_quality interaction and an explicit choice of feedback_quality's causal role; assess sequential mediator structures and sensitivity to mediator–outcome confounding.",
+     "Check interaction support across the observed predictor distribution and sensitivity to nonlinear main effects and influential observations."
+    ]
+   },
+   "raw": null,
+   "cached": false,
+   "latency_s": 61.26,
+   "usage": {
+    "total_tokens": 8735
+   }
+  },
+  {
+   "step": 7,
+   "role": "synthesizer",
+   "model": "gpt-6-astra",
+   "messages": [
+    {
+     "role": "system",
+     "content": "You are the lead of a research team and write its final report: a short theory summary, a set of final causal claims with calibrated confidence and evidential basis, and limitations. Integrate the theorist's proposal, the analyst's evidence and (if present) the critic's review. Keep a claim only if you can defend it with the evidence in front of you; drop or re-sign claims the data contradict; lower confidence where support is thin. Return JSON only.\n\nRules for claims:\n- Use the exact variable names from the codebook (snake_case). Never invent variables.\n- type \"effect\": `sign` is \"positive\", \"negative\" or \"none\" (no causal effect). Leave moderator/mediator fields null.\n- type \"moderation\": `moderator` names the moderating variable; `interaction_sign` says whether the effect of `cause` on\n  `outcome` becomes more positive (\"positive\") or more negative (\"negative\") as the moderator increases.\n- type \"mediation\": `mediator` names the mechanism variable; `indirect_sign` may be given or left null.\n- `confidence` is your honest probability (0 to 1) that the claim is true in this setting. Do not inflate it.\n- `basis` lists the evidence: \"data\" and/or \"literature:L<k>\" entries. Cite only literature IDs that actually exist in the brief\n  and only for the relation that abstract is about.\n- Prefer fewer, well-supported claims to many speculative ones (at most 10).\n\nGovernance: the critic has veto power. Claims the critic rejected must not appear in the final report; claims marked 'revise' may appear only in the revised form the critic asked for."
+    },
+    {
+     "role": "user",
+     "content": "# Research brief\n\n**Setting.** Operating units of a large knowledge-intensive services firm.\n\n**Research question.** What determines creative output in these units, and in particular how does the intensity of electronic performance monitoring affect creative output, through which mechanisms, and under what conditions?\n\n**Data.** `data.csv` with N = 1200 observations at the unit-year level. See the codebook for variables.\n\n**Prior literature available to the team** (summaries of earlier studies in comparable settings; cite them by ID):\n\n- **[L1]** Multi-level study of 310 units in a financial services firm. Higher intensity of electronic performance monitoring of employees in the unit was associated with lower number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized b = -0.16, p < .01). Monitoring is argued to crowd out intrinsic motivation and exploratory behavior.\n- **[L2]** Three-wave survey of 1,480 employees in 120 units. Higher intensity of electronic performance monitoring of employees in the unit was associated with lower employees' reported discretion over how they do their work (standardized b = -0.32, p < .01).\n- **[L3]** Survey of 204 R&D units with structural equation modeling. The effect of intensity of electronic performance monitoring of employees in the unit on number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel was statistically mediated by employees' reported discretion over how they do their work (indirect effect significant at p < .05).\n- **[L4]** Cross-sectional study of 890 units across 14 firms. Higher scope of employee wellness programs offered by the unit was associated with higher number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized b = +0.32, p < .01). The authors argue that well-being frees cognitive resources for creative work.\n- **[L5]** Natural experiment around the staggered rollout of a monitoring system in 62 call centers. Higher intensity of electronic performance monitoring of employees in the unit was associated with higher volume of standard tasks completed per employee (standardized b = +0.25, p < .01).\n- **[L6]** Archival study of 2,100 supervisor-unit observations. Units with higher number of direct reports per supervisor showed no significant difference in number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized b = +0.02, n.s.).\n- **[L7]** Panel of 150 units over six years. Higher average employee tenure in the unit was associated with higher number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized b = +0.18, p < .01).\n\n**Deliverable.** A set of causal claims about what determines the focal outcome, each stated with the exact variable names in the codebook, a calibrated confidence in [0, 1], and its evidential basis (data analysis, literature IDs, or both). Claims may assert positive, negative or no effects, moderation (whether the effect of a cause on an outcome becomes more positive or more negative as a moderator increases), or mediation (a cause acting on an outcome through a mediator).\n\n\n# Codebook: monitoring-orthodox-s1\n\nSetting: operating units of a large knowledge-intensive services firm. Unit of observation: unit-year. N = 1200.\n\nAll variables are standardized indices (mean ~0, SD ~1); higher values mean more of the construct.\n\n| variable | description |\n|---|---|\n| `monitoring_intensity` | Intensity of electronic performance monitoring of employees in the unit (standardized index) |\n| `creative_output` | Number and quality of novel solutions and process improvements generated by the unit, judged by an expert panel (standardized index) |\n| `routine_output` | Volume of standard tasks completed per employee (standardized index) |\n| `perceived_autonomy` | Employees' reported discretion over how they do their work (standardized index) |\n| `trust_in_management` | Employees' reported trust in unit management (standardized index) |\n| `feedback_frequency` | Frequency of performance feedback conversations between supervisors and employees (standardized index) |\n| `feedback_quality` | Developmental quality of feedback, rated by trained observers (standardized index) |\n| `tech_investment` | Unit spending on workplace technology and analytics (standardized index) |\n| `unit_budget` | Total discretionary unit budget (standardized index) |\n| `wellness_program` | Scope of employee wellness programs offered by the unit (standardized index) |\n| `job_tenure` | Average employee tenure in the unit (standardized index) |\n| `manager_span` | Number of direct reports per supervisor (standardized index) |\n\n\nTheorist's proposal:\n```json\n{\n \"theory_summary\": \"Electronic monitoring shifts effort toward measurable, standard tasks and away from exploration. Its predicted negative total effect on creative_output combines negative pathways through perceived_autonomy and trust_in_management with a smaller positive pathway through feedback_frequency. Higher feedback_quality makes monitoring more useful for learning and therefore weakens its creative cost. Resources also matter: tech_investment and unit_budget may enable experimentation while supporting monitoring, potentially masking part of monitoring's negative relationship with creativity. This account extends L1–L3 by distinguishing harmful discretion and trust pathways from helpful feedback. All causal claims below are provisional interpretations of the supplied observational report.\",\n \"claims\": [\n  {\n   \"id\": \"C1\",\n   \"type\": \"effect\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": \"negative\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.8,\n   \"basis\": [\n    \"data\",\n    \"literature:L1\"\n   ],\n   \"rationale\": \"Monitoring is predicted to reduce creative_output on average by discouraging exploration. The negative association persists across reported specifications and agrees with L1. Its strengthening from -0.2397 to -0.3728 after resource/wellness adjustment is compatible with masking by resources, but does not establish that explanation or identify the total causal effect.\"\n  },\n  {\n   \"id\": \"C2\",\n   \"type\": \"effect\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"routine_output\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.82,\n   \"basis\": [\n    \"data\",\n    \"literature:L5\"\n   ],\n   \"rationale\": \"Monitoring clarifies task expectations and encourages completion of measurable work. The adjusted association of 0.3552 agrees with L5's natural-experiment evidence, although call-center results may transfer imperfectly to knowledge-intensive services.\"\n  },\n  {\n   \"id\": \"C3\",\n   \"type\": \"mediation\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"perceived_autonomy\",\n   \"indirect_sign\": \"negative\",\n   \"confidence\": 0.74,\n   \"basis\": [\n    \"data\",\n    \"literature:L2\",\n    \"literature:L3\"\n   ],\n   \"rationale\": \"Monitoring is hypothesized to reduce perceived_autonomy, restricting employees' willingness and ability to experiment. L2 supports the first link, and L3 supports statistical mediation. The reported negative indirect association is consistent with this mechanism, but neither statistical mediation nor temporal surveys alone establish it causally.\"\n  },\n  {\n   \"id\": \"C4\",\n   \"type\": \"mediation\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"trust_in_management\",\n   \"indirect_sign\": \"negative\",\n   \"confidence\": 0.62,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Monitoring may signal managerial distrust, reducing trust_in_management and willingness to pursue uncertain ideas. The negative indirect association supports this possibility. The proposed directions of the individual links require verification because the report supplies only the indirect sign.\"\n  },\n  {\n   \"id\": \"C5\",\n   \"type\": \"mediation\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"feedback_frequency\",\n   \"indirect_sign\": \"positive\",\n   \"confidence\": 0.59,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Monitoring may generate more feedback conversations, creating opportunities to identify problems and refine ideas. This would partially offset its negative pathways. The smaller positive indirect association is consistent with this account, but individual path signs and causal ordering remain unverified.\"\n  },\n  {\n   \"id\": \"C6\",\n   \"type\": \"moderation\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": null,\n   \"moderator\": \"feedback_quality\",\n   \"interaction_sign\": \"positive\",\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.69,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Developmental feedback helps employees use monitoring information to learn, making its effect on creative_output less negative as feedback_quality increases. The positive interaction supports attenuation; it does not establish that monitoring becomes beneficial at observed feedback_quality levels.\"\n  },\n  {\n   \"id\": \"C7\",\n   \"type\": \"effect\",\n   \"cause\": \"tech_investment\",\n   \"outcome\": \"creative_output\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.61,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Technology may expand access to information and tools for experimentation. The positive conditional coefficient of 0.2583 is consistent with this account, but investment could also follow prior creativity or reflect shared resource advantages. The reported control coefficient does not identify a total causal effect.\"\n  },\n  {\n   \"id\": \"C8\",\n   \"type\": \"effect\",\n   \"cause\": \"unit_budget\",\n   \"outcome\": \"creative_output\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.64,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Discretionary resources may fund experimentation and permit uncertain projects. The positive conditional coefficient of 0.3131 supports this interpretation, but successful units may receive larger budgets. If unit_budget funds tech_investment, controlling for tech_investment excludes part of the budget's total effect.\"\n  }\n ],\n \"proposed_tests\": [\n  \"Estimate the total monitoring_intensity effect on later creative_output and routine_output using a randomized unit-level rollout if feasible. Otherwise, evaluate plausibly exogenous rollout timing with an event-study design, checking pretrends and anticipation. If repeated unit identifiers are available, use unit and year effects and inference clustered at the assignment or unit level. This distinguishes monitoring effects from monitoring adopted in response to declining performance.\",\n  \"Measure monitoring_intensity before perceived_autonomy, trust_in_management, and feedback_frequency, and measure creative_output subsequently. Report both component paths for each indirect effect. Compare parallel and sequential mediator models, assess mediator–outcome confounding sensitivity, and bootstrap at the unit level. Temporal separation improves the test but does not alone identify causal mediation.\",\n  \"Use a factorial experiment varying monitoring_intensity and a developmental-feedback intervention targeting feedback_quality. Test their interaction on creative_output. In observational analyses, prioritize pre-monitoring feedback_quality, assess overlap and nonlinearities, and report monitoring slopes with confidence intervals across its observed range. This distinguishes a buffering condition from feedback_quality that changes in response to monitoring.\",\n  \"Vary feedback_frequency independently of feedback_quality where feasible. Test whether additional conversations improve creative_output at comparable quality. This discriminates a frequency mechanism from frequency serving as a proxy for developmental feedback.\",\n  \"Establish the timing of unit_budget, tech_investment, and wellness_program before choosing adjustment sets. Compare nested specifications on the same observations and assess whether pre-monitoring resources predict both monitoring_intensity and creative_output. Use plausibly exogenous budget or technology allocations to test resource effects, estimating unit_budget's total effect without controlling for downstream tech_investment.\",\n  \"Test wellness_program using pre-program outcomes and resources, and test lagged job_tenure while allowing nonlinear associations. For manager_span, use an equivalence test with a prespecified substantively negligible effect range. These analyses assess whether L4, L6, and L7 transfer to this setting without treating significance or nonsignificance as causal proof.\",\n  \"Measure creative_output and routine_output over multiple follow-up periods after monitoring changes. Immediate routine gains accompanied by delayed creative losses would support the proposed shift toward measurable work; improvements in both outcomes would favor a broader learning explanation.\"\n ],\n \"limitations\": \"No raw data were inspected; evidence comes from the supplied analyst report and literature summaries. Confidence values concern causal claims, not the analyst's confidence in associations. Temporal ordering, selection into monitoring, and unmeasured confounding remain unresolved. HC3 inference does not address within-unit dependence if units recur across years. Mediators may influence one another, undermining a simple parallel-path interpretation. Resource adjustment could remove confounding, block mediation, or introduce bias depending on timing. L4's cross-sectional wellness association may reflect resource advantages rather than a wellness effect; no setting-specific wellness result was reported. L6's nonsignificant result does not establish a zero manager_span effect. L7 motivates investigating job_tenure, but does not resolve selection or establish transferability. The reported adjusted R² of 0.139 leaves substantial variation unexplained.\"\n}\n```\n\nAnalyst's report:\n```json\n{\n \"plan\": \"Estimate adjusted monitoring–creativity associations, explore moderation by feedback quality, tenure and manager span, and examine autonomy, trust and feedback as candidate mechanisms using mediator and outcome equations. Treat resource and staffing controls as pre-exposure assumptions; distinguish total-effect specifications from mediator-adjusted direct-effect specifications. Use robust or unit-clustered inference, bootstrap indirect associations, and adjust exploratory tests for multiple comparisons. Report associations without asserting causality or inventing results.\",\n \"data_summary\": \"All 1,200 unit-years were complete. Models used HC3 inference; the total creative-output specification had adjusted R²=0.139. No explicit numbered hypotheses were supplied, so findings address the relationships in the analysis plan. Support refers to observational associations, not established causal effects. Controls are assumed pre-monitoring; temporal ordering and unmeasured confounding remain unresolved. Adding resource/wellness controls strengthened the negative monitoring coefficient from -0.2397 to -0.3728 without reversing its sign, consistent with possible suppression or confounding. No bivariate estimate was reported, so bivariate-to-controlled sign changes cannot be assessed. Confidence values below concern associations within this setting.\",\n \"findings\": [\n  {\n   \"claim_id\": \"monitoring_creativity\",\n   \"supported\": true,\n   \"estimate\": -0.3728,\n   \"p_value\": 5.574e-22,\n   \"note\": \"Negative adjusted association in the total specification; 95% CI [-0.4486, -0.2970], BH q=1.579e-21.\"\n  },\n  {\n   \"claim_id\": \"monitoring_routine\",\n   \"supported\": true,\n   \"estimate\": 0.3552,\n   \"p_value\": 1.575e-28,\n   \"note\": \"Positive adjusted association with routine output; 95% CI [0.2924, 0.4180], q=6.693e-28.\"\n  },\n  {\n   \"claim_id\": \"feedback_quality_moderation\",\n   \"supported\": true,\n   \"estimate\": 0.2693,\n   \"p_value\": 3.115e-22,\n   \"note\": \"Positive interaction, q=9.629e-22: higher feedback quality attenuates the negative monitoring–creativity association. Slopes at quality -1, 0 and +1 are -0.6397, -0.3705 and -0.1012; all remain negative and significant after BH adjustment.\"\n  },\n  {\n   \"claim_id\": \"job_tenure_moderation\",\n   \"supported\": false,\n   \"estimate\": 0.03761,\n   \"p_value\": 0.23,\n   \"note\": \"Interaction unsupported, q=0.2792; 95% CI [-0.0238, 0.09902]. Significant conditional slopes do not establish moderation. This does not establish absence of moderation.\"\n  },\n  {\n   \"claim_id\": \"manager_span_moderation\",\n   \"supported\": false,\n   \"estimate\": -0.004235,\n   \"p_value\": 0.8915,\n   \"note\": \"Interaction unsupported, q=0.8915; 95% CI [-0.0651, 0.05663]. This does not establish absence of moderation.\"\n  },\n  {\n   \"claim_id\": \"autonomy_indirect\",\n   \"supported\": true,\n   \"estimate\": -0.2549,\n   \"p_value\": 2.039e-30,\n   \"note\": \"Negative indirect association through perceived_autonomy; bootstrap 95% CI [-0.2996, -0.2129], q=1.155e-29. Monitoring–autonomy coefficient=-0.5861; mediator-adjusted autonomy–creativity coefficient=0.4349. Causal mediation remains unverified.\"\n  },\n  {\n   \"claim_id\": \"trust_indirect\",\n   \"supported\": true,\n   \"estimate\": -0.1321,\n   \"p_value\": 5.982e-18,\n   \"note\": \"Negative indirect association through trust_in_management; bootstrap 95% CI [-0.1635, -0.1047], q=1.356e-17. Constituent coefficients are -0.3443 and 0.3838. Causal mediation remains unverified.\"\n  },\n  {\n   \"claim_id\": \"feedback_frequency_indirect\",\n   \"supported\": true,\n   \"estimate\": 0.03967,\n   \"p_value\": 0.003252,\n   \"note\": \"Positive indirect association through feedback_frequency; bootstrap 95% CI [0.01377, 0.06922], q=0.004253. Constituent coefficients are 0.4023 and 0.0986. This pathway partially offsets the negative indirect associations.\"\n  },\n  {\n   \"claim_id\": \"feedback_quality_indirect\",\n   \"supported\": false,\n   \"estimate\": -0.0002281,\n   \"p_value\": 0.8913,\n   \"note\": \"Indirect association unsupported; bootstrap 95% CI [-0.004258, 0.003111], q=0.8915. Evidence for moderation does not imply evidence for mediation.\"\n  },\n  {\n   \"claim_id\": \"monitoring_direct\",\n   \"supported\": false,\n   \"estimate\": -0.0252,\n   \"p_value\": 0.5458,\n   \"note\": \"A remaining negative association after adjustment for all four mediators is unsupported; 95% CI [-0.1070, 0.05656], q=0.6186. The summed indirect association is -0.3476 (p=3.368e-30; q=1.636e-29). Attenuation does not prove full mediation or zero direct causal effect. Indirect p-values use normal approximations with bootstrap standard errors.\"\n  }\n ],\n \"claims\": [\n  {\n   \"id\": \"monitoring_creativity\",\n   \"type\": \"effect\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": \"negative\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.98,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Strong negative conditional association, retained with and without resource/wellness controls. The effect label represents an association; causal identification is unavailable.\"\n  },\n  {\n   \"id\": \"monitoring_routine\",\n   \"type\": \"effect\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"routine_output\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.98,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Positive adjusted association of 0.3552, robust to the reported multiple-testing adjustment; causality is not established.\"\n  },\n  {\n   \"id\": \"feedback_quality_moderation\",\n   \"type\": \"moderation\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": null,\n   \"moderator\": \"feedback_quality\",\n   \"interaction_sign\": \"positive\",\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.96,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The positive interaction indicates a less negative monitoring association at higher feedback quality. Feedback quality's temporal role is unresolved, limiting causal interpretation.\"\n  },\n  {\n   \"id\": \"autonomy_indirect\",\n   \"type\": \"mediation\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"perceived_autonomy\",\n   \"indirect_sign\": \"negative\",\n   \"confidence\": 0.93,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The parallel-mediator model supports a negative indirect association, with a bootstrap interval excluding zero. Confidence concerns this statistical pathway, not a verified causal mechanism.\"\n  },\n  {\n   \"id\": \"trust_indirect\",\n   \"type\": \"mediation\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"trust_in_management\",\n   \"indirect_sign\": \"negative\",\n   \"confidence\": 0.92,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The negative indirect association survives BH adjustment and has a bootstrap interval excluding zero. Temporal ordering and mediator–outcome confounding remain unverified.\"\n  },\n  {\n   \"id\": \"feedback_frequency_indirect\",\n   \"type\": \"mediation\",\n   \"cause\": \"monitoring_intensity\",\n   \"outcome\": \"creative_output\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"feedback_frequency\",\n   \"indirect_sign\": \"positive\",\n   \"confidence\": 0.85,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"A smaller positive indirect association survives BH adjustment and partially offsets the negative pathways. Evidence supports a statistical pathway rather than established causal mediation.\"\n  },\n  {\n   \"id\": \"technology_creativity\",\n   \"type\": \"effect\",\n   \"cause\": \"tech_investment\",\n   \"outcome\": \"creative_output\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.94,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Positive conditional association in the total specification: coefficient=0.2583, p=3.545e-09, q=5.479e-09. A control-variable coefficient does not identify a causal effect.\"\n  },\n  {\n   \"id\": \"budget_creativity\",\n   \"type\": \"effect\",\n   \"cause\": \"unit_budget\",\n   \"outcome\": \"creative_output\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.95,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Positive conditional association in the total specification: coefficient=0.3131, p=8.532e-13, q=1.45e-12. A control-variable coefficient does not identify a causal effect.\"\n  }\n ],\n \"output_excerpt\": \"     0.23   -0.0238  0.09902    0.2792\\n                     Conditional slope                       job_tenure=-1.0    -0.4093   0.0485 3.198e-17   -0.5043  -0.3142 6.797e-17\\n                     Conditional slope                        job_tenure=0.0    -0.3716  0.03877 9.169e-22   -0.4476  -0.2957 2.227e-21\\n                     Conditional slope                        job_tenure=1.0     -0.334  0.05116 6.641e-11   -0.4343  -0.2337 1.075e-10\\n              Moderation: manager_span     monitoring_intensity:manager_span  -0.004235  0.03105    0.8915   -0.0651  0.05663    0.8915\\n                     Conditional slope                     manager_span=-1.0    -0.3686  0.04951 9.702e-14   -0.4656  -0.2716 1.833e-13\\n                     Conditional slope                      manager_span=0.0    -0.3728  0.03876 6.664e-22   -0.4488  -0.2969 1.743e-21\\n                     Conditional slope                      manager_span=1.0    -0.3771  0.04982 3.779e-14   -0.4747  -0.2794 7.558e-14\\n                  Direct specification                  monitoring_intensity    -0.0252  0.04171    0.5458    -0.107  0.05656    0.6186\\n                  Direct specification                    perceived_autonomy     0.4349  0.03066 1.164e-45    0.3748    0.495 1.979e-44\\n                  Direct specification                   trust_in_management     0.3838  0.02896 4.278e-40     0.327   0.4405 2.909e-39\\n                  Direct specification                    feedback_frequency     0.0986  0.03186  0.001967   0.03616    0.161  0.002675\\n                  Direct specification                      feedback_quality   0.006397  0.03461    0.8533  -0.06143  0.07423    0.8915\\n Mediator equation: perceived_autonomy                  monitoring_intensity    -0.5861  0.03072 3.785e-81   -0.6464  -0.5259 1.287e-79\\nMediator equation: trust_in_management                  monitoring_intensity    -0.3443  0.03206 6.711e-27   -0.4072  -0.2815 2.535e-26\\n Mediator equation: feedback_frequency                  monitoring_intensity     0.4023  0.02992 3.269e-41    0.3437    0.461 2.778e-40\\n   Mediator equation: feedback_quality                  monitoring_intensity   -0.03565   0.0307    0.2455  -0.09583  0.02452    0.2878\\n        Indirect (bootstrap; normal p)                    perceived_autonomy    -0.2549  0.02224 2.039e-30   -0.2996  -0.2129 1.155e-29\\n        Indirect (bootstrap; normal p)                   trust_in_management    -0.1321  0.01531 5.982e-18   -0.1635  -0.1047 1.356e-17\\n        Indirect (bootstrap; normal p)                    feedback_frequency    0.03967  0.01348  0.003252   0.01377  0.06922  0.004253\\n        Indirect (bootstrap; normal p)                      feedback_quality -0.0002281 0.001669    0.8913 -0.004258 0.003111    0.8915\\n        Indirect (bootstrap; normal p)                 sum of indirect paths    -0.3476  0.03044 3.368e-30   -0.4066   -0.287 1.636e-29\\nq_BH adjusts all reported tests together; intervals are unadjusted.\\nIndirect intervals are bootstrap percentiles; indirect p-values are normal approximations.\\nModeration models are separate; slopes are evaluated at moderator indices -1, 0, +1.\\nFeedback quality is explored in alternative moderator and mediator roles.\\nMediation assumes parallel pathways, correct temporal ordering and no unmeasured confounding.\\nPost-monitoring controls could bias total effects; direct effects require stronger assumptions.\\nSmall q-values support conditional associations only; large q-values do not establish no effect.\\n\"\n}\n```\n\nCritic's review:\n```json\n{\n \"verdicts\": [\n  {\n   \"claim_id\": \"C1\",\n   \"verdict\": \"revise\",\n   \"reason\": \"The analysis supports a negative adjusted association, not an identified total causal effect. L1 is cited correctly but is also observational. State a negative causal hypothesis conditional on pre-exposure controls and no unmeasured confounding. The claimed robustness across adjustment sets is not visible in the supplied output.\",\n   \"suggested_confidence\": null\n  },\n  {\n   \"claim_id\": \"C2\",\n   \"verdict\": \"revise\",\n   \"reason\": \"The reported regression tests the positive association. L5 is correctly cited and provides stronger external causal evidence, but transfer from call centers remains uncertain and this regression does not identify causality. Present a provisional causal hypothesis; retain routine_output only as a secondary outcome relevant to the creative_output question.\",\n   \"suggested_confidence\": null\n  },\n  {\n   \"claim_id\": \"C3\",\n   \"verdict\": \"revise\",\n   \"reason\": \"The negative coefficient product and bootstrap interval support statistical mediation through perceived_autonomy. L2 and L3 are correctly cited. Causal mediation requires unverified temporal ordering and confounding assumptions; correlated or sequential mediators undermine the parallel-path interpretation. The outcome equation also omits the reported monitoring_intensity-by-feedback_quality interaction. Recast as an indirect association pending a coherent mediation model.\",\n   \"suggested_confidence\": null\n  },\n  {\n   \"claim_id\": \"C4\",\n   \"verdict\": \"revise\",\n   \"reason\": \"The negative indirect association through trust_in_management is tested and supported. It does not establish that monitoring undermines trust: management practices or prior creative_output could affect both. Conditioning on other potentially sequential mediators and omitting the supported interaction further limit interpretation. Retain as a candidate mechanism, not an established causal pathway.\",\n   \"suggested_confidence\": null\n  },\n  {\n   \"claim_id\": \"C5\",\n   \"verdict\": \"revise\",\n   \"reason\": \"The positive indirect association through feedback_frequency is supported, including after the reported BH adjustment. Calling it a causal offset requires temporal ordering and mediator–outcome confounding control that are absent. Feedback may respond to performance, and conditioning on feedback_quality may alter the pathway being estimated. Describe an offset within the fitted statistical decomposition only.\",\n   \"suggested_confidence\": null\n  },\n  {\n   \"claim_id\": \"C6\",\n   \"verdict\": \"revise\",\n   \"reason\": \"The reported interaction tests and supports attenuation of the monitoring_intensity–creative_output association as feedback_quality increases; the stated slopes correctly indicate attenuation without reversal at the evaluated values. Causal buffering is unestablished because feedback_quality's timing and confounding are unresolved. State associational moderation unless a pre-exposure moderator and adequate identification can be justified.\",\n   \"suggested_confidence\": null\n  }\n ],\n \"concerns\": \"All six claims have relevant statistical tests; none identifies a causal effect in this setting. The rationales acknowledge this, but the causal claim labels still overstate the evidence. Resource and staffing controls may be consequences of monitoring; persistent unit differences and reverse causation remain plausible. The truncated output omits sample retention, clustering status, and several headline estimates, which are available only in the analyst's summary. Unit-year dependence cannot be assessed without unit identifiers. The supplied evidence does not calibrate numerical probabilities of causal truth, so replacement confidence values are left unspecified. All cited literature IDs match their stated uses.\",\n \"suggested_additional_analyses\": [\n  \"Provide complete output, retained sample size, unit and year coverage, cluster counts, and all adjustment-set sensitivity estimates.\",\n  \"Specify temporal ordering and a causal diagram covering resources, staffing, feedback, autonomy, and trust; justify each adjustment variable.\",\n  \"If longitudinal identifiers exist, examine within-unit estimates with year effects and unit-clustered inference, while assessing time-varying confounding and reverse causation.\",\n  \"Re-estimate mediation with the monitoring_intensity-by-feedback_quality interaction and an explicit choice of feedback_quality's causal role; assess sequential mediator structures and sensitivity to mediator–outcome confounding.\",\n  \"Check interaction support across the observed predictor distribution and sensitivity to nonlinear main effects and influential observations.\"\n ]\n}\n```\n\nYour earlier draft of the final claims:\n```json\n[\n {\n  \"id\": \"C1\",\n  \"type\": \"effect\",\n  \"cause\": \"monitoring_intensity\",\n  \"outcome\": \"creative_output\",\n  \"sign\": \"negative\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.78,\n  \"basis\": [\n   \"data\",\n   \"literature:L1\"\n  ],\n  \"rationale\": \"The adjusted association is -0.3728 (95% CI [-0.4486, -0.2970]) and remains negative across reported adjustment sets. Agreement with L1 supports a negative total-effect hypothesis, although selection into monitoring and unmeasured confounding remain unresolved.\"\n },\n {\n  \"id\": \"C2\",\n  \"type\": \"effect\",\n  \"cause\": \"monitoring_intensity\",\n  \"outcome\": \"routine_output\",\n  \"sign\": \"positive\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.82,\n  \"basis\": [\n   \"data\",\n   \"literature:L5\"\n  ],\n  \"rationale\": \"The adjusted association is 0.3552 (95% CI [0.2924, 0.4180]). L5's natural experiment provides additional support for a positive causal effect, with uncertainty about transfer from call centers to this setting.\"\n },\n {\n  \"id\": \"C3\",\n  \"type\": \"mediation\",\n  \"cause\": \"monitoring_intensity\",\n  \"outcome\": \"creative_output\",\n  \"sign\": null,\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": \"perceived_autonomy\",\n  \"indirect_sign\": \"negative\",\n  \"confidence\": 0.72,\n  \"basis\": [\n   \"data\",\n   \"literature:L2\",\n   \"literature:L3\"\n  ],\n  \"rationale\": \"Monitoring predicts lower perceived_autonomy (-0.5861), which predicts higher creative_output conditional on the other mediators (0.4349). The indirect association is -0.2549 (bootstrap 95% CI [-0.2996, -0.2129]). L2 supports the first link and L3 supports statistical mediation; causal ordering and mediator\\u2013outcome confounding remain unverified.\"\n },\n {\n  \"id\": \"C4\",\n  \"type\": \"mediation\",\n  \"cause\": \"monitoring_intensity\",\n  \"outcome\": \"creative_output\",\n  \"sign\": null,\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": \"trust_in_management\",\n  \"indirect_sign\": \"negative\",\n  \"confidence\": 0.62,\n  \"basis\": [\n   \"data\"\n  ],\n  \"rationale\": \"Constituent coefficients of -0.3443 and 0.3838 support the proposed negative pathway. The indirect association is -0.1321 (bootstrap 95% CI [-0.1635, -0.1047]). This is consistent with monitoring undermining trust, but does not establish that mechanism causally.\"\n },\n {\n  \"id\": \"C5\",\n  \"type\": \"mediation\",\n  \"cause\": \"monitoring_intensity\",\n  \"outcome\": \"creative_output\",\n  \"sign\": null,\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": \"feedback_frequency\",\n  \"indirect_sign\": \"positive\",\n  \"confidence\": 0.57,\n  \"basis\": [\n   \"data\"\n  ],\n  \"rationale\": \"Positive constituent coefficients of 0.4023 and 0.0986 yield an indirect association of 0.03967 (bootstrap 95% CI [0.01377, 0.06922]; BH q=0.004253). More frequent feedback is a plausible partial offset to the negative pathways, but causal mediation assumptions are untested.\"\n },\n {\n  \"id\": \"C6\",\n  \"type\": \"moderation\",\n  \"cause\": \"monitoring_intensity\",\n  \"outcome\": \"creative_output\",\n  \"sign\": null,\n  \"moderator\": \"feedback_quality\",\n  \"interaction_sign\": \"positive\",\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.67,\n  \"basis\": [\n   \"data\"\n  ],\n  \"rationale\": \"The interaction is positive (0.2693; BH q=9.629e-22). Monitoring slopes at feedback_quality values -1, 0 and +1 are -0.6397, -0.3705 and -0.1012, supporting attenuation rather than reversal at these values. A causal buffering interpretation depends on feedback_quality's temporal role and adequate confounding control.\"\n }\n]\n```"
+    }
+   ],
+   "response": {
+    "theory_summary": "Monitoring may shift activity toward routine tasks while reducing creative output. The evidence supports provisional negative and positive causal hypotheses for creative_output and routine_output, respectively. Statistical indirect associations identify perceived_autonomy and trust_in_management as candidate mechanisms, with feedback_frequency providing a smaller positive offset within the fitted decomposition. Higher feedback_quality attenuates the negative monitoring–creativity association. These mechanisms and moderation remain associational; no causal effect is identified in this setting.",
+    "claims": [
+     {
+      "id": "C1",
+      "type": "effect",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": "negative",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.7,
+      "basis": [
+       "data",
+       "literature:L1"
+      ],
+      "rationale": "Retained as a provisional negative causal hypothesis conditional on controls being pre-exposure, adequate model specification, and no unmeasured confounding. The reported adjusted association is -0.3728 (95% CI [-0.4486, -0.2970]); L1 provides consistent observational evidence. Neither source identifies a total causal effect."
+     },
+     {
+      "id": "C2",
+      "type": "effect",
+      "cause": "monitoring_intensity",
+      "outcome": "routine_output",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.78,
+      "basis": [
+       "data",
+       "literature:L5"
+      ],
+      "rationale": "Retained as a provisional causal hypothesis for a secondary outcome relevant to the proposed shift toward routine tasks. The adjusted association is 0.3552 (95% CI [0.2924, 0.4180]). L5 supplies stronger external evidence from a natural experiment, but transfer from call centers is uncertain and the current regression does not identify causality."
+     },
+     {
+      "id": "C3",
+      "type": "mediation",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "perceived_autonomy",
+      "indirect_sign": "negative",
+      "confidence": 0.6,
+      "basis": [
+       "data",
+       "literature:L2",
+       "literature:L3"
+      ],
+      "rationale": "Retained as an indirect association and candidate mechanism pending a coherent causal mediation model. The coefficient product is -0.2549 (bootstrap 95% CI [-0.2996, -0.2129]), combining coefficients of -0.5861 and 0.4349. L2 supports the monitoring–autonomy association and L3 supports statistical mediation. Temporal ordering, mediator–outcome confounding, potentially sequential mediators, and omission of the supported interaction prevent a causal mediation conclusion."
+     },
+     {
+      "id": "C4",
+      "type": "mediation",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "trust_in_management",
+      "indirect_sign": "negative",
+      "confidence": 0.5,
+      "basis": [
+       "data"
+      ],
+      "rationale": "Retained only as a candidate mechanism supported by a negative indirect association: -0.1321 (bootstrap 95% CI [-0.1635, -0.1047]). The constituent coefficients are -0.3443 and 0.3838. Shared management practices or prior creative_output could generate these relationships. Conditioning on potentially sequential mediators and omitting the supported interaction further limit causal interpretation."
+     },
+     {
+      "id": "C5",
+      "type": "mediation",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "feedback_frequency",
+      "indirect_sign": "positive",
+      "confidence": 0.45,
+      "basis": [
+       "data"
+      ],
+      "rationale": "The positive indirect association is 0.03967 (bootstrap 95% CI [0.01377, 0.06922]; BH q=0.004253). It offsets part of the negative indirect associations within the fitted statistical decomposition only. A causal offset is unestablished: feedback may respond to performance, mediator–outcome confounding is unresolved, and conditioning on feedback_quality may change the pathway estimated."
+     },
+     {
+      "id": "C6",
+      "type": "moderation",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": null,
+      "moderator": "feedback_quality",
+      "interaction_sign": "positive",
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.55,
+      "basis": [
+       "data"
+      ],
+      "rationale": "Retained as associational moderation. The interaction is 0.2693 (BH q=9.629e-22); monitoring slopes at feedback_quality values -1, 0 and +1 are -0.6397, -0.3705 and -0.1012. These indicate attenuation without reversal at the evaluated values. Causal buffering requires a justified temporal role for feedback_quality and adequate confounding control, neither established here."
+     }
+    ],
+    "limitations": "This synthesis uses the supplied reports and literature summaries, without independent data verification. Confidence values are subjective probabilities of the corresponding causal hypotheses, not probabilities derived from p-values or confidence in statistical associations. The moderation and mediation entries describe revised associational evidence and candidate causal relationships only. Selection, reverse causation, persistent unit differences, and potentially post-exposure controls remain unresolved. HC3 inference does not address dependence among repeated observations of the same unit. The parallel mediation model omits the supported interaction and may misrepresent sequential mechanisms. The nonsignificant mediator-adjusted monitoring coefficient establishes neither full mediation nor a zero direct effect. Unsupported moderation by job_tenure or manager_span and mediation through feedback_quality do not establish absence of effects. Positive resource-control coefficients do not identify resource effects; these claims are omitted. Complete model output, temporal ordering, longitudinal identification, and a coherent mediation–moderation model are needed for stronger causal conclusions."
+   },
+   "raw": null,
+   "cached": false,
+   "latency_s": 54.99,
+   "usage": {
+    "total_tokens": 10787
+   }
+  }
+ ],
+ "draft_claims": [
+  {
+   "id": "C1",
+   "type": "effect",
+   "cause": "monitoring_intensity",
+   "outcome": "creative_output",
+   "sign": "negative",
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": null,
+   "indirect_sign": null,
+   "confidence": 0.78,
+   "basis": [
+    "data",
+    "literature:L1"
+   ],
+   "rationale": "The adjusted association is -0.3728 (95% CI [-0.4486, -0.2970]) and remains negative across reported adjustment sets. Agreement with L1 supports a negative total-effect hypothesis, although selection into monitoring and unmeasured confounding remain unresolved."
+  },
+  {
+   "id": "C2",
+   "type": "effect",
+   "cause": "monitoring_intensity",
+   "outcome": "routine_output",
+   "sign": "positive",
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": null,
+   "indirect_sign": null,
+   "confidence": 0.82,
+   "basis": [
+    "data",
+    "literature:L5"
+   ],
+   "rationale": "The adjusted association is 0.3552 (95% CI [0.2924, 0.4180]). L5's natural experiment provides additional support for a positive causal effect, with uncertainty about transfer from call centers to this setting."
+  },
+  {
+   "id": "C3",
+   "type": "mediation",
+   "cause": "monitoring_intensity",
+   "outcome": "creative_output",
+   "sign": null,
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": "perceived_autonomy",
+   "indirect_sign": "negative",
+   "confidence": 0.72,
+   "basis": [
+    "data",
+    "literature:L2",
+    "literature:L3"
+   ],
+   "rationale": "Monitoring predicts lower perceived_autonomy (-0.5861), which predicts higher creative_output conditional on the other mediators (0.4349). The indirect association is -0.2549 (bootstrap 95% CI [-0.2996, -0.2129]). L2 supports the first link and L3 supports statistical mediation; causal ordering and mediator–outcome confounding remain unverified."
+  },
+  {
+   "id": "C4",
+   "type": "mediation",
+   "cause": "monitoring_intensity",
+   "outcome": "creative_output",
+   "sign": null,
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": "trust_in_management",
+   "indirect_sign": "negative",
+   "confidence": 0.62,
+   "basis": [
+    "data"
+   ],
+   "rationale": "Constituent coefficients of -0.3443 and 0.3838 support the proposed negative pathway. The indirect association is -0.1321 (bootstrap 95% CI [-0.1635, -0.1047]). This is consistent with monitoring undermining trust, but does not establish that mechanism causally."
+  },
+  {
+   "id": "C5",
+   "type": "mediation",
+   "cause": "monitoring_intensity",
+   "outcome": "creative_output",
+   "sign": null,
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": "feedback_frequency",
+   "indirect_sign": "positive",
+   "confidence": 0.57,
+   "basis": [
+    "data"
+   ],
+   "rationale": "Positive constituent coefficients of 0.4023 and 0.0986 yield an indirect association of 0.03967 (bootstrap 95% CI [0.01377, 0.06922]; BH q=0.004253). More frequent feedback is a plausible partial offset to the negative pathways, but causal mediation assumptions are untested."
+  },
+  {
+   "id": "C6",
+   "type": "moderation",
+   "cause": "monitoring_intensity",
+   "outcome": "creative_output",
+   "sign": null,
+   "moderator": "feedback_quality",
+   "interaction_sign": "positive",
+   "mediator": null,
+   "indirect_sign": null,
+   "confidence": 0.67,
+   "basis": [
+    "data"
+   ],
+   "rationale": "The interaction is positive (0.2693; BH q=9.629e-22). Monitoring slopes at feedback_quality values -1, 0 and +1 are -0.6397, -0.3705 and -0.1012, supporting attenuation rather than reversal at these values. A causal buffering interpretation depends on feedback_quality's temporal role and adequate confounding control."
+  }
+ ],
+ "critic_verdicts": [
+  {
+   "claim_id": "C1",
+   "verdict": "revise",
+   "reason": "The analysis supports a negative adjusted association, not an identified total causal effect. L1 is cited correctly but is also observational. State a negative causal hypothesis conditional on pre-exposure controls and no unmeasured confounding. The claimed robustness across adjustment sets is not visible in the supplied output.",
+   "suggested_confidence": null
+  },
+  {
+   "claim_id": "C2",
+   "verdict": "revise",
+   "reason": "The reported regression tests the positive association. L5 is correctly cited and provides stronger external causal evidence, but transfer from call centers remains uncertain and this regression does not identify causality. Present a provisional causal hypothesis; retain routine_output only as a secondary outcome relevant to the creative_output question.",
+   "suggested_confidence": null
+  },
+  {
+   "claim_id": "C3",
+   "verdict": "revise",
+   "reason": "The negative coefficient product and bootstrap interval support statistical mediation through perceived_autonomy. L2 and L3 are correctly cited. Causal mediation requires unverified temporal ordering and confounding assumptions; correlated or sequential mediators undermine the parallel-path interpretation. The outcome equation also omits the reported monitoring_intensity-by-feedback_quality interaction. Recast as an indirect association pending a coherent mediation model.",
+   "suggested_confidence": null
+  },
+  {
+   "claim_id": "C4",
+   "verdict": "revise",
+   "reason": "The negative indirect association through trust_in_management is tested and supported. It does not establish that monitoring undermines trust: management practices or prior creative_output could affect both. Conditioning on other potentially sequential mediators and omitting the supported interaction further limit interpretation. Retain as a candidate mechanism, not an established causal pathway.",
+   "suggested_confidence": null
+  },
+  {
+   "claim_id": "C5",
+   "verdict": "revise",
+   "reason": "The positive indirect association through feedback_frequency is supported, including after the reported BH adjustment. Calling it a causal offset requires temporal ordering and mediator–outcome confounding control that are absent. Feedback may respond to performance, and conditioning on feedback_quality may alter the pathway being estimated. Describe an offset within the fitted statistical decomposition only.",
+   "suggested_confidence": null
+  },
+  {
+   "claim_id": "C6",
+   "verdict": "revise",
+   "reason": "The reported interaction tests and supports attenuation of the monitoring_intensity–creative_output association as feedback_quality increases; the stated slopes correctly indicate attenuation without reversal at the evaluated values. Causal buffering is unestablished because feedback_quality's timing and confounding are unresolved. State associational moderation unless a pre-exposure moderator and adequate identification can be justified.",
+   "suggested_confidence": null
+  }
+ ],
+ "report": {
+  "theory_summary": "Monitoring may shift activity toward routine tasks while reducing creative output. The evidence supports provisional negative and positive causal hypotheses for creative_output and routine_output, respectively. Statistical indirect associations identify perceived_autonomy and trust_in_management as candidate mechanisms, with feedback_frequency providing a smaller positive offset within the fitted decomposition. Higher feedback_quality attenuates the negative monitoring–creativity association. These mechanisms and moderation remain associational; no causal effect is identified in this setting.",
+  "limitations": "This synthesis uses the supplied reports and literature summaries, without independent data verification. Confidence values are subjective probabilities of the corresponding causal hypotheses, not probabilities derived from p-values or confidence in statistical associations. The moderation and mediation entries describe revised associational evidence and candidate causal relationships only. Selection, reverse causation, persistent unit differences, and potentially post-exposure controls remain unresolved. HC3 inference does not address dependence among repeated observations of the same unit. The parallel mediation model omits the supported interaction and may misrepresent sequential mechanisms. The nonsignificant mediator-adjusted monitoring coefficient establishes neither full mediation nor a zero direct effect. Unsupported moderation by job_tenure or manager_span and mediation through feedback_quality do not establish absence of effects. Positive resource-control coefficients do not identify resource effects; these claims are omitted. Complete model output, temporal ordering, longitudinal identification, and a coherent mediation–moderation model are needed for stronger causal conclusions."
+ }
+}

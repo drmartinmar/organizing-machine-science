@@ -1,0 +1,1164 @@
+{
+ "design": "two_theorists_isolated",
+ "world_id": "turnover-contrarian-s1",
+ "template": "turnover",
+ "variant": "contrarian",
+ "seed": 1,
+ "design_params": {
+  "name": "two_theorists_isolated",
+  "structure": "two_theorists",
+  "sequence": "theory_first",
+  "evaluation": "hierarchy",
+  "team_structure": "isolated",
+  "critic_model": null,
+  "theorist_models": [
+   null,
+   null
+  ],
+  "llm": true,
+  "description": "Two theorists propose independently, merged late (isolated subgroups); veto critic."
+ },
+ "metrics": {
+  "n_claims": 6,
+  "n_true": 6,
+  "n_false": 0,
+  "precision": 1.0,
+  "n_focal": 5,
+  "focal_recall": 0.4,
+  "n_focal_missed": 3,
+  "n_unpublished_focal": 5,
+  "discovery_rate": 0.4,
+  "parroting_rate": 0.5,
+  "consensus_conformity": 0.0,
+  "n_consensus_relation_claims": 1,
+  "trap_rate": 0.0,
+  "confident_false_rate": 0.0,
+  "n_confident_false": 0,
+  "mean_confidence": 0.5166666666666667,
+  "brier": 0.23666666666666666,
+  "overconfidence": -0.4833333333333333,
+  "citation_errors": 2,
+  "f1_focal": 0.5714285714285715
+ },
+ "claims": [
+  {
+   "id": "F1",
+   "type": "effect",
+   "cause": "team_turnover",
+   "outcome": "knowledge_loss",
+   "sign": "positive",
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": null,
+   "indirect_sign": null,
+   "confidence": 0.6,
+   "basis": [
+    "data",
+    "literature:L2"
+   ],
+   "rationale": "team_turnover is associated with higher knowledge_loss (adjusted coefficient 0.2544; survives Holm correction), consistent with L2. A positive causal direction remains a hypothesis because same-year measurement and uncertain control timing permit alternative explanations.",
+   "verdict": "TRUE",
+   "truth_value": "positive",
+   "is_trap": false,
+   "is_consensus": false,
+   "about_consensus_relation": false,
+   "parrots": true,
+   "citation_errors": 0
+  },
+  {
+   "id": "F2",
+   "type": "effect",
+   "cause": "team_turnover",
+   "outcome": "team_performance",
+   "sign": "positive",
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": null,
+   "indirect_sign": null,
+   "confidence": 0.5,
+   "basis": [
+    "data"
+   ],
+   "rationale": "The total adjusted association is positive (0.2588), contrary to L1's negative association. It remains similar with hiring_quality and training_investment controls (0.2639), but these variables may follow turnover. The positive sign describes the supported association and motivates a tentative causal hypothesis; coefficient stability does not establish causality.",
+   "verdict": "TRUE",
+   "truth_value": "positive",
+   "is_trap": false,
+   "is_consensus": false,
+   "about_consensus_relation": true,
+   "parrots": false,
+   "citation_errors": 0
+  },
+  {
+   "id": "F3",
+   "type": "mediation",
+   "cause": "team_turnover",
+   "outcome": "team_performance",
+   "sign": null,
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": "knowledge_loss",
+   "indirect_sign": "negative",
+   "confidence": 0.45,
+   "basis": [
+    "data",
+    "literature:L1",
+    "literature:L2"
+   ],
+   "rationale": "knowledge_loss is a candidate mechanism: the statistical indirect association is -0.0279 (bootstrap 95% CI [-0.0445, -0.0128]; Holm p=0.0028). L1 proposes this mechanism and L2 supports its first association. Temporal ordering, mediator–outcome confounding, and relationships between the mediators remain unresolved.",
+   "verdict": "TRUE",
+   "truth_value": "negative",
+   "is_trap": false,
+   "is_consensus": false,
+   "about_consensus_relation": false,
+   "parrots": false,
+   "citation_errors": 2
+  },
+  {
+   "id": "F4",
+   "type": "mediation",
+   "cause": "team_turnover",
+   "outcome": "team_performance",
+   "sign": null,
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": "idea_novelty",
+   "indirect_sign": "positive",
+   "confidence": 0.45,
+   "basis": [
+    "data"
+   ],
+   "rationale": "idea_novelty is a candidate mechanism supported by a positive statistical indirect association of 0.2744 (bootstrap 95% CI [0.2320, 0.3158]). This exceeds the negative knowledge_loss pathway in the fitted model. The decomposition is descriptive: performance or shared team conditions could influence novelty, and the mediators could influence each other. Neither causal nor full mediation is established.",
+   "verdict": "TRUE",
+   "truth_value": "positive",
+   "is_trap": false,
+   "is_consensus": false,
+   "about_consensus_relation": false,
+   "parrots": false,
+   "citation_errors": 0
+  },
+  {
+   "id": "F5",
+   "type": "effect",
+   "cause": "workload",
+   "outcome": "team_performance",
+   "sign": "negative",
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": null,
+   "indirect_sign": null,
+   "confidence": 0.55,
+   "basis": [
+    "data",
+    "literature:L5"
+   ],
+   "rationale": "workload is negatively associated with team_performance under the extended adjustment (coefficient -0.1694; survives Holm correction), consistent with L5. A negative causal effect remains tentative because poor performance could increase workload and the timing of budget_slack, hiring_quality, and training_investment is uncertain.",
+   "verdict": "TRUE",
+   "truth_value": "negative",
+   "is_trap": false,
+   "is_consensus": false,
+   "about_consensus_relation": false,
+   "parrots": true,
+   "citation_errors": 0
+  },
+  {
+   "id": "F6",
+   "type": "effect",
+   "cause": "hiring_quality",
+   "outcome": "team_performance",
+   "sign": "positive",
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": null,
+   "indirect_sign": null,
+   "confidence": 0.55,
+   "basis": [
+    "data",
+    "literature:L7"
+   ],
+   "rationale": "hiring_quality has a positive conditional association with team_performance (0.1159; Holm p=0.0028), consistent with L7. A positive causal effect is tentative because stronger hires may be assigned according to resources or prior performance. Coding for teams without replacements and their inclusion in the analysis are unspecified, limiting interpretation and generalization.",
+   "verdict": "TRUE",
+   "truth_value": "positive",
+   "is_trap": false,
+   "is_consensus": false,
+   "about_consensus_relation": false,
+   "parrots": true,
+   "citation_errors": 0
+  }
+ ],
+ "n_calls": 7,
+ "total_tokens": 116868,
+ "wall_s": 405.6,
+ "code_runs": 1,
+ "code_failures": 0,
+ "error": null,
+ "ts": "2026-10-30T00:42:34",
+ "transcript": [
+  {
+   "step": 1,
+   "role": "theorist",
+   "model": "gpt-6-astra",
+   "messages": [
+    {
+     "role": "system",
+     "content": "You are the theorist of a research team in organization science. Your job is to propose the most plausible causal theory for the research question, stated as precise, testable claims, and to say which tests would discriminate between it and alternatives. Engage the prior literature critically: earlier findings may not hold in this setting. Return JSON only.\n\nRules for claims:\n- Use the exact variable names from the codebook (snake_case). Never invent variables.\n- type \"effect\": `sign` is \"positive\", \"negative\" or \"none\" (no causal effect). Leave moderator/mediator fields null.\n- type \"moderation\": `moderator` names the moderating variable; `interaction_sign` says whether the effect of `cause` on\n  `outcome` becomes more positive (\"positive\") or more negative (\"negative\") as the moderator increases.\n- type \"mediation\": `mediator` names the mechanism variable; `indirect_sign` may be given or left null.\n- `confidence` is your honest probability (0 to 1) that the claim is true in this setting. Do not inflate it.\n- `basis` lists the evidence: \"data\" and/or \"literature:L<k>\" entries. Cite only literature IDs that actually exist in the brief\n  and only for the relation that abstract is about.\n- Prefer fewer, well-supported claims to many speculative ones (at most 10).\n\nEpistemic stance for this role: You favor mechanism-based explanations (which mediators carry an effect) and treat received wisdom as a hypothesis to be tested rather than a premise."
+    },
+    {
+     "role": "user",
+     "content": "# Research brief\n\n**Setting.** Work teams in a large multi-site manufacturing and services firm.\n\n**Research question.** What determines team performance in this firm, and in particular how does team turnover affect team performance, through which mechanisms, and under what conditions?\n\n**Data.** `data.csv` with N = 1200 observations at the team-year level. See the codebook for variables.\n\n**Prior literature available to the team** (summaries of earlier studies in comparable settings; cite them by ID):\n\n- **[L1]** Panel of 212 manufacturing teams over four years. Higher share of team members who left and were replaced during the year was associated with lower supervisor-rated team performance against annual targets (standardized b = -0.15, p < .01). The authors attribute the pattern to the loss of tacit, team-specific knowledge.\n- **[L2]** Field study of 96 software teams with quarterly skills audits. Higher share of team members who left and were replaced during the year was associated with higher loss of team-specific procedural knowledge, from quarterly skills audits (standardized b = +0.24, p < .01).\n- **[L3]** Survey of 340 service teams in two retail chains. The association between share of team members who left and were replaced during the year and supervisor-rated team performance against annual targets was more positive when degree to which the team's work procedures are documented in written routines was high (interaction b = +0.34, p < .05). Documented routines are argued to buffer teams against the disruption of member exit.\n- **[L4]** Cross-sectional study of 1,105 teams in a logistics firm. Higher hours of formal training purchased for the team was associated with higher supervisor-rated team performance against annual targets (standardized b = +0.21, p < .01). The authors recommend expanding formal training budgets.\n- **[L5]** Two-wave survey of 180 hospital units. Higher average weekly workload per member relative to the firm norm was associated with lower supervisor-rated team performance against annual targets (standardized b = -0.24, p < .01).\n- **[L6]** Meta-analytic summary of 41 team studies. Units with higher number of team members showed no significant difference in supervisor-rated team performance against annual targets (standardized b = +0.03, n.s.).\n- **[L7]** Archival study of 2,300 hires in a professional services firm. Higher quality of replacement hires, from structured assessment scores at entry was associated with higher supervisor-rated team performance against annual targets (standardized b = +0.17, p < .01).\n\n**Deliverable.** A set of causal claims about what determines the focal outcome, each stated with the exact variable names in the codebook, a calibrated confidence in [0, 1], and its evidential basis (data analysis, literature IDs, or both). Claims may assert positive, negative or no effects, moderation (whether the effect of a cause on an outcome becomes more positive or more negative as a moderator increases), or mediation (a cause acting on an outcome through a mediator).\n\n\n# Codebook: turnover-contrarian-s1\n\nSetting: work teams in a large multi-site manufacturing and services firm. Unit of observation: team-year. N = 1200.\n\nAll variables are standardized indices (mean ~0, SD ~1); higher values mean more of the construct.\n\n| variable | description |\n|---|---|\n| `team_turnover` | Share of team members who left and were replaced during the year (standardized index) |\n| `team_performance` | Supervisor-rated team performance against annual targets (standardized index) |\n| `knowledge_loss` | Loss of team-specific procedural knowledge, from quarterly skills audits (standardized index) |\n| `idea_novelty` | Novelty of the team's submissions to the firm's improvement program, rated by independent judges (standardized index) |\n| `routine_codification` | Degree to which the team's work procedures are documented in written routines (standardized index) |\n| `task_interdependence` | Degree to which members' tasks depend on one another's outputs (standardized index) |\n| `hiring_quality` | Quality of replacement hires, from structured assessment scores at entry (standardized index) |\n| `workload` | Average weekly workload per member relative to the firm norm (standardized index) |\n| `team_size` | Number of team members (standardized index) |\n| `budget_slack` | Unspent discretionary budget available to the team (standardized index) |\n| `training_investment` | Hours of formal training purchased for the team (standardized index) |\n\n\nReturn: theory_summary, claims, proposed_tests (what analyses would test the claims), limitations."
+    }
+   ],
+   "response": {
+    "theory_summary": "Team turnover may affect performance through competing mechanisms: loss of team-specific knowledge can reduce performance, while new perspectives may increase idea novelty and improve performance. The knowledge-loss pathway has stronger prior support; the novelty pathway is a tentative alternative. Routine codification may buffer turnover's adverse consequences. The net effect should be estimated rather than presumed negative. Workload and hiring quality are additional plausible determinants.",
+    "claims": [
+     {
+      "id": "C1",
+      "type": "effect",
+      "cause": "team_turnover",
+      "outcome": "knowledge_loss",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.75,
+      "basis": [
+       "literature:L2"
+      ],
+      "rationale": "Departing members take procedural knowledge that replacements cannot immediately recover. L2 supports this association, although its software setting and observational design limit causal transfer."
+     },
+     {
+      "id": "C2",
+      "type": "mediation",
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "knowledge_loss",
+      "indirect_sign": "negative",
+      "confidence": 0.65,
+      "basis": [
+       "literature:L1",
+       "literature:L2"
+      ],
+      "rationale": "Turnover can remove knowledge needed for reliable execution. L1 proposes this mechanism and L2 supports its first link; neither summary establishes a causal indirect effect."
+     },
+     {
+      "id": "C3",
+      "type": "mediation",
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "idea_novelty",
+      "indirect_sign": "positive",
+      "confidence": 0.4,
+      "basis": [],
+      "rationale": "Replacement members may introduce unfamiliar approaches that improve performance through novel improvement submissions. This is an untested competing mechanism; novelty may fail to translate into useful implementation."
+     },
+     {
+      "id": "C4",
+      "type": "moderation",
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "sign": null,
+      "moderator": "routine_codification",
+      "interaction_sign": "positive",
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.65,
+      "basis": [
+       "literature:L3"
+      ],
+      "rationale": "Documented procedures may preserve continuity when members leave, making turnover's performance effect more positive. L3 supports this interaction, but documentation may also constrain the adoption of new ideas."
+     },
+     {
+      "id": "C5",
+      "type": "effect",
+      "cause": "workload",
+      "outcome": "team_performance",
+      "sign": "negative",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.64,
+      "basis": [
+       "literature:L5"
+      ],
+      "rationale": "Higher workload can exhaust execution capacity and increase errors. Hospital evidence supports the association, but poor performance may itself increase subsequent workload."
+     },
+     {
+      "id": "C6",
+      "type": "effect",
+      "cause": "hiring_quality",
+      "outcome": "team_performance",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.65,
+      "basis": [
+       "literature:L7"
+      ],
+      "rationale": "More capable replacements may execute tasks better and restore productive capacity faster. L7 supports an association, although selective hiring into better-resourced teams could explain part of it."
+     }
+    ],
+    "limitations": "No data values were supplied or analyzed; these are literature-informed hypotheses, and confidence values are subjective. Team-year observations do not establish temporal ordering or causal identification. Repeated team identifiers, site identifiers, and measurement timing are unspecified. Hiring quality may be undefined when no replacement occurs. L4 does not establish that purchasing training improves performance: budget slack or prior performance could drive both spending and outcomes. L6's nonsignificant association does not establish a zero team-size effect.",
+    "proposed_tests": [
+     "Estimate the total team_turnover effect on subsequent team_performance before adjusting for mediators. Test both linear and nonlinear specifications. If repeated team records and identifiers are available, use team and year fixed effects with team-clustered uncertainty; assess whether prior team_performance predicts subsequent team_turnover.",
+     "Test the competing pathways using turnover measured before knowledge_loss and idea_novelty, followed by team_performance. Estimate both indirect effects jointly with uncertainty intervals and sensitivity analyses for unmeasured mediator–outcome confounding. A negative knowledge_loss pathway alongside a positive idea_novelty pathway would support competing mechanisms even if the total effect is near zero.",
+     "Estimate team_turnover × routine_codification using codification measured before turnover, and report turnover slopes across observed codification levels. Then examine whether codification attenuates turnover's effect on knowledge_loss. Buffering concentrated in that pathway would support knowledge preservation; an interaction operating through idea_novelty would suggest a different explanation.",
+     "Evaluate whether task_interdependence amplifies turnover's performance penalty as an exploratory alternative. If this interaction persists without corresponding knowledge_loss changes, coordination disruption may explain effects that the proposed knowledge mechanism misses.",
+     "Estimate workload and hiring_quality effects with temporal ordering and pre-exposure adjustment. Establish how hiring_quality is recorded for teams without replacement; avoid coding missing assessments as average quality. Distinguish the effect of replacement quality from the effect of turnover volume.",
+     "Test L4's training recommendation through randomized training access or another credible source of exogenous variation if feasible. In observational analyses, distinguish pre-existing budget_slack from slack measured after training purchases, and examine whether the training_investment association survives adjustment for prior resources and performance."
+    ]
+   },
+   "raw": null,
+   "cached": false,
+   "latency_s": 74.59,
+   "usage": {
+    "total_tokens": 18098
+   }
+  },
+  {
+   "step": 2,
+   "role": "theorist",
+   "model": "gpt-6-astra",
+   "messages": [
+    {
+     "role": "system",
+     "content": "You are the theorist of a research team in organization science. Your job is to propose the most plausible causal theory for the research question, stated as precise, testable claims, and to say which tests would discriminate between it and alternatives. Engage the prior literature critically: earlier findings may not hold in this setting. Return JSON only.\n\nRules for claims:\n- Use the exact variable names from the codebook (snake_case). Never invent variables.\n- type \"effect\": `sign` is \"positive\", \"negative\" or \"none\" (no causal effect). Leave moderator/mediator fields null.\n- type \"moderation\": `moderator` names the moderating variable; `interaction_sign` says whether the effect of `cause` on\n  `outcome` becomes more positive (\"positive\") or more negative (\"negative\") as the moderator increases.\n- type \"mediation\": `mediator` names the mechanism variable; `indirect_sign` may be given or left null.\n- `confidence` is your honest probability (0 to 1) that the claim is true in this setting. Do not inflate it.\n- `basis` lists the evidence: \"data\" and/or \"literature:L<k>\" entries. Cite only literature IDs that actually exist in the brief\n  and only for the relation that abstract is about.\n- Prefer fewer, well-supported claims to many speculative ones (at most 10).\n\nEpistemic stance for this role: You favor contingency explanations (which moderators change the size or sign of an effect) and take prior findings seriously unless the data contradict them."
+    },
+    {
+     "role": "user",
+     "content": "# Research brief\n\n**Setting.** Work teams in a large multi-site manufacturing and services firm.\n\n**Research question.** What determines team performance in this firm, and in particular how does team turnover affect team performance, through which mechanisms, and under what conditions?\n\n**Data.** `data.csv` with N = 1200 observations at the team-year level. See the codebook for variables.\n\n**Prior literature available to the team** (summaries of earlier studies in comparable settings; cite them by ID):\n\n- **[L1]** Panel of 212 manufacturing teams over four years. Higher share of team members who left and were replaced during the year was associated with lower supervisor-rated team performance against annual targets (standardized b = -0.15, p < .01). The authors attribute the pattern to the loss of tacit, team-specific knowledge.\n- **[L2]** Field study of 96 software teams with quarterly skills audits. Higher share of team members who left and were replaced during the year was associated with higher loss of team-specific procedural knowledge, from quarterly skills audits (standardized b = +0.24, p < .01).\n- **[L3]** Survey of 340 service teams in two retail chains. The association between share of team members who left and were replaced during the year and supervisor-rated team performance against annual targets was more positive when degree to which the team's work procedures are documented in written routines was high (interaction b = +0.34, p < .05). Documented routines are argued to buffer teams against the disruption of member exit.\n- **[L4]** Cross-sectional study of 1,105 teams in a logistics firm. Higher hours of formal training purchased for the team was associated with higher supervisor-rated team performance against annual targets (standardized b = +0.21, p < .01). The authors recommend expanding formal training budgets.\n- **[L5]** Two-wave survey of 180 hospital units. Higher average weekly workload per member relative to the firm norm was associated with lower supervisor-rated team performance against annual targets (standardized b = -0.24, p < .01).\n- **[L6]** Meta-analytic summary of 41 team studies. Units with higher number of team members showed no significant difference in supervisor-rated team performance against annual targets (standardized b = +0.03, n.s.).\n- **[L7]** Archival study of 2,300 hires in a professional services firm. Higher quality of replacement hires, from structured assessment scores at entry was associated with higher supervisor-rated team performance against annual targets (standardized b = +0.17, p < .01).\n\n**Deliverable.** A set of causal claims about what determines the focal outcome, each stated with the exact variable names in the codebook, a calibrated confidence in [0, 1], and its evidential basis (data analysis, literature IDs, or both). Claims may assert positive, negative or no effects, moderation (whether the effect of a cause on an outcome becomes more positive or more negative as a moderator increases), or mediation (a cause acting on an outcome through a mediator).\n\n\n# Codebook: turnover-contrarian-s1\n\nSetting: work teams in a large multi-site manufacturing and services firm. Unit of observation: team-year. N = 1200.\n\nAll variables are standardized indices (mean ~0, SD ~1); higher values mean more of the construct.\n\n| variable | description |\n|---|---|\n| `team_turnover` | Share of team members who left and were replaced during the year (standardized index) |\n| `team_performance` | Supervisor-rated team performance against annual targets (standardized index) |\n| `knowledge_loss` | Loss of team-specific procedural knowledge, from quarterly skills audits (standardized index) |\n| `idea_novelty` | Novelty of the team's submissions to the firm's improvement program, rated by independent judges (standardized index) |\n| `routine_codification` | Degree to which the team's work procedures are documented in written routines (standardized index) |\n| `task_interdependence` | Degree to which members' tasks depend on one another's outputs (standardized index) |\n| `hiring_quality` | Quality of replacement hires, from structured assessment scores at entry (standardized index) |\n| `workload` | Average weekly workload per member relative to the firm norm (standardized index) |\n| `team_size` | Number of team members (standardized index) |\n| `budget_slack` | Unspent discretionary budget available to the team (standardized index) |\n| `training_investment` | Hours of formal training purchased for the team (standardized index) |\n\n\nReturn: theory_summary, claims, proposed_tests (what analyses would test the claims), limitations."
+    }
+   ],
+   "response": {
+    "theory_summary": "Team turnover likely reduces team performance through knowledge_loss, but routine_codification buffers this disruption. The net effect may differ across teams because replacement hires and novel ideas could offset knowledge losses. Workload, hiring_quality, and training_investment are additional plausible determinants. These are literature-informed causal hypotheses; no data values or analysis results were supplied.",
+    "claims": [
+     {
+      "id": "C1",
+      "type": "effect",
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "sign": "negative",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.63,
+      "basis": [
+       "literature:L1"
+      ],
+      "rationale": "Predicts a negative average total effect in this firm. L1 supports the association in manufacturing teams, but causal identification and generalization to services remain uncertain."
+     },
+     {
+      "id": "C2",
+      "type": "effect",
+      "cause": "team_turnover",
+      "outcome": "knowledge_loss",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.73,
+      "basis": [
+       "literature:L2"
+      ],
+      "rationale": "Member replacement removes team-specific procedural knowledge. L2 directly supports this association, although software teams may differ in knowledge dependence."
+     },
+     {
+      "id": "C3",
+      "type": "mediation",
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "knowledge_loss",
+      "indirect_sign": "negative",
+      "confidence": 0.6,
+      "basis": [
+       "literature:L1",
+       "literature:L2"
+      ],
+      "rationale": "Turnover-induced knowledge_loss is expected to impair performance. L1 proposes this mechanism and L2 supports its first link; neither summary establishes the complete causal pathway."
+     },
+     {
+      "id": "C4",
+      "type": "moderation",
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "sign": null,
+      "moderator": "routine_codification",
+      "interaction_sign": "positive",
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.71,
+      "basis": [
+       "literature:L3"
+      ],
+      "rationale": "Documented procedures preserve continuity during member replacement, making the turnover effect less negative. L3 directly supports this interaction; buffering does not necessarily imply a positive turnover effect."
+     },
+     {
+      "id": "C5",
+      "type": "effect",
+      "cause": "workload",
+      "outcome": "team_performance",
+      "sign": "negative",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.65,
+      "basis": [
+       "literature:L5"
+      ],
+      "rationale": "Higher workload may strain execution capacity. L5 supports a negative association, although poor performance could also increase subsequent workload."
+     },
+     {
+      "id": "C6",
+      "type": "effect",
+      "cause": "hiring_quality",
+      "outcome": "team_performance",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.65,
+      "basis": [
+       "literature:L7"
+      ],
+      "rationale": "More capable replacement hires should improve performance among teams receiving replacements. L7 supports the association but does not rule out selective assignment of stronger hires."
+     },
+     {
+      "id": "C7",
+      "type": "effect",
+      "cause": "training_investment",
+      "outcome": "team_performance",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.53,
+      "basis": [
+       "literature:L4"
+      ],
+      "rationale": "Formal training may improve skills, but purchased hours need not indicate effective learning. L4's cross-sectional association may reflect budget_slack or prior performance, so its spending recommendation provides weak causal guidance."
+     }
+    ],
+    "limitations": "The supplied brief describes 1,200 observations but provides no data values, timing details, or identifiers. No claim therefore has a data basis. The literature summaries mostly report observational associations. Same-year measurement permits reverse causality and ambiguous mediator ordering. Supervisor ratings may introduce measurement bias. L6's nonsignificant result does not establish that team_size has no causal effect. hiring_quality may be undefined when no replacements occur.",
+    "proposed_tests": [
+     "Estimate the total effect of team_turnover on subsequent team_performance using prior team_performance and justified pre-turnover confounders. If identifiers and repeated observations are available, include team and year effects and cluster uncertainty by team. Do not control for knowledge_loss or idea_novelty when estimating the total effect.",
+     "Test team_turnover × baseline routine_codification with both main effects included. Report turnover slopes and uncertainty across observed codification levels. A positive interaction supports buffering; an interaction near zero with narrow uncertainty challenges C4.",
+     "Use temporally ordered turnover, quarterly knowledge_loss, and subsequent performance to estimate the indirect effect. Test whether baseline routine_codification attenuates the turnover-to-knowledge_loss link. Conduct sensitivity analysis for mediator–outcome confounding; regression coefficient attenuation alone cannot establish mediation.",
+     "Compare knowledge_loss and idea_novelty as parallel, temporally ordered mediators. A positive indirect effect through idea_novelty alongside a negative knowledge_loss pathway would support offsetting mechanisms, potentially explaining a weak or positive total turnover effect. Explore task_interdependence as a prespecified competing moderator.",
+     "Evaluate workload, hiring_quality, and training_investment using exposure-specific temporal models. Distinguish baseline confounders from consequences of turnover. Examine whether the training association survives adjustment for prior budget_slack and prior team_performance; randomized allocation of training would provide stronger evidence.",
+     "Where feasible, randomize routine_codification support before turnover occurs to test the buffering prediction, while recognizing that nonrandom turnover still complicates interpretation. For team_size, use an equivalence test with a prespecified practically negligible effect range rather than interpreting nonsignificance as no effect."
+    ]
+   },
+   "raw": null,
+   "cached": false,
+   "latency_s": 73.03,
+   "usage": {
+    "total_tokens": 18163
+   }
+  },
+  {
+   "step": 3,
+   "role": "analyst_code",
+   "model": "gpt-6-astra",
+   "messages": [
+    {
+     "role": "system",
+     "content": "You are the empirical analyst of a research team. You write a single self-contained Python script that reads `data.csv` (in the working directory) with pandas and tests the hypotheses you are given (or, if none are given, explores what determines the focal outcome). Use statsmodels (e.g. `statsmodels.formula.api`), numpy, pandas and scipy only. Think about confounding: include relevant controls and be explicit about which coefficients are total versus direct effects. For moderation use interaction terms; for mediation use the two-equation approach. Print compact, labeled results (coefficients, standard errors, p-values). No plotting, no file writing, no network. Keep the script under 120 lines. Return JSON with `plan` and `code`."
+    },
+    {
+     "role": "user",
+     "content": "Setting: work teams in a large multi-site manufacturing and services firm. Research question: What determines team performance in this firm, and in particular how does team turnover affect team performance, through which mechanisms, and under what conditions? Focal cause: `team_turnover`. Focal outcome: `team_performance`.\n\n# Codebook: turnover-contrarian-s1\n\nSetting: work teams in a large multi-site manufacturing and services firm. Unit of observation: team-year. N = 1200.\n\nAll variables are standardized indices (mean ~0, SD ~1); higher values mean more of the construct.\n\n| variable | description |\n|---|---|\n| `team_turnover` | Share of team members who left and were replaced during the year (standardized index) |\n| `team_performance` | Supervisor-rated team performance against annual targets (standardized index) |\n| `knowledge_loss` | Loss of team-specific procedural knowledge, from quarterly skills audits (standardized index) |\n| `idea_novelty` | Novelty of the team's submissions to the firm's improvement program, rated by independent judges (standardized index) |\n| `routine_codification` | Degree to which the team's work procedures are documented in written routines (standardized index) |\n| `task_interdependence` | Degree to which members' tasks depend on one another's outputs (standardized index) |\n| `hiring_quality` | Quality of replacement hires, from structured assessment scores at entry (standardized index) |\n| `workload` | Average weekly workload per member relative to the firm norm (standardized index) |\n| `team_size` | Number of team members (standardized index) |\n| `budget_slack` | Unspent discretionary budget available to the team (standardized index) |\n| `training_investment` | Hours of formal training purchased for the team (standardized index) |\n\n\nData preview (first rows and summary statistics):\n```\n unit_id  team_turnover  team_performance  knowledge_loss  idea_novelty  routine_codification  task_interdependence  hiring_quality  workload  team_size  budget_slack  training_investment\n       1         1.0123            2.6774         -0.7669        1.5072                1.1674                0.2201          1.1764   -0.5739     0.8148        1.7841               0.5664\n       2         1.0436           -0.9808         -0.0068       -0.2729                1.6344               -0.2299         -0.7822    1.3452    -1.1327       -0.9657               1.1193\n       3         0.3943            1.4811          0.0881       -0.0614                0.6297               -0.2913         -0.1412   -1.4287     0.4176        0.4058               1.5934\n       4        -0.5319           -0.7388         -0.3850        1.9228                0.4127                1.0415         -1.8426    2.0895    -0.1801       -0.7479              -1.5517\n       5        -0.8450            0.7583         -1.3115        0.1288               -0.3714                0.1269          0.8328   -0.2000    -0.0277       -1.2610              -3.4690\n\n                      mean   std   min   max\nteam_turnover         0.07  0.94 -3.30  3.95\nteam_performance      0.01  1.23 -4.59  4.96\nknowledge_loss        0.03  1.04 -3.47  3.54\nidea_novelty          0.03  1.18 -3.95  4.01\nroutine_codification  0.01  1.01 -3.12  3.14\ntask_interdependence -0.03  1.04 -3.64  2.97\nhiring_quality       -0.08  0.99 -3.06  3.04\nworkload             -0.02  1.00 -3.05  3.52\nteam_size            -0.01  0.96 -3.15  2.99\nbudget_slack         -0.01  1.02 -3.76  3.61\ntraining_investment   0.00  1.18 -3.47  3.47\n```\n\nHypotheses to test (from the theorist):\n```json\n[\n {\n  \"id\": \"C1\",\n  \"type\": \"effect\",\n  \"cause\": \"team_turnover\",\n  \"outcome\": \"knowledge_loss\",\n  \"sign\": \"positive\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.75,\n  \"basis\": [\n   \"literature:L2\"\n  ],\n  \"rationale\": \"Departing members take procedural knowledge that replacements cannot immediately recover. L2 supports this association, although its software setting and observational design limit causal transfer.\"\n },\n {\n  \"id\": \"C2\",\n  \"type\": \"mediation\",\n  \"cause\": \"team_turnover\",\n  \"outcome\": \"team_performance\",\n  \"sign\": null,\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": \"knowledge_loss\",\n  \"indirect_sign\": \"negative\",\n  \"confidence\": 0.65,\n  \"basis\": [\n   \"literature:L1\",\n   \"literature:L2\"\n  ],\n  \"rationale\": \"Turnover can remove knowledge needed for reliable execution. L1 proposes this mechanism and L2 supports its first link; neither summary establishes a causal indirect effect.\"\n },\n {\n  \"id\": \"C3\",\n  \"type\": \"mediation\",\n  \"cause\": \"team_turnover\",\n  \"outcome\": \"team_performance\",\n  \"sign\": null,\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": \"idea_novelty\",\n  \"indirect_sign\": \"positive\",\n  \"confidence\": 0.4,\n  \"basis\": [],\n  \"rationale\": \"Replacement members may introduce unfamiliar approaches that improve performance through novel improvement submissions. This is an untested competing mechanism; novelty may fail to translate into useful implementation.\"\n },\n {\n  \"id\": \"C4\",\n  \"type\": \"moderation\",\n  \"cause\": \"team_turnover\",\n  \"outcome\": \"team_performance\",\n  \"sign\": null,\n  \"moderator\": \"routine_codification\",\n  \"interaction_sign\": \"positive\",\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.65,\n  \"basis\": [\n   \"literature:L3\"\n  ],\n  \"rationale\": \"Documented procedures may preserve continuity when members leave, making turnover's performance effect more positive. L3 supports this interaction, but documentation may also constrain the adoption of new ideas.\"\n },\n {\n  \"id\": \"C5\",\n  \"type\": \"effect\",\n  \"cause\": \"workload\",\n  \"outcome\": \"team_performance\",\n  \"sign\": \"negative\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.64,\n  \"basis\": [\n   \"literature:L5\"\n  ],\n  \"rationale\": \"Higher workload can exhaust execution capacity and increase errors. Hospital evidence supports the association, but poor performance may itself increase subsequent workload.\"\n },\n {\n  \"id\": \"C6\",\n  \"type\": \"effect\",\n  \"cause\": \"hiring_quality\",\n  \"outcome\": \"team_performance\",\n  \"sign\": \"positive\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.65,\n  \"basis\": [\n   \"literature:L7\"\n  ],\n  \"rationale\": \"More capable replacements may execute tasks better and restore productive capacity faster. L7 supports an association, although selective hiring into better-resourced teams could explain part of it.\"\n },\n {\n  \"id\": \"C1\",\n  \"type\": \"effect\",\n  \"cause\": \"team_turnover\",\n  \"outcome\": \"team_performance\",\n  \"sign\": \"negative\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.63,\n  \"basis\": [\n   \"literature:L1\"\n  ],\n  \"rationale\": \"Predicts a negative average total effect in this firm. L1 supports the association in manufacturing teams, but causal identification and generalization to services remain uncertain.\"\n },\n {\n  \"id\": \"C7\",\n  \"type\": \"effect\",\n  \"cause\": \"training_investment\",\n  \"outcome\": \"team_performance\",\n  \"sign\": \"positive\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.53,\n  \"basis\": [\n   \"literature:L4\"\n  ],\n  \"rationale\": \"Formal training may improve skills, but purchased hours need not indicate effective learning. L4's cross-sectional association may reflect budget_slack or prior performance, so its spending recommendation provides weak causal guidance.\"\n }\n]\n```"
+    }
+   ],
+   "response": {
+    "plan": "Test all eight hypotheses, distinguishing the duplicated C1 labels by outcome. Estimate turnover's total association without mediators, moderation through a turnover × codification interaction, and parallel knowledge-loss and novelty pathways using mediator equations plus a joint outcome equation. Use HC3 standard errors, paired bootstrap uncertainty for indirect effects, and Holm correction. Treat workload, size, budget, codification, and interdependence as provisional baseline controls; examine hiring and training separately and in sensitivity models because their timing is unclear. Interpret results as observational associations, not identified causal effects.",
+    "code": "import numpy as np\nimport pandas as pd\nimport statsmodels.formula.api as smf\nfrom scipy.stats import norm\nfrom statsmodels.stats.multitest import multipletests\n\nX, Y = 'team_turnover', 'team_performance'\nmediators = ['knowledge_loss', 'idea_novelty']\nbase = ['workload', 'team_size', 'budget_slack',\n        'routine_codification', 'task_interdependence']\nextra = ['hiring_quality', 'training_investment']\nrequired = [X, Y] + mediators + base + extra\nraw = pd.read_csv('data.csv')\nmissing = sorted(set(required) - set(raw.columns))\nif missing:\n    raise ValueError('Missing columns: ' + ', '.join(missing))\nd = raw[required].apply(pd.to_numeric, errors='raise')\nd = d.replace([np.inf, -np.inf], np.nan).dropna()\nif len(d) <= len(required) + 5:\n    raise ValueError('Insufficient complete observations.')\nif (d.std() == 0).any():\n    raise ValueError('At least one required variable has no variation.')\nprint(f'Complete-case N={len(d)}; excluded={len(raw)-len(d)}')\nprint('Baseline timing assumed for workload, size, budget, routines, interdependence.')\nprint('Hiring/training may follow turnover; exclude them from primary total model.')\nprint('No team/site/time identifiers supplied: HC3 and row bootstrap assume independent rows.')\nprint('Same-year data, reverse causality, missingness and unmeasured confounding limit causal claims.')\n\nchecks = []\ndef fit(outcome, terms):\n    m = smf.ols(outcome + ' ~ ' + ' + '.join(terms), data=d).fit(cov_type='HC3')\n    if np.linalg.matrix_rank(m.model.exog) < m.model.exog.shape[1]:\n        raise ValueError('Rank-deficient model: ' + outcome)\n    return m\n\ndef show(label, model):\n    print('\\n' + label + f' | R2={model.rsquared:.3f}')\n    table = pd.DataFrame({'coef': model.params, 'SE_HC3': model.bse,\n                          'p_two_sided': model.pvalues})\n    print(table.drop(index='Intercept', errors='ignore').round(4).to_string())\n\ndef record(label, estimate, se, p, direction):\n    checks.append([label, float(estimate), float(se), float(p), direction])\n\ndef test_coef(label, model, term, direction):\n    record(label, model.params[term], model.bse[term], model.pvalues[term], direction)\n\ntotal = fit(Y, [X] + base)\nshow('Primary total turnover association (no mediators)', total)\ntest_coef('C1_performance_total', total, X, -1)\nmoderated = fit(Y, [X] + base + [X + ':routine_codification'])\nshow('C4: total-association moderation', moderated)\ntest_coef('C4_codification_interaction', moderated, X + ':routine_codification', 1)\nprint('Conditional turnover slopes; codification in supplied standardized units:')\nfor z in [-1, 0, 1]:\n    contrast = np.zeros(len(moderated.params))\n    contrast[moderated.params.index.get_loc(X)] = 1\n    contrast[moderated.params.index.get_loc(X + ':routine_codification')] = z\n    t = moderated.t_test(contrast)\n    print(f'  codification={z:+d}: coef={t.effect.item():.4f}, '\n          f'SE={t.sd.item():.4f}, p={t.pvalue.item():.4g}')\n\nextended = fit(Y, [X] + base + extra)\nshow('C5/C6/C7: mutually adjusted associations, excluding knowledge/novelty', extended)\nfor label, term, direction in [('C5_workload', 'workload', -1),\n                               ('C6_hiring', 'hiring_quality', 1),\n                               ('C7_training', 'training_investment', 1)]:\n    test_coef(label, extended, term, direction)\nprint('These coefficients are conditional associations, not established total causal effects.')\n\ndef mediation(controls, label, primary=False):\n    a = [fit(m, [X] + controls) for m in mediators]\n    b = fit(Y, [X] + controls + mediators)\n    c = fit(Y, [X] + controls)\n    if primary:\n        for name, model in zip(mediators, a):\n            show('Mediator equation: ' + name, model)\n        show('Joint outcome equation: direct turnover association', b)\n        test_coef('C1_knowledge_loss', a[0], X, 1)\n    models = a + [b]\n    designs = [m.model.exog for m in models]\n    outcomes = [m.model.endog for m in models]\n    ai = [m.model.exog_names.index(X) for m in a]\n    bi = [b.model.exog_names.index(m) for m in mediators]\n    products = np.array([a[j].params[X] * b.params[m] for j, m in enumerate(mediators)])\n    rng = np.random.default_rng(20261030)\n    draws = np.empty((1500, 2))\n    for r in range(len(draws)):\n        ix = rng.integers(0, len(d), len(d))\n        betas = [np.linalg.lstsq(v[ix], w[ix], rcond=None)[0]\n                 for v, w in zip(designs, outcomes)]\n        draws[r] = [betas[j][ai[j]] * betas[2][bi[j]] for j in range(2)]\n    print('\\n' + label + ' | parallel additive mediation; no mediator ordering assumed')\n    print(f'Total={c.params[X]:.4f}; direct={b.params[X]:.4f}; indirect sum={products.sum():.4f}')\n    for j, name in enumerate(mediators):\n        se = draws[:, j].std(ddof=1)\n        p = 2 * norm.sf(abs(products[j] / se)) if se > 0 else np.nan\n        lo, hi = np.quantile(draws[:, j], [0.025, 0.975])\n        print(f'{name}: ab={products[j]:.4f}, bootstrap SE={se:.4f}, '\n              f'p_normal_approx={p:.4g}, percentile CI=[{lo:.4f}, {hi:.4f}]')\n        if primary:\n            record(['C2_knowledge_indirect', 'C3_novelty_indirect'][j], products[j], se, p, [-1, 1][j])\n\nmediation(base, 'Primary mediation', primary=True)\nmediation(base + extra, 'Sensitivity: additionally condition on hiring and training')\nprint('Indirect/direct causal interpretations require temporal order and no unmeasured pathway confounding.')\nresults = pd.DataFrame(checks, columns=['hypothesis', 'estimate', 'SE', 'p', 'expected_sign'])\nresults['p_Holm'] = multipletests(results['p'], method='holm')[1]\nresults['supports_direction'] = (np.sign(results.estimate) == results.expected_sign) & (results.p_Holm < .05)\nprint('\\nEight primary tests: two-sided p-values; mediation p-values are bootstrap-SE normal approximations.')\nprint(results.round(4).to_string(index=False))\nprint('Sensitivity and simple slopes are exploratory; nonsignificance does not establish absence of an effect.')"
+   },
+   "raw": null,
+   "cached": false,
+   "latency_s": 76.83,
+   "usage": {
+    "total_tokens": 4786
+   }
+  },
+  {
+   "step": 4,
+   "role": "sandbox",
+   "model": null,
+   "messages": null,
+   "response": {
+    "ok": true,
+    "seconds": 2.48,
+    "stdout": "Complete-case N=1200; excluded=0\nBaseline timing assumed for workload, size, budget, routines, interdependence.\nHiring/training may follow turnover; exclude them from primary total model.\nNo team/site/time identifiers supplied: HC3 and row bootstrap assume independent rows.\nSame-year data, reverse causality, missingness and unmeasured confounding limit causal claims.\n\nPrimary total turnover association (no mediators) | R2=0.131\n                        coef  SE_HC3  p_two_sided\nteam_turnover         0.2588  0.0350       0.0000\nworkload             -0.1703  0.0327       0.0000\nteam_size            -0.0011  0.0353       0.9747\nbudget_slack          0.3300  0.0333       0.0000\nroutine_codification -0.0086  0.0340       0.7992\ntask_interdependence  0.0581  0.0323       0.0722\n\nC4: total-association moderation | R2=0.131\n                                      coef  SE_HC3  p_two_sided\nteam_turnover                       0.2588  0.0351       0.0000\nworkload                           -0.1692  0.0326       0.0000\nteam_size                          -0.0015  0.0353       0.9651\nbudget_slack                        0.3295  0.0334       0.0000\nroutine_codification               -0.0103  0.0341       0.7634\ntask_interdependence                0.0583  0.0323       0.0713\nteam_turnover:routine_codification  0.0226  0.0358       0.5287\nConditional turnover slopes; codification in supplied standardized units:\n  codification=-1: coef=0.2362, SE=0.0485, p=1.097e-06\n  codification=+0: coef=0.2588, SE=0.0351, p=1.567e-13\n  codification=+1: coef=0.2814, SE=0.0517, p=5.317e-08\n\nC5/C6/C7: mutually adjusted associations, excluding knowledge/novelty | R2=0.140\n                        coef  SE_HC3  p_two_sided\nteam_turnover         0.2639  0.0348       0.0000\nworkload             -0.1694  0.0328       0.0000\nteam_size             0.0008  0.0354       0.9824\nbudget_slack          0.3365  0.0391       0.0000\nroutine_codification -0.0058  0.0339       0.8634\ntask_interdependence  0.0571  0.0321       0.0753\nhiring_quality        0.1159  0.0342       0.0007\ntraining_investment  -0.0085  0.0334       0.7984\nThese coefficients are conditional associations, not established total causal effects.\n\nMediator equation: knowledge_loss | R2=0.059\n                        coef  SE_HC3  p_two_sided\nteam_turnover         0.2544  0.0318       0.0000\nworkload              0.0215  0.0301       0.4741\nteam_size            -0.0524  0.0316       0.0972\nbudget_slack         -0.0263  0.0291       0.3674\nroutine_codification -0.0567  0.0288       0.0487\ntask_interdependence -0.0166  0.0287       0.5622\n\nMediator equation: idea_novelty | R2=0.248\n                        coef  SE_HC3  p_two_sided\nteam_turnover         0.6229  0.0334       0.0000\nworkload              0.0113  0.0289       0.6961\nteam_size             0.0424  0.0312       0.1742\nbudget_slack          0.0277  0.0286       0.3328\nroutine_codification -0.0267  0.0297       0.3690\ntask_interdependence -0.0007  0.0279       0.9801\n\nJoint outcome equation: direct turnover association | R2=0.270\n                        coef  SE_HC3  p_two_sided\nteam_turnover         0.0122  0.0384       0.7498\nworkload             -0.1729  0.0302       0.0000\nteam_size            -0.0255  0.0329       0.4376\nbudget_slack          0.3149  0.0301       0.0000\nroutine_codification -0.0031  0.0307       0.9195\ntask_interdependence  0.0566  0.0296       0.0563\nknowledge_loss       -0.1097  0.0299       0.0002\nidea_novelty          0.4406  0.0298       0.0000\n\nPrimary mediation | parallel additive mediation; no mediator ordering assumed\nTotal=0.2588; direct=0.0122; indirect sum=0.2465\nknowledge_loss: ab=-0.0279, bootstrap SE=0.0082, p_normal_approx=0.0006908, percentile CI=[-0.0445, -0.0128]\nidea_novelty: ab=0.2744, bootstrap SE=0.0224, p_normal_approx=1.622e-34, percentile CI=[0.2320, 0.3158]\n\nSensitivity: additionally condition on hiring and training | parallel additive mediation; no mediator ordering assumed\nTotal=0.2639; direct=0.0125; indirect sum=0.2514\nknowledge_loss: ab=-0.0279, bootstrap SE=0.0081, p_normal_approx=0.0005625, percentile CI=[-0.0443, -0.0130]\nidea_novelty: ab=0.2793, bootstrap SE=0.0225, p_normal_approx=2.521e-35, percentile CI=[0.2372, 0.3219]\nIndirect/direct causal interpretations require temporal order and no unmeasured pathway confounding.\n\nEight primary tests: two-sided p-values; mediation p-values are bootstrap-SE normal approximations.\n                 hypothesis  estimate     SE      p  expected_sign  p_Holm  supports_direction\n       C1_performance_total    0.2588 0.0350 0.0000             -1  0.0000               False\nC4_codification_interaction    0.0226 0.0358 0.5287              1  1.0000               False\n                C5_workload   -0.1694 0.0328 0.0000             -1  0.0000                True\n                  C6_hiring    0.1159 0.0342 0.0007              1  0.0028                True\n                C7_training   -0.0085 0.0334 0.7984              1  1.0000               False\n          C1_knowledge_loss    0.2544 0.0318 0.0000              1  0.0000                True\n      C2_knowledge_indirect   -0.0279 0.0082 0.0007             -1  0.0028                True\n        C3_novelty_indirect    0.2744 0.0224 0.0000              1  0.0000                True\nSensitivity and simple slopes are exploratory; nonsignificance does not establish absence of an effect.\n",
+    "stderr": ""
+   },
+   "cached": false,
+   "latency_s": 2.48,
+   "usage": {}
+  },
+  {
+   "step": 5,
+   "role": "analyst_interpret",
+   "model": "gpt-6-astra",
+   "messages": [
+    {
+     "role": "system",
+     "content": "You are the empirical analyst of a research team. Interpret the output of the analysis you ran. For each hypothesis you were given, say whether the data support it (`supported` true/false, or null if untestable), with the key estimate and p-value. Then list the empirical claims the data warrant as structured claims with calibrated confidence and basis [\"data\"]. Flag confounding or sign changes between bivariate and controlled estimates. Return JSON only.\n\nRules for claims:\n- Use the exact variable names from the codebook (snake_case). Never invent variables.\n- type \"effect\": `sign` is \"positive\", \"negative\" or \"none\" (no causal effect). Leave moderator/mediator fields null.\n- type \"moderation\": `moderator` names the moderating variable; `interaction_sign` says whether the effect of `cause` on\n  `outcome` becomes more positive (\"positive\") or more negative (\"negative\") as the moderator increases.\n- type \"mediation\": `mediator` names the mechanism variable; `indirect_sign` may be given or left null.\n- `confidence` is your honest probability (0 to 1) that the claim is true in this setting. Do not inflate it.\n- `basis` lists the evidence: \"data\" and/or \"literature:L<k>\" entries. Cite only literature IDs that actually exist in the brief\n  and only for the relation that abstract is about.\n- Prefer fewer, well-supported claims to many speculative ones (at most 10)."
+    },
+    {
+     "role": "user",
+     "content": "Setting: work teams in a large multi-site manufacturing and services firm. Research question: What determines team performance in this firm, and in particular how does team turnover affect team performance, through which mechanisms, and under what conditions? Focal cause: `team_turnover`. Focal outcome: `team_performance`.\n\n# Codebook: turnover-contrarian-s1\n\nSetting: work teams in a large multi-site manufacturing and services firm. Unit of observation: team-year. N = 1200.\n\nAll variables are standardized indices (mean ~0, SD ~1); higher values mean more of the construct.\n\n| variable | description |\n|---|---|\n| `team_turnover` | Share of team members who left and were replaced during the year (standardized index) |\n| `team_performance` | Supervisor-rated team performance against annual targets (standardized index) |\n| `knowledge_loss` | Loss of team-specific procedural knowledge, from quarterly skills audits (standardized index) |\n| `idea_novelty` | Novelty of the team's submissions to the firm's improvement program, rated by independent judges (standardized index) |\n| `routine_codification` | Degree to which the team's work procedures are documented in written routines (standardized index) |\n| `task_interdependence` | Degree to which members' tasks depend on one another's outputs (standardized index) |\n| `hiring_quality` | Quality of replacement hires, from structured assessment scores at entry (standardized index) |\n| `workload` | Average weekly workload per member relative to the firm norm (standardized index) |\n| `team_size` | Number of team members (standardized index) |\n| `budget_slack` | Unspent discretionary budget available to the team (standardized index) |\n| `training_investment` | Hours of formal training purchased for the team (standardized index) |\n\n\nHypotheses tested:\n```json\n[\n {\n  \"id\": \"C1\",\n  \"type\": \"effect\",\n  \"cause\": \"team_turnover\",\n  \"outcome\": \"knowledge_loss\",\n  \"sign\": \"positive\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.75,\n  \"basis\": [\n   \"literature:L2\"\n  ],\n  \"rationale\": \"Departing members take procedural knowledge that replacements cannot immediately recover. L2 supports this association, although its software setting and observational design limit causal transfer.\"\n },\n {\n  \"id\": \"C2\",\n  \"type\": \"mediation\",\n  \"cause\": \"team_turnover\",\n  \"outcome\": \"team_performance\",\n  \"sign\": null,\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": \"knowledge_loss\",\n  \"indirect_sign\": \"negative\",\n  \"confidence\": 0.65,\n  \"basis\": [\n   \"literature:L1\",\n   \"literature:L2\"\n  ],\n  \"rationale\": \"Turnover can remove knowledge needed for reliable execution. L1 proposes this mechanism and L2 supports its first link; neither summary establishes a causal indirect effect.\"\n },\n {\n  \"id\": \"C3\",\n  \"type\": \"mediation\",\n  \"cause\": \"team_turnover\",\n  \"outcome\": \"team_performance\",\n  \"sign\": null,\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": \"idea_novelty\",\n  \"indirect_sign\": \"positive\",\n  \"confidence\": 0.4,\n  \"basis\": [],\n  \"rationale\": \"Replacement members may introduce unfamiliar approaches that improve performance through novel improvement submissions. This is an untested competing mechanism; novelty may fail to translate into useful implementation.\"\n },\n {\n  \"id\": \"C4\",\n  \"type\": \"moderation\",\n  \"cause\": \"team_turnover\",\n  \"outcome\": \"team_performance\",\n  \"sign\": null,\n  \"moderator\": \"routine_codification\",\n  \"interaction_sign\": \"positive\",\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.65,\n  \"basis\": [\n   \"literature:L3\"\n  ],\n  \"rationale\": \"Documented procedures may preserve continuity when members leave, making turnover's performance effect more positive. L3 supports this interaction, but documentation may also constrain the adoption of new ideas.\"\n },\n {\n  \"id\": \"C5\",\n  \"type\": \"effect\",\n  \"cause\": \"workload\",\n  \"outcome\": \"team_performance\",\n  \"sign\": \"negative\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.64,\n  \"basis\": [\n   \"literature:L5\"\n  ],\n  \"rationale\": \"Higher workload can exhaust execution capacity and increase errors. Hospital evidence supports the association, but poor performance may itself increase subsequent workload.\"\n },\n {\n  \"id\": \"C6\",\n  \"type\": \"effect\",\n  \"cause\": \"hiring_quality\",\n  \"outcome\": \"team_performance\",\n  \"sign\": \"positive\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.65,\n  \"basis\": [\n   \"literature:L7\"\n  ],\n  \"rationale\": \"More capable replacements may execute tasks better and restore productive capacity faster. L7 supports an association, although selective hiring into better-resourced teams could explain part of it.\"\n },\n {\n  \"id\": \"C1\",\n  \"type\": \"effect\",\n  \"cause\": \"team_turnover\",\n  \"outcome\": \"team_performance\",\n  \"sign\": \"negative\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.63,\n  \"basis\": [\n   \"literature:L1\"\n  ],\n  \"rationale\": \"Predicts a negative average total effect in this firm. L1 supports the association in manufacturing teams, but causal identification and generalization to services remain uncertain.\"\n },\n {\n  \"id\": \"C7\",\n  \"type\": \"effect\",\n  \"cause\": \"training_investment\",\n  \"outcome\": \"team_performance\",\n  \"sign\": \"positive\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.53,\n  \"basis\": [\n   \"literature:L4\"\n  ],\n  \"rationale\": \"Formal training may improve skills, but purchased hours need not indicate effective learning. L4's cross-sectional association may reflect budget_slack or prior performance, so its spending recommendation provides weak causal guidance.\"\n }\n]\n```\n\nAnalysis plan: Test all eight hypotheses, distinguishing the duplicated C1 labels by outcome. Estimate turnover's total association without mediators, moderation through a turnover × codification interaction, and parallel knowledge-loss and novelty pathways using mediator equations plus a joint outcome equation. Use HC3 standard errors, paired bootstrap uncertainty for indirect effects, and Holm correction. Treat workload, size, budget, codification, and interdependence as provisional baseline controls; examine hiring and training separately and in sensitivity models because their timing is unclear. Interpret results as observational associations, not identified causal effects.\n\nScript:\n```python\nimport numpy as np\nimport pandas as pd\nimport statsmodels.formula.api as smf\nfrom scipy.stats import norm\nfrom statsmodels.stats.multitest import multipletests\n\nX, Y = 'team_turnover', 'team_performance'\nmediators = ['knowledge_loss', 'idea_novelty']\nbase = ['workload', 'team_size', 'budget_slack',\n        'routine_codification', 'task_interdependence']\nextra = ['hiring_quality', 'training_investment']\nrequired = [X, Y] + mediators + base + extra\nraw = pd.read_csv('data.csv')\nmissing = sorted(set(required) - set(raw.columns))\nif missing:\n    raise ValueError('Missing columns: ' + ', '.join(missing))\nd = raw[required].apply(pd.to_numeric, errors='raise')\nd = d.replace([np.inf, -np.inf], np.nan).dropna()\nif len(d) <= len(required) + 5:\n    raise ValueError('Insufficient complete observations.')\nif (d.std() == 0).any():\n    raise ValueError('At least one required variable has no variation.')\nprint(f'Complete-case N={len(d)}; excluded={len(raw)-len(d)}')\nprint('Baseline timing assumed for workload, size, budget, routines, interdependence.')\nprint('Hiring/training may follow turnover; exclude them from primary total model.')\nprint('No team/site/time identifiers supplied: HC3 and row bootstrap assume independent rows.')\nprint('Same-year data, reverse causality, missingness and unmeasured confounding limit causal claims.')\n\nchecks = []\ndef fit(outcome, terms):\n    m = smf.ols(outcome + ' ~ ' + ' + '.join(terms), data=d).fit(cov_type='HC3')\n    if np.linalg.matrix_rank(m.model.exog) < m.model.exog.shape[1]:\n        raise ValueError('Rank-deficient model: ' + outcome)\n    return m\n\ndef show(label, model):\n    print('\\n' + label + f' | R2={model.rsquared:.3f}')\n    table = pd.DataFrame({'coef': model.params, 'SE_HC3': model.bse,\n                          'p_two_sided': model.pvalues})\n    print(table.drop(index='Intercept', errors='ignore').round(4).to_string())\n\ndef record(label, estimate, se, p, direction):\n    checks.append([label, float(estimate), float(se), float(p), direction])\n\ndef test_coef(label, model, term, direction):\n    record(label, model.params[term], model.bse[term], model.pvalues[term], direction)\n\ntotal = fit(Y, [X] + base)\nshow('Primary total turnover association (no mediators)', total)\ntest_coef('C1_performance_total', total, X, -1)\nmoderated = fit(Y, [X] + base + [X + ':routine_codification'])\nshow('C4: total-association moderation', moderated)\ntest_coef('C4_codification_interaction', moderated, X + ':routine_codification', 1)\nprint('Conditional turnover slopes; codification in supplied standardized units:')\nfor z in [-1, 0, 1]:\n    contrast = np.zeros(len(moderated.params))\n    contrast[moderated.params.index.get_loc(X)] = 1\n    contrast[moderated.params.index.get_loc(X + ':routine_codification')] = z\n    t = moderated.t_test(contrast)\n    print(f'  codification={z:+d}: coef={t.effect.item():.4f}, '\n          f'SE={t.sd.item():.4f}, p={t.pvalue.item():.4g}')\n\nextended = fit(Y, [X] + base + extra)\nshow('C5/C6/C7: mutually adjusted associations, excluding knowledge/novelty', extended)\nfor label, term, direction in [('C5_workload', 'workload', -1),\n                               ('C6_hiring', 'hiring_quality', 1),\n                               ('C7_training', 'training_investment', 1)]:\n    test_coef(label, extended, term, direction)\nprint('These coefficients are conditional associations, not established total causal effects.')\n\ndef mediation(controls, label, primary=False):\n    a = [fit(m, [X] + controls) for m in mediators]\n    b = fit(Y, [X] + controls + mediators)\n    c = fit(Y, [X] + controls)\n    if primary:\n        for name, model in zip(mediators, a):\n            show('Mediator equation: ' + name, model)\n        show('Joint outcome equation: direct turnover association', b)\n        test_coef('C1_knowledge_loss', a[0], X, 1)\n    models = a + [b]\n    designs = [m.model.exog for m in models]\n    outcomes = [m.model.endog for m in models]\n    ai = [m.model.exog_names.index(X) for m in a]\n    bi = [b.model.exog_names.index(m) for m in mediators]\n    products = np.array([a[j].params[X] * b.params[m] for j, m in enumerate(mediators)])\n    rng = np.random.default_rng(20261030)\n    draws = np.empty((1500, 2))\n    for r in range(len(draws)):\n        ix = rng.integers(0, len(d), len(d))\n        betas = [np.linalg.lstsq(v[ix], w[ix], rcond=None)[0]\n                 for v, w in zip(designs, outcomes)]\n        draws[r] = [betas[j][ai[j]] * betas[2][bi[j]] for j in range(2)]\n    print('\\n' + label + ' | parallel additive mediation; no mediator ordering assumed')\n    print(f'Total={c.params[X]:.4f}; direct={b.params[X]:.4f}; indirect sum={products.sum():.4f}')\n    for j, name in enumerate(mediators):\n        se = draws[:, j].std(ddof=1)\n        p = 2 * norm.sf(abs(products[j] / se)) if se > 0 else np.nan\n        lo, hi = np.quantile(draws[:, j], [0.025, 0.975])\n        print(f'{name}: ab={products[j]:.4f}, bootstrap SE={se:.4f}, '\n              f'p_normal_approx={p:.4g}, percentile CI=[{lo:.4f}, {hi:.4f}]')\n        if primary:\n            record(['C2_knowledge_indirect', 'C3_novelty_indirect'][j], products[j], se, p, [-1, 1][j])\n\nmediation(base, 'Primary mediation', primary=True)\nmediation(base + extra, 'Sensitivity: additionally condition on hiring and training')\nprint('Indirect/direct causal interpretations require temporal order and no unmeasured pathway confounding.')\nresults = pd.DataFrame(checks, columns=['hypothesis', 'estimate', 'SE', 'p', 'expected_sign'])\nresults['p_Holm'] = multipletests(results['p'], method='holm')[1]\nresults['supports_direction'] = (np.sign(results.estimate) == results.expected_sign) & (results.p_Holm < .05)\nprint('\\nEight primary tests: two-sided p-values; mediation p-values are bootstrap-SE normal approximations.')\nprint(results.round(4).to_string(index=False))\nprint('Sensitivity and simple slopes are exploratory; nonsignificance does not establish absence of an effect.')\n```\n\nOutput:\n```\nComplete-case N=1200; excluded=0\nBaseline timing assumed for workload, size, budget, routines, interdependence.\nHiring/training may follow turnover; exclude them from primary total model.\nNo team/site/time identifiers supplied: HC3 and row bootstrap assume independent rows.\nSame-year data, reverse causality, missingness and unmeasured confounding limit causal claims.\n\nPrimary total turnover association (no mediators) | R2=0.131\n                        coef  SE_HC3  p_two_sided\nteam_turnover         0.2588  0.0350       0.0000\nworkload             -0.1703  0.0327       0.0000\nteam_size            -0.0011  0.0353       0.9747\nbudget_slack          0.3300  0.0333       0.0000\nroutine_codification -0.0086  0.0340       0.7992\ntask_interdependence  0.0581  0.0323       0.0722\n\nC4: total-association moderation | R2=0.131\n                                      coef  SE_HC3  p_two_sided\nteam_turnover                       0.2588  0.0351       0.0000\nworkload                           -0.1692  0.0326       0.0000\nteam_size                          -0.0015  0.0353       0.9651\nbudget_slack                        0.3295  0.0334       0.0000\nroutine_codification               -0.0103  0.0341       0.7634\ntask_interdependence                0.0583  0.0323       0.0713\nteam_turnover:routine_codification  0.0226  0.0358       0.5287\nConditional turnover slopes; codification in supplied standardized units:\n  codification=-1: coef=0.2362, SE=0.0485, p=1.097e-06\n  codification=+0: coef=0.2588, SE=0.0351, p=1.567e-13\n  codification=+1: coef=0.2814, SE=0.0517, p=5.317e-08\n\nC5/C6/C7: mutually adjusted associations, excluding knowledge/novelty | R2=0.140\n                        coef  SE_HC3  p_two_sided\nteam_turnover         0.2639  0.0348       0.0000\nworkload             -0.1694  0.0328       0.0000\nteam_size             0.0008  0.0354       0.9824\nbudget_slack          0.3365  0.0391       0.0000\nroutine_codification -0.0058  0.0339       0.8634\ntask_interdependence  0.0571  0.0321       0.0753\nhiring_quality        0.1159  0.0342       0.0007\ntraining_investment  -0.0085  0.0334       0.7984\nThese coefficients are conditional associations, not established total causal effects.\n\nMediator equation: knowledge_loss | R2=0.059\n                        coef  SE_HC3  p_two_sided\nteam_turnover         0.2544  0.0318       0.0000\nworkload              0.0215  0.0301       0.4741\nteam_size            -0.0524  0.0316       0.0972\nbudget_slack         -0.0263  0.0291       0.3674\nroutine_codification -0.0567  0.0288       0.0487\ntask_interdependence -0.0166  0.0287       0.5622\n\nMediator equation: idea_novelty | R2=0.248\n                        coef  SE_HC3  p_two_sided\nteam_turnover         0.6229  0.0334       0.0000\nworkload              0.0113  0.0289       0.6961\nteam_size             0.0424  0.0312       0.1742\nbudget_slack          0.0277  0.0286       0.3328\nroutine_codification -0.0267  0.0297       0.3690\ntask_interdependence -0.0007  0.0279       0.9801\n\nJoint outcome equation: direct turnover association | R2=0.270\n                        coef  SE_HC3  p_two_sided\nteam_turnover         0.0122  0.0384       0.7498\nworkload             -0.1729  0.0302       0.0000\nteam_size            -0.0255  0.0329       0.4376\nbudget_slack          0.3149  0.0301       0.0000\nroutine_codification -0.0031  0.0307       0.9195\ntask_interdependence  0.0566  0.0296       0.0563\nknowledge_loss       -0.1097  0.0299       0.0002\nidea_novelty          0.4406  0.0298       0.0000\n\nPrimary mediation | parallel additive mediation; no mediator ordering assumed\nTotal=0.2588; direct=0.0122; indirect sum=0.2465\nknowledge_loss: ab=-0.0279, bootstrap SE=0.0082, p_normal_approx=0.0006908, percentile CI=[-0.0445, -0.0128]\nidea_novelty: ab=0.2744, bootstrap SE=0.0224, p_normal_approx=1.622e-34, percentile CI=[0.2320, 0.3158]\n\nSensitivity: additionally condition on hiring and training | parallel additive mediation; no mediator ordering assumed\nTotal=0.2639; direct=0.0125; indirect sum=0.2514\nknowledge_loss: ab=-0.0279, bootstrap SE=0.0081, p_normal_approx=0.0005625, percentile CI=[-0.0443, -0.0130]\nidea_novelty: ab=0.2793, bootstrap SE=0.0225, p_normal_approx=2.521e-35, percentile CI=[0.2372, 0.3219]\nIndirect/direct causal interpretations require temporal order and no unmeasured pathway confounding.\n\nEight primary tests: two-sided p-values; mediation p-values are bootstrap-SE normal approximations.\n                 hypothesis  estimate     SE      p  expected_sign  p_Holm  supports_direction\n       C1_performance_total    0.2588 0.0350 0.0000             -1  0.0000               False\nC4_codification_interaction    0.0226 0.0358 0.5287              1  1.0000               False\n                C5_workload   -0.1694 0.0328 0.0000             -1  0.0000                True\n                  C6_hiring    0.1159 0.0342 0.0007              1  0.0028                True\n                C7_training   -0.0085 0.0334 0.7984              1  1.0000               False\n          C1_knowledge_loss    0.2544 0.0318 0.0000              1  0.0000                True\n      C2_knowledge_indirect   -0.0279 0.0082 0.0007             -1  0.0028                True\n        C3_novelty_indirect    0.2744 0.0224 0.0000              1  0.0000                True\nSensitivity and simple slopes are exploratory; nonsignificance does not establish absence of an effect.\n\n```"
+    }
+   ],
+   "response": {
+    "data_summary": "All 1,200 team-years were complete. Support decisions use the predicted direction and Holm-adjusted p<0.05 across eight tests. Findings are observational associations: same-year measurement, uncertain control timing, reverse causality and unmeasured confounding prevent causal identification. HC3 errors and row bootstrapping assume independent observations; team/site clustering could affect uncertainty. No bivariate estimates were supplied, so bivariate-to-controlled sign changes cannot be assessed. Null p-values below indicate that the reported value rounded to 0.0000, not that the hypothesis was untestable.",
+    "findings": [
+     {
+      "claim_id": "C1_knowledge_loss",
+      "supported": true,
+      "estimate": 0.2544,
+      "p_value": null,
+      "note": "Positive adjusted association. Raw and Holm-adjusted p-values both reported as 0.0000."
+     },
+     {
+      "claim_id": "C2",
+      "supported": true,
+      "estimate": -0.0279,
+      "p_value": 0.0006908,
+      "note": "Negative statistical indirect association through knowledge_loss; Holm p=0.0028. Bootstrap 95% CI [-0.0445, -0.0128]. Causal mediation is not established."
+     },
+     {
+      "claim_id": "C3",
+      "supported": true,
+      "estimate": 0.2744,
+      "p_value": 1.622e-34,
+      "note": "Positive statistical indirect association through idea_novelty; survives Holm correction. Bootstrap 95% CI [0.2320, 0.3158]. Causal mediation is not established."
+     },
+     {
+      "claim_id": "C4",
+      "supported": false,
+      "estimate": 0.0226,
+      "p_value": 0.5287,
+      "note": "Interaction has the predicted sign but is not significant; Holm p=1. Positive simple slopes do not establish moderation. Absence of moderation is not proven."
+     },
+     {
+      "claim_id": "C5",
+      "supported": true,
+      "estimate": -0.1694,
+      "p_value": null,
+      "note": "Negative association in the extended model, adjusting for hiring_quality and training_investment. Raw and Holm-adjusted p-values reported as 0.0000."
+     },
+     {
+      "claim_id": "C6",
+      "supported": true,
+      "estimate": 0.1159,
+      "p_value": 0.0007,
+      "note": "Positive mutually adjusted association; Holm p=0.0028. Hiring timing and selection limit causal interpretation."
+     },
+     {
+      "claim_id": "C1_team_performance",
+      "supported": false,
+      "estimate": 0.2588,
+      "p_value": null,
+      "note": "The total adjusted association is significantly positive, opposite to the hypothesized negative direction. Raw and Holm-adjusted p-values reported as 0.0000. Adding hiring and training gives 0.2639; adding mediators attenuates the coefficient to 0.0122 (p=0.7498), without a sign reversal."
+     },
+     {
+      "claim_id": "C7",
+      "supported": false,
+      "estimate": -0.0085,
+      "p_value": 0.7984,
+      "note": "No support for a positive adjusted association; Holm p=1. This does not establish zero or negative causal effect. Confounding by budget_slack is possible but cannot be demonstrated without bivariate estimates."
+     }
+    ],
+    "claims": [
+     {
+      "id": "E1",
+      "type": "effect",
+      "cause": "team_turnover",
+      "outcome": "knowledge_loss",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.93,
+      "basis": [
+       "data"
+      ],
+      "rationale": "Adjusted association is positive (0.2544) and survives Holm correction. Confidence concerns the association in this setting, not an identified causal effect."
+     },
+     {
+      "id": "E2",
+      "type": "effect",
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.92,
+      "basis": [
+       "data"
+      ],
+      "rationale": "The total adjusted association is positive (0.2588) and remains similar with hiring and training controls (0.2639). Causality remains unresolved."
+     },
+     {
+      "id": "E3",
+      "type": "mediation",
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "knowledge_loss",
+      "indirect_sign": "negative",
+      "confidence": 0.78,
+      "basis": [
+       "data"
+      ],
+      "rationale": "The negative indirect association (-0.0279) survives Holm correction and is stable in sensitivity analysis. This supports a statistical pathway; temporal order and absence of pathway confounding are unverified."
+     },
+     {
+      "id": "E4",
+      "type": "mediation",
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "idea_novelty",
+      "indirect_sign": "positive",
+      "confidence": 0.86,
+      "basis": [
+       "data"
+      ],
+      "rationale": "The positive indirect association (0.2744) exceeds the negative knowledge-loss pathway and remains similar with additional controls (0.2793). The decomposition is consistent with mediation but does not establish a causal mechanism or full mediation."
+     },
+     {
+      "id": "E5",
+      "type": "effect",
+      "cause": "workload",
+      "outcome": "team_performance",
+      "sign": "negative",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.9,
+      "basis": [
+       "data"
+      ],
+      "rationale": "The adjusted association is negative (-0.1694), survives Holm correction and is similar across reported models. Reverse causality remains possible."
+     },
+     {
+      "id": "E6",
+      "type": "effect",
+      "cause": "hiring_quality",
+      "outcome": "team_performance",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.83,
+      "basis": [
+       "data"
+      ],
+      "rationale": "The positive conditional association (0.1159; Holm p=0.0028) supports an empirical relationship. Selection and uncertain timing prevent a causal conclusion."
+     }
+    ]
+   },
+   "raw": null,
+   "cached": false,
+   "latency_s": 33.07,
+   "usage": {
+    "total_tokens": 21542
+   }
+  },
+  {
+   "step": 6,
+   "role": "synthesizer",
+   "model": "gpt-6-astra",
+   "messages": [
+    {
+     "role": "system",
+     "content": "You are the lead of a research team and write its final report: a short theory summary, a set of final causal claims with calibrated confidence and evidential basis, and limitations. Integrate the theorist's proposal, the analyst's evidence and (if present) the critic's review. Keep a claim only if you can defend it with the evidence in front of you; drop or re-sign claims the data contradict; lower confidence where support is thin. Return JSON only.\n\nRules for claims:\n- Use the exact variable names from the codebook (snake_case). Never invent variables.\n- type \"effect\": `sign` is \"positive\", \"negative\" or \"none\" (no causal effect). Leave moderator/mediator fields null.\n- type \"moderation\": `moderator` names the moderating variable; `interaction_sign` says whether the effect of `cause` on\n  `outcome` becomes more positive (\"positive\") or more negative (\"negative\") as the moderator increases.\n- type \"mediation\": `mediator` names the mechanism variable; `indirect_sign` may be given or left null.\n- `confidence` is your honest probability (0 to 1) that the claim is true in this setting. Do not inflate it.\n- `basis` lists the evidence: \"data\" and/or \"literature:L<k>\" entries. Cite only literature IDs that actually exist in the brief\n  and only for the relation that abstract is about.\n- Prefer fewer, well-supported claims to many speculative ones (at most 10).\n\nGovernance: the critic has veto power. Claims the critic rejected must not appear in the final report; claims marked 'revise' may appear only in the revised form the critic asked for."
+    },
+    {
+     "role": "user",
+     "content": "# Research brief\n\n**Setting.** Work teams in a large multi-site manufacturing and services firm.\n\n**Research question.** What determines team performance in this firm, and in particular how does team turnover affect team performance, through which mechanisms, and under what conditions?\n\n**Data.** `data.csv` with N = 1200 observations at the team-year level. See the codebook for variables.\n\n**Prior literature available to the team** (summaries of earlier studies in comparable settings; cite them by ID):\n\n- **[L1]** Panel of 212 manufacturing teams over four years. Higher share of team members who left and were replaced during the year was associated with lower supervisor-rated team performance against annual targets (standardized b = -0.15, p < .01). The authors attribute the pattern to the loss of tacit, team-specific knowledge.\n- **[L2]** Field study of 96 software teams with quarterly skills audits. Higher share of team members who left and were replaced during the year was associated with higher loss of team-specific procedural knowledge, from quarterly skills audits (standardized b = +0.24, p < .01).\n- **[L3]** Survey of 340 service teams in two retail chains. The association between share of team members who left and were replaced during the year and supervisor-rated team performance against annual targets was more positive when degree to which the team's work procedures are documented in written routines was high (interaction b = +0.34, p < .05). Documented routines are argued to buffer teams against the disruption of member exit.\n- **[L4]** Cross-sectional study of 1,105 teams in a logistics firm. Higher hours of formal training purchased for the team was associated with higher supervisor-rated team performance against annual targets (standardized b = +0.21, p < .01). The authors recommend expanding formal training budgets.\n- **[L5]** Two-wave survey of 180 hospital units. Higher average weekly workload per member relative to the firm norm was associated with lower supervisor-rated team performance against annual targets (standardized b = -0.24, p < .01).\n- **[L6]** Meta-analytic summary of 41 team studies. Units with higher number of team members showed no significant difference in supervisor-rated team performance against annual targets (standardized b = +0.03, n.s.).\n- **[L7]** Archival study of 2,300 hires in a professional services firm. Higher quality of replacement hires, from structured assessment scores at entry was associated with higher supervisor-rated team performance against annual targets (standardized b = +0.17, p < .01).\n\n**Deliverable.** A set of causal claims about what determines the focal outcome, each stated with the exact variable names in the codebook, a calibrated confidence in [0, 1], and its evidential basis (data analysis, literature IDs, or both). Claims may assert positive, negative or no effects, moderation (whether the effect of a cause on an outcome becomes more positive or more negative as a moderator increases), or mediation (a cause acting on an outcome through a mediator).\n\n\n# Codebook: turnover-contrarian-s1\n\nSetting: work teams in a large multi-site manufacturing and services firm. Unit of observation: team-year. N = 1200.\n\nAll variables are standardized indices (mean ~0, SD ~1); higher values mean more of the construct.\n\n| variable | description |\n|---|---|\n| `team_turnover` | Share of team members who left and were replaced during the year (standardized index) |\n| `team_performance` | Supervisor-rated team performance against annual targets (standardized index) |\n| `knowledge_loss` | Loss of team-specific procedural knowledge, from quarterly skills audits (standardized index) |\n| `idea_novelty` | Novelty of the team's submissions to the firm's improvement program, rated by independent judges (standardized index) |\n| `routine_codification` | Degree to which the team's work procedures are documented in written routines (standardized index) |\n| `task_interdependence` | Degree to which members' tasks depend on one another's outputs (standardized index) |\n| `hiring_quality` | Quality of replacement hires, from structured assessment scores at entry (standardized index) |\n| `workload` | Average weekly workload per member relative to the firm norm (standardized index) |\n| `team_size` | Number of team members (standardized index) |\n| `budget_slack` | Unspent discretionary budget available to the team (standardized index) |\n| `training_investment` | Hours of formal training purchased for the team (standardized index) |\n\n\nTheorist's proposal:\n```json\n{\n \"theorist_A\": {\n  \"theory_summary\": \"Team turnover may affect performance through competing mechanisms: loss of team-specific knowledge can reduce performance, while new perspectives may increase idea novelty and improve performance. The knowledge-loss pathway has stronger prior support; the novelty pathway is a tentative alternative. Routine codification may buffer turnover's adverse consequences. The net effect should be estimated rather than presumed negative. Workload and hiring quality are additional plausible determinants.\",\n  \"claims\": [\n   {\n    \"id\": \"C1\",\n    \"type\": \"effect\",\n    \"cause\": \"team_turnover\",\n    \"outcome\": \"knowledge_loss\",\n    \"sign\": \"positive\",\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": null,\n    \"indirect_sign\": null,\n    \"confidence\": 0.75,\n    \"basis\": [\n     \"literature:L2\"\n    ],\n    \"rationale\": \"Departing members take procedural knowledge that replacements cannot immediately recover. L2 supports this association, although its software setting and observational design limit causal transfer.\"\n   },\n   {\n    \"id\": \"C2\",\n    \"type\": \"mediation\",\n    \"cause\": \"team_turnover\",\n    \"outcome\": \"team_performance\",\n    \"sign\": null,\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": \"knowledge_loss\",\n    \"indirect_sign\": \"negative\",\n    \"confidence\": 0.65,\n    \"basis\": [\n     \"literature:L1\",\n     \"literature:L2\"\n    ],\n    \"rationale\": \"Turnover can remove knowledge needed for reliable execution. L1 proposes this mechanism and L2 supports its first link; neither summary establishes a causal indirect effect.\"\n   },\n   {\n    \"id\": \"C3\",\n    \"type\": \"mediation\",\n    \"cause\": \"team_turnover\",\n    \"outcome\": \"team_performance\",\n    \"sign\": null,\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": \"idea_novelty\",\n    \"indirect_sign\": \"positive\",\n    \"confidence\": 0.4,\n    \"basis\": [],\n    \"rationale\": \"Replacement members may introduce unfamiliar approaches that improve performance through novel improvement submissions. This is an untested competing mechanism; novelty may fail to translate into useful implementation.\"\n   },\n   {\n    \"id\": \"C4\",\n    \"type\": \"moderation\",\n    \"cause\": \"team_turnover\",\n    \"outcome\": \"team_performance\",\n    \"sign\": null,\n    \"moderator\": \"routine_codification\",\n    \"interaction_sign\": \"positive\",\n    \"mediator\": null,\n    \"indirect_sign\": null,\n    \"confidence\": 0.65,\n    \"basis\": [\n     \"literature:L3\"\n    ],\n    \"rationale\": \"Documented procedures may preserve continuity when members leave, making turnover's performance effect more positive. L3 supports this interaction, but documentation may also constrain the adoption of new ideas.\"\n   },\n   {\n    \"id\": \"C5\",\n    \"type\": \"effect\",\n    \"cause\": \"workload\",\n    \"outcome\": \"team_performance\",\n    \"sign\": \"negative\",\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": null,\n    \"indirect_sign\": null,\n    \"confidence\": 0.64,\n    \"basis\": [\n     \"literature:L5\"\n    ],\n    \"rationale\": \"Higher workload can exhaust execution capacity and increase errors. Hospital evidence supports the association, but poor performance may itself increase subsequent workload.\"\n   },\n   {\n    \"id\": \"C6\",\n    \"type\": \"effect\",\n    \"cause\": \"hiring_quality\",\n    \"outcome\": \"team_performance\",\n    \"sign\": \"positive\",\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": null,\n    \"indirect_sign\": null,\n    \"confidence\": 0.65,\n    \"basis\": [\n     \"literature:L7\"\n    ],\n    \"rationale\": \"More capable replacements may execute tasks better and restore productive capacity faster. L7 supports an association, although selective hiring into better-resourced teams could explain part of it.\"\n   }\n  ],\n  \"proposed_tests\": [\n   \"Estimate the total team_turnover effect on subsequent team_performance before adjusting for mediators. Test both linear and nonlinear specifications. If repeated team records and identifiers are available, use team and year fixed effects with team-clustered uncertainty; assess whether prior team_performance predicts subsequent team_turnover.\",\n   \"Test the competing pathways using turnover measured before knowledge_loss and idea_novelty, followed by team_performance. Estimate both indirect effects jointly with uncertainty intervals and sensitivity analyses for unmeasured mediator–outcome confounding. A negative knowledge_loss pathway alongside a positive idea_novelty pathway would support competing mechanisms even if the total effect is near zero.\",\n   \"Estimate team_turnover × routine_codification using codification measured before turnover, and report turnover slopes across observed codification levels. Then examine whether codification attenuates turnover's effect on knowledge_loss. Buffering concentrated in that pathway would support knowledge preservation; an interaction operating through idea_novelty would suggest a different explanation.\",\n   \"Evaluate whether task_interdependence amplifies turnover's performance penalty as an exploratory alternative. If this interaction persists without corresponding knowledge_loss changes, coordination disruption may explain effects that the proposed knowledge mechanism misses.\",\n   \"Estimate workload and hiring_quality effects with temporal ordering and pre-exposure adjustment. Establish how hiring_quality is recorded for teams without replacement; avoid coding missing assessments as average quality. Distinguish the effect of replacement quality from the effect of turnover volume.\",\n   \"Test L4's training recommendation through randomized training access or another credible source of exogenous variation if feasible. In observational analyses, distinguish pre-existing budget_slack from slack measured after training purchases, and examine whether the training_investment association survives adjustment for prior resources and performance.\"\n  ],\n  \"limitations\": \"No data values were supplied or analyzed; these are literature-informed hypotheses, and confidence values are subjective. Team-year observations do not establish temporal ordering or causal identification. Repeated team identifiers, site identifiers, and measurement timing are unspecified. Hiring quality may be undefined when no replacement occurs. L4 does not establish that purchasing training improves performance: budget slack or prior performance could drive both spending and outcomes. L6's nonsignificant association does not establish a zero team-size effect.\"\n },\n \"theorist_B\": {\n  \"theory_summary\": \"Team turnover likely reduces team performance through knowledge_loss, but routine_codification buffers this disruption. The net effect may differ across teams because replacement hires and novel ideas could offset knowledge losses. Workload, hiring_quality, and training_investment are additional plausible determinants. These are literature-informed causal hypotheses; no data values or analysis results were supplied.\",\n  \"claims\": [\n   {\n    \"id\": \"C1\",\n    \"type\": \"effect\",\n    \"cause\": \"team_turnover\",\n    \"outcome\": \"team_performance\",\n    \"sign\": \"negative\",\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": null,\n    \"indirect_sign\": null,\n    \"confidence\": 0.63,\n    \"basis\": [\n     \"literature:L1\"\n    ],\n    \"rationale\": \"Predicts a negative average total effect in this firm. L1 supports the association in manufacturing teams, but causal identification and generalization to services remain uncertain.\"\n   },\n   {\n    \"id\": \"C2\",\n    \"type\": \"effect\",\n    \"cause\": \"team_turnover\",\n    \"outcome\": \"knowledge_loss\",\n    \"sign\": \"positive\",\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": null,\n    \"indirect_sign\": null,\n    \"confidence\": 0.73,\n    \"basis\": [\n     \"literature:L2\"\n    ],\n    \"rationale\": \"Member replacement removes team-specific procedural knowledge. L2 directly supports this association, although software teams may differ in knowledge dependence.\"\n   },\n   {\n    \"id\": \"C3\",\n    \"type\": \"mediation\",\n    \"cause\": \"team_turnover\",\n    \"outcome\": \"team_performance\",\n    \"sign\": null,\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": \"knowledge_loss\",\n    \"indirect_sign\": \"negative\",\n    \"confidence\": 0.6,\n    \"basis\": [\n     \"literature:L1\",\n     \"literature:L2\"\n    ],\n    \"rationale\": \"Turnover-induced knowledge_loss is expected to impair performance. L1 proposes this mechanism and L2 supports its first link; neither summary establishes the complete causal pathway.\"\n   },\n   {\n    \"id\": \"C4\",\n    \"type\": \"moderation\",\n    \"cause\": \"team_turnover\",\n    \"outcome\": \"team_performance\",\n    \"sign\": null,\n    \"moderator\": \"routine_codification\",\n    \"interaction_sign\": \"positive\",\n    \"mediator\": null,\n    \"indirect_sign\": null,\n    \"confidence\": 0.71,\n    \"basis\": [\n     \"literature:L3\"\n    ],\n    \"rationale\": \"Documented procedures preserve continuity during member replacement, making the turnover effect less negative. L3 directly supports this interaction; buffering does not necessarily imply a positive turnover effect.\"\n   },\n   {\n    \"id\": \"C5\",\n    \"type\": \"effect\",\n    \"cause\": \"workload\",\n    \"outcome\": \"team_performance\",\n    \"sign\": \"negative\",\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": null,\n    \"indirect_sign\": null,\n    \"confidence\": 0.65,\n    \"basis\": [\n     \"literature:L5\"\n    ],\n    \"rationale\": \"Higher workload may strain execution capacity. L5 supports a negative association, although poor performance could also increase subsequent workload.\"\n   },\n   {\n    \"id\": \"C6\",\n    \"type\": \"effect\",\n    \"cause\": \"hiring_quality\",\n    \"outcome\": \"team_performance\",\n    \"sign\": \"positive\",\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": null,\n    \"indirect_sign\": null,\n    \"confidence\": 0.65,\n    \"basis\": [\n     \"literature:L7\"\n    ],\n    \"rationale\": \"More capable replacement hires should improve performance among teams receiving replacements. L7 supports the association but does not rule out selective assignment of stronger hires.\"\n   },\n   {\n    \"id\": \"C7\",\n    \"type\": \"effect\",\n    \"cause\": \"training_investment\",\n    \"outcome\": \"team_performance\",\n    \"sign\": \"positive\",\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": null,\n    \"indirect_sign\": null,\n    \"confidence\": 0.53,\n    \"basis\": [\n     \"literature:L4\"\n    ],\n    \"rationale\": \"Formal training may improve skills, but purchased hours need not indicate effective learning. L4's cross-sectional association may reflect budget_slack or prior performance, so its spending recommendation provides weak causal guidance.\"\n   }\n  ],\n  \"proposed_tests\": [\n   \"Estimate the total effect of team_turnover on subsequent team_performance using prior team_performance and justified pre-turnover confounders. If identifiers and repeated observations are available, include team and year effects and cluster uncertainty by team. Do not control for knowledge_loss or idea_novelty when estimating the total effect.\",\n   \"Test team_turnover × baseline routine_codification with both main effects included. Report turnover slopes and uncertainty across observed codification levels. A positive interaction supports buffering; an interaction near zero with narrow uncertainty challenges C4.\",\n   \"Use temporally ordered turnover, quarterly knowledge_loss, and subsequent performance to estimate the indirect effect. Test whether baseline routine_codification attenuates the turnover-to-knowledge_loss link. Conduct sensitivity analysis for mediator–outcome confounding; regression coefficient attenuation alone cannot establish mediation.\",\n   \"Compare knowledge_loss and idea_novelty as parallel, temporally ordered mediators. A positive indirect effect through idea_novelty alongside a negative knowledge_loss pathway would support offsetting mechanisms, potentially explaining a weak or positive total turnover effect. Explore task_interdependence as a prespecified competing moderator.\",\n   \"Evaluate workload, hiring_quality, and training_investment using exposure-specific temporal models. Distinguish baseline confounders from consequences of turnover. Examine whether the training association survives adjustment for prior budget_slack and prior team_performance; randomized allocation of training would provide stronger evidence.\",\n   \"Where feasible, randomize routine_codification support before turnover occurs to test the buffering prediction, while recognizing that nonrandom turnover still complicates interpretation. For team_size, use an equivalence test with a prespecified practically negligible effect range rather than interpreting nonsignificance as no effect.\"\n  ],\n  \"limitations\": \"The supplied brief describes 1,200 observations but provides no data values, timing details, or identifiers. No claim therefore has a data basis. The literature summaries mostly report observational associations. Same-year measurement permits reverse causality and ambiguous mediator ordering. Supervisor ratings may introduce measurement bias. L6's nonsignificant result does not establish that team_size has no causal effect. hiring_quality may be undefined when no replacements occur.\"\n }\n}\n```\n\nAnalyst's report:\n```json\n{\n \"plan\": \"Test all eight hypotheses, distinguishing the duplicated C1 labels by outcome. Estimate turnover's total association without mediators, moderation through a turnover × codification interaction, and parallel knowledge-loss and novelty pathways using mediator equations plus a joint outcome equation. Use HC3 standard errors, paired bootstrap uncertainty for indirect effects, and Holm correction. Treat workload, size, budget, codification, and interdependence as provisional baseline controls; examine hiring and training separately and in sensitivity models because their timing is unclear. Interpret results as observational associations, not identified causal effects.\",\n \"data_summary\": \"All 1,200 team-years were complete. Support decisions use the predicted direction and Holm-adjusted p<0.05 across eight tests. Findings are observational associations: same-year measurement, uncertain control timing, reverse causality and unmeasured confounding prevent causal identification. HC3 errors and row bootstrapping assume independent observations; team/site clustering could affect uncertainty. No bivariate estimates were supplied, so bivariate-to-controlled sign changes cannot be assessed. Null p-values below indicate that the reported value rounded to 0.0000, not that the hypothesis was untestable.\",\n \"findings\": [\n  {\n   \"claim_id\": \"C1_knowledge_loss\",\n   \"supported\": true,\n   \"estimate\": 0.2544,\n   \"p_value\": null,\n   \"note\": \"Positive adjusted association. Raw and Holm-adjusted p-values both reported as 0.0000.\"\n  },\n  {\n   \"claim_id\": \"C2\",\n   \"supported\": true,\n   \"estimate\": -0.0279,\n   \"p_value\": 0.0006908,\n   \"note\": \"Negative statistical indirect association through knowledge_loss; Holm p=0.0028. Bootstrap 95% CI [-0.0445, -0.0128]. Causal mediation is not established.\"\n  },\n  {\n   \"claim_id\": \"C3\",\n   \"supported\": true,\n   \"estimate\": 0.2744,\n   \"p_value\": 1.622e-34,\n   \"note\": \"Positive statistical indirect association through idea_novelty; survives Holm correction. Bootstrap 95% CI [0.2320, 0.3158]. Causal mediation is not established.\"\n  },\n  {\n   \"claim_id\": \"C4\",\n   \"supported\": false,\n   \"estimate\": 0.0226,\n   \"p_value\": 0.5287,\n   \"note\": \"Interaction has the predicted sign but is not significant; Holm p=1. Positive simple slopes do not establish moderation. Absence of moderation is not proven.\"\n  },\n  {\n   \"claim_id\": \"C5\",\n   \"supported\": true,\n   \"estimate\": -0.1694,\n   \"p_value\": null,\n   \"note\": \"Negative association in the extended model, adjusting for hiring_quality and training_investment. Raw and Holm-adjusted p-values reported as 0.0000.\"\n  },\n  {\n   \"claim_id\": \"C6\",\n   \"supported\": true,\n   \"estimate\": 0.1159,\n   \"p_value\": 0.0007,\n   \"note\": \"Positive mutually adjusted association; Holm p=0.0028. Hiring timing and selection limit causal interpretation.\"\n  },\n  {\n   \"claim_id\": \"C1_team_performance\",\n   \"supported\": false,\n   \"estimate\": 0.2588,\n   \"p_value\": null,\n   \"note\": \"The total adjusted association is significantly positive, opposite to the hypothesized negative direction. Raw and Holm-adjusted p-values reported as 0.0000. Adding hiring and training gives 0.2639; adding mediators attenuates the coefficient to 0.0122 (p=0.7498), without a sign reversal.\"\n  },\n  {\n   \"claim_id\": \"C7\",\n   \"supported\": false,\n   \"estimate\": -0.0085,\n   \"p_value\": 0.7984,\n   \"note\": \"No support for a positive adjusted association; Holm p=1. This does not establish zero or negative causal effect. Confounding by budget_slack is possible but cannot be demonstrated without bivariate estimates.\"\n  }\n ],\n \"claims\": [\n  {\n   \"id\": \"E1\",\n   \"type\": \"effect\",\n   \"cause\": \"team_turnover\",\n   \"outcome\": \"knowledge_loss\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.93,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Adjusted association is positive (0.2544) and survives Holm correction. Confidence concerns the association in this setting, not an identified causal effect.\"\n  },\n  {\n   \"id\": \"E2\",\n   \"type\": \"effect\",\n   \"cause\": \"team_turnover\",\n   \"outcome\": \"team_performance\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.92,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The total adjusted association is positive (0.2588) and remains similar with hiring and training controls (0.2639). Causality remains unresolved.\"\n  },\n  {\n   \"id\": \"E3\",\n   \"type\": \"mediation\",\n   \"cause\": \"team_turnover\",\n   \"outcome\": \"team_performance\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"knowledge_loss\",\n   \"indirect_sign\": \"negative\",\n   \"confidence\": 0.78,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The negative indirect association (-0.0279) survives Holm correction and is stable in sensitivity analysis. This supports a statistical pathway; temporal order and absence of pathway confounding are unverified.\"\n  },\n  {\n   \"id\": \"E4\",\n   \"type\": \"mediation\",\n   \"cause\": \"team_turnover\",\n   \"outcome\": \"team_performance\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"idea_novelty\",\n   \"indirect_sign\": \"positive\",\n   \"confidence\": 0.86,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The positive indirect association (0.2744) exceeds the negative knowledge-loss pathway and remains similar with additional controls (0.2793). The decomposition is consistent with mediation but does not establish a causal mechanism or full mediation.\"\n  },\n  {\n   \"id\": \"E5\",\n   \"type\": \"effect\",\n   \"cause\": \"workload\",\n   \"outcome\": \"team_performance\",\n   \"sign\": \"negative\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.9,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The adjusted association is negative (-0.1694), survives Holm correction and is similar across reported models. Reverse causality remains possible.\"\n  },\n  {\n   \"id\": \"E6\",\n   \"type\": \"effect\",\n   \"cause\": \"hiring_quality\",\n   \"outcome\": \"team_performance\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.83,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The positive conditional association (0.1159; Holm p=0.0028) supports an empirical relationship. Selection and uncertain timing prevent a causal conclusion.\"\n  }\n ],\n \"output_excerpt\": \"365  0.0391       0.0000\\nroutine_codification -0.0058  0.0339       0.8634\\ntask_interdependence  0.0571  0.0321       0.0753\\nhiring_quality        0.1159  0.0342       0.0007\\ntraining_investment  -0.0085  0.0334       0.7984\\nThese coefficients are conditional associations, not established total causal effects.\\n\\nMediator equation: knowledge_loss | R2=0.059\\n                        coef  SE_HC3  p_two_sided\\nteam_turnover         0.2544  0.0318       0.0000\\nworkload              0.0215  0.0301       0.4741\\nteam_size            -0.0524  0.0316       0.0972\\nbudget_slack         -0.0263  0.0291       0.3674\\nroutine_codification -0.0567  0.0288       0.0487\\ntask_interdependence -0.0166  0.0287       0.5622\\n\\nMediator equation: idea_novelty | R2=0.248\\n                        coef  SE_HC3  p_two_sided\\nteam_turnover         0.6229  0.0334       0.0000\\nworkload              0.0113  0.0289       0.6961\\nteam_size             0.0424  0.0312       0.1742\\nbudget_slack          0.0277  0.0286       0.3328\\nroutine_codification -0.0267  0.0297       0.3690\\ntask_interdependence -0.0007  0.0279       0.9801\\n\\nJoint outcome equation: direct turnover association | R2=0.270\\n                        coef  SE_HC3  p_two_sided\\nteam_turnover         0.0122  0.0384       0.7498\\nworkload             -0.1729  0.0302       0.0000\\nteam_size            -0.0255  0.0329       0.4376\\nbudget_slack          0.3149  0.0301       0.0000\\nroutine_codification -0.0031  0.0307       0.9195\\ntask_interdependence  0.0566  0.0296       0.0563\\nknowledge_loss       -0.1097  0.0299       0.0002\\nidea_novelty          0.4406  0.0298       0.0000\\n\\nPrimary mediation | parallel additive mediation; no mediator ordering assumed\\nTotal=0.2588; direct=0.0122; indirect sum=0.2465\\nknowledge_loss: ab=-0.0279, bootstrap SE=0.0082, p_normal_approx=0.0006908, percentile CI=[-0.0445, -0.0128]\\nidea_novelty: ab=0.2744, bootstrap SE=0.0224, p_normal_approx=1.622e-34, percentile CI=[0.2320, 0.3158]\\n\\nSensitivity: additionally condition on hiring and training | parallel additive mediation; no mediator ordering assumed\\nTotal=0.2639; direct=0.0125; indirect sum=0.2514\\nknowledge_loss: ab=-0.0279, bootstrap SE=0.0081, p_normal_approx=0.0005625, percentile CI=[-0.0443, -0.0130]\\nidea_novelty: ab=0.2793, bootstrap SE=0.0225, p_normal_approx=2.521e-35, percentile CI=[0.2372, 0.3219]\\nIndirect/direct causal interpretations require temporal order and no unmeasured pathway confounding.\\n\\nEight primary tests: two-sided p-values; mediation p-values are bootstrap-SE normal approximations.\\n                 hypothesis  estimate     SE      p  expected_sign  p_Holm  supports_direction\\n       C1_performance_total    0.2588 0.0350 0.0000             -1  0.0000               False\\nC4_codification_interaction    0.0226 0.0358 0.5287              1  1.0000               False\\n                C5_workload   -0.1694 0.0328 0.0000             -1  0.0000                True\\n                  C6_hiring    0.1159 0.0342 0.0007              1  0.0028                True\\n                C7_training   -0.0085 0.0334 0.7984              1  1.0000               False\\n          C1_knowledge_loss    0.2544 0.0318 0.0000              1  0.0000                True\\n      C2_knowledge_indirect   -0.0279 0.0082 0.0007             -1  0.0028                True\\n        C3_novelty_indirect    0.2744 0.0224 0.0000              1  0.0000                True\\nSensitivity and simple slopes are exploratory; nonsignificance does not establish absence of an effect.\\n\"\n}\n```"
+    }
+   ],
+   "response": {
+    "theory_summary": "The evidence favors competing turnover pathways: increased knowledge_loss may impair team_performance, while increased idea_novelty may improve it. The estimated novelty pathway is larger, consistent with a positive total turnover association that contradicts the proposed negative effect. Higher workload and hiring_quality respectively predict lower and higher performance. These patterns support provisional causal hypotheses; they do not identify causal effects.",
+    "claims": [
+     {
+      "id": "F1",
+      "type": "effect",
+      "cause": "team_turnover",
+      "outcome": "knowledge_loss",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.72,
+      "basis": [
+       "data",
+       "literature:L2"
+      ],
+      "rationale": "The adjusted association is positive (0.2544) and survives Holm correction, consistent with L2. Agreement supports the proposed direction, but uncertain timing and unmeasured confounding limit causal confidence."
+     },
+     {
+      "id": "F2",
+      "type": "effect",
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.64,
+      "basis": [
+       "data"
+      ],
+      "rationale": "The total adjusted association is positive (0.2588), survives Holm correction, and remains similar after adding hiring and training controls (0.2639). This warrants reversing the proposed negative sign, although selection and reverse causality remain possible."
+     },
+     {
+      "id": "F3",
+      "type": "mediation",
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "knowledge_loss",
+      "indirect_sign": "negative",
+      "confidence": 0.58,
+      "basis": [
+       "data",
+       "literature:L1",
+       "literature:L2"
+      ],
+      "rationale": "The indirect association is -0.0279 (bootstrap 95% CI [-0.0445, -0.0128]; Holm p=0.0028). L1 proposes this mechanism and L2 supports its first link. Temporal ordering and absence of mediator–outcome confounding remain unverified."
+     },
+     {
+      "id": "F4",
+      "type": "mediation",
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "idea_novelty",
+      "indirect_sign": "positive",
+      "confidence": 0.6,
+      "basis": [
+       "data"
+      ],
+      "rationale": "The indirect association is 0.2744 (bootstrap 95% CI [0.2320, 0.3158]) and remains similar with additional controls. It exceeds the negative knowledge_loss pathway, but the statistical decomposition establishes neither causal mediation nor full mediation."
+     },
+     {
+      "id": "F5",
+      "type": "effect",
+      "cause": "workload",
+      "outcome": "team_performance",
+      "sign": "negative",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.69,
+      "basis": [
+       "data",
+       "literature:L5"
+      ],
+      "rationale": "The adjusted association is negative (-0.1694), survives Holm correction, and agrees with L5. Poor performance could also increase workload, limiting causal interpretation."
+     },
+     {
+      "id": "F6",
+      "type": "effect",
+      "cause": "hiring_quality",
+      "outcome": "team_performance",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.64,
+      "basis": [
+       "data",
+       "literature:L7"
+      ],
+      "rationale": "The positive adjusted association (0.1159; Holm p=0.0028) agrees with L7. Selective assignment of stronger hires, uncertain timing, and potentially undefined hiring_quality for teams without replacements constrain the causal claim."
+     }
+    ],
+    "limitations": "This synthesis relies on the supplied analyst report, without independent data verification. Confidence values concern provisional causal claims, not merely association signs. Same-year observational measurements, uncertain control timing, reverse causality, and unmeasured confounding prevent causal identification. HC3 errors and row bootstrapping assume independent observations; team or site dependence could change uncertainty. Mediation additionally requires defensible temporal ordering and control of pathway confounding. routine_codification moderation and a positive training_investment effect are omitted because local evidence is insufficient; nonsignificance establishes neither zero effects nor negative effects. No zero team_size effect or budget_slack explanation of training confounding is established. No critic review was supplied."
+   },
+   "raw": null,
+   "cached": false,
+   "latency_s": 41.78,
+   "usage": {
+    "total_tokens": 22792
+   }
+  },
+  {
+   "step": 7,
+   "role": "critic",
+   "model": "gpt-6-astra",
+   "messages": [
+    {
+     "role": "system",
+     "content": "You are the critic (referee) of a research team. Your job is adversarial: for each proposed claim, decide whether the evidence presented actually supports it in this setting. Check (1) whether a data analysis tested the claim at all, (2) confounding and alternative explanations given the variables in the codebook, (3) whether the claim merely restates prior literature that may not hold here, (4) whether the stated confidence is justified, and (5) whether literature IDs are cited correctly. Verdicts: accept, revise (fixable with a stated change), reject. Be specific and brief. Return JSON only.\n\nYour verdicts are binding: rejected claims will be removed from the team's final report."
+    },
+    {
+     "role": "user",
+     "content": "# Research brief\n\n**Setting.** Work teams in a large multi-site manufacturing and services firm.\n\n**Research question.** What determines team performance in this firm, and in particular how does team turnover affect team performance, through which mechanisms, and under what conditions?\n\n**Data.** `data.csv` with N = 1200 observations at the team-year level. See the codebook for variables.\n\n**Prior literature available to the team** (summaries of earlier studies in comparable settings; cite them by ID):\n\n- **[L1]** Panel of 212 manufacturing teams over four years. Higher share of team members who left and were replaced during the year was associated with lower supervisor-rated team performance against annual targets (standardized b = -0.15, p < .01). The authors attribute the pattern to the loss of tacit, team-specific knowledge.\n- **[L2]** Field study of 96 software teams with quarterly skills audits. Higher share of team members who left and were replaced during the year was associated with higher loss of team-specific procedural knowledge, from quarterly skills audits (standardized b = +0.24, p < .01).\n- **[L3]** Survey of 340 service teams in two retail chains. The association between share of team members who left and were replaced during the year and supervisor-rated team performance against annual targets was more positive when degree to which the team's work procedures are documented in written routines was high (interaction b = +0.34, p < .05). Documented routines are argued to buffer teams against the disruption of member exit.\n- **[L4]** Cross-sectional study of 1,105 teams in a logistics firm. Higher hours of formal training purchased for the team was associated with higher supervisor-rated team performance against annual targets (standardized b = +0.21, p < .01). The authors recommend expanding formal training budgets.\n- **[L5]** Two-wave survey of 180 hospital units. Higher average weekly workload per member relative to the firm norm was associated with lower supervisor-rated team performance against annual targets (standardized b = -0.24, p < .01).\n- **[L6]** Meta-analytic summary of 41 team studies. Units with higher number of team members showed no significant difference in supervisor-rated team performance against annual targets (standardized b = +0.03, n.s.).\n- **[L7]** Archival study of 2,300 hires in a professional services firm. Higher quality of replacement hires, from structured assessment scores at entry was associated with higher supervisor-rated team performance against annual targets (standardized b = +0.17, p < .01).\n\n**Deliverable.** A set of causal claims about what determines the focal outcome, each stated with the exact variable names in the codebook, a calibrated confidence in [0, 1], and its evidential basis (data analysis, literature IDs, or both). Claims may assert positive, negative or no effects, moderation (whether the effect of a cause on an outcome becomes more positive or more negative as a moderator increases), or mediation (a cause acting on an outcome through a mediator).\n\n\n# Codebook: turnover-contrarian-s1\n\nSetting: work teams in a large multi-site manufacturing and services firm. Unit of observation: team-year. N = 1200.\n\nAll variables are standardized indices (mean ~0, SD ~1); higher values mean more of the construct.\n\n| variable | description |\n|---|---|\n| `team_turnover` | Share of team members who left and were replaced during the year (standardized index) |\n| `team_performance` | Supervisor-rated team performance against annual targets (standardized index) |\n| `knowledge_loss` | Loss of team-specific procedural knowledge, from quarterly skills audits (standardized index) |\n| `idea_novelty` | Novelty of the team's submissions to the firm's improvement program, rated by independent judges (standardized index) |\n| `routine_codification` | Degree to which the team's work procedures are documented in written routines (standardized index) |\n| `task_interdependence` | Degree to which members' tasks depend on one another's outputs (standardized index) |\n| `hiring_quality` | Quality of replacement hires, from structured assessment scores at entry (standardized index) |\n| `workload` | Average weekly workload per member relative to the firm norm (standardized index) |\n| `team_size` | Number of team members (standardized index) |\n| `budget_slack` | Unspent discretionary budget available to the team (standardized index) |\n| `training_investment` | Hours of formal training purchased for the team (standardized index) |\n\n\nProposed claims:\n```json\n[\n {\n  \"id\": \"F1\",\n  \"type\": \"effect\",\n  \"cause\": \"team_turnover\",\n  \"outcome\": \"knowledge_loss\",\n  \"sign\": \"positive\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.72,\n  \"basis\": [\n   \"data\",\n   \"literature:L2\"\n  ],\n  \"rationale\": \"The adjusted association is positive (0.2544) and survives Holm correction, consistent with L2. Agreement supports the proposed direction, but uncertain timing and unmeasured confounding limit causal confidence.\"\n },\n {\n  \"id\": \"F2\",\n  \"type\": \"effect\",\n  \"cause\": \"team_turnover\",\n  \"outcome\": \"team_performance\",\n  \"sign\": \"positive\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.64,\n  \"basis\": [\n   \"data\"\n  ],\n  \"rationale\": \"The total adjusted association is positive (0.2588), survives Holm correction, and remains similar after adding hiring and training controls (0.2639). This warrants reversing the proposed negative sign, although selection and reverse causality remain possible.\"\n },\n {\n  \"id\": \"F3\",\n  \"type\": \"mediation\",\n  \"cause\": \"team_turnover\",\n  \"outcome\": \"team_performance\",\n  \"sign\": null,\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": \"knowledge_loss\",\n  \"indirect_sign\": \"negative\",\n  \"confidence\": 0.58,\n  \"basis\": [\n   \"data\",\n   \"literature:L1\",\n   \"literature:L2\"\n  ],\n  \"rationale\": \"The indirect association is -0.0279 (bootstrap 95% CI [-0.0445, -0.0128]; Holm p=0.0028). L1 proposes this mechanism and L2 supports its first link. Temporal ordering and absence of mediator–outcome confounding remain unverified.\"\n },\n {\n  \"id\": \"F4\",\n  \"type\": \"mediation\",\n  \"cause\": \"team_turnover\",\n  \"outcome\": \"team_performance\",\n  \"sign\": null,\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": \"idea_novelty\",\n  \"indirect_sign\": \"positive\",\n  \"confidence\": 0.6,\n  \"basis\": [\n   \"data\"\n  ],\n  \"rationale\": \"The indirect association is 0.2744 (bootstrap 95% CI [0.2320, 0.3158]) and remains similar with additional controls. It exceeds the negative knowledge_loss pathway, but the statistical decomposition establishes neither causal mediation nor full mediation.\"\n },\n {\n  \"id\": \"F5\",\n  \"type\": \"effect\",\n  \"cause\": \"workload\",\n  \"outcome\": \"team_performance\",\n  \"sign\": \"negative\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.69,\n  \"basis\": [\n   \"data\",\n   \"literature:L5\"\n  ],\n  \"rationale\": \"The adjusted association is negative (-0.1694), survives Holm correction, and agrees with L5. Poor performance could also increase workload, limiting causal interpretation.\"\n },\n {\n  \"id\": \"F6\",\n  \"type\": \"effect\",\n  \"cause\": \"hiring_quality\",\n  \"outcome\": \"team_performance\",\n  \"sign\": \"positive\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.64,\n  \"basis\": [\n   \"data\",\n   \"literature:L7\"\n  ],\n  \"rationale\": \"The positive adjusted association (0.1159; Holm p=0.0028) agrees with L7. Selective assignment of stronger hires, uncertain timing, and potentially undefined hiring_quality for teams without replacements constrain the causal claim.\"\n }\n]\n```\n\nEvidence presented by the team:\nAnalysis plan: Test all eight hypotheses, distinguishing the duplicated C1 labels by outcome. Estimate turnover's total association without mediators, moderation through a turnover × codification interaction, and parallel knowledge-loss and novelty pathways using mediator equations plus a joint outcome equation. Use HC3 standard errors, paired bootstrap uncertainty for indirect effects, and Holm correction. Treat workload, size, budget, codification, and interdependence as provisional baseline controls; examine hiring and training separately and in sensitivity models because their timing is unclear. Interpret results as observational associations, not identified causal effects.\n\nScript:\n```python\nimport numpy as np\nimport pandas as pd\nimport statsmodels.formula.api as smf\nfrom scipy.stats import norm\nfrom statsmodels.stats.multitest import multipletests\n\nX, Y = 'team_turnover', 'team_performance'\nmediators = ['knowledge_loss', 'idea_novelty']\nbase = ['workload', 'team_size', 'budget_slack',\n        'routine_codification', 'task_interdependence']\nextra = ['hiring_quality', 'training_investment']\nrequired = [X, Y] + mediators + base + extra\nraw = pd.read_csv('data.csv')\nmissing = sorted(set(required) - set(raw.columns))\nif missing:\n    raise ValueError('Missing columns: ' + ', '.join(missing))\nd = raw[required].apply(pd.to_numeric, errors='raise')\nd = d.replace([np.inf, -np.inf], np.nan).dropna()\nif len(d) <= len(required) + 5:\n    raise ValueError('Insufficient complete observations.')\nif (d.std() == 0).any():\n    raise ValueError('At least one required variable has no variation.')\nprint(f'Complete-case N={len(d)}; excluded={len(raw)-len(d)}')\nprint('Baseline timing assumed for workload, size, budget, routines, interdependence.')\nprint('Hiring/training may follow turnover; exclude them from primary total model.')\nprint('No team/site/time identifiers supplied: HC3 and row bootstrap assume independent rows.')\nprint('Same-year data, reverse causality, missingness and unmeasured confounding limit causal claims.')\n\nchecks = []\ndef fit(outcome, terms):\n    m = smf.ols(outcome + ' ~ ' + ' + '.join(terms), data=d).fit(cov_type='HC3')\n    if np.linalg.matrix_rank(m.model.exog) < m.model.exog.shape[1]:\n        raise ValueError('Rank-deficient model: ' + outcome)\n    return m\n\ndef show(label, model):\n    print('\\n' + label + f' | R2={model.rsquared:.3f}')\n    table = pd.DataFrame({'coef': model.params, 'SE_HC3': model.bse,\n                          'p_two_sided': model.pvalues})\n    print(table.drop(index='Intercept', errors='ignore').round(4).to_string())\n\ndef record(label, estimate, se, p, direction):\n    checks.append([label, float(estimate), float(se), float(p), direction])\n\ndef test_coef(label, model, term, direction):\n    record(label, model.params[term], model.bse[term], model.pvalues[term], direction)\n\ntotal = fit(Y, [X] + base)\nshow('Primary total turnover association (no mediators)', total)\ntest_coef('C1_performance_total', total, X, -1)\nmoderated = fit(Y, [X] + base + [X + ':routine_codification'])\nshow('C4: total-association moderation', moderated)\ntest_coef('C4_codification_interaction', moderated, X + ':routine_codification', 1)\nprint('Conditional turnover slopes; codification in supplied standardized units:')\nfor z in [-1, 0, 1]:\n    contrast = np.zeros(len(moderated.params))\n    contrast[moderated.params.index.get_loc(X)] = 1\n    contrast[moderated.params.index.get_loc(X + ':routine_codification')] = z\n    t = moderated.t_test(contrast)\n    print(f'  codification={z:+d}: coef={t.effect.item():.4f}, '\n          f'SE={t.sd.item():.4f}, p={t.pvalue.item():.4g}')\n\nextended = fit(Y, [X] + base + extra)\nshow('C5/C6/C7: mutually adjusted associations, excluding knowledge/novelty', extended)\nfor label, term, direction in [('C5_workload', 'workload', -1),\n                               ('C6_hiring', 'hiring_quality', 1),\n                               ('C7_training', 'training_investment', 1)]:\n    test_coef(label, extended, term, direction)\nprint('These coefficients are conditional associations, not established total causal effects.')\n\ndef mediation(controls, label, primary=False):\n    a = [fit(m, [X] + controls) for m in mediators]\n    b = fit(Y, [X] + controls + mediators)\n    c = fit(Y, [X] + controls)\n    if primary:\n        for name, model in zip(mediators, a):\n            show('Mediator equation: ' + name, model)\n        show('Joint outcome equation: direct turnover association', b)\n        test_coef('C1_knowledge_loss', a[0], X, 1)\n    models = a + [b]\n    designs = [m.model.exog for m in models]\n    outcomes = [m.model.endog for m in models]\n    ai = [m.model.exog_names.index(X) for m in a]\n    bi = [b.model.exog_names.index(m) for m in mediators]\n    products = np.array([a[j].params[X] * b.params[m] for j, m in enumerate(mediators)])\n    rng = np.random.default_rng(20261030)\n    draws = np.empty((1500, 2))\n    for r in range(len(draws)):\n        ix = rng.integers(0, len(d), len(d))\n        betas = [np.linalg.lstsq(v[ix], w[ix], rcond=None)[0]\n                 for v, w in zip(designs, outcomes)]\n        draws[r] = [betas[j][ai[j]] * betas[2][bi[j]] for j in range(2)]\n    print('\\n' + label + ' | parallel additive mediation; no mediator ordering assumed')\n    print(f'Total={c.params[X]:.4f}; direct={b.params[X]:.4f}; indirect sum={products.sum():.4f}')\n    for j, name in enumerate(mediators):\n        se = draws[:, j].std(ddof=1)\n        p = 2 * norm.sf(abs(products[j] / se)) if se > 0 else np.nan\n        lo, hi = np.quantile(draws[:, j], [0.025, 0.975])\n        print(f'{name}: ab={products[j]:.4f}, bootstrap SE={se:.4f}, '\n              f'p_normal_approx={p:.4g}, percentile CI=[{lo:.4f}, {hi:.4f}]')\n        if primary:\n            record(['C2_knowledge_indirect', 'C3_novelty_indirect'][j], products[j], se, p, [-1, 1][j])\n\nmediation(base, 'Primary mediation', primary=True)\nmediation(base + extra, 'Sensitivity: additionally condition on hiring and training')\nprint('Indirect/direct causal interpretations require temporal order and no unmeasured pathway confounding.')\nresults = pd.DataFrame(checks, columns=['hypothesis', 'estimate', 'SE', 'p', 'expected_sign'])\nresults['p_Holm'] = multipletests(results['p'], method='holm')[1]\nresults['supports_direction'] = (np.sign(results.estimate) == results.expected_sign) & (results.p_Holm < .05)\nprint('\\nEight primary tests: two-sided p-values; mediation p-values are bootstrap-SE normal approximations.')\nprint(results.round(4).to_string(index=False))\nprint('Sensitivity and simple slopes are exploratory; nonsignificance does not establish absence of an effect.')\n```\n\nOutput:\n```\n365  0.0391       0.0000\nroutine_codification -0.0058  0.0339       0.8634\ntask_interdependence  0.0571  0.0321       0.0753\nhiring_quality        0.1159  0.0342       0.0007\ntraining_investment  -0.0085  0.0334       0.7984\nThese coefficients are conditional associations, not established total causal effects.\n\nMediator equation: knowledge_loss | R2=0.059\n                        coef  SE_HC3  p_two_sided\nteam_turnover         0.2544  0.0318       0.0000\nworkload              0.0215  0.0301       0.4741\nteam_size            -0.0524  0.0316       0.0972\nbudget_slack         -0.0263  0.0291       0.3674\nroutine_codification -0.0567  0.0288       0.0487\ntask_interdependence -0.0166  0.0287       0.5622\n\nMediator equation: idea_novelty | R2=0.248\n                        coef  SE_HC3  p_two_sided\nteam_turnover         0.6229  0.0334       0.0000\nworkload              0.0113  0.0289       0.6961\nteam_size             0.0424  0.0312       0.1742\nbudget_slack          0.0277  0.0286       0.3328\nroutine_codification -0.0267  0.0297       0.3690\ntask_interdependence -0.0007  0.0279       0.9801\n\nJoint outcome equation: direct turnover association | R2=0.270\n                        coef  SE_HC3  p_two_sided\nteam_turnover         0.0122  0.0384       0.7498\nworkload             -0.1729  0.0302       0.0000\nteam_size            -0.0255  0.0329       0.4376\nbudget_slack          0.3149  0.0301       0.0000\nroutine_codification -0.0031  0.0307       0.9195\ntask_interdependence  0.0566  0.0296       0.0563\nknowledge_loss       -0.1097  0.0299       0.0002\nidea_novelty          0.4406  0.0298       0.0000\n\nPrimary mediation | parallel additive mediation; no mediator ordering assumed\nTotal=0.2588; direct=0.0122; indirect sum=0.2465\nknowledge_loss: ab=-0.0279, bootstrap SE=0.0082, p_normal_approx=0.0006908, percentile CI=[-0.0445, -0.0128]\nidea_novelty: ab=0.2744, bootstrap SE=0.0224, p_normal_approx=1.622e-34, percentile CI=[0.2320, 0.3158]\n\nSensitivity: additionally condition on hiring and training | parallel additive mediation; no mediator ordering assumed\nTotal=0.2639; direct=0.0125; indirect sum=0.2514\nknowledge_loss: ab=-0.0279, bootstrap SE=0.0081, p_normal_approx=0.0005625, percentile CI=[-0.0443, -0.0130]\nidea_novelty: ab=0.2793, bootstrap SE=0.0225, p_normal_approx=2.521e-35, percentile CI=[0.2372, 0.3219]\nIndirect/direct causal interpretations require temporal order and no unmeasured pathway confounding.\n\nEight primary tests: two-sided p-values; mediation p-values are bootstrap-SE normal approximations.\n                 hypothesis  estimate     SE      p  expected_sign  p_Holm  supports_direction\n       C1_performance_total    0.2588 0.0350 0.0000             -1  0.0000               False\nC4_codification_interaction    0.0226 0.0358 0.5287              1  1.0000               False\n                C5_workload   -0.1694 0.0328 0.0000             -1  0.0000                True\n                  C6_hiring    0.1159 0.0342 0.0007              1  0.0028                True\n                C7_training   -0.0085 0.0334 0.7984              1  1.0000               False\n          C1_knowledge_loss    0.2544 0.0318 0.0000              1  0.0000                True\n      C2_knowledge_indirect   -0.0279 0.0082 0.0007             -1  0.0028                True\n        C3_novelty_indirect    0.2744 0.0224 0.0000              1  0.0000                True\nSensitivity and simple slopes are exploratory; nonsignificance does not establish absence of an effect.\n\n```\n\nAnalyst's findings:\n```json\n[\n {\n  \"claim_id\": \"C1_knowledge_loss\",\n  \"supported\": true,\n  \"estimate\": 0.2544,\n  \"p_value\": null,\n  \"note\": \"Positive adjusted association. Raw and Holm-adjusted p-values both reported as 0.0000.\"\n },\n {\n  \"claim_id\": \"C2\",\n  \"supported\": true,\n  \"estimate\": -0.0279,\n  \"p_value\": 0.0006908,\n  \"note\": \"Negative statistical indirect association through knowledge_loss; Holm p=0.0028. Bootstrap 95% CI [-0.0445, -0.0128]. Causal mediation is not established.\"\n },\n {\n  \"claim_id\": \"C3\",\n  \"supported\": true,\n  \"estimate\": 0.2744,\n  \"p_value\": 1.622e-34,\n  \"note\": \"Positive statistical indirect association through idea_novelty; survives Holm correction. Bootstrap 95% CI [0.2320, 0.3158]. Causal mediation is not established.\"\n },\n {\n  \"claim_id\": \"C4\",\n  \"supported\": false,\n  \"estimate\": 0.0226,\n  \"p_value\": 0.5287,\n  \"note\": \"Interaction has the predicted sign but is not significant; Holm p=1. Positive simple slopes do not establish moderation. Absence of moderation is not proven.\"\n },\n {\n  \"claim_id\": \"C5\",\n  \"supported\": true,\n  \"estimate\": -0.1694,\n  \"p_value\": null,\n  \"note\": \"Negative association in the extended model, adjusting for hiring_quality and training_investment. Raw and Holm-adjusted p-values reported as 0.0000.\"\n },\n {\n  \"claim_id\": \"C6\",\n  \"supported\": true,\n  \"estimate\": 0.1159,\n  \"p_value\": 0.0007,\n  \"note\": \"Positive mutually adjusted association; Holm p=0.0028. Hiring timing and selection limit causal interpretation.\"\n },\n {\n  \"claim_id\": \"C1_team_performance\",\n  \"supported\": false,\n  \"estimate\": 0.2588,\n  \"p_value\": null,\n  \"note\": \"The total adjusted association is significantly positive, opposite to the hypothesized negative direction. Raw and Holm-adjusted p-values reported as 0.0000. Adding hiring and training gives 0.2639; adding mediators attenuates the coefficient to 0.0122 (p=0.7498), without a sign reversal.\"\n },\n {\n  \"claim_id\": \"C7\",\n  \"supported\": false,\n  \"estimate\": -0.0085,\n  \"p_value\": 0.7984,\n  \"note\": \"No support for a positive adjusted association; Holm p=1. This does not establish zero or negative causal effect. Confounding by budget_slack is possible but cannot be demonstrated without bivariate estimates.\"\n }\n]\n```"
+    }
+   ],
+   "response": {
+    "verdicts": [
+     {
+      "claim_id": "F1",
+      "verdict": "revise",
+      "reason": "The positive adjusted association is tested and supported; L2 is correctly cited. State that team_turnover is associated with higher knowledge_loss, or label the causal direction a hypothesis. Same-year measurement and uncertain baseline controls prevent causal identification; 0.72 is not justified as causal confidence.",
+      "suggested_confidence": null
+     },
+     {
+      "claim_id": "F2",
+      "verdict": "revise",
+      "reason": "The positive association is supported, including in the additional-control model. This contradicts the predicted negative association but does not establish a positive causal effect. hiring_quality and training_investment may follow turnover, so coefficient stability after adjustment does not resolve confounding. Describe an association and acknowledge the contrast with L1.",
+      "suggested_confidence": null
+     },
+     {
+      "claim_id": "F3",
+      "verdict": "revise",
+      "reason": "The negative coefficient product and interval support a statistical indirect association through knowledge_loss. L1 proposes this mechanism, and L2 supports its first association; neither establishes mediation here. Label this a candidate mechanism because temporal ordering, mediator–outcome confounding, and the relationship between the two mediators remain unresolved.",
+      "suggested_confidence": null
+     },
+     {
+      "claim_id": "F4",
+      "verdict": "revise",
+      "reason": "The positive statistical indirect association through idea_novelty is tested and substantially larger than the negative pathway in this fitted model. Causal mediation requires additional assumptions: performance or shared team conditions could influence novelty, and the mediators could influence each other. Retain the decomposition as descriptive evidence for a candidate mechanism, not an established causal pathway.",
+      "suggested_confidence": null
+     },
+     {
+      "claim_id": "F5",
+      "verdict": "revise",
+      "reason": "The negative conditional association is supported, and L5 is correctly cited. Reverse causality and uncertain timing of budget_slack, hiring_quality, and training_investment leave the causal interpretation unresolved. State that workload is negatively associated with team_performance under the specified adjustment; 0.69 overstates the demonstrated causal evidence.",
+      "suggested_confidence": null
+     },
+     {
+      "claim_id": "F6",
+      "verdict": "revise",
+      "reason": "The positive conditional association is tested, and L7 is correctly cited. Assignment of stronger hires may depend on team resources or prior performance. Clarify how hiring_quality is defined for teams without replacements and whether complete-case selection excludes them. Retain an association or explicitly tentative causal hypothesis.",
+      "suggested_confidence": null
+     }
+    ],
+    "concerns": "All six claims have relevant statistical tests, but their causal labels exceed the analysis plan's observational interpretation. HC3 and row bootstrapping assume independent observations; repeated teams and shared sites could invalidate reported uncertainty. The truncated output omits complete-case counts, and all models select on availability of hiring and training measures even when these are excluded as regressors. Baseline timing is assumed rather than demonstrated. Holm adjustment addresses multiplicity, not these identification problems. Literature IDs are accurately used, but prior associations do not establish effects in this firm. No defensible numerical calibration of causal confidence is supplied; null values indicate that limitation.",
+    "suggested_additional_analyses": [
+     "Recover team, site, and year identifiers; evaluate dependence and use appropriate clustered inference and longitudinal models.",
+     "Establish measurement timing and a causal diagram before selecting controls, especially budget_slack, workload, hiring_quality, and training_investment.",
+     "Report missingness and complete-case counts; compare model-specific samples and clarify hiring_quality coding when no replacements occur.",
+     "Use temporally ordered mediator and outcome measurements; assess sensitivity to mediator–outcome confounding and alternative ordering of knowledge_loss and idea_novelty."
+    ]
+   },
+   "raw": null,
+   "cached": false,
+   "latency_s": 52.67,
+   "usage": {
+    "total_tokens": 20711
+   }
+  },
+  {
+   "step": 8,
+   "role": "synthesizer",
+   "model": "gpt-6-astra",
+   "messages": [
+    {
+     "role": "system",
+     "content": "You are the lead of a research team and write its final report: a short theory summary, a set of final causal claims with calibrated confidence and evidential basis, and limitations. Integrate the theorist's proposal, the analyst's evidence and (if present) the critic's review. Keep a claim only if you can defend it with the evidence in front of you; drop or re-sign claims the data contradict; lower confidence where support is thin. Return JSON only.\n\nRules for claims:\n- Use the exact variable names from the codebook (snake_case). Never invent variables.\n- type \"effect\": `sign` is \"positive\", \"negative\" or \"none\" (no causal effect). Leave moderator/mediator fields null.\n- type \"moderation\": `moderator` names the moderating variable; `interaction_sign` says whether the effect of `cause` on\n  `outcome` becomes more positive (\"positive\") or more negative (\"negative\") as the moderator increases.\n- type \"mediation\": `mediator` names the mechanism variable; `indirect_sign` may be given or left null.\n- `confidence` is your honest probability (0 to 1) that the claim is true in this setting. Do not inflate it.\n- `basis` lists the evidence: \"data\" and/or \"literature:L<k>\" entries. Cite only literature IDs that actually exist in the brief\n  and only for the relation that abstract is about.\n- Prefer fewer, well-supported claims to many speculative ones (at most 10).\n\nGovernance: the critic has veto power. Claims the critic rejected must not appear in the final report; claims marked 'revise' may appear only in the revised form the critic asked for."
+    },
+    {
+     "role": "user",
+     "content": "# Research brief\n\n**Setting.** Work teams in a large multi-site manufacturing and services firm.\n\n**Research question.** What determines team performance in this firm, and in particular how does team turnover affect team performance, through which mechanisms, and under what conditions?\n\n**Data.** `data.csv` with N = 1200 observations at the team-year level. See the codebook for variables.\n\n**Prior literature available to the team** (summaries of earlier studies in comparable settings; cite them by ID):\n\n- **[L1]** Panel of 212 manufacturing teams over four years. Higher share of team members who left and were replaced during the year was associated with lower supervisor-rated team performance against annual targets (standardized b = -0.15, p < .01). The authors attribute the pattern to the loss of tacit, team-specific knowledge.\n- **[L2]** Field study of 96 software teams with quarterly skills audits. Higher share of team members who left and were replaced during the year was associated with higher loss of team-specific procedural knowledge, from quarterly skills audits (standardized b = +0.24, p < .01).\n- **[L3]** Survey of 340 service teams in two retail chains. The association between share of team members who left and were replaced during the year and supervisor-rated team performance against annual targets was more positive when degree to which the team's work procedures are documented in written routines was high (interaction b = +0.34, p < .05). Documented routines are argued to buffer teams against the disruption of member exit.\n- **[L4]** Cross-sectional study of 1,105 teams in a logistics firm. Higher hours of formal training purchased for the team was associated with higher supervisor-rated team performance against annual targets (standardized b = +0.21, p < .01). The authors recommend expanding formal training budgets.\n- **[L5]** Two-wave survey of 180 hospital units. Higher average weekly workload per member relative to the firm norm was associated with lower supervisor-rated team performance against annual targets (standardized b = -0.24, p < .01).\n- **[L6]** Meta-analytic summary of 41 team studies. Units with higher number of team members showed no significant difference in supervisor-rated team performance against annual targets (standardized b = +0.03, n.s.).\n- **[L7]** Archival study of 2,300 hires in a professional services firm. Higher quality of replacement hires, from structured assessment scores at entry was associated with higher supervisor-rated team performance against annual targets (standardized b = +0.17, p < .01).\n\n**Deliverable.** A set of causal claims about what determines the focal outcome, each stated with the exact variable names in the codebook, a calibrated confidence in [0, 1], and its evidential basis (data analysis, literature IDs, or both). Claims may assert positive, negative or no effects, moderation (whether the effect of a cause on an outcome becomes more positive or more negative as a moderator increases), or mediation (a cause acting on an outcome through a mediator).\n\n\n# Codebook: turnover-contrarian-s1\n\nSetting: work teams in a large multi-site manufacturing and services firm. Unit of observation: team-year. N = 1200.\n\nAll variables are standardized indices (mean ~0, SD ~1); higher values mean more of the construct.\n\n| variable | description |\n|---|---|\n| `team_turnover` | Share of team members who left and were replaced during the year (standardized index) |\n| `team_performance` | Supervisor-rated team performance against annual targets (standardized index) |\n| `knowledge_loss` | Loss of team-specific procedural knowledge, from quarterly skills audits (standardized index) |\n| `idea_novelty` | Novelty of the team's submissions to the firm's improvement program, rated by independent judges (standardized index) |\n| `routine_codification` | Degree to which the team's work procedures are documented in written routines (standardized index) |\n| `task_interdependence` | Degree to which members' tasks depend on one another's outputs (standardized index) |\n| `hiring_quality` | Quality of replacement hires, from structured assessment scores at entry (standardized index) |\n| `workload` | Average weekly workload per member relative to the firm norm (standardized index) |\n| `team_size` | Number of team members (standardized index) |\n| `budget_slack` | Unspent discretionary budget available to the team (standardized index) |\n| `training_investment` | Hours of formal training purchased for the team (standardized index) |\n\n\nTheorist's proposal:\n```json\n{\n \"theorist_A\": {\n  \"theory_summary\": \"Team turnover may affect performance through competing mechanisms: loss of team-specific knowledge can reduce performance, while new perspectives may increase idea novelty and improve performance. The knowledge-loss pathway has stronger prior support; the novelty pathway is a tentative alternative. Routine codification may buffer turnover's adverse consequences. The net effect should be estimated rather than presumed negative. Workload and hiring quality are additional plausible determinants.\",\n  \"claims\": [\n   {\n    \"id\": \"C1\",\n    \"type\": \"effect\",\n    \"cause\": \"team_turnover\",\n    \"outcome\": \"knowledge_loss\",\n    \"sign\": \"positive\",\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": null,\n    \"indirect_sign\": null,\n    \"confidence\": 0.75,\n    \"basis\": [\n     \"literature:L2\"\n    ],\n    \"rationale\": \"Departing members take procedural knowledge that replacements cannot immediately recover. L2 supports this association, although its software setting and observational design limit causal transfer.\"\n   },\n   {\n    \"id\": \"C2\",\n    \"type\": \"mediation\",\n    \"cause\": \"team_turnover\",\n    \"outcome\": \"team_performance\",\n    \"sign\": null,\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": \"knowledge_loss\",\n    \"indirect_sign\": \"negative\",\n    \"confidence\": 0.65,\n    \"basis\": [\n     \"literature:L1\",\n     \"literature:L2\"\n    ],\n    \"rationale\": \"Turnover can remove knowledge needed for reliable execution. L1 proposes this mechanism and L2 supports its first link; neither summary establishes a causal indirect effect.\"\n   },\n   {\n    \"id\": \"C3\",\n    \"type\": \"mediation\",\n    \"cause\": \"team_turnover\",\n    \"outcome\": \"team_performance\",\n    \"sign\": null,\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": \"idea_novelty\",\n    \"indirect_sign\": \"positive\",\n    \"confidence\": 0.4,\n    \"basis\": [],\n    \"rationale\": \"Replacement members may introduce unfamiliar approaches that improve performance through novel improvement submissions. This is an untested competing mechanism; novelty may fail to translate into useful implementation.\"\n   },\n   {\n    \"id\": \"C4\",\n    \"type\": \"moderation\",\n    \"cause\": \"team_turnover\",\n    \"outcome\": \"team_performance\",\n    \"sign\": null,\n    \"moderator\": \"routine_codification\",\n    \"interaction_sign\": \"positive\",\n    \"mediator\": null,\n    \"indirect_sign\": null,\n    \"confidence\": 0.65,\n    \"basis\": [\n     \"literature:L3\"\n    ],\n    \"rationale\": \"Documented procedures may preserve continuity when members leave, making turnover's performance effect more positive. L3 supports this interaction, but documentation may also constrain the adoption of new ideas.\"\n   },\n   {\n    \"id\": \"C5\",\n    \"type\": \"effect\",\n    \"cause\": \"workload\",\n    \"outcome\": \"team_performance\",\n    \"sign\": \"negative\",\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": null,\n    \"indirect_sign\": null,\n    \"confidence\": 0.64,\n    \"basis\": [\n     \"literature:L5\"\n    ],\n    \"rationale\": \"Higher workload can exhaust execution capacity and increase errors. Hospital evidence supports the association, but poor performance may itself increase subsequent workload.\"\n   },\n   {\n    \"id\": \"C6\",\n    \"type\": \"effect\",\n    \"cause\": \"hiring_quality\",\n    \"outcome\": \"team_performance\",\n    \"sign\": \"positive\",\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": null,\n    \"indirect_sign\": null,\n    \"confidence\": 0.65,\n    \"basis\": [\n     \"literature:L7\"\n    ],\n    \"rationale\": \"More capable replacements may execute tasks better and restore productive capacity faster. L7 supports an association, although selective hiring into better-resourced teams could explain part of it.\"\n   }\n  ],\n  \"proposed_tests\": [\n   \"Estimate the total team_turnover effect on subsequent team_performance before adjusting for mediators. Test both linear and nonlinear specifications. If repeated team records and identifiers are available, use team and year fixed effects with team-clustered uncertainty; assess whether prior team_performance predicts subsequent team_turnover.\",\n   \"Test the competing pathways using turnover measured before knowledge_loss and idea_novelty, followed by team_performance. Estimate both indirect effects jointly with uncertainty intervals and sensitivity analyses for unmeasured mediator–outcome confounding. A negative knowledge_loss pathway alongside a positive idea_novelty pathway would support competing mechanisms even if the total effect is near zero.\",\n   \"Estimate team_turnover × routine_codification using codification measured before turnover, and report turnover slopes across observed codification levels. Then examine whether codification attenuates turnover's effect on knowledge_loss. Buffering concentrated in that pathway would support knowledge preservation; an interaction operating through idea_novelty would suggest a different explanation.\",\n   \"Evaluate whether task_interdependence amplifies turnover's performance penalty as an exploratory alternative. If this interaction persists without corresponding knowledge_loss changes, coordination disruption may explain effects that the proposed knowledge mechanism misses.\",\n   \"Estimate workload and hiring_quality effects with temporal ordering and pre-exposure adjustment. Establish how hiring_quality is recorded for teams without replacement; avoid coding missing assessments as average quality. Distinguish the effect of replacement quality from the effect of turnover volume.\",\n   \"Test L4's training recommendation through randomized training access or another credible source of exogenous variation if feasible. In observational analyses, distinguish pre-existing budget_slack from slack measured after training purchases, and examine whether the training_investment association survives adjustment for prior resources and performance.\"\n  ],\n  \"limitations\": \"No data values were supplied or analyzed; these are literature-informed hypotheses, and confidence values are subjective. Team-year observations do not establish temporal ordering or causal identification. Repeated team identifiers, site identifiers, and measurement timing are unspecified. Hiring quality may be undefined when no replacement occurs. L4 does not establish that purchasing training improves performance: budget slack or prior performance could drive both spending and outcomes. L6's nonsignificant association does not establish a zero team-size effect.\"\n },\n \"theorist_B\": {\n  \"theory_summary\": \"Team turnover likely reduces team performance through knowledge_loss, but routine_codification buffers this disruption. The net effect may differ across teams because replacement hires and novel ideas could offset knowledge losses. Workload, hiring_quality, and training_investment are additional plausible determinants. These are literature-informed causal hypotheses; no data values or analysis results were supplied.\",\n  \"claims\": [\n   {\n    \"id\": \"C1\",\n    \"type\": \"effect\",\n    \"cause\": \"team_turnover\",\n    \"outcome\": \"team_performance\",\n    \"sign\": \"negative\",\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": null,\n    \"indirect_sign\": null,\n    \"confidence\": 0.63,\n    \"basis\": [\n     \"literature:L1\"\n    ],\n    \"rationale\": \"Predicts a negative average total effect in this firm. L1 supports the association in manufacturing teams, but causal identification and generalization to services remain uncertain.\"\n   },\n   {\n    \"id\": \"C2\",\n    \"type\": \"effect\",\n    \"cause\": \"team_turnover\",\n    \"outcome\": \"knowledge_loss\",\n    \"sign\": \"positive\",\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": null,\n    \"indirect_sign\": null,\n    \"confidence\": 0.73,\n    \"basis\": [\n     \"literature:L2\"\n    ],\n    \"rationale\": \"Member replacement removes team-specific procedural knowledge. L2 directly supports this association, although software teams may differ in knowledge dependence.\"\n   },\n   {\n    \"id\": \"C3\",\n    \"type\": \"mediation\",\n    \"cause\": \"team_turnover\",\n    \"outcome\": \"team_performance\",\n    \"sign\": null,\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": \"knowledge_loss\",\n    \"indirect_sign\": \"negative\",\n    \"confidence\": 0.6,\n    \"basis\": [\n     \"literature:L1\",\n     \"literature:L2\"\n    ],\n    \"rationale\": \"Turnover-induced knowledge_loss is expected to impair performance. L1 proposes this mechanism and L2 supports its first link; neither summary establishes the complete causal pathway.\"\n   },\n   {\n    \"id\": \"C4\",\n    \"type\": \"moderation\",\n    \"cause\": \"team_turnover\",\n    \"outcome\": \"team_performance\",\n    \"sign\": null,\n    \"moderator\": \"routine_codification\",\n    \"interaction_sign\": \"positive\",\n    \"mediator\": null,\n    \"indirect_sign\": null,\n    \"confidence\": 0.71,\n    \"basis\": [\n     \"literature:L3\"\n    ],\n    \"rationale\": \"Documented procedures preserve continuity during member replacement, making the turnover effect less negative. L3 directly supports this interaction; buffering does not necessarily imply a positive turnover effect.\"\n   },\n   {\n    \"id\": \"C5\",\n    \"type\": \"effect\",\n    \"cause\": \"workload\",\n    \"outcome\": \"team_performance\",\n    \"sign\": \"negative\",\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": null,\n    \"indirect_sign\": null,\n    \"confidence\": 0.65,\n    \"basis\": [\n     \"literature:L5\"\n    ],\n    \"rationale\": \"Higher workload may strain execution capacity. L5 supports a negative association, although poor performance could also increase subsequent workload.\"\n   },\n   {\n    \"id\": \"C6\",\n    \"type\": \"effect\",\n    \"cause\": \"hiring_quality\",\n    \"outcome\": \"team_performance\",\n    \"sign\": \"positive\",\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": null,\n    \"indirect_sign\": null,\n    \"confidence\": 0.65,\n    \"basis\": [\n     \"literature:L7\"\n    ],\n    \"rationale\": \"More capable replacement hires should improve performance among teams receiving replacements. L7 supports the association but does not rule out selective assignment of stronger hires.\"\n   },\n   {\n    \"id\": \"C7\",\n    \"type\": \"effect\",\n    \"cause\": \"training_investment\",\n    \"outcome\": \"team_performance\",\n    \"sign\": \"positive\",\n    \"moderator\": null,\n    \"interaction_sign\": null,\n    \"mediator\": null,\n    \"indirect_sign\": null,\n    \"confidence\": 0.53,\n    \"basis\": [\n     \"literature:L4\"\n    ],\n    \"rationale\": \"Formal training may improve skills, but purchased hours need not indicate effective learning. L4's cross-sectional association may reflect budget_slack or prior performance, so its spending recommendation provides weak causal guidance.\"\n   }\n  ],\n  \"proposed_tests\": [\n   \"Estimate the total effect of team_turnover on subsequent team_performance using prior team_performance and justified pre-turnover confounders. If identifiers and repeated observations are available, include team and year effects and cluster uncertainty by team. Do not control for knowledge_loss or idea_novelty when estimating the total effect.\",\n   \"Test team_turnover × baseline routine_codification with both main effects included. Report turnover slopes and uncertainty across observed codification levels. A positive interaction supports buffering; an interaction near zero with narrow uncertainty challenges C4.\",\n   \"Use temporally ordered turnover, quarterly knowledge_loss, and subsequent performance to estimate the indirect effect. Test whether baseline routine_codification attenuates the turnover-to-knowledge_loss link. Conduct sensitivity analysis for mediator–outcome confounding; regression coefficient attenuation alone cannot establish mediation.\",\n   \"Compare knowledge_loss and idea_novelty as parallel, temporally ordered mediators. A positive indirect effect through idea_novelty alongside a negative knowledge_loss pathway would support offsetting mechanisms, potentially explaining a weak or positive total turnover effect. Explore task_interdependence as a prespecified competing moderator.\",\n   \"Evaluate workload, hiring_quality, and training_investment using exposure-specific temporal models. Distinguish baseline confounders from consequences of turnover. Examine whether the training association survives adjustment for prior budget_slack and prior team_performance; randomized allocation of training would provide stronger evidence.\",\n   \"Where feasible, randomize routine_codification support before turnover occurs to test the buffering prediction, while recognizing that nonrandom turnover still complicates interpretation. For team_size, use an equivalence test with a prespecified practically negligible effect range rather than interpreting nonsignificance as no effect.\"\n  ],\n  \"limitations\": \"The supplied brief describes 1,200 observations but provides no data values, timing details, or identifiers. No claim therefore has a data basis. The literature summaries mostly report observational associations. Same-year measurement permits reverse causality and ambiguous mediator ordering. Supervisor ratings may introduce measurement bias. L6's nonsignificant result does not establish that team_size has no causal effect. hiring_quality may be undefined when no replacements occur.\"\n }\n}\n```\n\nAnalyst's report:\n```json\n{\n \"plan\": \"Test all eight hypotheses, distinguishing the duplicated C1 labels by outcome. Estimate turnover's total association without mediators, moderation through a turnover × codification interaction, and parallel knowledge-loss and novelty pathways using mediator equations plus a joint outcome equation. Use HC3 standard errors, paired bootstrap uncertainty for indirect effects, and Holm correction. Treat workload, size, budget, codification, and interdependence as provisional baseline controls; examine hiring and training separately and in sensitivity models because their timing is unclear. Interpret results as observational associations, not identified causal effects.\",\n \"data_summary\": \"All 1,200 team-years were complete. Support decisions use the predicted direction and Holm-adjusted p<0.05 across eight tests. Findings are observational associations: same-year measurement, uncertain control timing, reverse causality and unmeasured confounding prevent causal identification. HC3 errors and row bootstrapping assume independent observations; team/site clustering could affect uncertainty. No bivariate estimates were supplied, so bivariate-to-controlled sign changes cannot be assessed. Null p-values below indicate that the reported value rounded to 0.0000, not that the hypothesis was untestable.\",\n \"findings\": [\n  {\n   \"claim_id\": \"C1_knowledge_loss\",\n   \"supported\": true,\n   \"estimate\": 0.2544,\n   \"p_value\": null,\n   \"note\": \"Positive adjusted association. Raw and Holm-adjusted p-values both reported as 0.0000.\"\n  },\n  {\n   \"claim_id\": \"C2\",\n   \"supported\": true,\n   \"estimate\": -0.0279,\n   \"p_value\": 0.0006908,\n   \"note\": \"Negative statistical indirect association through knowledge_loss; Holm p=0.0028. Bootstrap 95% CI [-0.0445, -0.0128]. Causal mediation is not established.\"\n  },\n  {\n   \"claim_id\": \"C3\",\n   \"supported\": true,\n   \"estimate\": 0.2744,\n   \"p_value\": 1.622e-34,\n   \"note\": \"Positive statistical indirect association through idea_novelty; survives Holm correction. Bootstrap 95% CI [0.2320, 0.3158]. Causal mediation is not established.\"\n  },\n  {\n   \"claim_id\": \"C4\",\n   \"supported\": false,\n   \"estimate\": 0.0226,\n   \"p_value\": 0.5287,\n   \"note\": \"Interaction has the predicted sign but is not significant; Holm p=1. Positive simple slopes do not establish moderation. Absence of moderation is not proven.\"\n  },\n  {\n   \"claim_id\": \"C5\",\n   \"supported\": true,\n   \"estimate\": -0.1694,\n   \"p_value\": null,\n   \"note\": \"Negative association in the extended model, adjusting for hiring_quality and training_investment. Raw and Holm-adjusted p-values reported as 0.0000.\"\n  },\n  {\n   \"claim_id\": \"C6\",\n   \"supported\": true,\n   \"estimate\": 0.1159,\n   \"p_value\": 0.0007,\n   \"note\": \"Positive mutually adjusted association; Holm p=0.0028. Hiring timing and selection limit causal interpretation.\"\n  },\n  {\n   \"claim_id\": \"C1_team_performance\",\n   \"supported\": false,\n   \"estimate\": 0.2588,\n   \"p_value\": null,\n   \"note\": \"The total adjusted association is significantly positive, opposite to the hypothesized negative direction. Raw and Holm-adjusted p-values reported as 0.0000. Adding hiring and training gives 0.2639; adding mediators attenuates the coefficient to 0.0122 (p=0.7498), without a sign reversal.\"\n  },\n  {\n   \"claim_id\": \"C7\",\n   \"supported\": false,\n   \"estimate\": -0.0085,\n   \"p_value\": 0.7984,\n   \"note\": \"No support for a positive adjusted association; Holm p=1. This does not establish zero or negative causal effect. Confounding by budget_slack is possible but cannot be demonstrated without bivariate estimates.\"\n  }\n ],\n \"claims\": [\n  {\n   \"id\": \"E1\",\n   \"type\": \"effect\",\n   \"cause\": \"team_turnover\",\n   \"outcome\": \"knowledge_loss\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.93,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Adjusted association is positive (0.2544) and survives Holm correction. Confidence concerns the association in this setting, not an identified causal effect.\"\n  },\n  {\n   \"id\": \"E2\",\n   \"type\": \"effect\",\n   \"cause\": \"team_turnover\",\n   \"outcome\": \"team_performance\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.92,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The total adjusted association is positive (0.2588) and remains similar with hiring and training controls (0.2639). Causality remains unresolved.\"\n  },\n  {\n   \"id\": \"E3\",\n   \"type\": \"mediation\",\n   \"cause\": \"team_turnover\",\n   \"outcome\": \"team_performance\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"knowledge_loss\",\n   \"indirect_sign\": \"negative\",\n   \"confidence\": 0.78,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The negative indirect association (-0.0279) survives Holm correction and is stable in sensitivity analysis. This supports a statistical pathway; temporal order and absence of pathway confounding are unverified.\"\n  },\n  {\n   \"id\": \"E4\",\n   \"type\": \"mediation\",\n   \"cause\": \"team_turnover\",\n   \"outcome\": \"team_performance\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"idea_novelty\",\n   \"indirect_sign\": \"positive\",\n   \"confidence\": 0.86,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The positive indirect association (0.2744) exceeds the negative knowledge-loss pathway and remains similar with additional controls (0.2793). The decomposition is consistent with mediation but does not establish a causal mechanism or full mediation.\"\n  },\n  {\n   \"id\": \"E5\",\n   \"type\": \"effect\",\n   \"cause\": \"workload\",\n   \"outcome\": \"team_performance\",\n   \"sign\": \"negative\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.9,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The adjusted association is negative (-0.1694), survives Holm correction and is similar across reported models. Reverse causality remains possible.\"\n  },\n  {\n   \"id\": \"E6\",\n   \"type\": \"effect\",\n   \"cause\": \"hiring_quality\",\n   \"outcome\": \"team_performance\",\n   \"sign\": \"positive\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.83,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The positive conditional association (0.1159; Holm p=0.0028) supports an empirical relationship. Selection and uncertain timing prevent a causal conclusion.\"\n  }\n ],\n \"output_excerpt\": \"365  0.0391       0.0000\\nroutine_codification -0.0058  0.0339       0.8634\\ntask_interdependence  0.0571  0.0321       0.0753\\nhiring_quality        0.1159  0.0342       0.0007\\ntraining_investment  -0.0085  0.0334       0.7984\\nThese coefficients are conditional associations, not established total causal effects.\\n\\nMediator equation: knowledge_loss | R2=0.059\\n                        coef  SE_HC3  p_two_sided\\nteam_turnover         0.2544  0.0318       0.0000\\nworkload              0.0215  0.0301       0.4741\\nteam_size            -0.0524  0.0316       0.0972\\nbudget_slack         -0.0263  0.0291       0.3674\\nroutine_codification -0.0567  0.0288       0.0487\\ntask_interdependence -0.0166  0.0287       0.5622\\n\\nMediator equation: idea_novelty | R2=0.248\\n                        coef  SE_HC3  p_two_sided\\nteam_turnover         0.6229  0.0334       0.0000\\nworkload              0.0113  0.0289       0.6961\\nteam_size             0.0424  0.0312       0.1742\\nbudget_slack          0.0277  0.0286       0.3328\\nroutine_codification -0.0267  0.0297       0.3690\\ntask_interdependence -0.0007  0.0279       0.9801\\n\\nJoint outcome equation: direct turnover association | R2=0.270\\n                        coef  SE_HC3  p_two_sided\\nteam_turnover         0.0122  0.0384       0.7498\\nworkload             -0.1729  0.0302       0.0000\\nteam_size            -0.0255  0.0329       0.4376\\nbudget_slack          0.3149  0.0301       0.0000\\nroutine_codification -0.0031  0.0307       0.9195\\ntask_interdependence  0.0566  0.0296       0.0563\\nknowledge_loss       -0.1097  0.0299       0.0002\\nidea_novelty          0.4406  0.0298       0.0000\\n\\nPrimary mediation | parallel additive mediation; no mediator ordering assumed\\nTotal=0.2588; direct=0.0122; indirect sum=0.2465\\nknowledge_loss: ab=-0.0279, bootstrap SE=0.0082, p_normal_approx=0.0006908, percentile CI=[-0.0445, -0.0128]\\nidea_novelty: ab=0.2744, bootstrap SE=0.0224, p_normal_approx=1.622e-34, percentile CI=[0.2320, 0.3158]\\n\\nSensitivity: additionally condition on hiring and training | parallel additive mediation; no mediator ordering assumed\\nTotal=0.2639; direct=0.0125; indirect sum=0.2514\\nknowledge_loss: ab=-0.0279, bootstrap SE=0.0081, p_normal_approx=0.0005625, percentile CI=[-0.0443, -0.0130]\\nidea_novelty: ab=0.2793, bootstrap SE=0.0225, p_normal_approx=2.521e-35, percentile CI=[0.2372, 0.3219]\\nIndirect/direct causal interpretations require temporal order and no unmeasured pathway confounding.\\n\\nEight primary tests: two-sided p-values; mediation p-values are bootstrap-SE normal approximations.\\n                 hypothesis  estimate     SE      p  expected_sign  p_Holm  supports_direction\\n       C1_performance_total    0.2588 0.0350 0.0000             -1  0.0000               False\\nC4_codification_interaction    0.0226 0.0358 0.5287              1  1.0000               False\\n                C5_workload   -0.1694 0.0328 0.0000             -1  0.0000                True\\n                  C6_hiring    0.1159 0.0342 0.0007              1  0.0028                True\\n                C7_training   -0.0085 0.0334 0.7984              1  1.0000               False\\n          C1_knowledge_loss    0.2544 0.0318 0.0000              1  0.0000                True\\n      C2_knowledge_indirect   -0.0279 0.0082 0.0007             -1  0.0028                True\\n        C3_novelty_indirect    0.2744 0.0224 0.0000              1  0.0000                True\\nSensitivity and simple slopes are exploratory; nonsignificance does not establish absence of an effect.\\n\"\n}\n```\n\nCritic's review:\n```json\n{\n \"verdicts\": [\n  {\n   \"claim_id\": \"F1\",\n   \"verdict\": \"revise\",\n   \"reason\": \"The positive adjusted association is tested and supported; L2 is correctly cited. State that team_turnover is associated with higher knowledge_loss, or label the causal direction a hypothesis. Same-year measurement and uncertain baseline controls prevent causal identification; 0.72 is not justified as causal confidence.\",\n   \"suggested_confidence\": null\n  },\n  {\n   \"claim_id\": \"F2\",\n   \"verdict\": \"revise\",\n   \"reason\": \"The positive association is supported, including in the additional-control model. This contradicts the predicted negative association but does not establish a positive causal effect. hiring_quality and training_investment may follow turnover, so coefficient stability after adjustment does not resolve confounding. Describe an association and acknowledge the contrast with L1.\",\n   \"suggested_confidence\": null\n  },\n  {\n   \"claim_id\": \"F3\",\n   \"verdict\": \"revise\",\n   \"reason\": \"The negative coefficient product and interval support a statistical indirect association through knowledge_loss. L1 proposes this mechanism, and L2 supports its first association; neither establishes mediation here. Label this a candidate mechanism because temporal ordering, mediator–outcome confounding, and the relationship between the two mediators remain unresolved.\",\n   \"suggested_confidence\": null\n  },\n  {\n   \"claim_id\": \"F4\",\n   \"verdict\": \"revise\",\n   \"reason\": \"The positive statistical indirect association through idea_novelty is tested and substantially larger than the negative pathway in this fitted model. Causal mediation requires additional assumptions: performance or shared team conditions could influence novelty, and the mediators could influence each other. Retain the decomposition as descriptive evidence for a candidate mechanism, not an established causal pathway.\",\n   \"suggested_confidence\": null\n  },\n  {\n   \"claim_id\": \"F5\",\n   \"verdict\": \"revise\",\n   \"reason\": \"The negative conditional association is supported, and L5 is correctly cited. Reverse causality and uncertain timing of budget_slack, hiring_quality, and training_investment leave the causal interpretation unresolved. State that workload is negatively associated with team_performance under the specified adjustment; 0.69 overstates the demonstrated causal evidence.\",\n   \"suggested_confidence\": null\n  },\n  {\n   \"claim_id\": \"F6\",\n   \"verdict\": \"revise\",\n   \"reason\": \"The positive conditional association is tested, and L7 is correctly cited. Assignment of stronger hires may depend on team resources or prior performance. Clarify how hiring_quality is defined for teams without replacements and whether complete-case selection excludes them. Retain an association or explicitly tentative causal hypothesis.\",\n   \"suggested_confidence\": null\n  }\n ],\n \"concerns\": \"All six claims have relevant statistical tests, but their causal labels exceed the analysis plan's observational interpretation. HC3 and row bootstrapping assume independent observations; repeated teams and shared sites could invalidate reported uncertainty. The truncated output omits complete-case counts, and all models select on availability of hiring and training measures even when these are excluded as regressors. Baseline timing is assumed rather than demonstrated. Holm adjustment addresses multiplicity, not these identification problems. Literature IDs are accurately used, but prior associations do not establish effects in this firm. No defensible numerical calibration of causal confidence is supplied; null values indicate that limitation.\",\n \"suggested_additional_analyses\": [\n  \"Recover team, site, and year identifiers; evaluate dependence and use appropriate clustered inference and longitudinal models.\",\n  \"Establish measurement timing and a causal diagram before selecting controls, especially budget_slack, workload, hiring_quality, and training_investment.\",\n  \"Report missingness and complete-case counts; compare model-specific samples and clarify hiring_quality coding when no replacements occur.\",\n  \"Use temporally ordered mediator and outcome measurements; assess sensitivity to mediator–outcome confounding and alternative ordering of knowledge_loss and idea_novelty.\"\n ]\n}\n```\n\nYour earlier draft of the final claims:\n```json\n[\n {\n  \"id\": \"F1\",\n  \"type\": \"effect\",\n  \"cause\": \"team_turnover\",\n  \"outcome\": \"knowledge_loss\",\n  \"sign\": \"positive\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.72,\n  \"basis\": [\n   \"data\",\n   \"literature:L2\"\n  ],\n  \"rationale\": \"The adjusted association is positive (0.2544) and survives Holm correction, consistent with L2. Agreement supports the proposed direction, but uncertain timing and unmeasured confounding limit causal confidence.\"\n },\n {\n  \"id\": \"F2\",\n  \"type\": \"effect\",\n  \"cause\": \"team_turnover\",\n  \"outcome\": \"team_performance\",\n  \"sign\": \"positive\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.64,\n  \"basis\": [\n   \"data\"\n  ],\n  \"rationale\": \"The total adjusted association is positive (0.2588), survives Holm correction, and remains similar after adding hiring and training controls (0.2639). This warrants reversing the proposed negative sign, although selection and reverse causality remain possible.\"\n },\n {\n  \"id\": \"F3\",\n  \"type\": \"mediation\",\n  \"cause\": \"team_turnover\",\n  \"outcome\": \"team_performance\",\n  \"sign\": null,\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": \"knowledge_loss\",\n  \"indirect_sign\": \"negative\",\n  \"confidence\": 0.58,\n  \"basis\": [\n   \"data\",\n   \"literature:L1\",\n   \"literature:L2\"\n  ],\n  \"rationale\": \"The indirect association is -0.0279 (bootstrap 95% CI [-0.0445, -0.0128]; Holm p=0.0028). L1 proposes this mechanism and L2 supports its first link. Temporal ordering and absence of mediator\\u2013outcome confounding remain unverified.\"\n },\n {\n  \"id\": \"F4\",\n  \"type\": \"mediation\",\n  \"cause\": \"team_turnover\",\n  \"outcome\": \"team_performance\",\n  \"sign\": null,\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": \"idea_novelty\",\n  \"indirect_sign\": \"positive\",\n  \"confidence\": 0.6,\n  \"basis\": [\n   \"data\"\n  ],\n  \"rationale\": \"The indirect association is 0.2744 (bootstrap 95% CI [0.2320, 0.3158]) and remains similar with additional controls. It exceeds the negative knowledge_loss pathway, but the statistical decomposition establishes neither causal mediation nor full mediation.\"\n },\n {\n  \"id\": \"F5\",\n  \"type\": \"effect\",\n  \"cause\": \"workload\",\n  \"outcome\": \"team_performance\",\n  \"sign\": \"negative\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.69,\n  \"basis\": [\n   \"data\",\n   \"literature:L5\"\n  ],\n  \"rationale\": \"The adjusted association is negative (-0.1694), survives Holm correction, and agrees with L5. Poor performance could also increase workload, limiting causal interpretation.\"\n },\n {\n  \"id\": \"F6\",\n  \"type\": \"effect\",\n  \"cause\": \"hiring_quality\",\n  \"outcome\": \"team_performance\",\n  \"sign\": \"positive\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.64,\n  \"basis\": [\n   \"data\",\n   \"literature:L7\"\n  ],\n  \"rationale\": \"The positive adjusted association (0.1159; Holm p=0.0028) agrees with L7. Selective assignment of stronger hires, uncertain timing, and potentially undefined hiring_quality for teams without replacements constrain the causal claim.\"\n }\n]\n```"
+    }
+   ],
+   "response": {
+    "theory_summary": "The evidence supports competing candidate mechanisms: team_turnover is associated with greater knowledge_loss and idea_novelty, with a larger positive statistical pathway through idea_novelty than the negative pathway through knowledge_loss. Its total adjusted association with team_performance is positive, contrary to the negative prediction from L1. workload and hiring_quality show negative and positive conditional associations, respectively. The claims below represent tentative causal hypotheses supported by these associations, not identified causal effects. Confidence values are conservative subjective judgments about the causal hypotheses, not probabilities derived from significance tests.",
+    "claims": [
+     {
+      "id": "F1",
+      "type": "effect",
+      "cause": "team_turnover",
+      "outcome": "knowledge_loss",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.6,
+      "basis": [
+       "data",
+       "literature:L2"
+      ],
+      "rationale": "team_turnover is associated with higher knowledge_loss (adjusted coefficient 0.2544; survives Holm correction), consistent with L2. A positive causal direction remains a hypothesis because same-year measurement and uncertain control timing permit alternative explanations."
+     },
+     {
+      "id": "F2",
+      "type": "effect",
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.5,
+      "basis": [
+       "data"
+      ],
+      "rationale": "The total adjusted association is positive (0.2588), contrary to L1's negative association. It remains similar with hiring_quality and training_investment controls (0.2639), but these variables may follow turnover. The positive sign describes the supported association and motivates a tentative causal hypothesis; coefficient stability does not establish causality."
+     },
+     {
+      "id": "F3",
+      "type": "mediation",
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "knowledge_loss",
+      "indirect_sign": "negative",
+      "confidence": 0.45,
+      "basis": [
+       "data",
+       "literature:L1",
+       "literature:L2"
+      ],
+      "rationale": "knowledge_loss is a candidate mechanism: the statistical indirect association is -0.0279 (bootstrap 95% CI [-0.0445, -0.0128]; Holm p=0.0028). L1 proposes this mechanism and L2 supports its first association. Temporal ordering, mediator–outcome confounding, and relationships between the mediators remain unresolved."
+     },
+     {
+      "id": "F4",
+      "type": "mediation",
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "idea_novelty",
+      "indirect_sign": "positive",
+      "confidence": 0.45,
+      "basis": [
+       "data"
+      ],
+      "rationale": "idea_novelty is a candidate mechanism supported by a positive statistical indirect association of 0.2744 (bootstrap 95% CI [0.2320, 0.3158]). This exceeds the negative knowledge_loss pathway in the fitted model. The decomposition is descriptive: performance or shared team conditions could influence novelty, and the mediators could influence each other. Neither causal nor full mediation is established."
+     },
+     {
+      "id": "F5",
+      "type": "effect",
+      "cause": "workload",
+      "outcome": "team_performance",
+      "sign": "negative",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.55,
+      "basis": [
+       "data",
+       "literature:L5"
+      ],
+      "rationale": "workload is negatively associated with team_performance under the extended adjustment (coefficient -0.1694; survives Holm correction), consistent with L5. A negative causal effect remains tentative because poor performance could increase workload and the timing of budget_slack, hiring_quality, and training_investment is uncertain."
+     },
+     {
+      "id": "F6",
+      "type": "effect",
+      "cause": "hiring_quality",
+      "outcome": "team_performance",
+      "sign": "positive",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.55,
+      "basis": [
+       "data",
+       "literature:L7"
+      ],
+      "rationale": "hiring_quality has a positive conditional association with team_performance (0.1159; Holm p=0.0028), consistent with L7. A positive causal effect is tentative because stronger hires may be assigned according to resources or prior performance. Coding for teams without replacements and their inclusion in the analysis are unspecified, limiting interpretation and generalization."
+     }
+    ],
+    "limitations": "The supplied observational results do not identify causal effects. Same-year measurement, uncertain baseline controls, reverse causality, and unmeasured confounding remain unresolved. HC3 errors and row bootstrapping assume independent observations; repeated teams or shared sites could alter uncertainty. The analyst reports 1,200 complete observations, but the critic notes that the excerpt does not independently verify sample selection or hiring_quality coding for teams without replacements. Confidence values lack an empirical calibration procedure. The routine_codification interaction and training_investment association are unsupported; their nonsignificance does not establish zero effects. No team_size null effect is warranted. Longitudinal timing, verified samples, clustered inference, and mediation sensitivity analyses are needed before making intervention recommendations."
+   },
+   "raw": null,
+   "cached": false,
+   "latency_s": 51.15,
+   "usage": {
+    "total_tokens": 10776
+   }
+  }
+ ],
+ "draft_claims": [
+  {
+   "id": "F1",
+   "type": "effect",
+   "cause": "team_turnover",
+   "outcome": "knowledge_loss",
+   "sign": "positive",
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": null,
+   "indirect_sign": null,
+   "confidence": 0.72,
+   "basis": [
+    "data",
+    "literature:L2"
+   ],
+   "rationale": "The adjusted association is positive (0.2544) and survives Holm correction, consistent with L2. Agreement supports the proposed direction, but uncertain timing and unmeasured confounding limit causal confidence."
+  },
+  {
+   "id": "F2",
+   "type": "effect",
+   "cause": "team_turnover",
+   "outcome": "team_performance",
+   "sign": "positive",
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": null,
+   "indirect_sign": null,
+   "confidence": 0.64,
+   "basis": [
+    "data"
+   ],
+   "rationale": "The total adjusted association is positive (0.2588), survives Holm correction, and remains similar after adding hiring and training controls (0.2639). This warrants reversing the proposed negative sign, although selection and reverse causality remain possible."
+  },
+  {
+   "id": "F3",
+   "type": "mediation",
+   "cause": "team_turnover",
+   "outcome": "team_performance",
+   "sign": null,
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": "knowledge_loss",
+   "indirect_sign": "negative",
+   "confidence": 0.58,
+   "basis": [
+    "data",
+    "literature:L1",
+    "literature:L2"
+   ],
+   "rationale": "The indirect association is -0.0279 (bootstrap 95% CI [-0.0445, -0.0128]; Holm p=0.0028). L1 proposes this mechanism and L2 supports its first link. Temporal ordering and absence of mediator–outcome confounding remain unverified."
+  },
+  {
+   "id": "F4",
+   "type": "mediation",
+   "cause": "team_turnover",
+   "outcome": "team_performance",
+   "sign": null,
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": "idea_novelty",
+   "indirect_sign": "positive",
+   "confidence": 0.6,
+   "basis": [
+    "data"
+   ],
+   "rationale": "The indirect association is 0.2744 (bootstrap 95% CI [0.2320, 0.3158]) and remains similar with additional controls. It exceeds the negative knowledge_loss pathway, but the statistical decomposition establishes neither causal mediation nor full mediation."
+  },
+  {
+   "id": "F5",
+   "type": "effect",
+   "cause": "workload",
+   "outcome": "team_performance",
+   "sign": "negative",
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": null,
+   "indirect_sign": null,
+   "confidence": 0.69,
+   "basis": [
+    "data",
+    "literature:L5"
+   ],
+   "rationale": "The adjusted association is negative (-0.1694), survives Holm correction, and agrees with L5. Poor performance could also increase workload, limiting causal interpretation."
+  },
+  {
+   "id": "F6",
+   "type": "effect",
+   "cause": "hiring_quality",
+   "outcome": "team_performance",
+   "sign": "positive",
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": null,
+   "indirect_sign": null,
+   "confidence": 0.64,
+   "basis": [
+    "data",
+    "literature:L7"
+   ],
+   "rationale": "The positive adjusted association (0.1159; Holm p=0.0028) agrees with L7. Selective assignment of stronger hires, uncertain timing, and potentially undefined hiring_quality for teams without replacements constrain the causal claim."
+  }
+ ],
+ "critic_verdicts": [
+  {
+   "claim_id": "F1",
+   "verdict": "revise",
+   "reason": "The positive adjusted association is tested and supported; L2 is correctly cited. State that team_turnover is associated with higher knowledge_loss, or label the causal direction a hypothesis. Same-year measurement and uncertain baseline controls prevent causal identification; 0.72 is not justified as causal confidence.",
+   "suggested_confidence": null
+  },
+  {
+   "claim_id": "F2",
+   "verdict": "revise",
+   "reason": "The positive association is supported, including in the additional-control model. This contradicts the predicted negative association but does not establish a positive causal effect. hiring_quality and training_investment may follow turnover, so coefficient stability after adjustment does not resolve confounding. Describe an association and acknowledge the contrast with L1.",
+   "suggested_confidence": null
+  },
+  {
+   "claim_id": "F3",
+   "verdict": "revise",
+   "reason": "The negative coefficient product and interval support a statistical indirect association through knowledge_loss. L1 proposes this mechanism, and L2 supports its first association; neither establishes mediation here. Label this a candidate mechanism because temporal ordering, mediator–outcome confounding, and the relationship between the two mediators remain unresolved.",
+   "suggested_confidence": null
+  },
+  {
+   "claim_id": "F4",
+   "verdict": "revise",
+   "reason": "The positive statistical indirect association through idea_novelty is tested and substantially larger than the negative pathway in this fitted model. Causal mediation requires additional assumptions: performance or shared team conditions could influence novelty, and the mediators could influence each other. Retain the decomposition as descriptive evidence for a candidate mechanism, not an established causal pathway.",
+   "suggested_confidence": null
+  },
+  {
+   "claim_id": "F5",
+   "verdict": "revise",
+   "reason": "The negative conditional association is supported, and L5 is correctly cited. Reverse causality and uncertain timing of budget_slack, hiring_quality, and training_investment leave the causal interpretation unresolved. State that workload is negatively associated with team_performance under the specified adjustment; 0.69 overstates the demonstrated causal evidence.",
+   "suggested_confidence": null
+  },
+  {
+   "claim_id": "F6",
+   "verdict": "revise",
+   "reason": "The positive conditional association is tested, and L7 is correctly cited. Assignment of stronger hires may depend on team resources or prior performance. Clarify how hiring_quality is defined for teams without replacements and whether complete-case selection excludes them. Retain an association or explicitly tentative causal hypothesis.",
+   "suggested_confidence": null
+  }
+ ],
+ "report": {
+  "theory_summary": "The evidence supports competing candidate mechanisms: team_turnover is associated with greater knowledge_loss and idea_novelty, with a larger positive statistical pathway through idea_novelty than the negative pathway through knowledge_loss. Its total adjusted association with team_performance is positive, contrary to the negative prediction from L1. workload and hiring_quality show negative and positive conditional associations, respectively. The claims below represent tentative causal hypotheses supported by these associations, not identified causal effects. Confidence values are conservative subjective judgments about the causal hypotheses, not probabilities derived from significance tests.",
+  "limitations": "The supplied observational results do not identify causal effects. Same-year measurement, uncertain baseline controls, reverse causality, and unmeasured confounding remain unresolved. HC3 errors and row bootstrapping assume independent observations; repeated teams or shared sites could alter uncertainty. The analyst reports 1,200 complete observations, but the critic notes that the excerpt does not independently verify sample selection or hiring_quality coding for teams without replacements. Confidence values lack an empirical calibration procedure. The routine_codification interaction and training_investment association are unsupported; their nonsignificance does not establish zero effects. No team_size null effect is warranted. Longitudinal timing, verified samples, clustered inference, and mediation sensitivity analyses are needed before making intervention recommendations."
+ }
+}

@@ -9,7 +9,7 @@ description = "Organizing Machine Science: a ground-truth testbed for the organi
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
-authors = [{name = "Yongchao Martin Ma"}]
+authors = [{name = "Anonymized for double-blind review"}]
 dependencies = [
   "numpy>=1.26",
   "pandas>=2.1",

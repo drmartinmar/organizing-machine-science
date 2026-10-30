@@ -1,0 +1,889 @@
+{
+ "design": "datafirst_hierarchy",
+ "world_id": "decentralization-contrarian-s1",
+ "template": "decentralization",
+ "variant": "contrarian",
+ "seed": 1,
+ "design_params": {
+  "name": "datafirst_hierarchy",
+  "structure": "pipeline",
+  "sequence": "data_first",
+  "evaluation": "hierarchy",
+  "team_structure": "connected",
+  "critic_model": null,
+  "theorist_models": [
+   null,
+   null
+  ],
+  "llm": true,
+  "description": "Analyst explores the data blind to the literature; theorist explains; veto critic."
+ },
+ "metrics": {
+  "n_claims": 5,
+  "n_true": 5,
+  "n_false": 0,
+  "precision": 1.0,
+  "n_focal": 7,
+  "focal_recall": 0.7142857142857143,
+  "n_focal_missed": 2,
+  "n_unpublished_focal": 6,
+  "discovery_rate": 0.8333333333333334,
+  "parroting_rate": 0.0,
+  "consensus_conformity": 0.0,
+  "n_consensus_relation_claims": 2,
+  "trap_rate": 0.0,
+  "confident_false_rate": 0.0,
+  "n_confident_false": 0,
+  "mean_confidence": 0.45999999999999996,
+  "brier": 0.294,
+  "overconfidence": -0.54,
+  "citation_errors": 2,
+  "f1_focal": 0.8333333333333333
+ },
+ "claims": [
+  {
+   "id": "F1",
+   "type": "effect",
+   "cause": "decision_decentralization",
+   "outcome": "unit_performance",
+   "sign": "negative",
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": null,
+   "indirect_sign": null,
+   "confidence": 0.5,
+   "basis": [
+    "data",
+    "literature:L1"
+   ],
+   "rationale": "A negative total effect is a hypothesis conditional on correct temporal ordering and adequate confounding control. Observed associations are -0.3536 bivariately, -0.345 with baseline adjustment, and -0.2531 with hq_attention and formal_planning_hours added. Their unknown timing limits interpretation. L1 reports contrary evidence on this relationship.",
+   "verdict": "TRUE",
+   "truth_value": "negative",
+   "is_trap": false,
+   "is_consensus": false,
+   "about_consensus_relation": true,
+   "parrots": false,
+   "citation_errors": 0
+  },
+  {
+   "id": "F2",
+   "type": "moderation",
+   "cause": "decision_decentralization",
+   "outcome": "unit_performance",
+   "sign": null,
+   "moderator": "environmental_turbulence",
+   "interaction_sign": "negative",
+   "mediator": null,
+   "indirect_sign": null,
+   "confidence": 0.5,
+   "basis": [
+    "data",
+    "literature:L2"
+   ],
+   "rationale": "The interaction of -0.2916 survives Holm correction and indicates a more negative conditional association at higher environmental_turbulence. Causal moderation is conditional on identification assumptions, including adequate control for differential selection into decision_decentralization. L2 reports the opposite interaction. Increased coordination demands remain an untested explanation.",
+   "verdict": "TRUE",
+   "truth_value": "negative",
+   "is_trap": false,
+   "is_consensus": false,
+   "about_consensus_relation": true,
+   "parrots": false,
+   "citation_errors": 0
+  },
+  {
+   "id": "F3",
+   "type": "moderation",
+   "cause": "decision_decentralization",
+   "outcome": "unit_performance",
+   "sign": null,
+   "moderator": "it_integration",
+   "interaction_sign": "positive",
+   "mediator": null,
+   "indirect_sign": null,
+   "confidence": 0.5,
+   "basis": [
+    "data"
+   ],
+   "rationale": "The interaction of +0.1891 survives Holm correction. At mean environmental_turbulence, slopes are -0.5265 and -0.1482 at it_integration values of -1 and +1 SD, indicating attenuation of the negative association. A causal interpretation requires ruling out joint selection through headquarters policies, prior performance, and other confounders; no coordination mechanism is established.",
+   "verdict": "TRUE",
+   "truth_value": "positive",
+   "is_trap": false,
+   "is_consensus": false,
+   "about_consensus_relation": false,
+   "parrots": false,
+   "citation_errors": 0
+  },
+  {
+   "id": "F4",
+   "type": "mediation",
+   "cause": "decision_decentralization",
+   "outcome": "unit_performance",
+   "sign": null,
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": "local_knowledge_use",
+   "indirect_sign": "positive",
+   "confidence": 0.4,
+   "basis": [
+    "data",
+    "literature:L4"
+   ],
+   "rationale": "local_knowledge_use is a candidate mechanism: the indirect association is +0.1248, with bootstrap 95% CI [0.09665, 0.1535]. L4 supports only the decision_decentralization-to-local_knowledge_use link. Causal mediation requires unverified temporal ordering and confounding assumptions; the parallel additive model also omits the observed interactions.",
+   "verdict": "TRUE",
+   "truth_value": "positive",
+   "is_trap": false,
+   "is_consensus": false,
+   "about_consensus_relation": false,
+   "parrots": false,
+   "citation_errors": 1
+  },
+  {
+   "id": "F5",
+   "type": "mediation",
+   "cause": "decision_decentralization",
+   "outcome": "unit_performance",
+   "sign": null,
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": "coordination_cost",
+   "indirect_sign": "negative",
+   "confidence": 0.4,
+   "basis": [
+    "data",
+    "literature:L7"
+   ],
+   "rationale": "coordination_cost is a candidate mechanism: the indirect association is -0.3572, with bootstrap 95% CI [-0.4131, -0.3084]. L7 supports only the decision_decentralization-to-coordination_cost link. Reverse causation from poor unit_performance to coordination_cost and mediator–outcome confounding remain possible. The larger absolute product is descriptive and establishes neither causal mediation nor causal dominance.",
+   "verdict": "TRUE",
+   "truth_value": "negative",
+   "is_trap": false,
+   "is_consensus": false,
+   "about_consensus_relation": false,
+   "parrots": false,
+   "citation_errors": 1
+  }
+ ],
+ "n_calls": 6,
+ "total_tokens": 108590,
+ "wall_s": 321.6,
+ "code_runs": 1,
+ "code_failures": 0,
+ "error": null,
+ "ts": "2026-10-30T00:36:01",
+ "transcript": [
+  {
+   "step": 1,
+   "role": "analyst_code",
+   "model": "gpt-6-astra",
+   "messages": [
+    {
+     "role": "system",
+     "content": "You are the empirical analyst of a research team. You write a single self-contained Python script that reads `data.csv` (in the working directory) with pandas and tests the hypotheses you are given (or, if none are given, explores what determines the focal outcome). Use statsmodels (e.g. `statsmodels.formula.api`), numpy, pandas and scipy only. Think about confounding: include relevant controls and be explicit about which coefficients are total versus direct effects. For moderation use interaction terms; for mediation use the two-equation approach. Print compact, labeled results (coefficients, standard errors, p-values). No plotting, no file writing, no network. Keep the script under 120 lines. Return JSON with `plan` and `code`."
+    },
+    {
+     "role": "user",
+     "content": "Setting: operating units of multi-unit firms. Research question: What determines unit performance in these firms, and in particular how does the decentralization of operating decisions affect unit performance, through which mechanisms, and under what conditions? Focal cause: `decision_decentralization`. Focal outcome: `unit_performance`.\n\n# Codebook: decentralization-contrarian-s1\n\nSetting: operating units of multi-unit firms. Unit of observation: unit-year. N = 1200.\n\nAll variables are standardized indices (mean ~0, SD ~1); higher values mean more of the construct.\n\n| variable | description |\n|---|---|\n| `decision_decentralization` | Share of operating decisions delegated from headquarters to the unit (standardized index) |\n| `unit_performance` | Unit operating performance relative to plan (standardized index) |\n| `environmental_turbulence` | Volatility of demand and competitive conditions in the unit's market (standardized index) |\n| `local_knowledge_use` | Extent to which unit decisions draw on local customer and market information, from decision audits (standardized index) |\n| `coordination_cost` | Managerial time and rework spent reconciling the unit's decisions with other units (standardized index) |\n| `it_integration` | Degree of integration of the unit's information systems with headquarters systems (standardized index) |\n| `unit_size` | Number of employees in the unit (standardized index) |\n| `managerial_experience` | Average years of managerial experience in the unit leadership team (standardized index) |\n| `hq_attention` | Attention headquarters devotes to the unit, from meeting and review logs (standardized index) |\n| `formal_planning_hours` | Hours the unit spends on formal strategic planning (standardized index) |\n| `market_concentration` | Concentration of the unit's market (standardized index) |\n\n\nData preview (first rows and summary statistics):\n```\n unit_id  decision_decentralization  unit_performance  environmental_turbulence  local_knowledge_use  coordination_cost  it_integration  unit_size  managerial_experience  hq_attention  formal_planning_hours  market_concentration\n       1                    -1.0679            2.4836                    1.7841              -0.8540            -1.0276          1.1674     1.0123                 0.2201        1.1764                 1.2282                0.8148\n       2                     1.6737            0.5047                   -0.9657               2.2399             0.1379          1.6344     1.0436                -0.2299       -0.7822                -1.1837               -1.1327\n       3                    -1.3694            1.9060                    0.4058               0.9088            -0.5138          0.6297     0.3943                -0.2913       -0.1412                -0.3869                0.4176\n       4                     2.8634           -1.0404                   -0.7479              -0.1808             1.0836          0.4127    -0.5319                 1.0415       -1.8426                 0.7946               -0.1801\n       5                    -0.5498            0.7351                   -1.2610              -2.8838            -1.5894         -0.3714    -0.8450                 0.1269        0.8328                 1.4181               -0.0277\n\n                           mean   std   min   max\ndecision_decentralization  0.02  1.08 -3.70  3.90\nunit_performance          -0.03  1.39 -4.35  4.59\nenvironmental_turbulence  -0.01  1.02 -3.76  3.61\nlocal_knowledge_use        0.01  1.08 -3.39  3.12\ncoordination_cost          0.04  1.31 -4.76  5.80\nit_integration             0.01  1.01 -3.12  3.14\nunit_size                  0.07  0.94 -3.30  3.95\nmanagerial_experience     -0.03  1.04 -3.64  2.97\nhq_attention              -0.08  0.99 -3.06  3.04\nformal_planning_hours     -0.05  1.14 -3.51  3.61\nmarket_concentration      -0.01  0.96 -3.15  2.99\n```\n\nNo hypotheses are given. Explore the data to find what determines the focal outcome: main effects with sensible controls, candidate moderators of the focal cause, and candidate mediators. Report only what the data support."
+    }
+   ],
+   "response": {
+    "plan": "Estimate adjusted total associations of decentralization with performance, test turbulence and IT integration as moderators, and examine local knowledge use and coordination cost as parallel mediators. Treat headquarters attention and planning as sensitivity controls because their causal timing is unclear. Use robust or clustered uncertainty, bootstrap indirect associations, and adjust exploratory interaction and mediation tests for multiplicity. Causal interpretations require assumptions that these observational data cannot verify.",
+    "code": "import numpy as np\nimport pandas as pd\nimport statsmodels.formula.api as smf\nfrom scipy.stats import norm\nfrom statsmodels.stats.multitest import multipletests\n\nD, Y = 'decision_decentralization', 'unit_performance'\nmods = ['environmental_turbulence', 'it_integration']\nmeds = ['local_knowledge_use', 'coordination_cost']\ncontrols = mods + ['unit_size', 'managerial_experience', 'market_concentration']\nextra = ['hq_attention', 'formal_planning_hours']\nraw = pd.read_csv('data.csv')\nrequired = [D, Y] + controls + meds + extra\nmissing = sorted(set(required) - set(raw.columns))\nif missing:\n    raise ValueError('Missing columns: ' + ', '.join(missing))\nraw[required] = raw[required].apply(pd.to_numeric, errors='raise')\ndf = raw.replace([np.inf, -np.inf], np.nan).dropna(subset=required).copy()\nif len(df) < 50:\n    raise ValueError('Too few complete observations for this exploratory analysis.')\ngroup = None\nfor candidate in ['firm_id', 'unit_id']:\n    if candidate in df and df[candidate].duplicated().any():\n        group = candidate\n        break\nif group:\n    df = df.dropna(subset=[group]).copy()\n    if df[group].nunique() < 2:\n        raise ValueError('At least two independent clusters are required.')\nprint(f'Complete cases: {len(df)}/{len(raw)}; excluded: {len(raw)-len(df)}')\nprint('Inference:', 'clustered by ' + group if group else 'HC3; independent rows assumed')\nif group:\n    print('Clusters:', df[group].nunique(), '(few clusters weaken inference)')\nif 'firm_id' not in df:\n    print('Firm IDs unavailable: within-firm dependence/confounding cannot be addressed.')\nprint('Exploratory observational associations; no causal identification or temporal ordering.')\nprint('Baseline controls assumed pre-exposure; mediators excluded from total models.')\nprint('HQ attention and planning added only in sensitivity models; timing is ambiguous.')\n\nC = ' + '.join(controls)\ntotal_f = f'{Y} ~ {D} + {C}'\nmod_f = total_f + ' + ' + ' + '.join(f'{D}:{m}' for m in mods)\ndirect_f = total_f + ' + ' + ' + '.join(meds)\na_forms = [f'{m} ~ {D} + {C}' for m in meds]\ndef fit(formula, data=df, robust=True):\n    model = smf.ols(formula, data=data)\n    if not robust:\n        return model.fit()\n    if group:\n        return model.fit(cov_type='cluster', cov_kwds={'groups': data[group]})\n    return model.fit(cov_type='HC3')\ndef report(label, model):\n    print('\\n' + label + f' | N={int(model.nobs)}, R2={model.rsquared:.3f}')\n    out = pd.DataFrame({'coef': model.params, 'SE': model.bse, 'p': model.pvalues})\n    print(out.drop(index='Intercept', errors='ignore').to_string(float_format=lambda x: f'{x:.4g}'))\n\nreport('Unadjusted association', fit(f'{Y} ~ {D}'))\ntotal = fit(total_f)\nreport('Adjusted total association (candidate mediators excluded)', total)\nreport('Total-association sensitivity: HQ attention and planning', fit(total_f + ' + ' + ' + '.join(extra)))\nmoderated = fit(mod_f)\nreport('Moderated total associations', moderated)\nfor m in mods:\n    for value in [-1, 0, 1]:\n        contrast = np.zeros(len(moderated.params))\n        contrast[moderated.params.index.get_loc(D)] = 1\n        contrast[moderated.params.index.get_loc(f'{D}:{m}')] = value\n        test = moderated.t_test(contrast)\n        print(f'Slope at {m}={value:+d}, other moderator=0: '\n              f'b={test.effect.item():.4g}, SE={test.sd.item():.4g}, p={test.pvalue.item():.4g}')\na_models = [fit(f) for f in a_forms]\nfor m, model in zip(meds, a_models):\n    report('Mediator equation: ' + m, model)\ndirect = fit(direct_f)\nreport('Direct association conditional on both candidate mediators', direct)\nreport('Direct-association sensitivity: HQ attention and planning', fit(direct_f + ' + ' + ' + '.join(extra)))\n\nrng = np.random.default_rng(20261030)\nB = 999\nboot = []\nclusters = [g for _, g in df.groupby(group)] if group else None\nfor _ in range(B):\n    if group:\n        sample = pd.concat([clusters[i] for i in rng.integers(len(clusters), size=len(clusters))], ignore_index=True)\n    else:\n        sample = df.iloc[rng.integers(len(df), size=len(df))]\n    b_model = fit(direct_f, sample, False)\n    boot.append([fit(f, sample, False).params[D] * b_model.params[m] for f, m in zip(a_forms, meds)])\nboot = np.asarray(boot)\nproducts = np.array([a.params[D] * direct.params[m] for a, m in zip(a_models, meds)])\nses = boot.std(axis=0, ddof=1)\npvals = 2 * norm.sf(np.abs(products / np.maximum(ses, np.finfo(float).eps)))\nprint('\\nParallel additive mediation: product estimates; bootstrap SE and percentile 95% CI')\nfor j, m in enumerate(meds):\n    lo, hi = np.quantile(boot[:, j], [.025, .975])\n    print(f'{m}: ab={products[j]:.4g}, SE={ses[j]:.4g}, approximate p={pvals[j]:.4g}, CI=[{lo:.4g}, {hi:.4g}]')\nprint(f'Decomposition: total={total.params[D]:.4g}, direct={direct.params[D]:.4g}, sum(ab)={products.sum():.4g}')\nlabels = [f'{D} x {m}' for m in mods] + ['indirect via ' + m for m in meds]\np_all = [moderated.pvalues[f'{D}:{m}'] for m in mods] + list(pvals)\nreject, adjusted, _, _ = multipletests(p_all, method='holm')\nprint('\\nExploratory family: two interactions and two indirect associations (Holm correction)')\nfor label, p, supported in zip(labels, adjusted, reject):\n    print(f'{label}: adjusted p={p:.4g}; ' + ('evidence at .05' if supported else 'insufficient evidence at .05'))\nprint('Other coefficient and slope p-values are descriptive, unadjusted exploratory tests.')\nprint('Indirect products assume parallel mediators and additive paths; they do not establish mechanisms.')\nprint('Causal total/direct effects require correct temporal ordering and no relevant unmeasured confounding.')\n"
+   },
+   "raw": null,
+   "cached": false,
+   "latency_s": 69.95,
+   "usage": {
+    "total_tokens": 18036
+   }
+  },
+  {
+   "step": 2,
+   "role": "sandbox",
+   "model": null,
+   "messages": null,
+   "response": {
+    "ok": true,
+    "seconds": 27.03,
+    "stdout": "Complete cases: 1200/1200; excluded: 0\nInference: HC3; independent rows assumed\nFirm IDs unavailable: within-firm dependence/confounding cannot be addressed.\nExploratory observational associations; no causal identification or temporal ordering.\nBaseline controls assumed pre-exposure; mediators excluded from total models.\nHQ attention and planning added only in sensitivity models; timing is ambiguous.\n\nUnadjusted association | N=1200, R2=0.075\n                             coef      SE         p\ndecision_decentralization -0.3536 0.03712 1.654e-21\n\nAdjusted total association (candidate mediators excluded) | N=1200, R2=0.129\n                               coef      SE         p\ndecision_decentralization    -0.345 0.03645  2.95e-21\nenvironmental_turbulence  -0.003223 0.03925    0.9345\nit_integration              0.03288  0.0382    0.3893\nunit_size                  -0.04089 0.03894    0.2938\nmanagerial_experience        0.2467 0.03721 3.364e-11\nmarket_concentration          0.199  0.0395 4.713e-07\n\nTotal-association sensitivity: HQ attention and planning | N=1200, R2=0.157\n                              coef      SE         p\ndecision_decentralization  -0.2531  0.0393 1.206e-10\nenvironmental_turbulence   0.00144 0.03886    0.9704\nit_integration             0.03861 0.03783    0.3075\nunit_size                 -0.03413 0.03845    0.3748\nmanagerial_experience        0.247 0.03629 1.004e-11\nmarket_concentration        0.2052 0.03904 1.464e-07\nhq_attention                0.2772 0.04668 2.864e-09\nformal_planning_hours     -0.03433 0.03863    0.3742\n\nModerated total associations | N=1200, R2=0.199\n                                                       coef      SE         p\ndecision_decentralization                           -0.3373 0.03297 1.458e-24\nenvironmental_turbulence                           0.009206 0.03619    0.7992\nit_integration                                      0.02955 0.03569    0.4077\nunit_size                                          -0.03329 0.03745    0.3741\nmanagerial_experience                                0.2501 0.03603 3.912e-12\nmarket_concentration                                 0.1902 0.03806 5.838e-07\ndecision_decentralization:environmental_turbulence  -0.2916 0.03117 8.154e-21\ndecision_decentralization:it_integration             0.1891 0.03317 1.189e-08\nSlope at environmental_turbulence=-1, other moderator=0: b=-0.04567, SE=0.04675, p=0.3287\nSlope at environmental_turbulence=+0, other moderator=0: b=-0.3373, SE=0.03297, p=1.458e-24\nSlope at environmental_turbulence=+1, other moderator=0: b=-0.629, SE=0.04395, p=1.839e-46\nSlope at it_integration=-1, other moderator=0: b=-0.5265, SE=0.04665, p=1.573e-29\nSlope at it_integration=+0, other moderator=0: b=-0.3373, SE=0.03297, p=1.458e-24\nSlope at it_integration=+1, other moderator=0: b=-0.1482, SE=0.04689, p=0.001579\n\nMediator equation: local_knowledge_use | N=1200, R2=0.119\n                               coef      SE         p\ndecision_decentralization    0.3418 0.02693 6.615e-37\nenvironmental_turbulence  -0.008973 0.02628    0.7328\nit_integration              0.02672 0.02843    0.3473\nunit_size                   0.03803 0.03211    0.2362\nmanagerial_experience     -0.007148 0.02865     0.803\nmarket_concentration       0.002088 0.03116    0.9466\n\nMediator equation: coordination_cost | N=1200, R2=0.320\n                              coef      SE         p\ndecision_decentralization   0.6637 0.03389 2.091e-85\nenvironmental_turbulence  -0.01885 0.03139    0.5481\nit_integration            -0.04801 0.03345    0.1512\nunit_size                   0.1337 0.03386 7.864e-05\nmanagerial_experience     -0.02812 0.02994    0.3475\nmarket_concentration      -0.06078 0.03312   0.06648\n\nDirect association conditional on both candidate mediators | N=1200, R2=0.370\n                               coef      SE         p\ndecision_decentralization   -0.1126 0.03987  0.004753\nenvironmental_turbulence   -0.01009  0.0339    0.7659\nit_integration            -0.002705  0.0325    0.9337\nunit_size                   0.01717 0.03449    0.6187\nmanagerial_experience        0.2341 0.03129 7.297e-14\nmarket_concentration         0.1655  0.0343 1.399e-06\nlocal_knowledge_use          0.3651 0.03152 5.005e-31\ncoordination_cost           -0.5382 0.03038 3.408e-70\n\nDirect-association sensitivity: HQ attention and planning | N=1200, R2=0.395\n                               coef      SE         p\ndecision_decentralization  -0.02602 0.04113     0.527\nenvironmental_turbulence  -0.006926 0.03335    0.8355\nit_integration             0.003813 0.03195     0.905\nunit_size                   0.02427 0.03356    0.4695\nmanagerial_experience        0.2346 0.03037 1.134e-14\nmarket_concentration         0.1692 0.03387 5.857e-07\nlocal_knowledge_use          0.3613 0.03057 3.215e-32\ncoordination_cost           -0.5379 0.02997 5.055e-72\nhq_attention                 0.2252 0.03821 3.757e-09\nformal_planning_hours       0.02681 0.03223    0.4054\n\nParallel additive mediation: product estimates; bootstrap SE and percentile 95% CI\nlocal_knowledge_use: ab=0.1248, SE=0.01472, approximate p=2.287e-17, CI=[0.09665, 0.1535]\ncoordination_cost: ab=-0.3572, SE=0.0267, approximate p=8.297e-41, CI=[-0.4131, -0.3084]\nDecomposition: total=-0.345, direct=-0.1126, sum(ab)=-0.2324\n\nExploratory family: two interactions and two indirect associations (Holm correction)\ndecision_decentralization x environmental_turbulence: adjusted p=2.446e-20; evidence at .05\ndecision_decentralization x it_integration: adjusted p=1.189e-08; evidence at .05\nindirect via local_knowledge_use: adjusted p=4.573e-17; evidence at .05\nindirect via coordination_cost: adjusted p=3.319e-40; evidence at .05\nOther coefficient and slope p-values are descriptive, unadjusted exploratory tests.\nIndirect products assume parallel mediators and additive paths; they do not establish mechanisms.\nCausal total/direct effects require correct temporal ordering and no relevant unmeasured confounding.\n",
+    "stderr": ""
+   },
+   "cached": false,
+   "latency_s": 27.03,
+   "usage": {}
+  },
+  {
+   "step": 3,
+   "role": "analyst_interpret",
+   "model": "gpt-6-astra",
+   "messages": [
+    {
+     "role": "system",
+     "content": "You are the empirical analyst of a research team. Interpret the output of the analysis you ran. For each hypothesis you were given, say whether the data support it (`supported` true/false, or null if untestable), with the key estimate and p-value. Then list the empirical claims the data warrant as structured claims with calibrated confidence and basis [\"data\"]. Flag confounding or sign changes between bivariate and controlled estimates. Return JSON only.\n\nRules for claims:\n- Use the exact variable names from the codebook (snake_case). Never invent variables.\n- type \"effect\": `sign` is \"positive\", \"negative\" or \"none\" (no causal effect). Leave moderator/mediator fields null.\n- type \"moderation\": `moderator` names the moderating variable; `interaction_sign` says whether the effect of `cause` on\n  `outcome` becomes more positive (\"positive\") or more negative (\"negative\") as the moderator increases.\n- type \"mediation\": `mediator` names the mechanism variable; `indirect_sign` may be given or left null.\n- `confidence` is your honest probability (0 to 1) that the claim is true in this setting. Do not inflate it.\n- `basis` lists the evidence: \"data\" and/or \"literature:L<k>\" entries. Cite only literature IDs that actually exist in the brief\n  and only for the relation that abstract is about.\n- Prefer fewer, well-supported claims to many speculative ones (at most 10)."
+    },
+    {
+     "role": "user",
+     "content": "Setting: operating units of multi-unit firms. Research question: What determines unit performance in these firms, and in particular how does the decentralization of operating decisions affect unit performance, through which mechanisms, and under what conditions? Focal cause: `decision_decentralization`. Focal outcome: `unit_performance`.\n\n# Codebook: decentralization-contrarian-s1\n\nSetting: operating units of multi-unit firms. Unit of observation: unit-year. N = 1200.\n\nAll variables are standardized indices (mean ~0, SD ~1); higher values mean more of the construct.\n\n| variable | description |\n|---|---|\n| `decision_decentralization` | Share of operating decisions delegated from headquarters to the unit (standardized index) |\n| `unit_performance` | Unit operating performance relative to plan (standardized index) |\n| `environmental_turbulence` | Volatility of demand and competitive conditions in the unit's market (standardized index) |\n| `local_knowledge_use` | Extent to which unit decisions draw on local customer and market information, from decision audits (standardized index) |\n| `coordination_cost` | Managerial time and rework spent reconciling the unit's decisions with other units (standardized index) |\n| `it_integration` | Degree of integration of the unit's information systems with headquarters systems (standardized index) |\n| `unit_size` | Number of employees in the unit (standardized index) |\n| `managerial_experience` | Average years of managerial experience in the unit leadership team (standardized index) |\n| `hq_attention` | Attention headquarters devotes to the unit, from meeting and review logs (standardized index) |\n| `formal_planning_hours` | Hours the unit spends on formal strategic planning (standardized index) |\n| `market_concentration` | Concentration of the unit's market (standardized index) |\n\n\nAnalysis plan: Estimate adjusted total associations of decentralization with performance, test turbulence and IT integration as moderators, and examine local knowledge use and coordination cost as parallel mediators. Treat headquarters attention and planning as sensitivity controls because their causal timing is unclear. Use robust or clustered uncertainty, bootstrap indirect associations, and adjust exploratory interaction and mediation tests for multiplicity. Causal interpretations require assumptions that these observational data cannot verify.\n\nScript:\n```python\nimport numpy as np\nimport pandas as pd\nimport statsmodels.formula.api as smf\nfrom scipy.stats import norm\nfrom statsmodels.stats.multitest import multipletests\n\nD, Y = 'decision_decentralization', 'unit_performance'\nmods = ['environmental_turbulence', 'it_integration']\nmeds = ['local_knowledge_use', 'coordination_cost']\ncontrols = mods + ['unit_size', 'managerial_experience', 'market_concentration']\nextra = ['hq_attention', 'formal_planning_hours']\nraw = pd.read_csv('data.csv')\nrequired = [D, Y] + controls + meds + extra\nmissing = sorted(set(required) - set(raw.columns))\nif missing:\n    raise ValueError('Missing columns: ' + ', '.join(missing))\nraw[required] = raw[required].apply(pd.to_numeric, errors='raise')\ndf = raw.replace([np.inf, -np.inf], np.nan).dropna(subset=required).copy()\nif len(df) < 50:\n    raise ValueError('Too few complete observations for this exploratory analysis.')\ngroup = None\nfor candidate in ['firm_id', 'unit_id']:\n    if candidate in df and df[candidate].duplicated().any():\n        group = candidate\n        break\nif group:\n    df = df.dropna(subset=[group]).copy()\n    if df[group].nunique() < 2:\n        raise ValueError('At least two independent clusters are required.')\nprint(f'Complete cases: {len(df)}/{len(raw)}; excluded: {len(raw)-len(df)}')\nprint('Inference:', 'clustered by ' + group if group else 'HC3; independent rows assumed')\nif group:\n    print('Clusters:', df[group].nunique(), '(few clusters weaken inference)')\nif 'firm_id' not in df:\n    print('Firm IDs unavailable: within-firm dependence/confounding cannot be addressed.')\nprint('Exploratory observational associations; no causal identification or temporal ordering.')\nprint('Baseline controls assumed pre-exposure; mediators excluded from total models.')\nprint('HQ attention and planning added only in sensitivity models; timing is ambiguous.')\n\nC = ' + '.join(controls)\ntotal_f = f'{Y} ~ {D} + {C}'\nmod_f = total_f + ' + ' + ' + '.join(f'{D}:{m}' for m in mods)\ndirect_f = total_f + ' + ' + ' + '.join(meds)\na_forms = [f'{m} ~ {D} + {C}' for m in meds]\ndef fit(formula, data=df, robust=True):\n    model = smf.ols(formula, data=data)\n    if not robust:\n        return model.fit()\n    if group:\n        return model.fit(cov_type='cluster', cov_kwds={'groups': data[group]})\n    return model.fit(cov_type='HC3')\ndef report(label, model):\n    print('\\n' + label + f' | N={int(model.nobs)}, R2={model.rsquared:.3f}')\n    out = pd.DataFrame({'coef': model.params, 'SE': model.bse, 'p': model.pvalues})\n    print(out.drop(index='Intercept', errors='ignore').to_string(float_format=lambda x: f'{x:.4g}'))\n\nreport('Unadjusted association', fit(f'{Y} ~ {D}'))\ntotal = fit(total_f)\nreport('Adjusted total association (candidate mediators excluded)', total)\nreport('Total-association sensitivity: HQ attention and planning', fit(total_f + ' + ' + ' + '.join(extra)))\nmoderated = fit(mod_f)\nreport('Moderated total associations', moderated)\nfor m in mods:\n    for value in [-1, 0, 1]:\n        contrast = np.zeros(len(moderated.params))\n        contrast[moderated.params.index.get_loc(D)] = 1\n        contrast[moderated.params.index.get_loc(f'{D}:{m}')] = value\n        test = moderated.t_test(contrast)\n        print(f'Slope at {m}={value:+d}, other moderator=0: '\n              f'b={test.effect.item():.4g}, SE={test.sd.item():.4g}, p={test.pvalue.item():.4g}')\na_models = [fit(f) for f in a_forms]\nfor m, model in zip(meds, a_models):\n    report('Mediator equation: ' + m, model)\ndirect = fit(direct_f)\nreport('Direct association conditional on both candidate mediators', direct)\nreport('Direct-association sensitivity: HQ attention and planning', fit(direct_f + ' + ' + ' + '.join(extra)))\n\nrng = np.random.default_rng(20261030)\nB = 999\nboot = []\nclusters = [g for _, g in df.groupby(group)] if group else None\nfor _ in range(B):\n    if group:\n        sample = pd.concat([clusters[i] for i in rng.integers(len(clusters), size=len(clusters))], ignore_index=True)\n    else:\n        sample = df.iloc[rng.integers(len(df), size=len(df))]\n    b_model = fit(direct_f, sample, False)\n    boot.append([fit(f, sample, False).params[D] * b_model.params[m] for f, m in zip(a_forms, meds)])\nboot = np.asarray(boot)\nproducts = np.array([a.params[D] * direct.params[m] for a, m in zip(a_models, meds)])\nses = boot.std(axis=0, ddof=1)\npvals = 2 * norm.sf(np.abs(products / np.maximum(ses, np.finfo(float).eps)))\nprint('\\nParallel additive mediation: product estimates; bootstrap SE and percentile 95% CI')\nfor j, m in enumerate(meds):\n    lo, hi = np.quantile(boot[:, j], [.025, .975])\n    print(f'{m}: ab={products[j]:.4g}, SE={ses[j]:.4g}, approximate p={pvals[j]:.4g}, CI=[{lo:.4g}, {hi:.4g}]')\nprint(f'Decomposition: total={total.params[D]:.4g}, direct={direct.params[D]:.4g}, sum(ab)={products.sum():.4g}')\nlabels = [f'{D} x {m}' for m in mods] + ['indirect via ' + m for m in meds]\np_all = [moderated.pvalues[f'{D}:{m}'] for m in mods] + list(pvals)\nreject, adjusted, _, _ = multipletests(p_all, method='holm')\nprint('\\nExploratory family: two interactions and two indirect associations (Holm correction)')\nfor label, p, supported in zip(labels, adjusted, reject):\n    print(f'{label}: adjusted p={p:.4g}; ' + ('evidence at .05' if supported else 'insufficient evidence at .05'))\nprint('Other coefficient and slope p-values are descriptive, unadjusted exploratory tests.')\nprint('Indirect products assume parallel mediators and additive paths; they do not establish mechanisms.')\nprint('Causal total/direct effects require correct temporal ordering and no relevant unmeasured confounding.')\n\n```\n\nOutput:\n```\nComplete cases: 1200/1200; excluded: 0\nInference: HC3; independent rows assumed\nFirm IDs unavailable: within-firm dependence/confounding cannot be addressed.\nExploratory observational associations; no causal identification or temporal ordering.\nBaseline controls assumed pre-exposure; mediators excluded from total models.\nHQ attention and planning added only in sensitivity models; timing is ambiguous.\n\nUnadjusted association | N=1200, R2=0.075\n                             coef      SE         p\ndecision_decentralization -0.3536 0.03712 1.654e-21\n\nAdjusted total association (candidate mediators excluded) | N=1200, R2=0.129\n                               coef      SE         p\ndecision_decentralization    -0.345 0.03645  2.95e-21\nenvironmental_turbulence  -0.003223 0.03925    0.9345\nit_integration              0.03288  0.0382    0.3893\nunit_size                  -0.04089 0.03894    0.2938\nmanagerial_experience        0.2467 0.03721 3.364e-11\nmarket_concentration          0.199  0.0395 4.713e-07\n\nTotal-association sensitivity: HQ attention and planning | N=1200, R2=0.157\n                              coef      SE         p\ndecision_decentralization  -0.2531  0.0393 1.206e-10\nenvironmental_turbulence   0.00144 0.03886    0.9704\nit_integration             0.03861 0.03783    0.3075\nunit_size                 -0.03413 0.03845    0.3748\nmanagerial_experience        0.247 0.03629 1.004e-11\nmarket_concentration        0.2052 0.03904 1.464e-07\nhq_attention                0.2772 0.04668 2.864e-09\nformal_planning_hours     -0.03433 0.03863    0.3742\n\nModerated total associations | N=1200, R2=0.199\n                                                       coef      SE         p\ndecision_decentralization                           -0.3373 0.03297 1.458e-24\nenvironmental_turbulence                           0.009206 0.03619    0.7992\nit_integration                                      0.02955 0.03569    0.4077\nunit_size                                          -0.03329 0.03745    0.3741\nmanagerial_experience                                0.2501 0.03603 3.912e-12\nmarket_concentration                                 0.1902 0.03806 5.838e-07\ndecision_decentralization:environmental_turbulence  -0.2916 0.03117 8.154e-21\ndecision_decentralization:it_integration             0.1891 0.03317 1.189e-08\nSlope at environmental_turbulence=-1, other moderator=0: b=-0.04567, SE=0.04675, p=0.3287\nSlope at environmental_turbulence=+0, other moderator=0: b=-0.3373, SE=0.03297, p=1.458e-24\nSlope at environmental_turbulence=+1, other moderator=0: b=-0.629, SE=0.04395, p=1.839e-46\nSlope at it_integration=-1, other moderator=0: b=-0.5265, SE=0.04665, p=1.573e-29\nSlope at it_integration=+0, other moderator=0: b=-0.3373, SE=0.03297, p=1.458e-24\nSlope at it_integration=+1, other moderator=0: b=-0.1482, SE=0.04689, p=0.001579\n\nMediator equation: local_knowledge_use | N=1200, R2=0.119\n                               coef      SE         p\ndecision_decentralization    0.3418 0.02693 6.615e-37\nenvironmental_turbulence  -0.008973 0.02628    0.7328\nit_integration              0.02672 0.02843    0.3473\nunit_size                   0.03803 0.03211    0.2362\nmanagerial_experience     -0.007148 0.02865     0.803\nmarket_concentration       0.002088 0.03116    0.9466\n\nMediator equation: coordination_cost | N=1200, R2=0.320\n                              coef      SE         p\ndecision_decentralization   0.6637 0.03389 2.091e-85\nenvironmental_turbulence  -0.01885 0.03139    0.5481\nit_integration            -0.04801 0.03345    0.1512\nunit_size                   0.1337 0.03386 7.864e-05\nmanagerial_experience     -0.02812 0.02994    0.3475\nmarket_concentration      -0.06078 0.03312   0.06648\n\nDirect association conditional on both candidate mediators | N=1200, R2=0.370\n                               coef      SE         p\ndecision_decentralization   -0.1126 0.03987  0.004753\nenvironmental_turbulence   -0.01009  0.0339    0.7659\nit_integration            -0.002705  0.0325    0.9337\nunit_size                   0.01717 0.03449    0.6187\nmanagerial_experience        0.2341 0.03129 7.297e-14\nmarket_concentration         0.1655  0.0343 1.399e-06\nlocal_knowledge_use          0.3651 0.03152 5.005e-31\ncoordination_cost           -0.5382 0.03038 3.408e-70\n\nDirect-association sensitivity: HQ attention and planning | N=1200, R2=0.395\n                               coef      SE         p\ndecision_decentralization  -0.02602 0.04113     0.527\nenvironmental_turbulence  -0.006926 0.03335    0.8355\nit_integration             0.003813 0.03195     0.905\nunit_size                   0.02427 0.03356    0.4695\nmanagerial_experience        0.2346 0.03037 1.134e-14\nmarket_concentration         0.1692 0.03387 5.857e-07\nlocal_knowledge_use          0.3613 0.03057 3.215e-32\ncoordination_cost           -0.5379 0.02997 5.055e-72\nhq_attention                 0.2252 0.03821 3.757e-09\nformal_planning_hours       0.02681 0.03223    0.4054\n\nParallel additive mediation: product estimates; bootstrap SE and percentile 95% CI\nlocal_knowledge_use: ab=0.1248, SE=0.01472, approximate p=2.287e-17, CI=[0.09665, 0.1535]\ncoordination_cost: ab=-0.3572, SE=0.0267, approximate p=8.297e-41, CI=[-0.4131, -0.3084]\nDecomposition: total=-0.345, direct=-0.1126, sum(ab)=-0.2324\n\nExploratory family: two interactions and two indirect associations (Holm correction)\ndecision_decentralization x environmental_turbulence: adjusted p=2.446e-20; evidence at .05\ndecision_decentralization x it_integration: adjusted p=1.189e-08; evidence at .05\nindirect via local_knowledge_use: adjusted p=4.573e-17; evidence at .05\nindirect via coordination_cost: adjusted p=3.319e-40; evidence at .05\nOther coefficient and slope p-values are descriptive, unadjusted exploratory tests.\nIndirect products assume parallel mediators and additive paths; they do not establish mechanisms.\nCausal total/direct effects require correct temporal ordering and no relevant unmeasured confounding.\n\n```"
+    }
+   ],
+   "response": {
+    "data_summary": "All 1,200 unit-years were complete. Results describe observational associations, not identified causal effects. HC3 uncertainty assumes independent rows; unavailable firm IDs prevent accounting for within-firm dependence or confounding. No explicit directional hypotheses were supplied, so findings summarize the planned tests. Exploratory interaction and indirect-association p-values below are Holm-adjusted. Decentralization remains negatively associated with performance from the bivariate to adjusted models; there is no focal sign reversal.",
+    "findings": [
+     {
+      "claim_id": "C1",
+      "supported": true,
+      "estimate": -0.345,
+      "p_value": 2.95e-21,
+      "note": "Supports a negative adjusted total association. Bivariate estimate: -0.3536, p=1.654e-21. Adding hq_attention and formal_planning_hours attenuates the estimate to -0.2531, p=1.206e-10. This sensitivity suggests possible confounding or adjustment for downstream variables; their timing is unknown."
+     },
+     {
+      "claim_id": "C2",
+      "supported": true,
+      "estimate": -0.2916,
+      "p_value": 2.446e-20,
+      "note": "Environmental turbulence makes the decentralization–performance association more negative. At turbulence -1 and +1 SD, slopes are -0.04567 (p=0.3287) and -0.629 (p=1.839e-46), holding IT integration at zero. Slope p-values are unadjusted; the nonsignificant low-turbulence slope does not establish no effect."
+     },
+     {
+      "claim_id": "C3",
+      "supported": true,
+      "estimate": 0.1891,
+      "p_value": 1.189e-08,
+      "note": "IT integration makes the decentralization–performance association more positive, attenuating its negative magnitude. Slopes remain negative at IT integration -1 and +1 SD: -0.5265 and -0.1482, respectively, with turbulence at zero."
+     },
+     {
+      "claim_id": "C4",
+      "supported": true,
+      "estimate": 0.1248,
+      "p_value": 4.573e-17,
+      "note": "Positive indirect association through local_knowledge_use; bootstrap 95% CI [0.09665, 0.1535]. Decentralization predicts greater local knowledge use (0.3418), which positively predicts performance conditional on both mediators (0.3651). This supports a statistical pathway, not an established causal mechanism."
+     },
+     {
+      "claim_id": "C5",
+      "supported": true,
+      "estimate": -0.3572,
+      "p_value": 3.319e-40,
+      "note": "Negative indirect association through coordination_cost; bootstrap 95% CI [-0.4131, -0.3084]. Path coefficients are 0.6637 and -0.5382. Its magnitude exceeds the positive local-knowledge product. The additive decomposition is -0.345 = -0.1126 + 0.1248 - 0.3572; it does not establish causal mediation."
+     },
+     {
+      "claim_id": "direct_association_sensitivity",
+      "supported": false,
+      "estimate": -0.02602,
+      "p_value": 0.527,
+      "note": "A robust negative mediator-conditional association is not supported across specifications: the baseline direct association is -0.1126 (p=0.004753), but becomes small and nonsignificant after adding headquarters attention and planning. This does not establish zero direct effect or full mediation."
+     }
+    ],
+    "claims": [
+     {
+      "id": "C1",
+      "type": "effect",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": "negative",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.95,
+      "basis": [
+       "data"
+      ],
+      "rationale": "Negative total association persists across bivariate, baseline-adjusted, and sensitivity models. The effect label represents an association; causal direction and unmeasured confounding remain unresolved."
+     },
+     {
+      "id": "C2",
+      "type": "moderation",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": null,
+      "moderator": "environmental_turbulence",
+      "interaction_sign": "negative",
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.94,
+      "basis": [
+       "data"
+      ],
+      "rationale": "The negative interaction survives Holm correction and indicates a more negative association at higher turbulence. Dependence and causal identification remain unresolved."
+     },
+     {
+      "id": "C3",
+      "type": "moderation",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": null,
+      "moderator": "it_integration",
+      "interaction_sign": "positive",
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.91,
+      "basis": [
+       "data"
+      ],
+      "rationale": "The positive interaction survives Holm correction. Higher IT integration attenuates the negative association without reversing it at the reported moderator values."
+     },
+     {
+      "id": "C4",
+      "type": "mediation",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "local_knowledge_use",
+      "indirect_sign": "positive",
+      "confidence": 0.88,
+      "basis": [
+       "data"
+      ],
+      "rationale": "A positive statistical indirect association has a bootstrap interval excluding zero and survives Holm correction. Confidence concerns the additive statistical pathway; temporal ordering and causal mediation are unverified."
+     },
+     {
+      "id": "C5",
+      "type": "mediation",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "coordination_cost",
+      "indirect_sign": "negative",
+      "confidence": 0.9,
+      "basis": [
+       "data"
+      ],
+      "rationale": "A negative statistical indirect association has a bootstrap interval excluding zero and survives Holm correction. Its magnitude dominates the positive local-knowledge pathway under the parallel additive model; causal mediation remains unverified."
+     }
+    ]
+   },
+   "raw": null,
+   "cached": false,
+   "latency_s": 50.98,
+   "usage": {
+    "total_tokens": 20319
+   }
+  },
+  {
+   "step": 4,
+   "role": "theorist",
+   "model": "gpt-6-astra",
+   "messages": [
+    {
+     "role": "system",
+     "content": "You are the theorist of a research team in organization science. Your job is to propose the most plausible causal theory for the research question, stated as precise, testable claims, and to say which tests would discriminate between it and alternatives. Engage the prior literature critically: earlier findings may not hold in this setting. Return JSON only.\n\nRules for claims:\n- Use the exact variable names from the codebook (snake_case). Never invent variables.\n- type \"effect\": `sign` is \"positive\", \"negative\" or \"none\" (no causal effect). Leave moderator/mediator fields null.\n- type \"moderation\": `moderator` names the moderating variable; `interaction_sign` says whether the effect of `cause` on\n  `outcome` becomes more positive (\"positive\") or more negative (\"negative\") as the moderator increases.\n- type \"mediation\": `mediator` names the mechanism variable; `indirect_sign` may be given or left null.\n- `confidence` is your honest probability (0 to 1) that the claim is true in this setting. Do not inflate it.\n- `basis` lists the evidence: \"data\" and/or \"literature:L<k>\" entries. Cite only literature IDs that actually exist in the brief\n  and only for the relation that abstract is about.\n- Prefer fewer, well-supported claims to many speculative ones (at most 10)."
+    },
+    {
+     "role": "user",
+     "content": "# Research brief\n\n**Setting.** Operating units of multi-unit firms.\n\n**Research question.** What determines unit performance in these firms, and in particular how does the decentralization of operating decisions affect unit performance, through which mechanisms, and under what conditions?\n\n**Data.** `data.csv` with N = 1200 observations at the unit-year level. See the codebook for variables.\n\n**Prior literature available to the team** (summaries of earlier studies in comparable settings; cite them by ID):\n\n- **[L1]** Panel of 418 business units in 37 multi-unit firms. Higher share of operating decisions delegated from headquarters to the unit was associated with higher unit operating performance relative to plan (standardized b = +0.23, p < .01). Delegation is argued to put decisions where the relevant knowledge sits.\n- **[L2]** Survey of 265 units matched to market volatility data. The association between share of operating decisions delegated from headquarters to the unit and unit operating performance relative to plan was more positive when volatility of demand and competitive conditions in the unit's market was high (interaction b = +0.27, p < .05). Decentralized units are argued to adapt faster when conditions change.\n- **[L3]** Cross-sectional study of 720 units. Higher hours the unit spends on formal strategic planning was associated with higher unit operating performance relative to plan (standardized b = +0.23, p < .01). The authors recommend formal planning routines.\n- **[L4]** Decision-audit study of 1,900 decisions in 84 units. Higher share of operating decisions delegated from headquarters to the unit was associated with higher extent to which unit decisions draw on local customer and market information, from decision audits (standardized b = +0.28, p < .01).\n- **[L5]** Archival study of 3,400 unit-years. Higher average years of managerial experience in the unit leadership team was associated with higher unit operating performance relative to plan (standardized b = +0.24, p < .01).\n- **[L6]** Meta-analytic summary of 29 studies. Units with higher number of employees in the unit showed no significant difference in unit operating performance relative to plan (standardized b = +0.01, n.s.).\n- **[L7]** Time-use study of 140 unit management teams. Higher share of operating decisions delegated from headquarters to the unit was associated with higher managerial time and rework spent reconciling the unit's decisions with other units (standardized b = +0.17, p < .01).\n\n**Deliverable.** A set of causal claims about what determines the focal outcome, each stated with the exact variable names in the codebook, a calibrated confidence in [0, 1], and its evidential basis (data analysis, literature IDs, or both). Claims may assert positive, negative or no effects, moderation (whether the effect of a cause on an outcome becomes more positive or more negative as a moderator increases), or mediation (a cause acting on an outcome through a mediator).\n\n\n# Codebook: decentralization-contrarian-s1\n\nSetting: operating units of multi-unit firms. Unit of observation: unit-year. N = 1200.\n\nAll variables are standardized indices (mean ~0, SD ~1); higher values mean more of the construct.\n\n| variable | description |\n|---|---|\n| `decision_decentralization` | Share of operating decisions delegated from headquarters to the unit (standardized index) |\n| `unit_performance` | Unit operating performance relative to plan (standardized index) |\n| `environmental_turbulence` | Volatility of demand and competitive conditions in the unit's market (standardized index) |\n| `local_knowledge_use` | Extent to which unit decisions draw on local customer and market information, from decision audits (standardized index) |\n| `coordination_cost` | Managerial time and rework spent reconciling the unit's decisions with other units (standardized index) |\n| `it_integration` | Degree of integration of the unit's information systems with headquarters systems (standardized index) |\n| `unit_size` | Number of employees in the unit (standardized index) |\n| `managerial_experience` | Average years of managerial experience in the unit leadership team (standardized index) |\n| `hq_attention` | Attention headquarters devotes to the unit, from meeting and review logs (standardized index) |\n| `formal_planning_hours` | Hours the unit spends on formal strategic planning (standardized index) |\n| `market_concentration` | Concentration of the unit's market (standardized index) |\n\n\nThe team's analyst has already explored the data without reading the literature. Their report:\n```json\n{\n \"data_summary\": \"All 1,200 unit-years were complete. Results describe observational associations, not identified causal effects. HC3 uncertainty assumes independent rows; unavailable firm IDs prevent accounting for within-firm dependence or confounding. No explicit directional hypotheses were supplied, so findings summarize the planned tests. Exploratory interaction and indirect-association p-values below are Holm-adjusted. Decentralization remains negatively associated with performance from the bivariate to adjusted models; there is no focal sign reversal.\",\n \"claims\": [\n  {\n   \"id\": \"C1\",\n   \"type\": \"effect\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": \"negative\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.95,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Negative total association persists across bivariate, baseline-adjusted, and sensitivity models. The effect label represents an association; causal direction and unmeasured confounding remain unresolved.\"\n  },\n  {\n   \"id\": \"C2\",\n   \"type\": \"moderation\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": null,\n   \"moderator\": \"environmental_turbulence\",\n   \"interaction_sign\": \"negative\",\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.94,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The negative interaction survives Holm correction and indicates a more negative association at higher turbulence. Dependence and causal identification remain unresolved.\"\n  },\n  {\n   \"id\": \"C3\",\n   \"type\": \"moderation\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": null,\n   \"moderator\": \"it_integration\",\n   \"interaction_sign\": \"positive\",\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.91,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The positive interaction survives Holm correction. Higher IT integration attenuates the negative association without reversing it at the reported moderator values.\"\n  },\n  {\n   \"id\": \"C4\",\n   \"type\": \"mediation\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"local_knowledge_use\",\n   \"indirect_sign\": \"positive\",\n   \"confidence\": 0.88,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"A positive statistical indirect association has a bootstrap interval excluding zero and survives Holm correction. Confidence concerns the additive statistical pathway; temporal ordering and causal mediation are unverified.\"\n  },\n  {\n   \"id\": \"C5\",\n   \"type\": \"mediation\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"coordination_cost\",\n   \"indirect_sign\": \"negative\",\n   \"confidence\": 0.9,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"A negative statistical indirect association has a bootstrap interval excluding zero and survives Holm correction. Its magnitude dominates the positive local-knowledge pathway under the parallel additive model; causal mediation remains unverified.\"\n  }\n ]\n}\n```\nBuild a theory that explains these patterns; you may also propose claims the analyst did not test.\n\nReturn: theory_summary, claims, proposed_tests (what analyses would test the claims), limitations."
+    }
+   ],
+   "response": {
+    "theory_summary": "Decentralization creates competing benefits and costs: it increases the use of local information but also increases the work required to reconcile decisions across units. In this setting, coordination costs plausibly outweigh local-information benefits, producing a negative average total effect on performance. Turbulence may intensify reconciliation demands faster than it increases the value of local adaptation, while IT integration may make decentralized decisions easier to coordinate. This explains why the reported patterns oppose L1 and L2 without rejecting the local-information mechanism in L4. L7 supports the competing coordination mechanism. These are provisional causal explanations of observational results.",
+    "claims": [
+     {
+      "id": "T1",
+      "type": "effect",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": "negative",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.7,
+      "basis": [
+       "data",
+       "literature:L1"
+      ],
+      "rationale": "The proposed average total effect is negative because coordination burdens outweigh local-information benefits. The reported negative association persists across specifications. L1 supplies contrary evidence on the same relation, suggesting contextual limits rather than a universal benefit of delegation."
+     },
+     {
+      "id": "T2",
+      "type": "moderation",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": null,
+      "moderator": "environmental_turbulence",
+      "interaction_sign": "negative",
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.67,
+      "basis": [
+       "data",
+       "literature:L2"
+      ],
+      "rationale": "Turbulence plausibly increases the frequency of conflicting adjustments and subsequent reconciliation, making decentralization more harmful. The reported interaction supports this prediction; L2's opposite interaction supports a competing adaptation explanation."
+     },
+     {
+      "id": "T3",
+      "type": "moderation",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": null,
+      "moderator": "it_integration",
+      "interaction_sign": "positive",
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.64,
+      "basis": [
+       "data"
+      ],
+      "rationale": "Integrated information systems may make decentralized decisions more visible and easier to reconcile, attenuating their performance costs. The reported interaction supports attenuation, but does not establish either the mechanism or a positive decentralization effect at high integration."
+     },
+     {
+      "id": "T4",
+      "type": "mediation",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "local_knowledge_use",
+      "indirect_sign": "positive",
+      "confidence": 0.61,
+      "basis": [
+       "data",
+       "literature:L4"
+      ],
+      "rationale": "Delegation is proposed to increase local_knowledge_use, which improves unit_performance. The analyst reports a positive indirect association. L4 supports only the positive decision_decentralization-to-local_knowledge_use link, not the full causal pathway."
+     },
+     {
+      "id": "T5",
+      "type": "mediation",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "coordination_cost",
+      "indirect_sign": "negative",
+      "confidence": 0.65,
+      "basis": [
+       "data",
+       "literature:L7"
+      ],
+      "rationale": "Delegation is proposed to increase coordination_cost, which reduces unit_performance. The reported negative indirect association dominates the positive local-information pathway in the additive model. L7 supports only the positive decision_decentralization-to-coordination_cost link."
+     }
+    ],
+    "limitations": "Only the analyst's summary was supplied; coefficients, intervals, model specifications, and raw data were not examined. Confidence values concern causal propositions and are therefore lower than the analyst's confidence in associations. Reverse causation, unmeasured confounding, endogenous delegation and IT integration, and within-firm dependence remain unresolved. Statistical indirect associations do not identify mediation; mediator ordering and mediator–outcome confounding are unknown. Performance relative to plan can also change through target setting. L3 and L5 suggest alternative performance determinants, but their associations do not establish causal effects here; L6's nonsignificant result does not establish a zero effect of unit_size. The explanations connecting turbulence and IT integration specifically to coordination remain untested.",
+    "proposed_tests": [
+     "Estimate the total decision_decentralization–unit_performance relation without conditioning on local_knowledge_use or coordination_cost. Specify adjustments using temporal ordering; distinguish preexisting hq_attention, managerial_experience, unit_size, formal_planning_hours, and market_concentration from possible consequences of decentralization. Report estimates and intervals across defensible specifications.",
+     "Obtain unit, firm, and year identifiers. Estimate within-unit models with year effects and firm-clustered uncertainty; examine whether prior unit_performance predicts subsequent decision_decentralization. Where feasible, randomize delegation changes across firms or sufficiently independent units, accounting for spillovers.",
+     "Estimate decision_decentralization interactions with environmental_turbulence and it_integration jointly, including constituent terms. Report marginal effects over observed support and check nonlinearities. Replicate the exploratory interactions in held-out or new data.",
+     "Measure decision_decentralization before local_knowledge_use and coordination_cost, and measure unit_performance afterward. Estimate both pathways with sensitivity analysis for mediator–outcome confounding and alternative mediator ordering. Test whether the negative indirect effect exceeds the positive indirect effect, with uncertainty for their combined contribution.",
+     "Discriminate coordination overload from L2's adaptation explanation by testing whether environmental_turbulence strengthens the decision_decentralization-to-coordination_cost relationship or makes the coordination_cost-to-unit_performance relationship more negative, relative to changes in the local_knowledge_use pathway.",
+     "Test the proposed IT mechanism by examining whether it_integration weakens the decision_decentralization-to-coordination_cost relationship. A randomized delegation-by-IT-integration design would help distinguish causal complementarity from selection of better-managed units into integrated systems."
+    ]
+   },
+   "raw": null,
+   "cached": false,
+   "latency_s": 64.48,
+   "usage": {
+    "total_tokens": 17954
+   }
+  },
+  {
+   "step": 5,
+   "role": "synthesizer",
+   "model": "gpt-6-astra",
+   "messages": [
+    {
+     "role": "system",
+     "content": "You are the lead of a research team and write its final report: a short theory summary, a set of final causal claims with calibrated confidence and evidential basis, and limitations. Integrate the theorist's proposal, the analyst's evidence and (if present) the critic's review. Keep a claim only if you can defend it with the evidence in front of you; drop or re-sign claims the data contradict; lower confidence where support is thin. Return JSON only.\n\nRules for claims:\n- Use the exact variable names from the codebook (snake_case). Never invent variables.\n- type \"effect\": `sign` is \"positive\", \"negative\" or \"none\" (no causal effect). Leave moderator/mediator fields null.\n- type \"moderation\": `moderator` names the moderating variable; `interaction_sign` says whether the effect of `cause` on\n  `outcome` becomes more positive (\"positive\") or more negative (\"negative\") as the moderator increases.\n- type \"mediation\": `mediator` names the mechanism variable; `indirect_sign` may be given or left null.\n- `confidence` is your honest probability (0 to 1) that the claim is true in this setting. Do not inflate it.\n- `basis` lists the evidence: \"data\" and/or \"literature:L<k>\" entries. Cite only literature IDs that actually exist in the brief\n  and only for the relation that abstract is about.\n- Prefer fewer, well-supported claims to many speculative ones (at most 10).\n\nGovernance: the critic has veto power. Claims the critic rejected must not appear in the final report; claims marked 'revise' may appear only in the revised form the critic asked for."
+    },
+    {
+     "role": "user",
+     "content": "# Research brief\n\n**Setting.** Operating units of multi-unit firms.\n\n**Research question.** What determines unit performance in these firms, and in particular how does the decentralization of operating decisions affect unit performance, through which mechanisms, and under what conditions?\n\n**Data.** `data.csv` with N = 1200 observations at the unit-year level. See the codebook for variables.\n\n**Prior literature available to the team** (summaries of earlier studies in comparable settings; cite them by ID):\n\n- **[L1]** Panel of 418 business units in 37 multi-unit firms. Higher share of operating decisions delegated from headquarters to the unit was associated with higher unit operating performance relative to plan (standardized b = +0.23, p < .01). Delegation is argued to put decisions where the relevant knowledge sits.\n- **[L2]** Survey of 265 units matched to market volatility data. The association between share of operating decisions delegated from headquarters to the unit and unit operating performance relative to plan was more positive when volatility of demand and competitive conditions in the unit's market was high (interaction b = +0.27, p < .05). Decentralized units are argued to adapt faster when conditions change.\n- **[L3]** Cross-sectional study of 720 units. Higher hours the unit spends on formal strategic planning was associated with higher unit operating performance relative to plan (standardized b = +0.23, p < .01). The authors recommend formal planning routines.\n- **[L4]** Decision-audit study of 1,900 decisions in 84 units. Higher share of operating decisions delegated from headquarters to the unit was associated with higher extent to which unit decisions draw on local customer and market information, from decision audits (standardized b = +0.28, p < .01).\n- **[L5]** Archival study of 3,400 unit-years. Higher average years of managerial experience in the unit leadership team was associated with higher unit operating performance relative to plan (standardized b = +0.24, p < .01).\n- **[L6]** Meta-analytic summary of 29 studies. Units with higher number of employees in the unit showed no significant difference in unit operating performance relative to plan (standardized b = +0.01, n.s.).\n- **[L7]** Time-use study of 140 unit management teams. Higher share of operating decisions delegated from headquarters to the unit was associated with higher managerial time and rework spent reconciling the unit's decisions with other units (standardized b = +0.17, p < .01).\n\n**Deliverable.** A set of causal claims about what determines the focal outcome, each stated with the exact variable names in the codebook, a calibrated confidence in [0, 1], and its evidential basis (data analysis, literature IDs, or both). Claims may assert positive, negative or no effects, moderation (whether the effect of a cause on an outcome becomes more positive or more negative as a moderator increases), or mediation (a cause acting on an outcome through a mediator).\n\n\n# Codebook: decentralization-contrarian-s1\n\nSetting: operating units of multi-unit firms. Unit of observation: unit-year. N = 1200.\n\nAll variables are standardized indices (mean ~0, SD ~1); higher values mean more of the construct.\n\n| variable | description |\n|---|---|\n| `decision_decentralization` | Share of operating decisions delegated from headquarters to the unit (standardized index) |\n| `unit_performance` | Unit operating performance relative to plan (standardized index) |\n| `environmental_turbulence` | Volatility of demand and competitive conditions in the unit's market (standardized index) |\n| `local_knowledge_use` | Extent to which unit decisions draw on local customer and market information, from decision audits (standardized index) |\n| `coordination_cost` | Managerial time and rework spent reconciling the unit's decisions with other units (standardized index) |\n| `it_integration` | Degree of integration of the unit's information systems with headquarters systems (standardized index) |\n| `unit_size` | Number of employees in the unit (standardized index) |\n| `managerial_experience` | Average years of managerial experience in the unit leadership team (standardized index) |\n| `hq_attention` | Attention headquarters devotes to the unit, from meeting and review logs (standardized index) |\n| `formal_planning_hours` | Hours the unit spends on formal strategic planning (standardized index) |\n| `market_concentration` | Concentration of the unit's market (standardized index) |\n\n\nTheorist's proposal:\n```json\n{\n \"theory_summary\": \"Decentralization creates competing benefits and costs: it increases the use of local information but also increases the work required to reconcile decisions across units. In this setting, coordination costs plausibly outweigh local-information benefits, producing a negative average total effect on performance. Turbulence may intensify reconciliation demands faster than it increases the value of local adaptation, while IT integration may make decentralized decisions easier to coordinate. This explains why the reported patterns oppose L1 and L2 without rejecting the local-information mechanism in L4. L7 supports the competing coordination mechanism. These are provisional causal explanations of observational results.\",\n \"claims\": [\n  {\n   \"id\": \"T1\",\n   \"type\": \"effect\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": \"negative\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.7,\n   \"basis\": [\n    \"data\",\n    \"literature:L1\"\n   ],\n   \"rationale\": \"The proposed average total effect is negative because coordination burdens outweigh local-information benefits. The reported negative association persists across specifications. L1 supplies contrary evidence on the same relation, suggesting contextual limits rather than a universal benefit of delegation.\"\n  },\n  {\n   \"id\": \"T2\",\n   \"type\": \"moderation\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": null,\n   \"moderator\": \"environmental_turbulence\",\n   \"interaction_sign\": \"negative\",\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.67,\n   \"basis\": [\n    \"data\",\n    \"literature:L2\"\n   ],\n   \"rationale\": \"Turbulence plausibly increases the frequency of conflicting adjustments and subsequent reconciliation, making decentralization more harmful. The reported interaction supports this prediction; L2's opposite interaction supports a competing adaptation explanation.\"\n  },\n  {\n   \"id\": \"T3\",\n   \"type\": \"moderation\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": null,\n   \"moderator\": \"it_integration\",\n   \"interaction_sign\": \"positive\",\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.64,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Integrated information systems may make decentralized decisions more visible and easier to reconcile, attenuating their performance costs. The reported interaction supports attenuation, but does not establish either the mechanism or a positive decentralization effect at high integration.\"\n  },\n  {\n   \"id\": \"T4\",\n   \"type\": \"mediation\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"local_knowledge_use\",\n   \"indirect_sign\": \"positive\",\n   \"confidence\": 0.61,\n   \"basis\": [\n    \"data\",\n    \"literature:L4\"\n   ],\n   \"rationale\": \"Delegation is proposed to increase local_knowledge_use, which improves unit_performance. The analyst reports a positive indirect association. L4 supports only the positive decision_decentralization-to-local_knowledge_use link, not the full causal pathway.\"\n  },\n  {\n   \"id\": \"T5\",\n   \"type\": \"mediation\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"coordination_cost\",\n   \"indirect_sign\": \"negative\",\n   \"confidence\": 0.65,\n   \"basis\": [\n    \"data\",\n    \"literature:L7\"\n   ],\n   \"rationale\": \"Delegation is proposed to increase coordination_cost, which reduces unit_performance. The reported negative indirect association dominates the positive local-information pathway in the additive model. L7 supports only the positive decision_decentralization-to-coordination_cost link.\"\n  }\n ],\n \"proposed_tests\": [\n  \"Estimate the total decision_decentralization–unit_performance relation without conditioning on local_knowledge_use or coordination_cost. Specify adjustments using temporal ordering; distinguish preexisting hq_attention, managerial_experience, unit_size, formal_planning_hours, and market_concentration from possible consequences of decentralization. Report estimates and intervals across defensible specifications.\",\n  \"Obtain unit, firm, and year identifiers. Estimate within-unit models with year effects and firm-clustered uncertainty; examine whether prior unit_performance predicts subsequent decision_decentralization. Where feasible, randomize delegation changes across firms or sufficiently independent units, accounting for spillovers.\",\n  \"Estimate decision_decentralization interactions with environmental_turbulence and it_integration jointly, including constituent terms. Report marginal effects over observed support and check nonlinearities. Replicate the exploratory interactions in held-out or new data.\",\n  \"Measure decision_decentralization before local_knowledge_use and coordination_cost, and measure unit_performance afterward. Estimate both pathways with sensitivity analysis for mediator–outcome confounding and alternative mediator ordering. Test whether the negative indirect effect exceeds the positive indirect effect, with uncertainty for their combined contribution.\",\n  \"Discriminate coordination overload from L2's adaptation explanation by testing whether environmental_turbulence strengthens the decision_decentralization-to-coordination_cost relationship or makes the coordination_cost-to-unit_performance relationship more negative, relative to changes in the local_knowledge_use pathway.\",\n  \"Test the proposed IT mechanism by examining whether it_integration weakens the decision_decentralization-to-coordination_cost relationship. A randomized delegation-by-IT-integration design would help distinguish causal complementarity from selection of better-managed units into integrated systems.\"\n ],\n \"limitations\": \"Only the analyst's summary was supplied; coefficients, intervals, model specifications, and raw data were not examined. Confidence values concern causal propositions and are therefore lower than the analyst's confidence in associations. Reverse causation, unmeasured confounding, endogenous delegation and IT integration, and within-firm dependence remain unresolved. Statistical indirect associations do not identify mediation; mediator ordering and mediator–outcome confounding are unknown. Performance relative to plan can also change through target setting. L3 and L5 suggest alternative performance determinants, but their associations do not establish causal effects here; L6's nonsignificant result does not establish a zero effect of unit_size. The explanations connecting turbulence and IT integration specifically to coordination remain untested.\"\n}\n```\n\nAnalyst's report:\n```json\n{\n \"plan\": \"Estimate adjusted total associations of decentralization with performance, test turbulence and IT integration as moderators, and examine local knowledge use and coordination cost as parallel mediators. Treat headquarters attention and planning as sensitivity controls because their causal timing is unclear. Use robust or clustered uncertainty, bootstrap indirect associations, and adjust exploratory interaction and mediation tests for multiplicity. Causal interpretations require assumptions that these observational data cannot verify.\",\n \"data_summary\": \"All 1,200 unit-years were complete. Results describe observational associations, not identified causal effects. HC3 uncertainty assumes independent rows; unavailable firm IDs prevent accounting for within-firm dependence or confounding. No explicit directional hypotheses were supplied, so findings summarize the planned tests. Exploratory interaction and indirect-association p-values below are Holm-adjusted. Decentralization remains negatively associated with performance from the bivariate to adjusted models; there is no focal sign reversal.\",\n \"findings\": [\n  {\n   \"claim_id\": \"C1\",\n   \"supported\": true,\n   \"estimate\": -0.345,\n   \"p_value\": 2.95e-21,\n   \"note\": \"Supports a negative adjusted total association. Bivariate estimate: -0.3536, p=1.654e-21. Adding hq_attention and formal_planning_hours attenuates the estimate to -0.2531, p=1.206e-10. This sensitivity suggests possible confounding or adjustment for downstream variables; their timing is unknown.\"\n  },\n  {\n   \"claim_id\": \"C2\",\n   \"supported\": true,\n   \"estimate\": -0.2916,\n   \"p_value\": 2.446e-20,\n   \"note\": \"Environmental turbulence makes the decentralization–performance association more negative. At turbulence -1 and +1 SD, slopes are -0.04567 (p=0.3287) and -0.629 (p=1.839e-46), holding IT integration at zero. Slope p-values are unadjusted; the nonsignificant low-turbulence slope does not establish no effect.\"\n  },\n  {\n   \"claim_id\": \"C3\",\n   \"supported\": true,\n   \"estimate\": 0.1891,\n   \"p_value\": 1.189e-08,\n   \"note\": \"IT integration makes the decentralization–performance association more positive, attenuating its negative magnitude. Slopes remain negative at IT integration -1 and +1 SD: -0.5265 and -0.1482, respectively, with turbulence at zero.\"\n  },\n  {\n   \"claim_id\": \"C4\",\n   \"supported\": true,\n   \"estimate\": 0.1248,\n   \"p_value\": 4.573e-17,\n   \"note\": \"Positive indirect association through local_knowledge_use; bootstrap 95% CI [0.09665, 0.1535]. Decentralization predicts greater local knowledge use (0.3418), which positively predicts performance conditional on both mediators (0.3651). This supports a statistical pathway, not an established causal mechanism.\"\n  },\n  {\n   \"claim_id\": \"C5\",\n   \"supported\": true,\n   \"estimate\": -0.3572,\n   \"p_value\": 3.319e-40,\n   \"note\": \"Negative indirect association through coordination_cost; bootstrap 95% CI [-0.4131, -0.3084]. Path coefficients are 0.6637 and -0.5382. Its magnitude exceeds the positive local-knowledge product. The additive decomposition is -0.345 = -0.1126 + 0.1248 - 0.3572; it does not establish causal mediation.\"\n  },\n  {\n   \"claim_id\": \"direct_association_sensitivity\",\n   \"supported\": false,\n   \"estimate\": -0.02602,\n   \"p_value\": 0.527,\n   \"note\": \"A robust negative mediator-conditional association is not supported across specifications: the baseline direct association is -0.1126 (p=0.004753), but becomes small and nonsignificant after adding headquarters attention and planning. This does not establish zero direct effect or full mediation.\"\n  }\n ],\n \"claims\": [\n  {\n   \"id\": \"C1\",\n   \"type\": \"effect\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": \"negative\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.95,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Negative total association persists across bivariate, baseline-adjusted, and sensitivity models. The effect label represents an association; causal direction and unmeasured confounding remain unresolved.\"\n  },\n  {\n   \"id\": \"C2\",\n   \"type\": \"moderation\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": null,\n   \"moderator\": \"environmental_turbulence\",\n   \"interaction_sign\": \"negative\",\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.94,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The negative interaction survives Holm correction and indicates a more negative association at higher turbulence. Dependence and causal identification remain unresolved.\"\n  },\n  {\n   \"id\": \"C3\",\n   \"type\": \"moderation\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": null,\n   \"moderator\": \"it_integration\",\n   \"interaction_sign\": \"positive\",\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.91,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The positive interaction survives Holm correction. Higher IT integration attenuates the negative association without reversing it at the reported moderator values.\"\n  },\n  {\n   \"id\": \"C4\",\n   \"type\": \"mediation\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"local_knowledge_use\",\n   \"indirect_sign\": \"positive\",\n   \"confidence\": 0.88,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"A positive statistical indirect association has a bootstrap interval excluding zero and survives Holm correction. Confidence concerns the additive statistical pathway; temporal ordering and causal mediation are unverified.\"\n  },\n  {\n   \"id\": \"C5\",\n   \"type\": \"mediation\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"coordination_cost\",\n   \"indirect_sign\": \"negative\",\n   \"confidence\": 0.9,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"A negative statistical indirect association has a bootstrap interval excluding zero and survives Holm correction. Its magnitude dominates the positive local-knowledge pathway under the parallel additive model; causal mediation remains unverified.\"\n  }\n ],\n \"output_excerpt\": \"her moderator=0: b=-0.3373, SE=0.03297, p=1.458e-24\\nSlope at environmental_turbulence=+1, other moderator=0: b=-0.629, SE=0.04395, p=1.839e-46\\nSlope at it_integration=-1, other moderator=0: b=-0.5265, SE=0.04665, p=1.573e-29\\nSlope at it_integration=+0, other moderator=0: b=-0.3373, SE=0.03297, p=1.458e-24\\nSlope at it_integration=+1, other moderator=0: b=-0.1482, SE=0.04689, p=0.001579\\n\\nMediator equation: local_knowledge_use | N=1200, R2=0.119\\n                               coef      SE         p\\ndecision_decentralization    0.3418 0.02693 6.615e-37\\nenvironmental_turbulence  -0.008973 0.02628    0.7328\\nit_integration              0.02672 0.02843    0.3473\\nunit_size                   0.03803 0.03211    0.2362\\nmanagerial_experience     -0.007148 0.02865     0.803\\nmarket_concentration       0.002088 0.03116    0.9466\\n\\nMediator equation: coordination_cost | N=1200, R2=0.320\\n                              coef      SE         p\\ndecision_decentralization   0.6637 0.03389 2.091e-85\\nenvironmental_turbulence  -0.01885 0.03139    0.5481\\nit_integration            -0.04801 0.03345    0.1512\\nunit_size                   0.1337 0.03386 7.864e-05\\nmanagerial_experience     -0.02812 0.02994    0.3475\\nmarket_concentration      -0.06078 0.03312   0.06648\\n\\nDirect association conditional on both candidate mediators | N=1200, R2=0.370\\n                               coef      SE         p\\ndecision_decentralization   -0.1126 0.03987  0.004753\\nenvironmental_turbulence   -0.01009  0.0339    0.7659\\nit_integration            -0.002705  0.0325    0.9337\\nunit_size                   0.01717 0.03449    0.6187\\nmanagerial_experience        0.2341 0.03129 7.297e-14\\nmarket_concentration         0.1655  0.0343 1.399e-06\\nlocal_knowledge_use          0.3651 0.03152 5.005e-31\\ncoordination_cost           -0.5382 0.03038 3.408e-70\\n\\nDirect-association sensitivity: HQ attention and planning | N=1200, R2=0.395\\n                               coef      SE         p\\ndecision_decentralization  -0.02602 0.04113     0.527\\nenvironmental_turbulence  -0.006926 0.03335    0.8355\\nit_integration             0.003813 0.03195     0.905\\nunit_size                   0.02427 0.03356    0.4695\\nmanagerial_experience        0.2346 0.03037 1.134e-14\\nmarket_concentration         0.1692 0.03387 5.857e-07\\nlocal_knowledge_use          0.3613 0.03057 3.215e-32\\ncoordination_cost           -0.5379 0.02997 5.055e-72\\nhq_attention                 0.2252 0.03821 3.757e-09\\nformal_planning_hours       0.02681 0.03223    0.4054\\n\\nParallel additive mediation: product estimates; bootstrap SE and percentile 95% CI\\nlocal_knowledge_use: ab=0.1248, SE=0.01472, approximate p=2.287e-17, CI=[0.09665, 0.1535]\\ncoordination_cost: ab=-0.3572, SE=0.0267, approximate p=8.297e-41, CI=[-0.4131, -0.3084]\\nDecomposition: total=-0.345, direct=-0.1126, sum(ab)=-0.2324\\n\\nExploratory family: two interactions and two indirect associations (Holm correction)\\ndecision_decentralization x environmental_turbulence: adjusted p=2.446e-20; evidence at .05\\ndecision_decentralization x it_integration: adjusted p=1.189e-08; evidence at .05\\nindirect via local_knowledge_use: adjusted p=4.573e-17; evidence at .05\\nindirect via coordination_cost: adjusted p=3.319e-40; evidence at .05\\nOther coefficient and slope p-values are descriptive, unadjusted exploratory tests.\\nIndirect products assume parallel mediators and additive paths; they do not establish mechanisms.\\nCausal total/direct effects require correct temporal ordering and no relevant unmeasured confounding.\\n\"\n}\n```"
+    }
+   ],
+   "response": {
+    "theory_summary": "Decentralization may reduce unit performance because coordination burdens outweigh benefits from using local information. The observed performance association becomes more negative with environmental turbulence and less negative with IT integration. These patterns contradict the directions reported in L1 and L2. The competing mechanisms are consistent with the statistical pathways, but causal effects and mechanisms remain provisional.",
+    "claims": [
+     {
+      "id": "F1",
+      "type": "effect",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": "negative",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.68,
+      "basis": [
+       "data",
+       "literature:L1"
+      ],
+      "rationale": "A negative total effect is plausible: the association is -0.3536 bivariately, -0.345 after baseline adjustment, and -0.2531 with headquarters attention and planning included. Robustness across these specifications supports the direction, but unknown control timing and confounding limit causal confidence. L1 provides contrary evidence on this relation."
+     },
+     {
+      "id": "F2",
+      "type": "moderation",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": null,
+      "moderator": "environmental_turbulence",
+      "interaction_sign": "negative",
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.65,
+      "basis": [
+       "data",
+       "literature:L2"
+      ],
+      "rationale": "The interaction is -0.2916 and survives Holm correction. Estimated decentralization slopes become more negative as turbulence increases. L2 reports the opposite interaction, reducing confidence in generalization. The proposed explanation involving greater coordination demands was not tested."
+     },
+     {
+      "id": "F3",
+      "type": "moderation",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": null,
+      "moderator": "it_integration",
+      "interaction_sign": "positive",
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.63,
+      "basis": [
+       "data"
+      ],
+      "rationale": "The interaction is +0.1891 and survives Holm correction. At mean turbulence, decentralization slopes are -0.5265 and -0.1482 at IT integration values of -1 and +1 SD. This supports attenuation of harm; it does not establish a beneficial decentralization effect or identify a coordination mechanism."
+     },
+     {
+      "id": "F4",
+      "type": "mediation",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "local_knowledge_use",
+      "indirect_sign": "positive",
+      "confidence": 0.56,
+      "basis": [
+       "data",
+       "literature:L4"
+      ],
+      "rationale": "The positive indirect association is +0.1248, with bootstrap 95% CI [0.09665, 0.1535]. L4 supports only the decentralization-to-local-knowledge link. A positive causal pathway is plausible, but temporal ordering and mediator–outcome confounding remain unresolved."
+     },
+     {
+      "id": "F5",
+      "type": "mediation",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "coordination_cost",
+      "indirect_sign": "negative",
+      "confidence": 0.6,
+      "basis": [
+       "data",
+       "literature:L7"
+      ],
+      "rationale": "The negative indirect association is -0.3572, with bootstrap 95% CI [-0.4131, -0.3084]. Its point-estimate magnitude exceeds the positive local-knowledge pathway in the additive model. L7 supports only the decentralization-to-coordination-cost link; causal mediation and causal dominance are not established."
+     }
+    ],
+    "limitations": "Assessment uses the supplied reports rather than independently inspected data. No critic review was supplied. Confidence values concern causal propositions, not statistical significance. Observational associations leave reverse causation, selection, unmeasured confounding, and temporal ordering unresolved. HC3 uncertainty assumes independent rows; unavailable firm identifiers prevent assessment of within-firm dependence. Indirect estimates assume parallel additive pathways and do not establish mechanisms. The mediator-conditional decentralization coefficient becomes nonsignificant with additional controls, supporting neither a robust negative direct effect nor zero direct effect or full mediation. Nonsignificant planning and size coefficients do not establish no causal effects. Performance relative to plan may also reflect target setting."
+   },
+   "raw": null,
+   "cached": false,
+   "latency_s": 34.74,
+   "usage": {
+    "total_tokens": 21941
+   }
+  },
+  {
+   "step": 6,
+   "role": "critic",
+   "model": "gpt-6-astra",
+   "messages": [
+    {
+     "role": "system",
+     "content": "You are the critic (referee) of a research team. Your job is adversarial: for each proposed claim, decide whether the evidence presented actually supports it in this setting. Check (1) whether a data analysis tested the claim at all, (2) confounding and alternative explanations given the variables in the codebook, (3) whether the claim merely restates prior literature that may not hold here, (4) whether the stated confidence is justified, and (5) whether literature IDs are cited correctly. Verdicts: accept, revise (fixable with a stated change), reject. Be specific and brief. Return JSON only.\n\nYour verdicts are binding: rejected claims will be removed from the team's final report."
+    },
+    {
+     "role": "user",
+     "content": "# Research brief\n\n**Setting.** Operating units of multi-unit firms.\n\n**Research question.** What determines unit performance in these firms, and in particular how does the decentralization of operating decisions affect unit performance, through which mechanisms, and under what conditions?\n\n**Data.** `data.csv` with N = 1200 observations at the unit-year level. See the codebook for variables.\n\n**Prior literature available to the team** (summaries of earlier studies in comparable settings; cite them by ID):\n\n- **[L1]** Panel of 418 business units in 37 multi-unit firms. Higher share of operating decisions delegated from headquarters to the unit was associated with higher unit operating performance relative to plan (standardized b = +0.23, p < .01). Delegation is argued to put decisions where the relevant knowledge sits.\n- **[L2]** Survey of 265 units matched to market volatility data. The association between share of operating decisions delegated from headquarters to the unit and unit operating performance relative to plan was more positive when volatility of demand and competitive conditions in the unit's market was high (interaction b = +0.27, p < .05). Decentralized units are argued to adapt faster when conditions change.\n- **[L3]** Cross-sectional study of 720 units. Higher hours the unit spends on formal strategic planning was associated with higher unit operating performance relative to plan (standardized b = +0.23, p < .01). The authors recommend formal planning routines.\n- **[L4]** Decision-audit study of 1,900 decisions in 84 units. Higher share of operating decisions delegated from headquarters to the unit was associated with higher extent to which unit decisions draw on local customer and market information, from decision audits (standardized b = +0.28, p < .01).\n- **[L5]** Archival study of 3,400 unit-years. Higher average years of managerial experience in the unit leadership team was associated with higher unit operating performance relative to plan (standardized b = +0.24, p < .01).\n- **[L6]** Meta-analytic summary of 29 studies. Units with higher number of employees in the unit showed no significant difference in unit operating performance relative to plan (standardized b = +0.01, n.s.).\n- **[L7]** Time-use study of 140 unit management teams. Higher share of operating decisions delegated from headquarters to the unit was associated with higher managerial time and rework spent reconciling the unit's decisions with other units (standardized b = +0.17, p < .01).\n\n**Deliverable.** A set of causal claims about what determines the focal outcome, each stated with the exact variable names in the codebook, a calibrated confidence in [0, 1], and its evidential basis (data analysis, literature IDs, or both). Claims may assert positive, negative or no effects, moderation (whether the effect of a cause on an outcome becomes more positive or more negative as a moderator increases), or mediation (a cause acting on an outcome through a mediator).\n\n\n# Codebook: decentralization-contrarian-s1\n\nSetting: operating units of multi-unit firms. Unit of observation: unit-year. N = 1200.\n\nAll variables are standardized indices (mean ~0, SD ~1); higher values mean more of the construct.\n\n| variable | description |\n|---|---|\n| `decision_decentralization` | Share of operating decisions delegated from headquarters to the unit (standardized index) |\n| `unit_performance` | Unit operating performance relative to plan (standardized index) |\n| `environmental_turbulence` | Volatility of demand and competitive conditions in the unit's market (standardized index) |\n| `local_knowledge_use` | Extent to which unit decisions draw on local customer and market information, from decision audits (standardized index) |\n| `coordination_cost` | Managerial time and rework spent reconciling the unit's decisions with other units (standardized index) |\n| `it_integration` | Degree of integration of the unit's information systems with headquarters systems (standardized index) |\n| `unit_size` | Number of employees in the unit (standardized index) |\n| `managerial_experience` | Average years of managerial experience in the unit leadership team (standardized index) |\n| `hq_attention` | Attention headquarters devotes to the unit, from meeting and review logs (standardized index) |\n| `formal_planning_hours` | Hours the unit spends on formal strategic planning (standardized index) |\n| `market_concentration` | Concentration of the unit's market (standardized index) |\n\n\nProposed claims:\n```json\n[\n {\n  \"id\": \"F1\",\n  \"type\": \"effect\",\n  \"cause\": \"decision_decentralization\",\n  \"outcome\": \"unit_performance\",\n  \"sign\": \"negative\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.68,\n  \"basis\": [\n   \"data\",\n   \"literature:L1\"\n  ],\n  \"rationale\": \"A negative total effect is plausible: the association is -0.3536 bivariately, -0.345 after baseline adjustment, and -0.2531 with headquarters attention and planning included. Robustness across these specifications supports the direction, but unknown control timing and confounding limit causal confidence. L1 provides contrary evidence on this relation.\"\n },\n {\n  \"id\": \"F2\",\n  \"type\": \"moderation\",\n  \"cause\": \"decision_decentralization\",\n  \"outcome\": \"unit_performance\",\n  \"sign\": null,\n  \"moderator\": \"environmental_turbulence\",\n  \"interaction_sign\": \"negative\",\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.65,\n  \"basis\": [\n   \"data\",\n   \"literature:L2\"\n  ],\n  \"rationale\": \"The interaction is -0.2916 and survives Holm correction. Estimated decentralization slopes become more negative as turbulence increases. L2 reports the opposite interaction, reducing confidence in generalization. The proposed explanation involving greater coordination demands was not tested.\"\n },\n {\n  \"id\": \"F3\",\n  \"type\": \"moderation\",\n  \"cause\": \"decision_decentralization\",\n  \"outcome\": \"unit_performance\",\n  \"sign\": null,\n  \"moderator\": \"it_integration\",\n  \"interaction_sign\": \"positive\",\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.63,\n  \"basis\": [\n   \"data\"\n  ],\n  \"rationale\": \"The interaction is +0.1891 and survives Holm correction. At mean turbulence, decentralization slopes are -0.5265 and -0.1482 at IT integration values of -1 and +1 SD. This supports attenuation of harm; it does not establish a beneficial decentralization effect or identify a coordination mechanism.\"\n },\n {\n  \"id\": \"F4\",\n  \"type\": \"mediation\",\n  \"cause\": \"decision_decentralization\",\n  \"outcome\": \"unit_performance\",\n  \"sign\": null,\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": \"local_knowledge_use\",\n  \"indirect_sign\": \"positive\",\n  \"confidence\": 0.56,\n  \"basis\": [\n   \"data\",\n   \"literature:L4\"\n  ],\n  \"rationale\": \"The positive indirect association is +0.1248, with bootstrap 95% CI [0.09665, 0.1535]. L4 supports only the decentralization-to-local-knowledge link. A positive causal pathway is plausible, but temporal ordering and mediator–outcome confounding remain unresolved.\"\n },\n {\n  \"id\": \"F5\",\n  \"type\": \"mediation\",\n  \"cause\": \"decision_decentralization\",\n  \"outcome\": \"unit_performance\",\n  \"sign\": null,\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": \"coordination_cost\",\n  \"indirect_sign\": \"negative\",\n  \"confidence\": 0.6,\n  \"basis\": [\n   \"data\",\n   \"literature:L7\"\n  ],\n  \"rationale\": \"The negative indirect association is -0.3572, with bootstrap 95% CI [-0.4131, -0.3084]. Its point-estimate magnitude exceeds the positive local-knowledge pathway in the additive model. L7 supports only the decentralization-to-coordination-cost link; causal mediation and causal dominance are not established.\"\n }\n]\n```\n\nEvidence presented by the team:\nAnalysis plan: Estimate adjusted total associations of decentralization with performance, test turbulence and IT integration as moderators, and examine local knowledge use and coordination cost as parallel mediators. Treat headquarters attention and planning as sensitivity controls because their causal timing is unclear. Use robust or clustered uncertainty, bootstrap indirect associations, and adjust exploratory interaction and mediation tests for multiplicity. Causal interpretations require assumptions that these observational data cannot verify.\n\nScript:\n```python\nimport numpy as np\nimport pandas as pd\nimport statsmodels.formula.api as smf\nfrom scipy.stats import norm\nfrom statsmodels.stats.multitest import multipletests\n\nD, Y = 'decision_decentralization', 'unit_performance'\nmods = ['environmental_turbulence', 'it_integration']\nmeds = ['local_knowledge_use', 'coordination_cost']\ncontrols = mods + ['unit_size', 'managerial_experience', 'market_concentration']\nextra = ['hq_attention', 'formal_planning_hours']\nraw = pd.read_csv('data.csv')\nrequired = [D, Y] + controls + meds + extra\nmissing = sorted(set(required) - set(raw.columns))\nif missing:\n    raise ValueError('Missing columns: ' + ', '.join(missing))\nraw[required] = raw[required].apply(pd.to_numeric, errors='raise')\ndf = raw.replace([np.inf, -np.inf], np.nan).dropna(subset=required).copy()\nif len(df) < 50:\n    raise ValueError('Too few complete observations for this exploratory analysis.')\ngroup = None\nfor candidate in ['firm_id', 'unit_id']:\n    if candidate in df and df[candidate].duplicated().any():\n        group = candidate\n        break\nif group:\n    df = df.dropna(subset=[group]).copy()\n    if df[group].nunique() < 2:\n        raise ValueError('At least two independent clusters are required.')\nprint(f'Complete cases: {len(df)}/{len(raw)}; excluded: {len(raw)-len(df)}')\nprint('Inference:', 'clustered by ' + group if group else 'HC3; independent rows assumed')\nif group:\n    print('Clusters:', df[group].nunique(), '(few clusters weaken inference)')\nif 'firm_id' not in df:\n    print('Firm IDs unavailable: within-firm dependence/confounding cannot be addressed.')\nprint('Exploratory observational associations; no causal identification or temporal ordering.')\nprint('Baseline controls assumed pre-exposure; mediators excluded from total models.')\nprint('HQ attention and planning added only in sensitivity models; timing is ambiguous.')\n\nC = ' + '.join(controls)\ntotal_f = f'{Y} ~ {D} + {C}'\nmod_f = total_f + ' + ' + ' + '.join(f'{D}:{m}' for m in mods)\ndirect_f = total_f + ' + ' + ' + '.join(meds)\na_forms = [f'{m} ~ {D} + {C}' for m in meds]\ndef fit(formula, data=df, robust=True):\n    model = smf.ols(formula, data=data)\n    if not robust:\n        return model.fit()\n    if group:\n        return model.fit(cov_type='cluster', cov_kwds={'groups': data[group]})\n    return model.fit(cov_type='HC3')\ndef report(label, model):\n    print('\\n' + label + f' | N={int(model.nobs)}, R2={model.rsquared:.3f}')\n    out = pd.DataFrame({'coef': model.params, 'SE': model.bse, 'p': model.pvalues})\n    print(out.drop(index='Intercept', errors='ignore').to_string(float_format=lambda x: f'{x:.4g}'))\n\nreport('Unadjusted association', fit(f'{Y} ~ {D}'))\ntotal = fit(total_f)\nreport('Adjusted total association (candidate mediators excluded)', total)\nreport('Total-association sensitivity: HQ attention and planning', fit(total_f + ' + ' + ' + '.join(extra)))\nmoderated = fit(mod_f)\nreport('Moderated total associations', moderated)\nfor m in mods:\n    for value in [-1, 0, 1]:\n        contrast = np.zeros(len(moderated.params))\n        contrast[moderated.params.index.get_loc(D)] = 1\n        contrast[moderated.params.index.get_loc(f'{D}:{m}')] = value\n        test = moderated.t_test(contrast)\n        print(f'Slope at {m}={value:+d}, other moderator=0: '\n              f'b={test.effect.item():.4g}, SE={test.sd.item():.4g}, p={test.pvalue.item():.4g}')\na_models = [fit(f) for f in a_forms]\nfor m, model in zip(meds, a_models):\n    report('Mediator equation: ' + m, model)\ndirect = fit(direct_f)\nreport('Direct association conditional on both candidate mediators', direct)\nreport('Direct-association sensitivity: HQ attention and planning', fit(direct_f + ' + ' + ' + '.join(extra)))\n\nrng = np.random.default_rng(20261030)\nB = 999\nboot = []\nclusters = [g for _, g in df.groupby(group)] if group else None\nfor _ in range(B):\n    if group:\n        sample = pd.concat([clusters[i] for i in rng.integers(len(clusters), size=len(clusters))], ignore_index=True)\n    else:\n        sample = df.iloc[rng.integers(len(df), size=len(df))]\n    b_model = fit(direct_f, sample, False)\n    boot.append([fit(f, sample, False).params[D] * b_model.params[m] for f, m in zip(a_forms, meds)])\nboot = np.asarray(boot)\nproducts = np.array([a.params[D] * direct.params[m] for a, m in zip(a_models, meds)])\nses = boot.std(axis=0, ddof=1)\npvals = 2 * norm.sf(np.abs(products / np.maximum(ses, np.finfo(float).eps)))\nprint('\\nParallel additive mediation: product estimates; bootstrap SE and percentile 95% CI')\nfor j, m in enumerate(meds):\n    lo, hi = np.quantile(boot[:, j], [.025, .975])\n    print(f'{m}: ab={products[j]:.4g}, SE={ses[j]:.4g}, approximate p={pvals[j]:.4g}, CI=[{lo:.4g}, {hi:.4g}]')\nprint(f'Decomposition: total={total.params[D]:.4g}, direct={direct.params[D]:.4g}, sum(ab)={products.sum():.4g}')\nlabels = [f'{D} x {m}' for m in mods] + ['indirect via ' + m for m in meds]\np_all = [moderated.pvalues[f'{D}:{m}'] for m in mods] + list(pvals)\nreject, adjusted, _, _ = multipletests(p_all, method='holm')\nprint('\\nExploratory family: two interactions and two indirect associations (Holm correction)')\nfor label, p, supported in zip(labels, adjusted, reject):\n    print(f'{label}: adjusted p={p:.4g}; ' + ('evidence at .05' if supported else 'insufficient evidence at .05'))\nprint('Other coefficient and slope p-values are descriptive, unadjusted exploratory tests.')\nprint('Indirect products assume parallel mediators and additive paths; they do not establish mechanisms.')\nprint('Causal total/direct effects require correct temporal ordering and no relevant unmeasured confounding.')\n\n```\n\nOutput:\n```\nher moderator=0: b=-0.3373, SE=0.03297, p=1.458e-24\nSlope at environmental_turbulence=+1, other moderator=0: b=-0.629, SE=0.04395, p=1.839e-46\nSlope at it_integration=-1, other moderator=0: b=-0.5265, SE=0.04665, p=1.573e-29\nSlope at it_integration=+0, other moderator=0: b=-0.3373, SE=0.03297, p=1.458e-24\nSlope at it_integration=+1, other moderator=0: b=-0.1482, SE=0.04689, p=0.001579\n\nMediator equation: local_knowledge_use | N=1200, R2=0.119\n                               coef      SE         p\ndecision_decentralization    0.3418 0.02693 6.615e-37\nenvironmental_turbulence  -0.008973 0.02628    0.7328\nit_integration              0.02672 0.02843    0.3473\nunit_size                   0.03803 0.03211    0.2362\nmanagerial_experience     -0.007148 0.02865     0.803\nmarket_concentration       0.002088 0.03116    0.9466\n\nMediator equation: coordination_cost | N=1200, R2=0.320\n                              coef      SE         p\ndecision_decentralization   0.6637 0.03389 2.091e-85\nenvironmental_turbulence  -0.01885 0.03139    0.5481\nit_integration            -0.04801 0.03345    0.1512\nunit_size                   0.1337 0.03386 7.864e-05\nmanagerial_experience     -0.02812 0.02994    0.3475\nmarket_concentration      -0.06078 0.03312   0.06648\n\nDirect association conditional on both candidate mediators | N=1200, R2=0.370\n                               coef      SE         p\ndecision_decentralization   -0.1126 0.03987  0.004753\nenvironmental_turbulence   -0.01009  0.0339    0.7659\nit_integration            -0.002705  0.0325    0.9337\nunit_size                   0.01717 0.03449    0.6187\nmanagerial_experience        0.2341 0.03129 7.297e-14\nmarket_concentration         0.1655  0.0343 1.399e-06\nlocal_knowledge_use          0.3651 0.03152 5.005e-31\ncoordination_cost           -0.5382 0.03038 3.408e-70\n\nDirect-association sensitivity: HQ attention and planning | N=1200, R2=0.395\n                               coef      SE         p\ndecision_decentralization  -0.02602 0.04113     0.527\nenvironmental_turbulence  -0.006926 0.03335    0.8355\nit_integration             0.003813 0.03195     0.905\nunit_size                   0.02427 0.03356    0.4695\nmanagerial_experience        0.2346 0.03037 1.134e-14\nmarket_concentration         0.1692 0.03387 5.857e-07\nlocal_knowledge_use          0.3613 0.03057 3.215e-32\ncoordination_cost           -0.5379 0.02997 5.055e-72\nhq_attention                 0.2252 0.03821 3.757e-09\nformal_planning_hours       0.02681 0.03223    0.4054\n\nParallel additive mediation: product estimates; bootstrap SE and percentile 95% CI\nlocal_knowledge_use: ab=0.1248, SE=0.01472, approximate p=2.287e-17, CI=[0.09665, 0.1535]\ncoordination_cost: ab=-0.3572, SE=0.0267, approximate p=8.297e-41, CI=[-0.4131, -0.3084]\nDecomposition: total=-0.345, direct=-0.1126, sum(ab)=-0.2324\n\nExploratory family: two interactions and two indirect associations (Holm correction)\ndecision_decentralization x environmental_turbulence: adjusted p=2.446e-20; evidence at .05\ndecision_decentralization x it_integration: adjusted p=1.189e-08; evidence at .05\nindirect via local_knowledge_use: adjusted p=4.573e-17; evidence at .05\nindirect via coordination_cost: adjusted p=3.319e-40; evidence at .05\nOther coefficient and slope p-values are descriptive, unadjusted exploratory tests.\nIndirect products assume parallel mediators and additive paths; they do not establish mechanisms.\nCausal total/direct effects require correct temporal ordering and no relevant unmeasured confounding.\n\n```\n\nAnalyst's findings:\n```json\n[\n {\n  \"claim_id\": \"C1\",\n  \"supported\": true,\n  \"estimate\": -0.345,\n  \"p_value\": 2.95e-21,\n  \"note\": \"Supports a negative adjusted total association. Bivariate estimate: -0.3536, p=1.654e-21. Adding hq_attention and formal_planning_hours attenuates the estimate to -0.2531, p=1.206e-10. This sensitivity suggests possible confounding or adjustment for downstream variables; their timing is unknown.\"\n },\n {\n  \"claim_id\": \"C2\",\n  \"supported\": true,\n  \"estimate\": -0.2916,\n  \"p_value\": 2.446e-20,\n  \"note\": \"Environmental turbulence makes the decentralization\\u2013performance association more negative. At turbulence -1 and +1 SD, slopes are -0.04567 (p=0.3287) and -0.629 (p=1.839e-46), holding IT integration at zero. Slope p-values are unadjusted; the nonsignificant low-turbulence slope does not establish no effect.\"\n },\n {\n  \"claim_id\": \"C3\",\n  \"supported\": true,\n  \"estimate\": 0.1891,\n  \"p_value\": 1.189e-08,\n  \"note\": \"IT integration makes the decentralization\\u2013performance association more positive, attenuating its negative magnitude. Slopes remain negative at IT integration -1 and +1 SD: -0.5265 and -0.1482, respectively, with turbulence at zero.\"\n },\n {\n  \"claim_id\": \"C4\",\n  \"supported\": true,\n  \"estimate\": 0.1248,\n  \"p_value\": 4.573e-17,\n  \"note\": \"Positive indirect association through local_knowledge_use; bootstrap 95% CI [0.09665, 0.1535]. Decentralization predicts greater local knowledge use (0.3418), which positively predicts performance conditional on both mediators (0.3651). This supports a statistical pathway, not an established causal mechanism.\"\n },\n {\n  \"claim_id\": \"C5\",\n  \"supported\": true,\n  \"estimate\": -0.3572,\n  \"p_value\": 3.319e-40,\n  \"note\": \"Negative indirect association through coordination_cost; bootstrap 95% CI [-0.4131, -0.3084]. Path coefficients are 0.6637 and -0.5382. Its magnitude exceeds the positive local-knowledge product. The additive decomposition is -0.345 = -0.1126 + 0.1248 - 0.3572; it does not establish causal mediation.\"\n },\n {\n  \"claim_id\": \"direct_association_sensitivity\",\n  \"supported\": false,\n  \"estimate\": -0.02602,\n  \"p_value\": 0.527,\n  \"note\": \"A robust negative mediator-conditional association is not supported across specifications: the baseline direct association is -0.1126 (p=0.004753), but becomes small and nonsignificant after adding headquarters attention and planning. This does not establish zero direct effect or full mediation.\"\n }\n]\n```"
+    }
+   ],
+   "response": {
+    "verdicts": [
+     {
+      "claim_id": "F1",
+      "verdict": "revise",
+      "reason": "The analyses support a negative adjusted association between decision_decentralization and unit_performance, not an identified negative total effect. Unknown timing of hq_attention and formal_planning_hours, reverse causation, and firm-level confounding remain unresolved. State the causal direction as a hypothesis conditional on identification assumptions. L1 is correctly identified as contrary evidence.",
+      "suggested_confidence": 0.5
+     },
+     {
+      "claim_id": "F2",
+      "verdict": "revise",
+      "reason": "The interaction directly tests and supports a more negative conditional association as environmental_turbulence increases. Causal moderation requires additional identification assumptions; differential selection into decentralization could explain the pattern. Replace causal wording with association wording or an explicitly conditional causal hypothesis. L2 is correctly cited as opposite prior evidence.",
+      "suggested_confidence": 0.5
+     },
+     {
+      "claim_id": "F3",
+      "verdict": "revise",
+      "reason": "The positive interaction supports attenuation of the negative association as it_integration increases. Calling this attenuation of harm implies causality that the analysis does not establish. IT investment and delegation could jointly reflect headquarters policies or prior performance. Retain the statistical interaction and explicitly qualify any causal interpretation.",
+      "suggested_confidence": 0.5
+     },
+     {
+      "claim_id": "F4",
+      "verdict": "revise",
+      "reason": "The positive product and bootstrap interval support an indirect association through local_knowledge_use. They do not establish temporal ordering or eliminate mediator–outcome confounding, including possible hq_attention effects. The additive parallel-mediator model also omits the demonstrated decentralization interactions. Present this as a candidate mechanism; L4 correctly supports only the first link.",
+      "suggested_confidence": 0.4
+     },
+     {
+      "claim_id": "F5",
+      "verdict": "revise",
+      "reason": "The negative product supports an indirect association through coordination_cost, but causal mediation requires unverified ordering and confounding assumptions. Poor performance could itself generate coordination rework. The larger absolute product is descriptive and does not establish causal dominance. Present a candidate mechanism; L7 correctly supports only the first link.",
+      "suggested_confidence": 0.4
+     }
+    ],
+    "concerns": "All five relationships were statistically examined, and literature IDs are used correctly. The principal problem is causal labeling despite explicitly observational evidence. Suggested confidences concern causal interpretations, not coefficient signs. The output is truncated before the inference header, so clustering, cluster counts, and several reported estimates cannot be independently checked from the displayed output. Unit-year observations may share unit and firm dependencies; robust standard errors alone do not remove confounding. The attenuation of the mediator-conditional coefficient after additional controls establishes neither zero direct effect nor full mediation.",
+    "suggested_additional_analyses": [
+     "Provide complete output, including the inference method, available identifiers, cluster counts, and total-association and interaction tables.",
+     "Establish variable timing and a causal diagram, particularly for hq_attention, formal_planning_hours, it_integration, and both mediators.",
+     "If identifiers and repeated observations are available, examine within-unit estimates with year effects and appropriate firm-level clustering; distinguish this from causal identification.",
+     "Assess interaction sensitivity to plausible pre-exposure controls and nonlinear specifications.",
+     "Fit mediation models compatible with the observed moderation, assess mediator ordering and unmeasured-confounding sensitivity, and bootstrap the difference in pathway magnitudes if dominance is claimed."
+    ]
+   },
+   "raw": null,
+   "cached": false,
+   "latency_s": 33.17,
+   "usage": {
+    "total_tokens": 6701
+   }
+  },
+  {
+   "step": 7,
+   "role": "synthesizer",
+   "model": "gpt-6-astra",
+   "messages": [
+    {
+     "role": "system",
+     "content": "You are the lead of a research team and write its final report: a short theory summary, a set of final causal claims with calibrated confidence and evidential basis, and limitations. Integrate the theorist's proposal, the analyst's evidence and (if present) the critic's review. Keep a claim only if you can defend it with the evidence in front of you; drop or re-sign claims the data contradict; lower confidence where support is thin. Return JSON only.\n\nRules for claims:\n- Use the exact variable names from the codebook (snake_case). Never invent variables.\n- type \"effect\": `sign` is \"positive\", \"negative\" or \"none\" (no causal effect). Leave moderator/mediator fields null.\n- type \"moderation\": `moderator` names the moderating variable; `interaction_sign` says whether the effect of `cause` on\n  `outcome` becomes more positive (\"positive\") or more negative (\"negative\") as the moderator increases.\n- type \"mediation\": `mediator` names the mechanism variable; `indirect_sign` may be given or left null.\n- `confidence` is your honest probability (0 to 1) that the claim is true in this setting. Do not inflate it.\n- `basis` lists the evidence: \"data\" and/or \"literature:L<k>\" entries. Cite only literature IDs that actually exist in the brief\n  and only for the relation that abstract is about.\n- Prefer fewer, well-supported claims to many speculative ones (at most 10).\n\nGovernance: the critic has veto power. Claims the critic rejected must not appear in the final report; claims marked 'revise' may appear only in the revised form the critic asked for."
+    },
+    {
+     "role": "user",
+     "content": "# Research brief\n\n**Setting.** Operating units of multi-unit firms.\n\n**Research question.** What determines unit performance in these firms, and in particular how does the decentralization of operating decisions affect unit performance, through which mechanisms, and under what conditions?\n\n**Data.** `data.csv` with N = 1200 observations at the unit-year level. See the codebook for variables.\n\n**Prior literature available to the team** (summaries of earlier studies in comparable settings; cite them by ID):\n\n- **[L1]** Panel of 418 business units in 37 multi-unit firms. Higher share of operating decisions delegated from headquarters to the unit was associated with higher unit operating performance relative to plan (standardized b = +0.23, p < .01). Delegation is argued to put decisions where the relevant knowledge sits.\n- **[L2]** Survey of 265 units matched to market volatility data. The association between share of operating decisions delegated from headquarters to the unit and unit operating performance relative to plan was more positive when volatility of demand and competitive conditions in the unit's market was high (interaction b = +0.27, p < .05). Decentralized units are argued to adapt faster when conditions change.\n- **[L3]** Cross-sectional study of 720 units. Higher hours the unit spends on formal strategic planning was associated with higher unit operating performance relative to plan (standardized b = +0.23, p < .01). The authors recommend formal planning routines.\n- **[L4]** Decision-audit study of 1,900 decisions in 84 units. Higher share of operating decisions delegated from headquarters to the unit was associated with higher extent to which unit decisions draw on local customer and market information, from decision audits (standardized b = +0.28, p < .01).\n- **[L5]** Archival study of 3,400 unit-years. Higher average years of managerial experience in the unit leadership team was associated with higher unit operating performance relative to plan (standardized b = +0.24, p < .01).\n- **[L6]** Meta-analytic summary of 29 studies. Units with higher number of employees in the unit showed no significant difference in unit operating performance relative to plan (standardized b = +0.01, n.s.).\n- **[L7]** Time-use study of 140 unit management teams. Higher share of operating decisions delegated from headquarters to the unit was associated with higher managerial time and rework spent reconciling the unit's decisions with other units (standardized b = +0.17, p < .01).\n\n**Deliverable.** A set of causal claims about what determines the focal outcome, each stated with the exact variable names in the codebook, a calibrated confidence in [0, 1], and its evidential basis (data analysis, literature IDs, or both). Claims may assert positive, negative or no effects, moderation (whether the effect of a cause on an outcome becomes more positive or more negative as a moderator increases), or mediation (a cause acting on an outcome through a mediator).\n\n\n# Codebook: decentralization-contrarian-s1\n\nSetting: operating units of multi-unit firms. Unit of observation: unit-year. N = 1200.\n\nAll variables are standardized indices (mean ~0, SD ~1); higher values mean more of the construct.\n\n| variable | description |\n|---|---|\n| `decision_decentralization` | Share of operating decisions delegated from headquarters to the unit (standardized index) |\n| `unit_performance` | Unit operating performance relative to plan (standardized index) |\n| `environmental_turbulence` | Volatility of demand and competitive conditions in the unit's market (standardized index) |\n| `local_knowledge_use` | Extent to which unit decisions draw on local customer and market information, from decision audits (standardized index) |\n| `coordination_cost` | Managerial time and rework spent reconciling the unit's decisions with other units (standardized index) |\n| `it_integration` | Degree of integration of the unit's information systems with headquarters systems (standardized index) |\n| `unit_size` | Number of employees in the unit (standardized index) |\n| `managerial_experience` | Average years of managerial experience in the unit leadership team (standardized index) |\n| `hq_attention` | Attention headquarters devotes to the unit, from meeting and review logs (standardized index) |\n| `formal_planning_hours` | Hours the unit spends on formal strategic planning (standardized index) |\n| `market_concentration` | Concentration of the unit's market (standardized index) |\n\n\nTheorist's proposal:\n```json\n{\n \"theory_summary\": \"Decentralization creates competing benefits and costs: it increases the use of local information but also increases the work required to reconcile decisions across units. In this setting, coordination costs plausibly outweigh local-information benefits, producing a negative average total effect on performance. Turbulence may intensify reconciliation demands faster than it increases the value of local adaptation, while IT integration may make decentralized decisions easier to coordinate. This explains why the reported patterns oppose L1 and L2 without rejecting the local-information mechanism in L4. L7 supports the competing coordination mechanism. These are provisional causal explanations of observational results.\",\n \"claims\": [\n  {\n   \"id\": \"T1\",\n   \"type\": \"effect\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": \"negative\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.7,\n   \"basis\": [\n    \"data\",\n    \"literature:L1\"\n   ],\n   \"rationale\": \"The proposed average total effect is negative because coordination burdens outweigh local-information benefits. The reported negative association persists across specifications. L1 supplies contrary evidence on the same relation, suggesting contextual limits rather than a universal benefit of delegation.\"\n  },\n  {\n   \"id\": \"T2\",\n   \"type\": \"moderation\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": null,\n   \"moderator\": \"environmental_turbulence\",\n   \"interaction_sign\": \"negative\",\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.67,\n   \"basis\": [\n    \"data\",\n    \"literature:L2\"\n   ],\n   \"rationale\": \"Turbulence plausibly increases the frequency of conflicting adjustments and subsequent reconciliation, making decentralization more harmful. The reported interaction supports this prediction; L2's opposite interaction supports a competing adaptation explanation.\"\n  },\n  {\n   \"id\": \"T3\",\n   \"type\": \"moderation\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": null,\n   \"moderator\": \"it_integration\",\n   \"interaction_sign\": \"positive\",\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.64,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Integrated information systems may make decentralized decisions more visible and easier to reconcile, attenuating their performance costs. The reported interaction supports attenuation, but does not establish either the mechanism or a positive decentralization effect at high integration.\"\n  },\n  {\n   \"id\": \"T4\",\n   \"type\": \"mediation\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"local_knowledge_use\",\n   \"indirect_sign\": \"positive\",\n   \"confidence\": 0.61,\n   \"basis\": [\n    \"data\",\n    \"literature:L4\"\n   ],\n   \"rationale\": \"Delegation is proposed to increase local_knowledge_use, which improves unit_performance. The analyst reports a positive indirect association. L4 supports only the positive decision_decentralization-to-local_knowledge_use link, not the full causal pathway.\"\n  },\n  {\n   \"id\": \"T5\",\n   \"type\": \"mediation\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"coordination_cost\",\n   \"indirect_sign\": \"negative\",\n   \"confidence\": 0.65,\n   \"basis\": [\n    \"data\",\n    \"literature:L7\"\n   ],\n   \"rationale\": \"Delegation is proposed to increase coordination_cost, which reduces unit_performance. The reported negative indirect association dominates the positive local-information pathway in the additive model. L7 supports only the positive decision_decentralization-to-coordination_cost link.\"\n  }\n ],\n \"proposed_tests\": [\n  \"Estimate the total decision_decentralization–unit_performance relation without conditioning on local_knowledge_use or coordination_cost. Specify adjustments using temporal ordering; distinguish preexisting hq_attention, managerial_experience, unit_size, formal_planning_hours, and market_concentration from possible consequences of decentralization. Report estimates and intervals across defensible specifications.\",\n  \"Obtain unit, firm, and year identifiers. Estimate within-unit models with year effects and firm-clustered uncertainty; examine whether prior unit_performance predicts subsequent decision_decentralization. Where feasible, randomize delegation changes across firms or sufficiently independent units, accounting for spillovers.\",\n  \"Estimate decision_decentralization interactions with environmental_turbulence and it_integration jointly, including constituent terms. Report marginal effects over observed support and check nonlinearities. Replicate the exploratory interactions in held-out or new data.\",\n  \"Measure decision_decentralization before local_knowledge_use and coordination_cost, and measure unit_performance afterward. Estimate both pathways with sensitivity analysis for mediator–outcome confounding and alternative mediator ordering. Test whether the negative indirect effect exceeds the positive indirect effect, with uncertainty for their combined contribution.\",\n  \"Discriminate coordination overload from L2's adaptation explanation by testing whether environmental_turbulence strengthens the decision_decentralization-to-coordination_cost relationship or makes the coordination_cost-to-unit_performance relationship more negative, relative to changes in the local_knowledge_use pathway.\",\n  \"Test the proposed IT mechanism by examining whether it_integration weakens the decision_decentralization-to-coordination_cost relationship. A randomized delegation-by-IT-integration design would help distinguish causal complementarity from selection of better-managed units into integrated systems.\"\n ],\n \"limitations\": \"Only the analyst's summary was supplied; coefficients, intervals, model specifications, and raw data were not examined. Confidence values concern causal propositions and are therefore lower than the analyst's confidence in associations. Reverse causation, unmeasured confounding, endogenous delegation and IT integration, and within-firm dependence remain unresolved. Statistical indirect associations do not identify mediation; mediator ordering and mediator–outcome confounding are unknown. Performance relative to plan can also change through target setting. L3 and L5 suggest alternative performance determinants, but their associations do not establish causal effects here; L6's nonsignificant result does not establish a zero effect of unit_size. The explanations connecting turbulence and IT integration specifically to coordination remain untested.\"\n}\n```\n\nAnalyst's report:\n```json\n{\n \"plan\": \"Estimate adjusted total associations of decentralization with performance, test turbulence and IT integration as moderators, and examine local knowledge use and coordination cost as parallel mediators. Treat headquarters attention and planning as sensitivity controls because their causal timing is unclear. Use robust or clustered uncertainty, bootstrap indirect associations, and adjust exploratory interaction and mediation tests for multiplicity. Causal interpretations require assumptions that these observational data cannot verify.\",\n \"data_summary\": \"All 1,200 unit-years were complete. Results describe observational associations, not identified causal effects. HC3 uncertainty assumes independent rows; unavailable firm IDs prevent accounting for within-firm dependence or confounding. No explicit directional hypotheses were supplied, so findings summarize the planned tests. Exploratory interaction and indirect-association p-values below are Holm-adjusted. Decentralization remains negatively associated with performance from the bivariate to adjusted models; there is no focal sign reversal.\",\n \"findings\": [\n  {\n   \"claim_id\": \"C1\",\n   \"supported\": true,\n   \"estimate\": -0.345,\n   \"p_value\": 2.95e-21,\n   \"note\": \"Supports a negative adjusted total association. Bivariate estimate: -0.3536, p=1.654e-21. Adding hq_attention and formal_planning_hours attenuates the estimate to -0.2531, p=1.206e-10. This sensitivity suggests possible confounding or adjustment for downstream variables; their timing is unknown.\"\n  },\n  {\n   \"claim_id\": \"C2\",\n   \"supported\": true,\n   \"estimate\": -0.2916,\n   \"p_value\": 2.446e-20,\n   \"note\": \"Environmental turbulence makes the decentralization–performance association more negative. At turbulence -1 and +1 SD, slopes are -0.04567 (p=0.3287) and -0.629 (p=1.839e-46), holding IT integration at zero. Slope p-values are unadjusted; the nonsignificant low-turbulence slope does not establish no effect.\"\n  },\n  {\n   \"claim_id\": \"C3\",\n   \"supported\": true,\n   \"estimate\": 0.1891,\n   \"p_value\": 1.189e-08,\n   \"note\": \"IT integration makes the decentralization–performance association more positive, attenuating its negative magnitude. Slopes remain negative at IT integration -1 and +1 SD: -0.5265 and -0.1482, respectively, with turbulence at zero.\"\n  },\n  {\n   \"claim_id\": \"C4\",\n   \"supported\": true,\n   \"estimate\": 0.1248,\n   \"p_value\": 4.573e-17,\n   \"note\": \"Positive indirect association through local_knowledge_use; bootstrap 95% CI [0.09665, 0.1535]. Decentralization predicts greater local knowledge use (0.3418), which positively predicts performance conditional on both mediators (0.3651). This supports a statistical pathway, not an established causal mechanism.\"\n  },\n  {\n   \"claim_id\": \"C5\",\n   \"supported\": true,\n   \"estimate\": -0.3572,\n   \"p_value\": 3.319e-40,\n   \"note\": \"Negative indirect association through coordination_cost; bootstrap 95% CI [-0.4131, -0.3084]. Path coefficients are 0.6637 and -0.5382. Its magnitude exceeds the positive local-knowledge product. The additive decomposition is -0.345 = -0.1126 + 0.1248 - 0.3572; it does not establish causal mediation.\"\n  },\n  {\n   \"claim_id\": \"direct_association_sensitivity\",\n   \"supported\": false,\n   \"estimate\": -0.02602,\n   \"p_value\": 0.527,\n   \"note\": \"A robust negative mediator-conditional association is not supported across specifications: the baseline direct association is -0.1126 (p=0.004753), but becomes small and nonsignificant after adding headquarters attention and planning. This does not establish zero direct effect or full mediation.\"\n  }\n ],\n \"claims\": [\n  {\n   \"id\": \"C1\",\n   \"type\": \"effect\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": \"negative\",\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.95,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"Negative total association persists across bivariate, baseline-adjusted, and sensitivity models. The effect label represents an association; causal direction and unmeasured confounding remain unresolved.\"\n  },\n  {\n   \"id\": \"C2\",\n   \"type\": \"moderation\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": null,\n   \"moderator\": \"environmental_turbulence\",\n   \"interaction_sign\": \"negative\",\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.94,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The negative interaction survives Holm correction and indicates a more negative association at higher turbulence. Dependence and causal identification remain unresolved.\"\n  },\n  {\n   \"id\": \"C3\",\n   \"type\": \"moderation\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": null,\n   \"moderator\": \"it_integration\",\n   \"interaction_sign\": \"positive\",\n   \"mediator\": null,\n   \"indirect_sign\": null,\n   \"confidence\": 0.91,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"The positive interaction survives Holm correction. Higher IT integration attenuates the negative association without reversing it at the reported moderator values.\"\n  },\n  {\n   \"id\": \"C4\",\n   \"type\": \"mediation\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"local_knowledge_use\",\n   \"indirect_sign\": \"positive\",\n   \"confidence\": 0.88,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"A positive statistical indirect association has a bootstrap interval excluding zero and survives Holm correction. Confidence concerns the additive statistical pathway; temporal ordering and causal mediation are unverified.\"\n  },\n  {\n   \"id\": \"C5\",\n   \"type\": \"mediation\",\n   \"cause\": \"decision_decentralization\",\n   \"outcome\": \"unit_performance\",\n   \"sign\": null,\n   \"moderator\": null,\n   \"interaction_sign\": null,\n   \"mediator\": \"coordination_cost\",\n   \"indirect_sign\": \"negative\",\n   \"confidence\": 0.9,\n   \"basis\": [\n    \"data\"\n   ],\n   \"rationale\": \"A negative statistical indirect association has a bootstrap interval excluding zero and survives Holm correction. Its magnitude dominates the positive local-knowledge pathway under the parallel additive model; causal mediation remains unverified.\"\n  }\n ],\n \"output_excerpt\": \"her moderator=0: b=-0.3373, SE=0.03297, p=1.458e-24\\nSlope at environmental_turbulence=+1, other moderator=0: b=-0.629, SE=0.04395, p=1.839e-46\\nSlope at it_integration=-1, other moderator=0: b=-0.5265, SE=0.04665, p=1.573e-29\\nSlope at it_integration=+0, other moderator=0: b=-0.3373, SE=0.03297, p=1.458e-24\\nSlope at it_integration=+1, other moderator=0: b=-0.1482, SE=0.04689, p=0.001579\\n\\nMediator equation: local_knowledge_use | N=1200, R2=0.119\\n                               coef      SE         p\\ndecision_decentralization    0.3418 0.02693 6.615e-37\\nenvironmental_turbulence  -0.008973 0.02628    0.7328\\nit_integration              0.02672 0.02843    0.3473\\nunit_size                   0.03803 0.03211    0.2362\\nmanagerial_experience     -0.007148 0.02865     0.803\\nmarket_concentration       0.002088 0.03116    0.9466\\n\\nMediator equation: coordination_cost | N=1200, R2=0.320\\n                              coef      SE         p\\ndecision_decentralization   0.6637 0.03389 2.091e-85\\nenvironmental_turbulence  -0.01885 0.03139    0.5481\\nit_integration            -0.04801 0.03345    0.1512\\nunit_size                   0.1337 0.03386 7.864e-05\\nmanagerial_experience     -0.02812 0.02994    0.3475\\nmarket_concentration      -0.06078 0.03312   0.06648\\n\\nDirect association conditional on both candidate mediators | N=1200, R2=0.370\\n                               coef      SE         p\\ndecision_decentralization   -0.1126 0.03987  0.004753\\nenvironmental_turbulence   -0.01009  0.0339    0.7659\\nit_integration            -0.002705  0.0325    0.9337\\nunit_size                   0.01717 0.03449    0.6187\\nmanagerial_experience        0.2341 0.03129 7.297e-14\\nmarket_concentration         0.1655  0.0343 1.399e-06\\nlocal_knowledge_use          0.3651 0.03152 5.005e-31\\ncoordination_cost           -0.5382 0.03038 3.408e-70\\n\\nDirect-association sensitivity: HQ attention and planning | N=1200, R2=0.395\\n                               coef      SE         p\\ndecision_decentralization  -0.02602 0.04113     0.527\\nenvironmental_turbulence  -0.006926 0.03335    0.8355\\nit_integration             0.003813 0.03195     0.905\\nunit_size                   0.02427 0.03356    0.4695\\nmanagerial_experience        0.2346 0.03037 1.134e-14\\nmarket_concentration         0.1692 0.03387 5.857e-07\\nlocal_knowledge_use          0.3613 0.03057 3.215e-32\\ncoordination_cost           -0.5379 0.02997 5.055e-72\\nhq_attention                 0.2252 0.03821 3.757e-09\\nformal_planning_hours       0.02681 0.03223    0.4054\\n\\nParallel additive mediation: product estimates; bootstrap SE and percentile 95% CI\\nlocal_knowledge_use: ab=0.1248, SE=0.01472, approximate p=2.287e-17, CI=[0.09665, 0.1535]\\ncoordination_cost: ab=-0.3572, SE=0.0267, approximate p=8.297e-41, CI=[-0.4131, -0.3084]\\nDecomposition: total=-0.345, direct=-0.1126, sum(ab)=-0.2324\\n\\nExploratory family: two interactions and two indirect associations (Holm correction)\\ndecision_decentralization x environmental_turbulence: adjusted p=2.446e-20; evidence at .05\\ndecision_decentralization x it_integration: adjusted p=1.189e-08; evidence at .05\\nindirect via local_knowledge_use: adjusted p=4.573e-17; evidence at .05\\nindirect via coordination_cost: adjusted p=3.319e-40; evidence at .05\\nOther coefficient and slope p-values are descriptive, unadjusted exploratory tests.\\nIndirect products assume parallel mediators and additive paths; they do not establish mechanisms.\\nCausal total/direct effects require correct temporal ordering and no relevant unmeasured confounding.\\n\"\n}\n```\n\nCritic's review:\n```json\n{\n \"verdicts\": [\n  {\n   \"claim_id\": \"F1\",\n   \"verdict\": \"revise\",\n   \"reason\": \"The analyses support a negative adjusted association between decision_decentralization and unit_performance, not an identified negative total effect. Unknown timing of hq_attention and formal_planning_hours, reverse causation, and firm-level confounding remain unresolved. State the causal direction as a hypothesis conditional on identification assumptions. L1 is correctly identified as contrary evidence.\",\n   \"suggested_confidence\": 0.5\n  },\n  {\n   \"claim_id\": \"F2\",\n   \"verdict\": \"revise\",\n   \"reason\": \"The interaction directly tests and supports a more negative conditional association as environmental_turbulence increases. Causal moderation requires additional identification assumptions; differential selection into decentralization could explain the pattern. Replace causal wording with association wording or an explicitly conditional causal hypothesis. L2 is correctly cited as opposite prior evidence.\",\n   \"suggested_confidence\": 0.5\n  },\n  {\n   \"claim_id\": \"F3\",\n   \"verdict\": \"revise\",\n   \"reason\": \"The positive interaction supports attenuation of the negative association as it_integration increases. Calling this attenuation of harm implies causality that the analysis does not establish. IT investment and delegation could jointly reflect headquarters policies or prior performance. Retain the statistical interaction and explicitly qualify any causal interpretation.\",\n   \"suggested_confidence\": 0.5\n  },\n  {\n   \"claim_id\": \"F4\",\n   \"verdict\": \"revise\",\n   \"reason\": \"The positive product and bootstrap interval support an indirect association through local_knowledge_use. They do not establish temporal ordering or eliminate mediator–outcome confounding, including possible hq_attention effects. The additive parallel-mediator model also omits the demonstrated decentralization interactions. Present this as a candidate mechanism; L4 correctly supports only the first link.\",\n   \"suggested_confidence\": 0.4\n  },\n  {\n   \"claim_id\": \"F5\",\n   \"verdict\": \"revise\",\n   \"reason\": \"The negative product supports an indirect association through coordination_cost, but causal mediation requires unverified ordering and confounding assumptions. Poor performance could itself generate coordination rework. The larger absolute product is descriptive and does not establish causal dominance. Present a candidate mechanism; L7 correctly supports only the first link.\",\n   \"suggested_confidence\": 0.4\n  }\n ],\n \"concerns\": \"All five relationships were statistically examined, and literature IDs are used correctly. The principal problem is causal labeling despite explicitly observational evidence. Suggested confidences concern causal interpretations, not coefficient signs. The output is truncated before the inference header, so clustering, cluster counts, and several reported estimates cannot be independently checked from the displayed output. Unit-year observations may share unit and firm dependencies; robust standard errors alone do not remove confounding. The attenuation of the mediator-conditional coefficient after additional controls establishes neither zero direct effect nor full mediation.\",\n \"suggested_additional_analyses\": [\n  \"Provide complete output, including the inference method, available identifiers, cluster counts, and total-association and interaction tables.\",\n  \"Establish variable timing and a causal diagram, particularly for hq_attention, formal_planning_hours, it_integration, and both mediators.\",\n  \"If identifiers and repeated observations are available, examine within-unit estimates with year effects and appropriate firm-level clustering; distinguish this from causal identification.\",\n  \"Assess interaction sensitivity to plausible pre-exposure controls and nonlinear specifications.\",\n  \"Fit mediation models compatible with the observed moderation, assess mediator ordering and unmeasured-confounding sensitivity, and bootstrap the difference in pathway magnitudes if dominance is claimed.\"\n ]\n}\n```\n\nYour earlier draft of the final claims:\n```json\n[\n {\n  \"id\": \"F1\",\n  \"type\": \"effect\",\n  \"cause\": \"decision_decentralization\",\n  \"outcome\": \"unit_performance\",\n  \"sign\": \"negative\",\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.68,\n  \"basis\": [\n   \"data\",\n   \"literature:L1\"\n  ],\n  \"rationale\": \"A negative total effect is plausible: the association is -0.3536 bivariately, -0.345 after baseline adjustment, and -0.2531 with headquarters attention and planning included. Robustness across these specifications supports the direction, but unknown control timing and confounding limit causal confidence. L1 provides contrary evidence on this relation.\"\n },\n {\n  \"id\": \"F2\",\n  \"type\": \"moderation\",\n  \"cause\": \"decision_decentralization\",\n  \"outcome\": \"unit_performance\",\n  \"sign\": null,\n  \"moderator\": \"environmental_turbulence\",\n  \"interaction_sign\": \"negative\",\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.65,\n  \"basis\": [\n   \"data\",\n   \"literature:L2\"\n  ],\n  \"rationale\": \"The interaction is -0.2916 and survives Holm correction. Estimated decentralization slopes become more negative as turbulence increases. L2 reports the opposite interaction, reducing confidence in generalization. The proposed explanation involving greater coordination demands was not tested.\"\n },\n {\n  \"id\": \"F3\",\n  \"type\": \"moderation\",\n  \"cause\": \"decision_decentralization\",\n  \"outcome\": \"unit_performance\",\n  \"sign\": null,\n  \"moderator\": \"it_integration\",\n  \"interaction_sign\": \"positive\",\n  \"mediator\": null,\n  \"indirect_sign\": null,\n  \"confidence\": 0.63,\n  \"basis\": [\n   \"data\"\n  ],\n  \"rationale\": \"The interaction is +0.1891 and survives Holm correction. At mean turbulence, decentralization slopes are -0.5265 and -0.1482 at IT integration values of -1 and +1 SD. This supports attenuation of harm; it does not establish a beneficial decentralization effect or identify a coordination mechanism.\"\n },\n {\n  \"id\": \"F4\",\n  \"type\": \"mediation\",\n  \"cause\": \"decision_decentralization\",\n  \"outcome\": \"unit_performance\",\n  \"sign\": null,\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": \"local_knowledge_use\",\n  \"indirect_sign\": \"positive\",\n  \"confidence\": 0.56,\n  \"basis\": [\n   \"data\",\n   \"literature:L4\"\n  ],\n  \"rationale\": \"The positive indirect association is +0.1248, with bootstrap 95% CI [0.09665, 0.1535]. L4 supports only the decentralization-to-local-knowledge link. A positive causal pathway is plausible, but temporal ordering and mediator\\u2013outcome confounding remain unresolved.\"\n },\n {\n  \"id\": \"F5\",\n  \"type\": \"mediation\",\n  \"cause\": \"decision_decentralization\",\n  \"outcome\": \"unit_performance\",\n  \"sign\": null,\n  \"moderator\": null,\n  \"interaction_sign\": null,\n  \"mediator\": \"coordination_cost\",\n  \"indirect_sign\": \"negative\",\n  \"confidence\": 0.6,\n  \"basis\": [\n   \"data\",\n   \"literature:L7\"\n  ],\n  \"rationale\": \"The negative indirect association is -0.3572, with bootstrap 95% CI [-0.4131, -0.3084]. Its point-estimate magnitude exceeds the positive local-knowledge pathway in the additive model. L7 supports only the decentralization-to-coordination-cost link; causal mediation and causal dominance are not established.\"\n }\n]\n```"
+    }
+   ],
+   "response": {
+    "theory_summary": "Decentralization may improve performance through local knowledge use while reducing it through coordination costs. The observed overall association is negative, becomes more negative with environmental turbulence, and less negative with IT integration. These patterns support conditional causal hypotheses and candidate mechanisms, not identified causal effects. The larger coordination-related indirect association does not establish causal dominance.",
+    "claims": [
+     {
+      "id": "F1",
+      "type": "effect",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": "negative",
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.5,
+      "basis": [
+       "data",
+       "literature:L1"
+      ],
+      "rationale": "A negative total effect is a hypothesis conditional on correct temporal ordering and adequate confounding control. Observed associations are -0.3536 bivariately, -0.345 with baseline adjustment, and -0.2531 with hq_attention and formal_planning_hours added. Their unknown timing limits interpretation. L1 reports contrary evidence on this relationship."
+     },
+     {
+      "id": "F2",
+      "type": "moderation",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": null,
+      "moderator": "environmental_turbulence",
+      "interaction_sign": "negative",
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.5,
+      "basis": [
+       "data",
+       "literature:L2"
+      ],
+      "rationale": "The interaction of -0.2916 survives Holm correction and indicates a more negative conditional association at higher environmental_turbulence. Causal moderation is conditional on identification assumptions, including adequate control for differential selection into decision_decentralization. L2 reports the opposite interaction. Increased coordination demands remain an untested explanation."
+     },
+     {
+      "id": "F3",
+      "type": "moderation",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": null,
+      "moderator": "it_integration",
+      "interaction_sign": "positive",
+      "mediator": null,
+      "indirect_sign": null,
+      "confidence": 0.5,
+      "basis": [
+       "data"
+      ],
+      "rationale": "The interaction of +0.1891 survives Holm correction. At mean environmental_turbulence, slopes are -0.5265 and -0.1482 at it_integration values of -1 and +1 SD, indicating attenuation of the negative association. A causal interpretation requires ruling out joint selection through headquarters policies, prior performance, and other confounders; no coordination mechanism is established."
+     },
+     {
+      "id": "F4",
+      "type": "mediation",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "local_knowledge_use",
+      "indirect_sign": "positive",
+      "confidence": 0.4,
+      "basis": [
+       "data",
+       "literature:L4"
+      ],
+      "rationale": "local_knowledge_use is a candidate mechanism: the indirect association is +0.1248, with bootstrap 95% CI [0.09665, 0.1535]. L4 supports only the decision_decentralization-to-local_knowledge_use link. Causal mediation requires unverified temporal ordering and confounding assumptions; the parallel additive model also omits the observed interactions."
+     },
+     {
+      "id": "F5",
+      "type": "mediation",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": null,
+      "moderator": null,
+      "interaction_sign": null,
+      "mediator": "coordination_cost",
+      "indirect_sign": "negative",
+      "confidence": 0.4,
+      "basis": [
+       "data",
+       "literature:L7"
+      ],
+      "rationale": "coordination_cost is a candidate mechanism: the indirect association is -0.3572, with bootstrap 95% CI [-0.4131, -0.3084]. L7 supports only the decision_decentralization-to-coordination_cost link. Reverse causation from poor unit_performance to coordination_cost and mediator–outcome confounding remain possible. The larger absolute product is descriptive and establishes neither causal mediation nor causal dominance."
+     }
+    ],
+    "limitations": "Confidence values concern conditional causal hypotheses, not statistical coefficient signs. The supplied observational analyses cannot establish temporal ordering or eliminate unmeasured confounding and reverse causation. Unknown timing of hq_attention and formal_planning_hours complicates adjustment. HC3 uncertainty assumes independent rows; unavailable firm identifiers prevent accounting for within-firm dependence, and repeated-unit dependence may also matter. Truncated output limits independent verification. Mediation estimates assume parallel additive pathways despite observed moderation. The sensitive mediator-conditional coefficient establishes neither zero direct effect nor full mediation. No causal null effect is inferred from nonsignificance."
+   },
+   "raw": null,
+   "cached": false,
+   "latency_s": 41.26,
+   "usage": {
+    "total_tokens": 23639
+   }
+  }
+ ],
+ "draft_claims": [
+  {
+   "id": "F1",
+   "type": "effect",
+   "cause": "decision_decentralization",
+   "outcome": "unit_performance",
+   "sign": "negative",
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": null,
+   "indirect_sign": null,
+   "confidence": 0.68,
+   "basis": [
+    "data",
+    "literature:L1"
+   ],
+   "rationale": "A negative total effect is plausible: the association is -0.3536 bivariately, -0.345 after baseline adjustment, and -0.2531 with headquarters attention and planning included. Robustness across these specifications supports the direction, but unknown control timing and confounding limit causal confidence. L1 provides contrary evidence on this relation."
+  },
+  {
+   "id": "F2",
+   "type": "moderation",
+   "cause": "decision_decentralization",
+   "outcome": "unit_performance",
+   "sign": null,
+   "moderator": "environmental_turbulence",
+   "interaction_sign": "negative",
+   "mediator": null,
+   "indirect_sign": null,
+   "confidence": 0.65,
+   "basis": [
+    "data",
+    "literature:L2"
+   ],
+   "rationale": "The interaction is -0.2916 and survives Holm correction. Estimated decentralization slopes become more negative as turbulence increases. L2 reports the opposite interaction, reducing confidence in generalization. The proposed explanation involving greater coordination demands was not tested."
+  },
+  {
+   "id": "F3",
+   "type": "moderation",
+   "cause": "decision_decentralization",
+   "outcome": "unit_performance",
+   "sign": null,
+   "moderator": "it_integration",
+   "interaction_sign": "positive",
+   "mediator": null,
+   "indirect_sign": null,
+   "confidence": 0.63,
+   "basis": [
+    "data"
+   ],
+   "rationale": "The interaction is +0.1891 and survives Holm correction. At mean turbulence, decentralization slopes are -0.5265 and -0.1482 at IT integration values of -1 and +1 SD. This supports attenuation of harm; it does not establish a beneficial decentralization effect or identify a coordination mechanism."
+  },
+  {
+   "id": "F4",
+   "type": "mediation",
+   "cause": "decision_decentralization",
+   "outcome": "unit_performance",
+   "sign": null,
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": "local_knowledge_use",
+   "indirect_sign": "positive",
+   "confidence": 0.56,
+   "basis": [
+    "data",
+    "literature:L4"
+   ],
+   "rationale": "The positive indirect association is +0.1248, with bootstrap 95% CI [0.09665, 0.1535]. L4 supports only the decentralization-to-local-knowledge link. A positive causal pathway is plausible, but temporal ordering and mediator–outcome confounding remain unresolved."
+  },
+  {
+   "id": "F5",
+   "type": "mediation",
+   "cause": "decision_decentralization",
+   "outcome": "unit_performance",
+   "sign": null,
+   "moderator": null,
+   "interaction_sign": null,
+   "mediator": "coordination_cost",
+   "indirect_sign": "negative",
+   "confidence": 0.6,
+   "basis": [
+    "data",
+    "literature:L7"
+   ],
+   "rationale": "The negative indirect association is -0.3572, with bootstrap 95% CI [-0.4131, -0.3084]. Its point-estimate magnitude exceeds the positive local-knowledge pathway in the additive model. L7 supports only the decentralization-to-coordination-cost link; causal mediation and causal dominance are not established."
+  }
+ ],
+ "critic_verdicts": [
+  {
+   "claim_id": "F1",
+   "verdict": "revise",
+   "reason": "The analyses support a negative adjusted association between decision_decentralization and unit_performance, not an identified negative total effect. Unknown timing of hq_attention and formal_planning_hours, reverse causation, and firm-level confounding remain unresolved. State the causal direction as a hypothesis conditional on identification assumptions. L1 is correctly identified as contrary evidence.",
+   "suggested_confidence": 0.5
+  },
+  {
+   "claim_id": "F2",
+   "verdict": "revise",
+   "reason": "The interaction directly tests and supports a more negative conditional association as environmental_turbulence increases. Causal moderation requires additional identification assumptions; differential selection into decentralization could explain the pattern. Replace causal wording with association wording or an explicitly conditional causal hypothesis. L2 is correctly cited as opposite prior evidence.",
+   "suggested_confidence": 0.5
+  },
+  {
+   "claim_id": "F3",
+   "verdict": "revise",
+   "reason": "The positive interaction supports attenuation of the negative association as it_integration increases. Calling this attenuation of harm implies causality that the analysis does not establish. IT investment and delegation could jointly reflect headquarters policies or prior performance. Retain the statistical interaction and explicitly qualify any causal interpretation.",
+   "suggested_confidence": 0.5
+  },
+  {
+   "claim_id": "F4",
+   "verdict": "revise",
+   "reason": "The positive product and bootstrap interval support an indirect association through local_knowledge_use. They do not establish temporal ordering or eliminate mediator–outcome confounding, including possible hq_attention effects. The additive parallel-mediator model also omits the demonstrated decentralization interactions. Present this as a candidate mechanism; L4 correctly supports only the first link.",
+   "suggested_confidence": 0.4
+  },
+  {
+   "claim_id": "F5",
+   "verdict": "revise",
+   "reason": "The negative product supports an indirect association through coordination_cost, but causal mediation requires unverified ordering and confounding assumptions. Poor performance could itself generate coordination rework. The larger absolute product is descriptive and does not establish causal dominance. Present a candidate mechanism; L7 correctly supports only the first link.",
+   "suggested_confidence": 0.4
+  }
+ ],
+ "report": {
+  "theory_summary": "Decentralization may improve performance through local knowledge use while reducing it through coordination costs. The observed overall association is negative, becomes more negative with environmental turbulence, and less negative with IT integration. These patterns support conditional causal hypotheses and candidate mechanisms, not identified causal effects. The larger coordination-related indirect association does not establish causal dominance.",
+  "limitations": "Confidence values concern conditional causal hypotheses, not statistical coefficient signs. The supplied observational analyses cannot establish temporal ordering or eliminate unmeasured confounding and reverse causation. Unknown timing of hq_attention and formal_planning_hours complicates adjustment. HC3 uncertainty assumes independent rows; unavailable firm identifiers prevent accounting for within-firm dependence, and repeated-unit dependence may also matter. Truncated output limits independent verification. Mediation estimates assume parallel additive pathways despite observed moderation. The sensitive mediator-conditional coefficient establishes neither zero direct effect nor full mediation. No causal null effect is inferred from nonsignificance."
+ }
+}
