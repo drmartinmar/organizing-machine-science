@@ -8,7 +8,7 @@ mkdir -p "$OUT"
 for name in proposal technical_appendix; do
   src="docs/${name}.md"
   pandoc "$src" --from markdown+smart --to docx --output "$OUT/${name}.docx" \
-    --resource-path=docs:results/pilot_codex:. ${REFERENCE_DOCX:+--reference-doc="$REFERENCE_DOCX"}
+    --resource-path=docs:results/pilot_codex:. --reference-doc="${REFERENCE_DOCX:-docs/reference.docx}"
   if command -v soffice >/dev/null 2>&1; then
     soffice --headless --convert-to pdf --outdir "$OUT" "$OUT/${name}.docx" >/dev/null 2>&1 || echo "pdf conversion failed for $name"
   fi

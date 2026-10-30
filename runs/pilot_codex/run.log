@@ -1,0 +1,98 @@
+[pilot_codex] backend=cache[codex] designs=9 worlds=6 jobs=54 (skipping 0 done)
+[pilot_codex] mechanical                   decentralization-contrarian-s1 claims=10 prec= 0.80 recall= 0.57 potemkin= 0.10 calls=0 1.3s
+[pilot_codex] mechanical                   turnover-orthodox-s1         claims= 9 prec= 0.67 recall= 0.50 potemkin= 0.22 calls=0 1.6s
+  [pipeline | turnover-contrarian-s1] theorist done (gpt-6-astra, 0.0s)
+  [pipeline | turnover-contrarian-s1] analyst_code done (gpt-6-astra, 0.0s)
+[pilot_codex] mechanical                   decentralization-orthodox-s1 claims=10 prec= 0.70 recall= 0.56 potemkin= 0.20 calls=0 1.9s
+[pilot_codex] mechanical                   monitoring-orthodox-s1       claims=10 prec= 0.70 recall= 0.62 potemkin= 0.20 calls=0 1.9s
+[pilot_codex] mechanical                   turnover-contrarian-s1       claims= 8 prec= 0.88 recall= 0.40 potemkin= 0.00 calls=0 1.9s
+[pilot_codex] mechanical                   monitoring-contrarian-s1     claims=10 prec= 0.90 recall= 0.40 potemkin= 0.00 calls=0 1.9s
+  [pipeline | monitoring-orthodox-s1] theorist done (gpt-6-astra, 66.5s)
+  [pipeline | monitoring-contrarian-s1] theorist done (gpt-6-astra, 67.9s)
+  [pipeline | decentralization-orthodox-s1] theorist done (gpt-6-astra, 73.5s)
+  [pipeline | turnover-contrarian-s1] analyst_interpret done (gpt-6-astra, 52.2s)
+  [pipeline | turnover-orthodox-s1] theorist done (gpt-6-astra, 80.4s)
+  [pipeline | decentralization-contrarian-s1] theorist done (gpt-6-astra, 87.7s)
+  [pipeline | turnover-contrarian-s1] synthesizer done (gpt-6-astra, 40.4s)
+[pilot_codex] pipeline                     turnover-contrarian-s1       claims= 7 prec= 1.00 recall= 0.60 potemkin= 0.00 calls=4 117.3s
+  [pipeline_hierarchy | turnover-orthodox-s1] theorist done (gpt-6-astra, 0.0s)
+  [pipeline | turnover-orthodox-s1] analyst_code done (gpt-6-astra, 56.7s)
+  [pipeline | monitoring-orthodox-s1] analyst_code done (gpt-6-astra, 78.1s)
+  [pipeline | monitoring-contrarian-s1] analyst_code done (gpt-6-astra, 79.2s)
+  [pipeline | decentralization-orthodox-s1] analyst_code done (gpt-6-astra, 82.7s)
+  [pipeline | decentralization-contrarian-s1] analyst_code done (gpt-6-astra, 73.1s)
+  [pipeline | turnover-orthodox-s1] analyst_interpret done (gpt-6-astra, 41.9s)
+  [pipeline_hierarchy | turnover-orthodox-s1] analyst_code done (gpt-6-astra, 69.5s)
+  [pipeline | monitoring-contrarian-s1] analyst_interpret done (gpt-6-astra, 41.8s)
+  [pipeline | monitoring-orthodox-s1] analyst_interpret done (gpt-6-astra, 48.4s)
+  [pipeline | decentralization-orthodox-s1] analyst_interpret done (gpt-6-astra, 53.1s)
+  [pipeline | decentralization-contrarian-s1] analyst_interpret done (gpt-6-astra, 49.8s)
+  [pipeline | turnover-orthodox-s1] synthesizer done (gpt-6-astra, 43.1s)
+[pilot_codex] pipeline                     turnover-orthodox-s1         claims= 6 prec= 1.00 recall= 0.67 potemkin= 0.00 calls=4 223.8s
+  [pipeline_hierarchy | turnover-contrarian-s1] theorist done (gpt-6-astra, 0.0s)
+  [pipeline_hierarchy | turnover-contrarian-s1] analyst_code done (gpt-6-astra, 0.0s)
+  [pipeline | monitoring-contrarian-s1] synthesizer done (gpt-6-astra, 38.0s)
+[pilot_codex] pipeline                     monitoring-contrarian-s1     claims= 5 prec= 1.00 recall= 0.20 potemkin= 0.00 calls=4 228.7s
+  [pipeline_hierarchy | monitoring-orthodox-s1] theorist done (gpt-6-astra, 0.0s)
+  [pipeline_hierarchy | monitoring-orthodox-s1] analyst_code done (gpt-6-astra, 0.0s)
+  [pipeline_hierarchy | monitoring-orthodox-s1] analyst_interpret done (gpt-6-astra, 0.0s)
+  [pipeline | monitoring-orthodox-s1] synthesizer done (gpt-6-astra, 38.7s)
+[pilot_codex] pipeline                     monitoring-orthodox-s1       claims= 6 prec= 1.00 recall= 0.50 potemkin= 0.00 calls=4 233.3s
+  [pipeline_hierarchy | monitoring-contrarian-s1] theorist done (gpt-6-astra, 0.0s)
+  [pipeline_hierarchy | monitoring-contrarian-s1] analyst_code done (gpt-6-astra, 0.0s)
+  [pipeline_hierarchy | monitoring-contrarian-s1] analyst_interpret done (gpt-6-astra, 0.0s)
+  [pipeline_hierarchy | turnover-contrarian-s1] analyst_interpret done (gpt-6-astra, 0.0s)
+  [pipeline_hierarchy | turnover-orthodox-s1] analyst_interpret done (gpt-6-astra, 60.1s)
+  [pipeline | decentralization-contrarian-s1] synthesizer done (gpt-6-astra, 42.4s)
+[pilot_codex] pipeline                     decentralization-contrarian-s1 claims= 7 prec= 1.00 recall= 0.71 potemkin= 0.00 calls=4 254.9s
+  [pipeline_hierarchy | decentralization-orthodox-s1] theorist done (gpt-6-astra, 0.0s)
+  [pipeline_hierarchy | decentralization-orthodox-s1] analyst_code done (gpt-6-astra, 0.0s)
+  [pipeline_hierarchy | decentralization-orthodox-s1] analyst_interpret done (gpt-6-astra, 0.0s)
+  [pipeline | decentralization-orthodox-s1] synthesizer done (gpt-6-astra, 48.5s)
+[pilot_codex] pipeline                     decentralization-orthodox-s1 claims= 7 prec= 1.00 recall= 0.67 potemkin= 0.00 calls=4 260.3s
+  [pipeline_hierarchy | decentralization-contrarian-s1] theorist done (gpt-6-astra, 0.0s)
+  [pipeline_hierarchy | decentralization-contrarian-s1] analyst_code done (gpt-6-astra, 0.0s)
+  [pipeline_hierarchy | decentralization-contrarian-s1] analyst_interpret done (gpt-6-astra, 0.0s)
+  [pipeline_hierarchy | monitoring-orthodox-s1] synthesizer done (gpt-6-astra, 37.0s)
+  [pipeline_hierarchy | monitoring-contrarian-s1] synthesizer done (gpt-6-astra, 43.7s)
+  [pipeline_hierarchy | decentralization-orthodox-s1] synthesizer done (gpt-6-astra, 26.8s)
+  [pipeline_hierarchy | turnover-orthodox-s1] synthesizer done (gpt-6-astra, 38.8s)
+  [pipeline_hierarchy | turnover-contrarian-s1] synthesizer done (gpt-6-astra, 45.7s)
+  [pipeline_hierarchy | decentralization-contrarian-s1] synthesizer done (gpt-6-astra, 33.3s)
+  [pipeline_hierarchy | monitoring-orthodox-s1] critic done (gpt-6-astra, 50.6s)
+  [pipeline_hierarchy | monitoring-contrarian-s1] critic done (gpt-6-astra, 45.2s)
+  [pipeline_hierarchy | turnover-orthodox-s1] critic done (gpt-6-astra, 44.8s)
+  [pipeline_hierarchy | decentralization-orthodox-s1] critic done (gpt-6-astra, 48.5s)
+  [pipeline_hierarchy | turnover-contrarian-s1] critic done (gpt-6-astra, 52.4s)
+  [pipeline_hierarchy | decentralization-contrarian-s1] critic done (gpt-6-astra, 53.0s)
+  [pipeline_hierarchy | monitoring-orthodox-s1] synthesizer done (gpt-6-astra, 32.0s)
+[pilot_codex] pipeline_hierarchy           monitoring-orthodox-s1       claims= 6 prec= 1.00 recall= 0.50 potemkin= 0.00 calls=6 121.2s
+  [pipeline_hierarchy | monitoring-contrarian-s1] synthesizer done (gpt-6-astra, 32.5s)
+[pilot_codex] pipeline_hierarchy           monitoring-contrarian-s1     claims= 5 prec= 1.00 recall= 0.20 potemkin= 0.00 calls=6 123.1s
+  [pipeline_hierarchy | turnover-orthodox-s1] synthesizer done (gpt-6-astra, 35.9s)
+[pilot_codex] pipeline_hierarchy           turnover-orthodox-s1         claims= 6 prec= 1.00 recall= 0.67 potemkin= 0.00 calls=6 250.8s
+[pilot_codex] pipeline_hierarchy           decentralization-contrarian-s1 claims= 0 prec=  na  recall= 0.00 potemkin=  na  calls=5 113.9s ERROR: RuntimeError: codex exec failed: rc=1 stderr=pe": "effect",
+  "cause": "managerial_experience",
+  "outcome": "unit_performance",
+  "sign": "positive",
+  "moderator": null,
+  "interaction_sign": null,
+  "mediator": null,
+  "indirect_sign": null,
+  "confidence": 0.7,
+  "basis": [
+   "data",
+   "literature:L5"
+  ],
+  "rationale": "Positive associations persist across specifications excluding decentralization and mediators (0.2556 and 0.2527), consistent with L5. Experience plausibly improves judgment, but selective assignment and retention of experienced managers remain alternative explanations."
+ }
+]
+```
+</USER>
+warning: Codex's Linux sandbox uses bubblewrap and needs access to create user namespaces.
+ERROR: Selected model is at capacity. Please try a different model.
+ERROR: Selected model is at capacity. Please try a different model.
+
+  [pipeline_hierarchy | decentralization-orthodox-s1] synthesizer done (gpt-6-astra, 41.9s)
+[pilot_codex] pipeline_hierarchy           decentralization-orthodox-s1 claims= 3 prec= 1.00 recall= 0.22 potemkin= 0.00 calls=6 119.7s
+  [pipeline_hierarchy | turnover-contrarian-s1] synthesizer done (gpt-6-astra, 45.5s)

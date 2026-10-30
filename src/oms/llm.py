@@ -21,6 +21,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import random
 import subprocess
 import tempfile
 import threading
@@ -130,7 +131,7 @@ class CodexBackend(Backend):
     name = "codex"
 
     def __init__(self, model: str = "gpt-6-astra", reasoning_effort: str = "medium", timeout_s: int = 900,
-                 max_retries: int = 2):
+                 max_retries: int = 5):
         self.model = model
         self.reasoning_effort = reasoning_effort
         self.timeout_s = timeout_s
@@ -165,7 +166,11 @@ class CodexBackend(Backend):
                 text = out_path.read_text() if out_path.exists() else ""
                 if proc.returncode != 0 or not text.strip():
                     last_err = f"rc={proc.returncode} stderr={proc.stderr[-800:]}"
-                    time.sleep(3 * (attempt + 1))
+                    # capacity / rate-limit errors deserve a long, jittered back-off
+                    transient = any(k in proc.stderr.lower() for k in ("capacity", "rate limit", "rate_limit", "429",
+                                                                       "overloaded", "timeout", "temporarily"))
+                    base = 30.0 if transient else 5.0
+                    time.sleep(min(300.0, base * (2 ** attempt)) * (0.75 + 0.5 * random.random()))
                     continue
                 usage = _parse_codex_usage(proc.stderr + proc.stdout)
                 return LLMResponse(text=text, model=use_model, usage=usage, latency_s=time.time() - t0)
