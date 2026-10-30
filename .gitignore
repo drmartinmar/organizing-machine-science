@@ -10,3 +10,4 @@ venv/
 *.env
 runs/**/sandbox/
 .DS_Store
+docs/*_polish/
