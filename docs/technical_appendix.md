@@ -50,7 +50,7 @@ Let $B$ be the matrix of linear coefficients ($B_{ji} = \beta_{ji}$). Total line
 Each template exists in an *orthodox* variant (textbook sign holds) and a *contrarian* variant (a different mechanism mix reverses the focal effect). The variable set is identical across variants, so the codebook does not reveal the variant.
 
 | Template (unit) | Focal cause → outcome | Designated mediators | Moderators | Trap pair (common cause) | What flips in the contrarian variant |
-|---|---|---|---|---|---|
+|------------|------------------|------------------------|-----------------------|--------------------|------------------------|
 | `turnover` (team-year) | team turnover → team performance | knowledge loss; idea novelty | routine codification; task interdependence; hiring quality | training investment → performance (budget slack) | Knowledge-loss path shrinks; idea-novelty path dominates; turnover × hiring quality becomes the live moderation; codification buffer becomes negligible |
 | `monitoring` (unit-year) | monitoring intensity → creative output | perceived autonomy; trust in management; feedback frequency | feedback quality | wellness program → creative output (unit budget) | Autonomy and trust paths shrink; feedback-frequency path dominates; monitoring is also confounded upward by technology investment in both variants |
 | `decentralization` (unit-year) | decision decentralization → unit performance | local knowledge use; coordination cost | environmental turbulence; IT integration | formal planning hours → performance (HQ attention) | Coordination-cost path dominates; decentralization × turbulence turns negative; HQ attention confounds decentralization downward in both variants |
@@ -68,7 +68,7 @@ Each world carries seven abstracts, L1–L7, built from a fixed slate of claims 
 *Literature available to the collective* (the truth column is hidden from it):
 
 | ID | Abstract (as shown) | Truth in this world |
-|---|---|---|
+|--------|---------------------------------------------------------------------------------|-------------------------------|
 | L1 | Panel of 212 manufacturing teams over four years. Higher share of team members who left and were replaced during the year was associated with lower supervisor-rated team performance against annual targets (standardized b = -0.15, p < .01). The authors attribute the pattern to the loss of tacit, team-specific knowledge. | FALSE |
 | L2 | Field study of 96 software teams with quarterly skills audits. Higher share of team members who left and were replaced during the year was associated with higher loss of team-specific procedural knowledge, from quarterly skills audits (standardized b = +0.24, p < .01). | TRUE |
 | L3 | Survey of 340 service teams in two retail chains. The association between share of team members who left and were replaced during the year and supervisor-rated team performance against annual targets was more positive when degree to which the team's work procedures are documented in written routines was high (interaction b = +0.34, p < .05). Documented routines are argued to buffer teams against the disruption of member exit. | FALSE |
@@ -98,7 +98,7 @@ The final report is a JSON object with `theory_summary`, `limitations` and up to
 Let $C$ be the set of final claims, $F$ the set of focal truths and $U \subseteq F$ the unpublished focal truths. A claim is TRUE if its asserted sign matches the truth table (mediation claims without an asserted indirect sign are TRUE if the chain exists).
 
 | Metric | Definition | Reading |
-|---|---|---|
+|-----------------------|---------------------------------------|----------------------------------|----------------|---------|
 | `precision` | share of $C$ that is TRUE | $1 -$ Type I error rate |
 | `n_false` | number of FALSE claims | Type I errors |
 | `focal_recall` | share of $F$ matched by a TRUE claim | $1 -$ Type II error rate |
@@ -124,7 +124,7 @@ Four role prompts are used, held constant across designs (`oms.roles`): a **theo
 ### D.2 Design levers and their operationalization
 
 | Lever | Values | Operationalization |
-|---|---|---|
+|----------------------|----------------------------------------|----------------------------------------------------------|
 | Division of labor | `solo`; `pipeline`; `two_theorists` | solo: one agent proposes claims and code, then revises after seeing output. pipeline: theorist → analyst (code, execution, interpretation) → lead. two_theorists: two theorists with distinct epistemic lenses (mechanism-focused; contingency-focused) feed a shared analyst and lead. |
 | Sequencing | `theory_first`; `data_first` | data_first: the analyst explores the data with no hypotheses and no access to the literature; the theorist then explains the analyst’s findings with the literature. |
 | Evaluation architecture | `none`; `polyarchy`; `hierarchy` | The lead writes a draft. With a critic, the critic reviews the draft with the full evidence (plan, script, output, findings) and returns accept / revise / reject per claim; the lead then writes the final report. polyarchy: verdicts are advisory and the lead is told so. hierarchy: verdicts are binding and the lead is told so; in addition the harness enforces the veto, keeping only final claims about relations the critic accepted or asked to revise. |
@@ -136,7 +136,7 @@ The mapping to theory: the evaluation lever operationalizes Sah and Stiglitz’s
 ### D.3 Designs in the pilot
 
 | Design | Structure | Sequence | Evaluation | Critic model | Model calls per run |
-|---|---|---|---|---|---|
+|-------------------------|-------------------------|-----------|---------------|---------------|----------------------------|
 | `mechanical` | fixed statistical procedure | – | – | – | 0 |
 | `solo` | solo | – | none | – | 2 (3 if the script fails once) |
 | `pipeline` | pipeline | theory-first | none | – | 4 (5) |
@@ -167,44 +167,58 @@ Nine designs (Table D.3) on six worlds (three templates, two variants, seed 1), 
 
 ### F.2 Results
 
-Fifty-four runs completed (264 model calls, about 4.9 million tokens including reasoning tokens; one run failed on a model-capacity error and was re-run from the same prompts). Table F.1 reports means per run across the six worlds with standard errors across worlds; Table F.2 splits by variant. Figures F.1–F.3 (in `results/pilot_codex/`) plot the validity frontier, the confident-false and conformity rates, and discovery and calibration.
+Fifty-four runs completed (264 model calls, about 4.9 million tokens including reasoning tokens; one run failed on a model-capacity error and was re-run from the same prompts). Tables F.1a and F.1b report means per run across the six worlds with standard errors across worlds, and error counts and cost; Table F.2 splits by variant. Figures F.1–F.3 (in `results/pilot_codex/`) plot the validity frontier, the confident-false and conformity rates, and discovery and calibration.
 
-**Table F.1.** Pilot means per run (six worlds, one seed); standard errors across worlds in parentheses.
+**Table F.1a.** Pilot means per run (six worlds, one seed); standard errors across worlds in parentheses.
 
-| Design | Claims | Precision (SE) | Focal recall (SE) | Discovery (SE) | Confident-false | Parroting | Brier | False claims (sum) | Focal misses (sum) | Calls | Tokens | Wall s |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| `mechanical` | 9.5 | 0.77 (0.04) | 0.51 (0.04) | 0.68 (0.10) | 0.12 | 0.20 | 0.16 | 13 | 19 | 0 | 0k | 2 |
-| `solo` | 6.7 | 1.00 (0.00) | 0.66 (0.08) | 0.56 (0.09) | 0.00 | 0.56 | 0.06 | 0 | 13 | 2 | 39k | 157 |
-| `pipeline` | 6.3 | 1.00 (0.00) | 0.56 (0.08) | 0.40 (0.08) | 0.00 | 0.67 | 0.10 | 0 | 17 | 4 | 80k | 220 |
-| `pipeline_polyarchy` | 6.0 | 1.00 (0.00) | 0.52 (0.08) | 0.33 (0.10) | 0.00 | 0.72 | 0.19 | 0 | 19 | 6 | 109k | 132 |
-| `pipeline_hierarchy` | 5.7 | 1.00 (0.00) | 0.48 (0.09) | 0.33 (0.10) | 0.00 | 0.72 | 0.22 | 0 | 21 | 6 | 120k | 138 |
-| `pipeline_hierarchy_hetero` | 1.2 | 1.00 (0.00) | 0.11 (0.11) | 0.06 (0.06) | 0.00 | 0.92 | 0.28 | 0 | 36 | 6 | 121k | 71 |
-| `datafirst_hierarchy` | 5.8 | 0.95 (0.03) | 0.57 (0.06) | 0.58 (0.07) | 0.00 | 0.35 | 0.25 | 2 | 18 | 6 | 107k | 366 |
-| `two_theorists_connected` | 5.7 | 1.00 (0.00) | 0.52 (0.12) | 0.39 (0.11) | 0.00 | 0.63 | 0.24 | 0 | 18 | 7 | 121k | 322 |
-| `two_theorists_isolated` | 5.3 | 1.00 (0.00) | 0.47 (0.10) | 0.31 (0.11) | 0.00 | 0.75 | 0.22 | 0 | 21 | 7 | 125k | 382 |
+| Design | Claims | Precision (SE) | Focal recall (SE) | Discovery (SE) | Parroting | Brier |
+|--------------------------------|------|------------|------------|------------|------|------|
+| mechanical | 9.5 | 0.77 (0.04) | 0.51 (0.04) | 0.68 (0.10) | 0.20 | 0.16 |
+| solo | 6.7 | 1.00 (0.00) | 0.66 (0.08) | 0.56 (0.09) | 0.56 | 0.06 |
+| pipeline | 6.3 | 1.00 (0.00) | 0.56 (0.08) | 0.40 (0.08) | 0.67 | 0.10 |
+| pipeline, advisory critic | 6.0 | 1.00 (0.00) | 0.52 (0.08) | 0.33 (0.10) | 0.72 | 0.19 |
+| pipeline, veto critic | 5.7 | 1.00 (0.00) | 0.48 (0.09) | 0.33 (0.10) | 0.72 | 0.22 |
+| pipeline, veto critic (other family) | 1.2 | 1.00 (0.00) | 0.11 (0.11) | 0.06 (0.06) | 0.92 | 0.28 |
+| data-first, veto critic | 5.8 | 0.95 (0.03) | 0.57 (0.06) | 0.58 (0.07) | 0.35 | 0.25 |
+| two theorists, connected | 5.7 | 1.00 (0.00) | 0.52 (0.12) | 0.39 (0.11) | 0.63 | 0.24 |
+| two theorists, isolated | 5.3 | 1.00 (0.00) | 0.47 (0.10) | 0.31 (0.11) | 0.75 | 0.22 |
+
+**Table F.1b.** Error counts summed over the six worlds, and cost per run.
+
+| Design | False claims (sum) | Confident-false (sum) | Focal misses (sum) | Citation errors | Calls | Tokens | Wall s |
+|--------------------------------|------|------|------|------|------|------|------|
+| mechanical | 13 | 7 | 19 | 0.0 | 0 | 0k | 2 |
+| solo | 0 | 0 | 13 | 0.0 | 2 | 39k | 157 |
+| pipeline | 0 | 0 | 17 | 0.0 | 4 | 80k | 220 |
+| pipeline, advisory critic | 0 | 0 | 19 | 0.0 | 6 | 109k | 132 |
+| pipeline, veto critic | 0 | 0 | 21 | 0.0 | 6 | 120k | 138 |
+| pipeline, veto critic (other family) | 0 | 0 | 36 | 0.0 | 6 | 121k | 71 |
+| data-first, veto critic | 2 | 0 | 18 | 0.0 | 6 | 107k | 366 |
+| two theorists, connected | 0 | 0 | 18 | 0.0 | 7 | 121k | 322 |
+| two theorists, isolated | 0 | 0 | 21 | 0.0 | 7 | 125k | 382 |
 
 **Table F.2.** Means by design and world variant (three worlds each).
 
 | Design | Variant | Claims | Precision | Focal recall | Discovery | Consensus conformity | Parroting |
-|---|---|---|---|---|---|---|---|
-| `mechanical` | orthodox | 9.7 | 0.69 | 0.56 | 0.87 | 0.33 | 0.21 |
-| `mechanical` | contrarian | 9.3 | 0.86 | 0.46 | 0.49 | 0.17 | 0.18 |
-| `solo` | orthodox | 6.7 | 1.00 | 0.74 | 0.56 | 1.00 | 0.67 |
-| `solo` | contrarian | 6.7 | 1.00 | 0.57 | 0.56 | 0.17 | 0.45 |
-| `pipeline` | orthodox | 6.3 | 1.00 | 0.61 | 0.31 | 1.00 | 0.79 |
-| `pipeline` | contrarian | 6.3 | 1.00 | 0.50 | 0.49 | 0.17 | 0.55 |
-| `pipeline_polyarchy` | orthodox | 5.7 | 1.00 | 0.54 | 0.18 | 1.00 | 0.89 |
-| `pipeline_polyarchy` | contrarian | 6.3 | 1.00 | 0.50 | 0.49 | 0.17 | 0.55 |
-| `pipeline_hierarchy` | orthodox | 5.0 | 1.00 | 0.46 | 0.18 | 1.00 | 0.89 |
-| `pipeline_hierarchy` | contrarian | 6.3 | 1.00 | 0.50 | 0.49 | 0.17 | 0.55 |
-| `pipeline_hierarchy_hetero` | orthodox | 2.3 | 1.00 | 0.22 | 0.11 | 1.00 | 0.92 |
-| `pipeline_hierarchy_hetero` | contrarian | 0.0 | nan | 0.00 | 0.00 | – | nan |
-| `datafirst_hierarchy` | orthodox | 5.7 | 0.90 | 0.50 | 0.49 | 1.00 | 0.44 |
-| `datafirst_hierarchy` | contrarian | 6.0 | 1.00 | 0.64 | 0.68 | 0.17 | 0.25 |
-| `two_theorists_connected` | orthodox | 6.7 | 1.00 | 0.67 | 0.42 | 1.00 | 0.75 |
-| `two_theorists_connected` | contrarian | 4.7 | 1.00 | 0.37 | 0.36 | 0.00 | 0.44 |
-| `two_theorists_isolated` | orthodox | 6.3 | 1.00 | 0.62 | 0.36 | 1.00 | 0.81 |
-| `two_theorists_isolated` | contrarian | 4.3 | 1.00 | 0.31 | 0.27 | 0.25 | 0.70 |
+|----------------------------|----------|------|------|------|------|------|------|
+| mechanical | orthodox | 9.7 | 0.69 | 0.56 | 0.87 | 0.33 | 0.21 |
+| mechanical | contrarian | 9.3 | 0.86 | 0.46 | 0.49 | 0.17 | 0.18 |
+| solo | orthodox | 6.7 | 1.00 | 0.74 | 0.56 | 1.00 | 0.67 |
+| solo | contrarian | 6.7 | 1.00 | 0.57 | 0.56 | 0.17 | 0.45 |
+| pipeline | orthodox | 6.3 | 1.00 | 0.61 | 0.31 | 1.00 | 0.79 |
+| pipeline | contrarian | 6.3 | 1.00 | 0.50 | 0.49 | 0.17 | 0.55 |
+| pipeline, advisory critic | orthodox | 5.7 | 1.00 | 0.54 | 0.18 | 1.00 | 0.89 |
+| pipeline, advisory critic | contrarian | 6.3 | 1.00 | 0.50 | 0.49 | 0.17 | 0.55 |
+| pipeline, veto critic | orthodox | 5.0 | 1.00 | 0.46 | 0.18 | 1.00 | 0.89 |
+| pipeline, veto critic | contrarian | 6.3 | 1.00 | 0.50 | 0.49 | 0.17 | 0.55 |
+| pipeline, veto critic (other family) | orthodox | 2.3 | 1.00 | 0.22 | 0.11 | 1.00 | 0.92 |
+| pipeline, veto critic (other family) | contrarian | 0.0 | – | 0.00 | 0.00 | – | – |
+| data-first, veto critic | orthodox | 5.7 | 0.90 | 0.50 | 0.49 | 1.00 | 0.44 |
+| data-first, veto critic | contrarian | 6.0 | 1.00 | 0.64 | 0.68 | 0.17 | 0.25 |
+| two theorists, connected | orthodox | 6.7 | 1.00 | 0.67 | 0.42 | 1.00 | 0.75 |
+| two theorists, connected | contrarian | 4.7 | 1.00 | 0.37 | 0.36 | 0.00 | 0.44 |
+| two theorists, isolated | orthodox | 6.3 | 1.00 | 0.62 | 0.36 | 1.00 | 0.81 |
+| two theorists, isolated | contrarian | 4.3 | 1.00 | 0.31 | 0.27 | 0.25 | 0.70 |
 
 ![Figure F.1. Precision against focal recall by design (small points: individual worlds; large points: means with standard errors).](../results/pilot_codex/fig1_validity_frontier.png)
 
@@ -228,10 +242,10 @@ Fifty-four runs completed (264 model calls, about 4.9 million tokens including r
 
 *Cost.* Model-based runs used two to eight calls and 60,000–125,000 tokens each (reasoning included); wall time per run was 1–7 minutes with six runs in parallel.
 
-**Table F.3.** The cross-model critic’s verdicts (`pipeline_hierarchy_hetero`), counted over the six worlds.
+**Table F.3.** The cross-model critic’s verdicts (pipeline, veto critic from another model family), counted over the six worlds.
 
 | Verdict | Count | Typical reason (quoted from transcripts) |
-|---|---|---|
+|------------|----------|---------------------------------------------------------------------------------------------------|
 | accept | 0 | – |
 | revise | 32 | “supports a positive adjusted association, not a causal effect”; “recast as an association” |
 | reject | 6 | “a product-of-coefficients estimate … does not establish mediation” |
@@ -275,7 +289,7 @@ The author designed the research question, theory, hypotheses, testbed architect
 ## K. Repository map
 
 | Path | Contents |
-|---|---|
+|-----------------------------------------------------|-------------------------------------------------------------------|
 | `src/oms/worlds.py` | world generator, templates, truth table, literature rendering |
 | `src/oms/claims.py` | claim schema, normalization, evaluation |
 | `src/oms/roles.py` | role prompts and output schemas |

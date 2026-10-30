@@ -25,7 +25,7 @@ The collective receives the brief, codebook and literature, writes and executes 
 Five levers define the current design space:
 
 | Lever | Values | Theory tested on machine collectives |
-|---|---|---|
+|-------------------|--------------------------------------------------|--------------------------------------------------|
 | Division of labor | solo generalist vs. theorist–analyst–lead pipeline | division of cognitive labor (Kitcher 1990) |
 | Evaluation architecture | none / advisory critic (polyarchy) / veto critic (hierarchy) | Type I vs. Type II trade-off (Sah and Stiglitz 1986) |
 | Member heterogeneity | critic on the same vs. a different model | correlated errors; diversity (Hong and Page 2004, Kim et al. 2025) |
@@ -43,7 +43,7 @@ We ran all nine designs on the six worlds with GPT-6 Astra as the base model and
 **Table 1.** Pilot means per run across six worlds (one seed).
 
 | Design | Claims | Precision | Focal recall | Discovery | Confident-false | Parroting | Calls |
-|---|---|---|---|---|---|---|---|
+|----------------------------------------------|-------|----------|-------------|----------|-----------------|----------|-------|
 | Mechanical baseline (no model) | 9.5 | 0.77 | 0.51 | 0.68 | 0.12 | 0.20 | 0 |
 | Solo generalist | 6.7 | 1.00 | 0.66 | 0.56 | 0.00 | 0.56 | 2 |
 | Pipeline, no review | 6.3 | 1.00 | 0.56 | 0.40 | 0.00 | 0.67 | 4 |
