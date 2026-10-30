@@ -101,7 +101,7 @@ schema with `--output-schema`. Every request and response is in `runs/pilot_code
 
 * This is a prototype. The worlds are linear-Gaussian with pairwise interactions and no unobserved confounding;
   extending the generator to nonlinear, panel and partially unobserved worlds is planned work (see the proposal).
-* The pilot is small (6 worlds × 9 designs, one seed). Its numbers are preliminary evidence that the instrument
+* The pilot is small (6 worlds × 9 designs, one seed, 54 runs). Its numbers are preliminary evidence that the instrument
   discriminates between designs, not estimates of population effects.
 * The mock backend is a *parrot* (it restates the planted literature); it exists to test the pipeline, not to stand
   in for a model.

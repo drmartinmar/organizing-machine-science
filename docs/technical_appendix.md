@@ -167,11 +167,79 @@ Nine designs (Table D.3) on six worlds (three templates, two variants, seed 1), 
 
 ### F.2 Results
 
-[[PILOT_RESULTS_SECTION]]
+Fifty-four runs completed (264 model calls, about 4.9 million tokens including reasoning tokens; one run failed on a model-capacity error and was re-run from the same prompts). Table F.1 reports means per run across the six worlds with standard errors across worlds; Table F.2 splits by variant. Figures F.1–F.3 (in `results/pilot_codex/`) plot the validity frontier, the confident-false and conformity rates, and discovery and calibration.
+
+**Table F.1.** Pilot means per run (six worlds, one seed); standard errors across worlds in parentheses.
+
+| Design | Claims | Precision (SE) | Focal recall (SE) | Discovery (SE) | Confident-false | Parroting | Brier | False claims (sum) | Focal misses (sum) | Calls | Tokens | Wall s |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| `mechanical` | 9.5 | 0.77 (0.04) | 0.51 (0.04) | 0.68 (0.10) | 0.12 | 0.20 | 0.16 | 13 | 19 | 0 | 0k | 2 |
+| `solo` | 6.7 | 1.00 (0.00) | 0.66 (0.08) | 0.56 (0.09) | 0.00 | 0.56 | 0.06 | 0 | 13 | 2 | 39k | 157 |
+| `pipeline` | 6.3 | 1.00 (0.00) | 0.56 (0.08) | 0.40 (0.08) | 0.00 | 0.67 | 0.10 | 0 | 17 | 4 | 80k | 220 |
+| `pipeline_polyarchy` | 6.0 | 1.00 (0.00) | 0.52 (0.08) | 0.33 (0.10) | 0.00 | 0.72 | 0.19 | 0 | 19 | 6 | 109k | 132 |
+| `pipeline_hierarchy` | 5.7 | 1.00 (0.00) | 0.48 (0.09) | 0.33 (0.10) | 0.00 | 0.72 | 0.22 | 0 | 21 | 6 | 120k | 138 |
+| `pipeline_hierarchy_hetero` | 1.2 | 1.00 (0.00) | 0.11 (0.11) | 0.06 (0.06) | 0.00 | 0.92 | 0.28 | 0 | 36 | 6 | 121k | 71 |
+| `datafirst_hierarchy` | 5.8 | 0.95 (0.03) | 0.57 (0.06) | 0.58 (0.07) | 0.00 | 0.35 | 0.25 | 2 | 18 | 6 | 107k | 366 |
+| `two_theorists_connected` | 5.7 | 1.00 (0.00) | 0.52 (0.12) | 0.39 (0.11) | 0.00 | 0.63 | 0.24 | 0 | 18 | 7 | 121k | 322 |
+| `two_theorists_isolated` | 5.3 | 1.00 (0.00) | 0.47 (0.10) | 0.31 (0.11) | 0.00 | 0.75 | 0.22 | 0 | 21 | 7 | 125k | 382 |
+
+**Table F.2.** Means by design and world variant (three worlds each).
+
+| Design | Variant | Claims | Precision | Focal recall | Discovery | Consensus conformity | Parroting |
+|---|---|---|---|---|---|---|---|
+| `mechanical` | orthodox | 9.7 | 0.69 | 0.56 | 0.87 | 0.33 | 0.21 |
+| `mechanical` | contrarian | 9.3 | 0.86 | 0.46 | 0.49 | 0.17 | 0.18 |
+| `solo` | orthodox | 6.7 | 1.00 | 0.74 | 0.56 | 1.00 | 0.67 |
+| `solo` | contrarian | 6.7 | 1.00 | 0.57 | 0.56 | 0.17 | 0.45 |
+| `pipeline` | orthodox | 6.3 | 1.00 | 0.61 | 0.31 | 1.00 | 0.79 |
+| `pipeline` | contrarian | 6.3 | 1.00 | 0.50 | 0.49 | 0.17 | 0.55 |
+| `pipeline_polyarchy` | orthodox | 5.7 | 1.00 | 0.54 | 0.18 | 1.00 | 0.89 |
+| `pipeline_polyarchy` | contrarian | 6.3 | 1.00 | 0.50 | 0.49 | 0.17 | 0.55 |
+| `pipeline_hierarchy` | orthodox | 5.0 | 1.00 | 0.46 | 0.18 | 1.00 | 0.89 |
+| `pipeline_hierarchy` | contrarian | 6.3 | 1.00 | 0.50 | 0.49 | 0.17 | 0.55 |
+| `pipeline_hierarchy_hetero` | orthodox | 2.3 | 1.00 | 0.22 | 0.11 | 1.00 | 0.92 |
+| `pipeline_hierarchy_hetero` | contrarian | 0.0 | nan | 0.00 | 0.00 | – | nan |
+| `datafirst_hierarchy` | orthodox | 5.7 | 0.90 | 0.50 | 0.49 | 1.00 | 0.44 |
+| `datafirst_hierarchy` | contrarian | 6.0 | 1.00 | 0.64 | 0.68 | 0.17 | 0.25 |
+| `two_theorists_connected` | orthodox | 6.7 | 1.00 | 0.67 | 0.42 | 1.00 | 0.75 |
+| `two_theorists_connected` | contrarian | 4.7 | 1.00 | 0.37 | 0.36 | 0.00 | 0.44 |
+| `two_theorists_isolated` | orthodox | 6.3 | 1.00 | 0.62 | 0.36 | 1.00 | 0.81 |
+| `two_theorists_isolated` | contrarian | 4.3 | 1.00 | 0.31 | 0.27 | 0.25 | 0.70 |
+
+![Figure F.1. Precision against focal recall by design (small points: individual worlds; large points: means with standard errors).](../results/pilot_codex/fig1_validity_frontier.png)
+
+![Figure F.2. Confident-false rate (all worlds) and consensus conformity (contrarian worlds) by design.](../results/pilot_codex/fig2_slop_and_conformity.png)
+
+![Figure F.3. Discovery rate and Brier score by design.](../results/pilot_codex/fig3_discovery_calibration.png)
+
+**What the pilot shows, hypothesis by hypothesis.**
+
+*Type I errors were rare for every model-based design.* The eight model-based designs made 256 claims; 2 were false (both low-confidence mediation claims from `datafirst_hierarchy`: a mediation through idea novelty in `turnover-orthodox-s1` and through feedback frequency in `monitoring-orthodox-s1`, chains whose second leg is below the truth threshold); none was confidently false; no claim asserted a trap association; no abstract was miscited. In contrarian worlds the consensus-conformity rate was 0.17 for most designs: of the two textbook relations per world, collectives typically asserted the data’s sign for the main effect and only occasionally the textbook moderation. The mechanical baseline, by contrast, made 13 false claims in 57 (confident-false rate 0.12), including the textbook error of declaring the focal effect absent after conditioning on its mediators, and spurious interaction terms from unadjusted multiple testing.
+
+*H1 (evaluation architecture).* The cost side of the Sah–Stiglitz prediction appeared and the benefit side could not: precision was already 1.00 before review, so a critic could only remove true claims. Focal recall fell from 0.56 (no review) to 0.52 (advisory) to 0.48 (veto), discovery from 0.40 to 0.33 to 0.33, and the Brier score rose from 0.10 to 0.19 to 0.22, because the lead lowered the confidence of claims the critic had questioned (the collectives were underconfident: mean confidence minus precision was negative for every design). In Sah and Stiglitz’s comparative statics, review pays when the portfolio of candidates is mostly bad; these worlds put the collective where candidates are mostly good. The difficulty ladder (Study 2) is designed to move it.
+
+*H2 (heterogeneity).* Not supported in the expected direction, for an instructive reason. The GPT-5.6 Terra critic applied a stricter standard than the task allows: in every world it classified the cross-sectional regressions as “adjusted associations, not causal effects,” asked for almost every claim to be “recast as an association,” and rejected mediation claims outright. The claim schema has no association type, so the lead could not comply and dropped the claims; final reports were empty in four worlds, one claim in a fifth, and six in the sixth (where the lead kept the claims at lowered confidence). The same-model GPT-6 Astra critic accepted or rejected on the evidence presented and left 3–7 claims per world. Heterogeneity therefore imported a different epistemic norm rather than independent errors, and the veto architecture converted the norm difference into organizational silence. Two consequences for the design: the schema will gain `association` and `cannot_identify` claim types, and heterogeneity will be crossed with evaluation architecture so that norm differences under advisory review can be observed.
+
+*H3 (communication structure).* Not supported. Isolated theorists recovered fewer unpublished mechanisms than connected ones (0.31 against 0.39), parroted more (0.75 against 0.63) and conformed more in contrarian worlds (0.25 against 0.00); differences are within one standard error. One mechanism visible in the transcripts is that two independent proposals overlap heavily, and the shared analyst then tests the union, so isolation bought little diversity at the proposal stage.
+
+*H4 (sequencing).* Partly supported. `datafirst_hierarchy` had the highest discovery rate among reviewed designs (0.58 against 0.33 for its theory-first twin), the lowest parroting (0.35 against 0.72), and the highest recall in contrarian worlds (0.64), at a precision cost of 0.05 from two low-confidence false mediation claims rather than from trap errors; consensus conformity did not differ.
+
+*Division of labor.* The solo generalist had the highest recall (0.66), the highest discovery among model-based designs (0.56), the best calibration (Brier 0.06) and the lowest cost (two calls). Pipelines lost information at handoffs: theorists proposed claims the analyst did not test, analysts found patterns the lead did not report, and critics removed claims the data supported.
+
+*Cost.* Model-based runs used two to eight calls and 60,000–125,000 tokens each (reasoning included); wall time per run was 1–7 minutes with six runs in parallel.
+
+**Table F.3.** The cross-model critic’s verdicts (`pipeline_hierarchy_hetero`), counted over the six worlds.
+
+| Verdict | Count | Typical reason (quoted from transcripts) |
+|---|---|---|
+| accept | 0 | – |
+| revise | 32 | “supports a positive adjusted association, not a causal effect”; “recast as an association” |
+| reject | 6 | “a product-of-coefficients estimate … does not establish mediation” |
+
 
 ### F.3 Reading the pilot
 
-The pilot is a single-seed, six-world instrument check. It establishes that (1) the metrics discriminate between designs that differ only in organization while holding the model constant, (2) contrarian worlds and trap pairs are informative (collectives do assert textbook and spurious claims at measurable rates), and (3) the record/replay pipeline reproduces results exactly. Standard errors across six worlds are wide; the pilot does not estimate the effects in H1–H4, it motivates the pre-registered factorial in Study 1.
+The pilot is a single-seed, six-world instrument check. It establishes that (1) the metrics discriminate between designs that differ only in organization while the model is held constant (recall 0.11–0.66, discovery 0.06–0.58); (2) contrarian worlds and trap pairs are informative, since the mechanical baseline fails on both while model-based designs mostly do not; (3) the record/replay pipeline reproduces results exactly; and (4) with a frontier model in easy worlds, the binding constraint is Type II error, not slop, which locates these collectives at the “mostly good candidates” corner of the Sah–Stiglitz map. Standard errors across six worlds are wide; the pilot motivates the pre-registered factorial in Study 1 and the difficulty ladder in Study 2, it does not estimate the effects in H1–H4.
 
 ## G. Planned studies
 
@@ -193,6 +261,8 @@ Studies 1–3 involve no human subjects and no personal data; all data are synth
 
 * Worlds are linear-Gaussian with pairwise interactions, observed confounding only, and cross-sectional structure. They are intentionally easy; Study 2 addresses difficulty.
 * Scoring is sign-based; it does not reward correct magnitudes, and mediation truths are restricted to direct two-edge chains.
+* The claim schema admits only causal claim types (effect, moderation, mediation). A collective that wants to report an association, or to say that an effect cannot be identified from the data, has no legitimate way to do so; the pilot shows that this interacts with the veto rule (Section F.2, H2). `association` and `cannot_identify` types are the first planned schema change.
+* Under the veto rule, claims the critic marked “revise” may appear in revised form, but the harness cannot verify that the revision was made; it keeps any final claim about a relation the critic accepted or asked to revise.
 * Three templates and seven abstracts per world limit the variety of traps and discovery targets; held-out templates are planned.
 * The pilot’s heterogeneous critic is a sibling model from the same vendor, a weak test of H2; cross-vendor heterogeneity is planned for Study 1.
 * The Codex backend flattens system and user messages into one prompt and does not expose sampling temperature; the OpenAI-compatible backend passes messages natively.
