@@ -19,11 +19,11 @@ worlds:
   n_obs: 1200
 designs:
 - mechanical
-- solo
 - pipeline
-- pipeline_polyarchy
 - pipeline_hierarchy
+- solo
+- pipeline_polyarchy
 - pipeline_hierarchy_hetero
 - datafirst_hierarchy
-- two_theorists_connected
 - two_theorists_isolated
+- two_theorists_connected

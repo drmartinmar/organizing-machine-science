@@ -38,6 +38,10 @@ def main(argv=None):
     ins = sub.add_parser("inspect", help="print a world's hidden truth and literature status")
     ins.add_argument("world_dir")
 
+    ev = sub.add_parser("evaluate", help="score an external set of claims (JSON file with a 'claims' list) against a world")
+    ev.add_argument("--claims", required=True)
+    ev.add_argument("--world", required=True)
+
     a = p.parse_args(argv)
     if a.cmd == "worlds":
         for t in a.templates:
@@ -57,6 +61,15 @@ def main(argv=None):
         info = make_report(run_dir, out)
         print(info["summary"].to_string())
         print(f"written to {out}")
+    elif a.cmd == "evaluate":
+        from .claims import normalize_claim
+        from .scoring import score
+        wd = load_world(Path(a.world))
+        raw = json.loads(Path(a.claims).read_text())
+        raw = raw.get("claims", raw) if isinstance(raw, dict) else raw
+        claims = [c for c in (normalize_claim(x, wd["spec"].names) for x in raw) if c]
+        metrics, ann = score(claims, wd)
+        print(json.dumps({"metrics": metrics, "claims": ann}, indent=1))
     elif a.cmd == "inspect":
         wd = load_world(Path(a.world_dir))
         print(json.dumps({"focal_truths": wd["truth"]["focal"],

@@ -41,10 +41,11 @@ collective's *organizational design* can be varied while holding model capabilit
 ```bash
 python -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
-pytest -q                                   # 11 tests, no model access needed
+pytest -q                                   # 26 tests, no model access needed
 
 oms worlds --seeds 1                        # (re)build the six pilot worlds deterministically
 oms inspect worlds/turnover-contrarian-s1   # show a world's hidden truth and which abstracts are false there
+oms evaluate --claims my_claims.json --world worlds/turnover-contrarian-s1   # score any external research loop's claims
 
 # Reproduce the pilot exactly from the recorded cache (no API keys):
 oms run configs/pilot_codex.yaml --mode replay

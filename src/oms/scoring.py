@@ -11,7 +11,7 @@ Metrics (per run):
 * ``trap_rate``: share of claims asserting a confounded (zero-effect) relation
 * ``confident_false_rate`` ("Potemkin rate"): share of claims that are FALSE with confidence >= 0.7
 * ``brier``: mean squared error of stated confidence against truth; ``overconfidence`` = mean confidence - precision
-* ``citation_errors``: literature IDs cited that do not exist or do not concern the claimed relation
+* ``citation_errors``: literature IDs cited that do not exist or share fewer than two variables with the claim
 """
 from __future__ import annotations
 
@@ -37,11 +37,21 @@ def annotate(claims: list[dict], world: dict) -> list[dict]:
         errs = 0
         for cid in cites:
             l = next((x for x in lit if x["id"] == cid), None)
-            if l is None or not same_relation(c, l["claim"]):
+            if l is None or not _relevant_citation(c, l["claim"]):
                 errs += 1
         a["citation_errors"] = errs
         out.append(a)
     return out
+
+
+def _vars(c: dict) -> set:
+    return {v for v in (c.get("cause"), c.get("outcome"), c.get("moderator"), c.get("mediator")) if v}
+
+
+def _relevant_citation(claim: dict, abstract_claim: dict) -> bool:
+    """An abstract supports a claim if it concerns the same relation or shares at least two of its variables
+    (e.g., citing the main-effect abstract for a mediation claim about the same cause and outcome is fine)."""
+    return same_relation(claim, abstract_claim) or len(_vars(claim) & _vars(abstract_claim)) >= 2
 
 
 def score(claims: list[dict], world: dict) -> dict:

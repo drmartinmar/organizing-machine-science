@@ -12,6 +12,32 @@ METRICS = ["n_claims", "precision", "focal_recall", "f1_focal", "discovery_rate"
            "citation_errors", "n_false", "n_focal_missed"]
 
 
+def rescore(run_dir: Path, worlds_root: Path) -> int:
+    """Recompute every record's metrics from its stored claims with the current scorer (keeps results in step
+    with scorer revisions; claims themselves are never changed). Returns the number of records rescored."""
+    from .scoring import score
+    from .worlds import load_world
+    path = Path(run_dir) / "results.jsonl"
+    worlds: dict[str, dict] = {}
+    out, n = [], 0
+    for line in path.read_text().splitlines():
+        if not line.strip():
+            continue
+        r = json.loads(line)
+        wid = r["world_id"]
+        if wid not in worlds:
+            worlds[wid] = load_world(Path(worlds_root) / wid)
+        raw = [{k: v for k, v in c.items() if k in ("id", "type", "cause", "outcome", "sign", "moderator", "interaction_sign",
+                                                     "mediator", "indirect_sign", "confidence", "basis", "rationale")}
+               for c in r.get("claims", [])]
+        metrics, ann = score(raw, worlds[wid])
+        r["metrics"], r["claims"] = metrics, ann
+        out.append(json.dumps(r, ensure_ascii=False))
+        n += 1
+    path.write_text("\n".join(out) + ("\n" if out else ""))
+    return n
+
+
 def load_results(run_dir: Path) -> pd.DataFrame:
     rows = []
     for line in (Path(run_dir) / "results.jsonl").read_text().splitlines():
@@ -73,6 +99,9 @@ def make_report(run_dir: Path, out_dir: Path, design_order: list[str] | None = N
 
     run_dir, out_dir = Path(run_dir), Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
+    worlds_root = run_dir.parent.parent / "worlds"
+    if worlds_root.exists():
+        rescore(run_dir, worlds_root)
     df = load_results(run_dir)
     df = df[df["error"].isna()] if "error" in df else df
     order = design_order or [d for d in ["mechanical", "solo", "pipeline", "pipeline_polyarchy", "pipeline_hierarchy",
