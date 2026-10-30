@@ -1,0 +1,774 @@
+{
+  "effects": [
+    {
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "sign": "negative",
+      "magnitude": -0.3066
+    },
+    {
+      "cause": "team_turnover",
+      "outcome": "knowledge_loss",
+      "sign": "positive",
+      "magnitude": 0.604
+    },
+    {
+      "cause": "team_turnover",
+      "outcome": "idea_novelty",
+      "sign": "positive",
+      "magnitude": 0.152
+    },
+    {
+      "cause": "team_turnover",
+      "outcome": "routine_codification",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_turnover",
+      "outcome": "task_interdependence",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_turnover",
+      "outcome": "hiring_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_turnover",
+      "outcome": "workload",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_turnover",
+      "outcome": "team_size",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_turnover",
+      "outcome": "budget_slack",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_turnover",
+      "outcome": "training_investment",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_performance",
+      "outcome": "team_turnover",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_performance",
+      "outcome": "knowledge_loss",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_performance",
+      "outcome": "idea_novelty",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_performance",
+      "outcome": "routine_codification",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_performance",
+      "outcome": "task_interdependence",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_performance",
+      "outcome": "hiring_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_performance",
+      "outcome": "workload",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_performance",
+      "outcome": "team_size",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_performance",
+      "outcome": "budget_slack",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_performance",
+      "outcome": "training_investment",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "knowledge_loss",
+      "outcome": "team_turnover",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "knowledge_loss",
+      "outcome": "team_performance",
+      "sign": "negative",
+      "magnitude": -0.53
+    },
+    {
+      "cause": "knowledge_loss",
+      "outcome": "idea_novelty",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "knowledge_loss",
+      "outcome": "routine_codification",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "knowledge_loss",
+      "outcome": "task_interdependence",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "knowledge_loss",
+      "outcome": "hiring_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "knowledge_loss",
+      "outcome": "workload",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "knowledge_loss",
+      "outcome": "team_size",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "knowledge_loss",
+      "outcome": "budget_slack",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "knowledge_loss",
+      "outcome": "training_investment",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "idea_novelty",
+      "outcome": "team_turnover",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "idea_novelty",
+      "outcome": "team_performance",
+      "sign": "none",
+      "magnitude": 0.089
+    },
+    {
+      "cause": "idea_novelty",
+      "outcome": "knowledge_loss",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "idea_novelty",
+      "outcome": "routine_codification",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "idea_novelty",
+      "outcome": "task_interdependence",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "idea_novelty",
+      "outcome": "hiring_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "idea_novelty",
+      "outcome": "workload",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "idea_novelty",
+      "outcome": "team_size",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "idea_novelty",
+      "outcome": "budget_slack",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "idea_novelty",
+      "outcome": "training_investment",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_codification",
+      "outcome": "team_turnover",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_codification",
+      "outcome": "team_performance",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_codification",
+      "outcome": "knowledge_loss",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_codification",
+      "outcome": "idea_novelty",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_codification",
+      "outcome": "task_interdependence",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_codification",
+      "outcome": "hiring_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_codification",
+      "outcome": "workload",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_codification",
+      "outcome": "team_size",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_codification",
+      "outcome": "budget_slack",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_codification",
+      "outcome": "training_investment",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "task_interdependence",
+      "outcome": "team_turnover",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "task_interdependence",
+      "outcome": "team_performance",
+      "sign": "none",
+      "magnitude": 0.063
+    },
+    {
+      "cause": "task_interdependence",
+      "outcome": "knowledge_loss",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "task_interdependence",
+      "outcome": "idea_novelty",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "task_interdependence",
+      "outcome": "routine_codification",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "task_interdependence",
+      "outcome": "hiring_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "task_interdependence",
+      "outcome": "workload",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "task_interdependence",
+      "outcome": "team_size",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "task_interdependence",
+      "outcome": "budget_slack",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "task_interdependence",
+      "outcome": "training_investment",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "hiring_quality",
+      "outcome": "team_turnover",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "hiring_quality",
+      "outcome": "team_performance",
+      "sign": "positive",
+      "magnitude": 0.157
+    },
+    {
+      "cause": "hiring_quality",
+      "outcome": "knowledge_loss",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "hiring_quality",
+      "outcome": "idea_novelty",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "hiring_quality",
+      "outcome": "routine_codification",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "hiring_quality",
+      "outcome": "task_interdependence",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "hiring_quality",
+      "outcome": "workload",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "hiring_quality",
+      "outcome": "team_size",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "hiring_quality",
+      "outcome": "budget_slack",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "hiring_quality",
+      "outcome": "training_investment",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "workload",
+      "outcome": "team_turnover",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "workload",
+      "outcome": "team_performance",
+      "sign": "negative",
+      "magnitude": -0.228
+    },
+    {
+      "cause": "workload",
+      "outcome": "knowledge_loss",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "workload",
+      "outcome": "idea_novelty",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "workload",
+      "outcome": "routine_codification",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "workload",
+      "outcome": "task_interdependence",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "workload",
+      "outcome": "hiring_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "workload",
+      "outcome": "team_size",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "workload",
+      "outcome": "budget_slack",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "workload",
+      "outcome": "training_investment",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_size",
+      "outcome": "team_turnover",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_size",
+      "outcome": "team_performance",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_size",
+      "outcome": "knowledge_loss",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_size",
+      "outcome": "idea_novelty",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_size",
+      "outcome": "routine_codification",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_size",
+      "outcome": "task_interdependence",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_size",
+      "outcome": "hiring_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_size",
+      "outcome": "workload",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_size",
+      "outcome": "budget_slack",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "team_size",
+      "outcome": "training_investment",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "budget_slack",
+      "outcome": "team_turnover",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "budget_slack",
+      "outcome": "team_performance",
+      "sign": "positive",
+      "magnitude": 0.31
+    },
+    {
+      "cause": "budget_slack",
+      "outcome": "knowledge_loss",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "budget_slack",
+      "outcome": "idea_novelty",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "budget_slack",
+      "outcome": "routine_codification",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "budget_slack",
+      "outcome": "task_interdependence",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "budget_slack",
+      "outcome": "hiring_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "budget_slack",
+      "outcome": "workload",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "budget_slack",
+      "outcome": "team_size",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "budget_slack",
+      "outcome": "training_investment",
+      "sign": "positive",
+      "magnitude": 0.552
+    },
+    {
+      "cause": "training_investment",
+      "outcome": "team_turnover",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "training_investment",
+      "outcome": "team_performance",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "training_investment",
+      "outcome": "knowledge_loss",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "training_investment",
+      "outcome": "idea_novelty",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "training_investment",
+      "outcome": "routine_codification",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "training_investment",
+      "outcome": "task_interdependence",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "training_investment",
+      "outcome": "hiring_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "training_investment",
+      "outcome": "workload",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "training_investment",
+      "outcome": "team_size",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "training_investment",
+      "outcome": "budget_slack",
+      "sign": "none",
+      "magnitude": 0.0
+    }
+  ],
+  "moderations": [
+    {
+      "cause": "team_turnover",
+      "moderator": "routine_codification",
+      "outcome": "team_performance",
+      "interaction_sign": "positive",
+      "magnitude": 0.1521,
+      "focal": true
+    },
+    {
+      "cause": "team_turnover",
+      "moderator": "routine_codification",
+      "outcome": "knowledge_loss",
+      "interaction_sign": "negative",
+      "magnitude": -0.287,
+      "focal": false
+    },
+    {
+      "cause": "team_turnover",
+      "moderator": "task_interdependence",
+      "outcome": "team_performance",
+      "interaction_sign": "negative",
+      "magnitude": -0.3,
+      "focal": true
+    }
+  ],
+  "mediations": [
+    {
+      "cause": "team_turnover",
+      "mediator": "knowledge_loss",
+      "outcome": "team_performance",
+      "indirect_sign": "negative",
+      "magnitude": -0.3201,
+      "focal": true
+    }
+  ],
+  "focal": [
+    {
+      "type": "effect",
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "sign": "negative",
+      "magnitude": -0.3066
+    },
+    {
+      "type": "moderation",
+      "cause": "team_turnover",
+      "moderator": "routine_codification",
+      "outcome": "team_performance",
+      "interaction_sign": "positive",
+      "magnitude": 0.1521
+    },
+    {
+      "type": "moderation",
+      "cause": "team_turnover",
+      "moderator": "task_interdependence",
+      "outcome": "team_performance",
+      "interaction_sign": "negative",
+      "magnitude": -0.3
+    },
+    {
+      "type": "mediation",
+      "cause": "team_turnover",
+      "mediator": "knowledge_loss",
+      "outcome": "team_performance",
+      "indirect_sign": "negative",
+      "magnitude": -0.3201
+    },
+    {
+      "type": "effect",
+      "cause": "team_turnover",
+      "outcome": "knowledge_loss",
+      "sign": "positive",
+      "magnitude": 0.604
+    },
+    {
+      "type": "effect",
+      "cause": "knowledge_loss",
+      "outcome": "team_performance",
+      "sign": "negative",
+      "magnitude": -0.53
+    }
+  ],
+  "trap_pairs": [
+    [
+      "training_investment",
+      "team_performance"
+    ]
+  ],
+  "consensus": [
+    {
+      "type": "effect",
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "sign": "negative"
+    },
+    {
+      "type": "moderation",
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "moderator": "routine_codification",
+      "interaction_sign": "positive"
+    }
+  ],
+  "thresholds": {
+    "effect": 0.1,
+    "interaction": 0.08,
+    "mediation_edge": 0.1,
+    "mediation_focal": 0.05
+  }
+}

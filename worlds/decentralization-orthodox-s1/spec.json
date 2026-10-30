@@ -1,0 +1,251 @@
+{
+  "world_id": "decentralization-orthodox-s1",
+  "template": "decentralization",
+  "variant": "orthodox",
+  "setting": "operating units of multi-unit firms",
+  "unit": "unit-year",
+  "research_question": "What determines unit performance in these firms, and in particular how does the decentralization of operating decisions affect unit performance, through which mechanisms, and under what conditions?",
+  "variables": [
+    {
+      "name": "decision_decentralization",
+      "label": "Share of operating decisions delegated from headquarters to the unit (standardized index)",
+      "role": "focal_cause"
+    },
+    {
+      "name": "unit_performance",
+      "label": "Unit operating performance relative to plan (standardized index)",
+      "role": "focal_outcome"
+    },
+    {
+      "name": "environmental_turbulence",
+      "label": "Volatility of demand and competitive conditions in the unit's market (standardized index)",
+      "role": "moderator"
+    },
+    {
+      "name": "local_knowledge_use",
+      "label": "Extent to which unit decisions draw on local customer and market information, from decision audits (standardized index)",
+      "role": "mediator"
+    },
+    {
+      "name": "coordination_cost",
+      "label": "Managerial time and rework spent reconciling the unit's decisions with other units (standardized index)",
+      "role": "mediator"
+    },
+    {
+      "name": "it_integration",
+      "label": "Degree of integration of the unit's information systems with headquarters systems (standardized index)",
+      "role": "moderator"
+    },
+    {
+      "name": "unit_size",
+      "label": "Number of employees in the unit (standardized index)",
+      "role": "covariate"
+    },
+    {
+      "name": "managerial_experience",
+      "label": "Average years of managerial experience in the unit leadership team (standardized index)",
+      "role": "covariate"
+    },
+    {
+      "name": "hq_attention",
+      "label": "Attention headquarters devotes to the unit, from meeting and review logs (standardized index)",
+      "role": "covariate"
+    },
+    {
+      "name": "formal_planning_hours",
+      "label": "Hours the unit spends on formal strategic planning (standardized index)",
+      "role": "covariate"
+    },
+    {
+      "name": "market_concentration",
+      "label": "Concentration of the unit's market (standardized index)",
+      "role": "covariate"
+    }
+  ],
+  "edges": [
+    {
+      "cause": "hq_attention",
+      "effect": "decision_decentralization",
+      "coef": -0.53,
+      "focal": false
+    },
+    {
+      "cause": "hq_attention",
+      "effect": "unit_performance",
+      "coef": 0.202,
+      "focal": false
+    },
+    {
+      "cause": "hq_attention",
+      "effect": "formal_planning_hours",
+      "coef": 0.558,
+      "focal": false
+    },
+    {
+      "cause": "managerial_experience",
+      "effect": "unit_performance",
+      "coef": 0.202,
+      "focal": false
+    },
+    {
+      "cause": "unit_size",
+      "effect": "coordination_cost",
+      "coef": 0.142,
+      "focal": false
+    },
+    {
+      "cause": "market_concentration",
+      "effect": "unit_performance",
+      "coef": 0.199,
+      "focal": false
+    },
+    {
+      "cause": "decision_decentralization",
+      "effect": "local_knowledge_use",
+      "coef": 0.776,
+      "focal": true
+    },
+    {
+      "cause": "local_knowledge_use",
+      "effect": "unit_performance",
+      "coef": 0.471,
+      "focal": true
+    },
+    {
+      "cause": "decision_decentralization",
+      "effect": "coordination_cost",
+      "coef": 0.431,
+      "focal": true
+    },
+    {
+      "cause": "coordination_cost",
+      "effect": "unit_performance",
+      "coef": -0.283,
+      "focal": true
+    }
+  ],
+  "interactions": [
+    {
+      "cause": "decision_decentralization",
+      "moderator": "environmental_turbulence",
+      "effect": "unit_performance",
+      "coef": 0.319,
+      "focal": true
+    },
+    {
+      "cause": "decision_decentralization",
+      "moderator": "it_integration",
+      "effect": "coordination_cost",
+      "coef": -0.318,
+      "focal": true
+    }
+  ],
+  "literature": [
+    {
+      "claim": {
+        "type": "effect",
+        "cause": "decision_decentralization",
+        "outcome": "unit_performance",
+        "sign": "positive"
+      },
+      "design": "Panel of 418 business units in 37 multi-unit firms.",
+      "mechanism": "Delegation is argued to put decisions where the relevant knowledge sits.",
+      "beta": null
+    },
+    {
+      "claim": {
+        "type": "moderation",
+        "cause": "decision_decentralization",
+        "outcome": "unit_performance",
+        "moderator": "environmental_turbulence",
+        "interaction_sign": "positive"
+      },
+      "design": "Survey of 265 units matched to market volatility data.",
+      "mechanism": "Decentralized units are argued to adapt faster when conditions change.",
+      "beta": null
+    },
+    {
+      "claim": {
+        "type": "effect",
+        "cause": "formal_planning_hours",
+        "outcome": "unit_performance",
+        "sign": "positive"
+      },
+      "design": "Cross-sectional study of 720 units.",
+      "mechanism": "The authors recommend formal planning routines.",
+      "beta": null
+    },
+    {
+      "claim": {
+        "type": "effect",
+        "cause": "decision_decentralization",
+        "outcome": "local_knowledge_use",
+        "sign": "positive"
+      },
+      "design": "Decision-audit study of 1,900 decisions in 84 units.",
+      "mechanism": "",
+      "beta": null
+    },
+    {
+      "claim": {
+        "type": "effect",
+        "cause": "managerial_experience",
+        "outcome": "unit_performance",
+        "sign": "positive"
+      },
+      "design": "Archival study of 3,400 unit-years.",
+      "mechanism": "",
+      "beta": null
+    },
+    {
+      "claim": {
+        "type": "effect",
+        "cause": "unit_size",
+        "outcome": "unit_performance",
+        "sign": "none"
+      },
+      "design": "Meta-analytic summary of 29 studies.",
+      "mechanism": "",
+      "beta": null
+    },
+    {
+      "claim": {
+        "type": "effect",
+        "cause": "decision_decentralization",
+        "outcome": "coordination_cost",
+        "sign": "positive"
+      },
+      "design": "Time-use study of 140 unit management teams.",
+      "mechanism": "",
+      "beta": null
+    }
+  ],
+  "consensus": [
+    {
+      "type": "effect",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": "positive"
+    },
+    {
+      "type": "moderation",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "moderator": "environmental_turbulence",
+      "interaction_sign": "positive"
+    }
+  ],
+  "trap_pairs": [
+    [
+      "formal_planning_hours",
+      "unit_performance"
+    ]
+  ],
+  "designated_mediators": [
+    "local_knowledge_use",
+    "coordination_cost"
+  ],
+  "n_obs": 1200,
+  "noise_sd": 1.0,
+  "seed": 1
+}

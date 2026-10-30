@@ -1,0 +1,828 @@
+{
+  "effects": [
+    {
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": "positive",
+      "magnitude": 0.2435
+    },
+    {
+      "cause": "decision_decentralization",
+      "outcome": "environmental_turbulence",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "decision_decentralization",
+      "outcome": "local_knowledge_use",
+      "sign": "positive",
+      "magnitude": 0.776
+    },
+    {
+      "cause": "decision_decentralization",
+      "outcome": "coordination_cost",
+      "sign": "positive",
+      "magnitude": 0.431
+    },
+    {
+      "cause": "decision_decentralization",
+      "outcome": "it_integration",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "decision_decentralization",
+      "outcome": "unit_size",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "decision_decentralization",
+      "outcome": "managerial_experience",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "decision_decentralization",
+      "outcome": "hq_attention",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "decision_decentralization",
+      "outcome": "formal_planning_hours",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "decision_decentralization",
+      "outcome": "market_concentration",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_performance",
+      "outcome": "decision_decentralization",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_performance",
+      "outcome": "environmental_turbulence",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_performance",
+      "outcome": "local_knowledge_use",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_performance",
+      "outcome": "coordination_cost",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_performance",
+      "outcome": "it_integration",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_performance",
+      "outcome": "unit_size",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_performance",
+      "outcome": "managerial_experience",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_performance",
+      "outcome": "hq_attention",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_performance",
+      "outcome": "formal_planning_hours",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_performance",
+      "outcome": "market_concentration",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "environmental_turbulence",
+      "outcome": "decision_decentralization",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "environmental_turbulence",
+      "outcome": "unit_performance",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "environmental_turbulence",
+      "outcome": "local_knowledge_use",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "environmental_turbulence",
+      "outcome": "coordination_cost",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "environmental_turbulence",
+      "outcome": "it_integration",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "environmental_turbulence",
+      "outcome": "unit_size",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "environmental_turbulence",
+      "outcome": "managerial_experience",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "environmental_turbulence",
+      "outcome": "hq_attention",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "environmental_turbulence",
+      "outcome": "formal_planning_hours",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "environmental_turbulence",
+      "outcome": "market_concentration",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "local_knowledge_use",
+      "outcome": "decision_decentralization",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "local_knowledge_use",
+      "outcome": "unit_performance",
+      "sign": "positive",
+      "magnitude": 0.471
+    },
+    {
+      "cause": "local_knowledge_use",
+      "outcome": "environmental_turbulence",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "local_knowledge_use",
+      "outcome": "coordination_cost",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "local_knowledge_use",
+      "outcome": "it_integration",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "local_knowledge_use",
+      "outcome": "unit_size",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "local_knowledge_use",
+      "outcome": "managerial_experience",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "local_knowledge_use",
+      "outcome": "hq_attention",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "local_knowledge_use",
+      "outcome": "formal_planning_hours",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "local_knowledge_use",
+      "outcome": "market_concentration",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "coordination_cost",
+      "outcome": "decision_decentralization",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "coordination_cost",
+      "outcome": "unit_performance",
+      "sign": "negative",
+      "magnitude": -0.283
+    },
+    {
+      "cause": "coordination_cost",
+      "outcome": "environmental_turbulence",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "coordination_cost",
+      "outcome": "local_knowledge_use",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "coordination_cost",
+      "outcome": "it_integration",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "coordination_cost",
+      "outcome": "unit_size",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "coordination_cost",
+      "outcome": "managerial_experience",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "coordination_cost",
+      "outcome": "hq_attention",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "coordination_cost",
+      "outcome": "formal_planning_hours",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "coordination_cost",
+      "outcome": "market_concentration",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "it_integration",
+      "outcome": "decision_decentralization",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "it_integration",
+      "outcome": "unit_performance",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "it_integration",
+      "outcome": "environmental_turbulence",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "it_integration",
+      "outcome": "local_knowledge_use",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "it_integration",
+      "outcome": "coordination_cost",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "it_integration",
+      "outcome": "unit_size",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "it_integration",
+      "outcome": "managerial_experience",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "it_integration",
+      "outcome": "hq_attention",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "it_integration",
+      "outcome": "formal_planning_hours",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "it_integration",
+      "outcome": "market_concentration",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_size",
+      "outcome": "decision_decentralization",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_size",
+      "outcome": "unit_performance",
+      "sign": "none",
+      "magnitude": -0.0402
+    },
+    {
+      "cause": "unit_size",
+      "outcome": "environmental_turbulence",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_size",
+      "outcome": "local_knowledge_use",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_size",
+      "outcome": "coordination_cost",
+      "sign": "positive",
+      "magnitude": 0.142
+    },
+    {
+      "cause": "unit_size",
+      "outcome": "it_integration",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_size",
+      "outcome": "managerial_experience",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_size",
+      "outcome": "hq_attention",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_size",
+      "outcome": "formal_planning_hours",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_size",
+      "outcome": "market_concentration",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "managerial_experience",
+      "outcome": "decision_decentralization",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "managerial_experience",
+      "outcome": "unit_performance",
+      "sign": "positive",
+      "magnitude": 0.202
+    },
+    {
+      "cause": "managerial_experience",
+      "outcome": "environmental_turbulence",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "managerial_experience",
+      "outcome": "local_knowledge_use",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "managerial_experience",
+      "outcome": "coordination_cost",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "managerial_experience",
+      "outcome": "it_integration",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "managerial_experience",
+      "outcome": "unit_size",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "managerial_experience",
+      "outcome": "hq_attention",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "managerial_experience",
+      "outcome": "formal_planning_hours",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "managerial_experience",
+      "outcome": "market_concentration",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "hq_attention",
+      "outcome": "decision_decentralization",
+      "sign": "negative",
+      "magnitude": -0.53
+    },
+    {
+      "cause": "hq_attention",
+      "outcome": "unit_performance",
+      "sign": "none",
+      "magnitude": 0.0729
+    },
+    {
+      "cause": "hq_attention",
+      "outcome": "environmental_turbulence",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "hq_attention",
+      "outcome": "local_knowledge_use",
+      "sign": "negative",
+      "magnitude": -0.4113
+    },
+    {
+      "cause": "hq_attention",
+      "outcome": "coordination_cost",
+      "sign": "negative",
+      "magnitude": -0.2284
+    },
+    {
+      "cause": "hq_attention",
+      "outcome": "it_integration",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "hq_attention",
+      "outcome": "unit_size",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "hq_attention",
+      "outcome": "managerial_experience",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "hq_attention",
+      "outcome": "formal_planning_hours",
+      "sign": "positive",
+      "magnitude": 0.558
+    },
+    {
+      "cause": "hq_attention",
+      "outcome": "market_concentration",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "formal_planning_hours",
+      "outcome": "decision_decentralization",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "formal_planning_hours",
+      "outcome": "unit_performance",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "formal_planning_hours",
+      "outcome": "environmental_turbulence",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "formal_planning_hours",
+      "outcome": "local_knowledge_use",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "formal_planning_hours",
+      "outcome": "coordination_cost",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "formal_planning_hours",
+      "outcome": "it_integration",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "formal_planning_hours",
+      "outcome": "unit_size",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "formal_planning_hours",
+      "outcome": "managerial_experience",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "formal_planning_hours",
+      "outcome": "hq_attention",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "formal_planning_hours",
+      "outcome": "market_concentration",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "market_concentration",
+      "outcome": "decision_decentralization",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "market_concentration",
+      "outcome": "unit_performance",
+      "sign": "positive",
+      "magnitude": 0.199
+    },
+    {
+      "cause": "market_concentration",
+      "outcome": "environmental_turbulence",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "market_concentration",
+      "outcome": "local_knowledge_use",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "market_concentration",
+      "outcome": "coordination_cost",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "market_concentration",
+      "outcome": "it_integration",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "market_concentration",
+      "outcome": "unit_size",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "market_concentration",
+      "outcome": "managerial_experience",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "market_concentration",
+      "outcome": "hq_attention",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "market_concentration",
+      "outcome": "formal_planning_hours",
+      "sign": "none",
+      "magnitude": 0.0
+    }
+  ],
+  "moderations": [
+    {
+      "cause": "decision_decentralization",
+      "moderator": "environmental_turbulence",
+      "outcome": "unit_performance",
+      "interaction_sign": "positive",
+      "magnitude": 0.319,
+      "focal": true
+    },
+    {
+      "cause": "decision_decentralization",
+      "moderator": "it_integration",
+      "outcome": "unit_performance",
+      "interaction_sign": "positive",
+      "magnitude": 0.09,
+      "focal": true
+    },
+    {
+      "cause": "decision_decentralization",
+      "moderator": "it_integration",
+      "outcome": "coordination_cost",
+      "interaction_sign": "negative",
+      "magnitude": -0.318,
+      "focal": false
+    }
+  ],
+  "mediations": [
+    {
+      "cause": "hq_attention",
+      "mediator": "decision_decentralization",
+      "outcome": "local_knowledge_use",
+      "indirect_sign": "negative",
+      "magnitude": -0.4113,
+      "focal": false
+    },
+    {
+      "cause": "hq_attention",
+      "mediator": "decision_decentralization",
+      "outcome": "coordination_cost",
+      "indirect_sign": "negative",
+      "magnitude": -0.2284,
+      "focal": false
+    },
+    {
+      "cause": "unit_size",
+      "mediator": "coordination_cost",
+      "outcome": "unit_performance",
+      "indirect_sign": "negative",
+      "magnitude": -0.0402,
+      "focal": false
+    },
+    {
+      "cause": "decision_decentralization",
+      "mediator": "local_knowledge_use",
+      "outcome": "unit_performance",
+      "indirect_sign": "positive",
+      "magnitude": 0.3655,
+      "focal": true
+    },
+    {
+      "cause": "decision_decentralization",
+      "mediator": "coordination_cost",
+      "outcome": "unit_performance",
+      "indirect_sign": "negative",
+      "magnitude": -0.122,
+      "focal": true
+    }
+  ],
+  "focal": [
+    {
+      "type": "effect",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": "positive",
+      "magnitude": 0.2435
+    },
+    {
+      "type": "moderation",
+      "cause": "decision_decentralization",
+      "moderator": "environmental_turbulence",
+      "outcome": "unit_performance",
+      "interaction_sign": "positive",
+      "magnitude": 0.319
+    },
+    {
+      "type": "moderation",
+      "cause": "decision_decentralization",
+      "moderator": "it_integration",
+      "outcome": "unit_performance",
+      "interaction_sign": "positive",
+      "magnitude": 0.09
+    },
+    {
+      "type": "mediation",
+      "cause": "decision_decentralization",
+      "mediator": "local_knowledge_use",
+      "outcome": "unit_performance",
+      "indirect_sign": "positive",
+      "magnitude": 0.3655
+    },
+    {
+      "type": "mediation",
+      "cause": "decision_decentralization",
+      "mediator": "coordination_cost",
+      "outcome": "unit_performance",
+      "indirect_sign": "negative",
+      "magnitude": -0.122
+    },
+    {
+      "type": "effect",
+      "cause": "decision_decentralization",
+      "outcome": "local_knowledge_use",
+      "sign": "positive",
+      "magnitude": 0.776
+    },
+    {
+      "type": "effect",
+      "cause": "local_knowledge_use",
+      "outcome": "unit_performance",
+      "sign": "positive",
+      "magnitude": 0.471
+    },
+    {
+      "type": "effect",
+      "cause": "decision_decentralization",
+      "outcome": "coordination_cost",
+      "sign": "positive",
+      "magnitude": 0.431
+    },
+    {
+      "type": "effect",
+      "cause": "coordination_cost",
+      "outcome": "unit_performance",
+      "sign": "negative",
+      "magnitude": -0.283
+    }
+  ],
+  "trap_pairs": [
+    [
+      "formal_planning_hours",
+      "unit_performance"
+    ]
+  ],
+  "consensus": [
+    {
+      "type": "effect",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": "positive"
+    },
+    {
+      "type": "moderation",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "moderator": "environmental_turbulence",
+      "interaction_sign": "positive"
+    }
+  ],
+  "thresholds": {
+    "effect": 0.1,
+    "interaction": 0.08,
+    "mediation_edge": 0.1,
+    "mediation_focal": 0.05
+  }
+}

@@ -1,0 +1,87 @@
+[
+  {
+    "id": "L1",
+    "text": "Panel of 418 business units in 37 multi-unit firms. Higher share of operating decisions delegated from headquarters to the unit was associated with higher unit operating performance relative to plan (standardized b = +0.23, p < .01). Delegation is argued to put decisions where the relevant knowledge sits.",
+    "claim": {
+      "type": "effect",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "sign": "positive"
+    },
+    "truth": "FALSE",
+    "trap": false
+  },
+  {
+    "id": "L2",
+    "text": "Survey of 265 units matched to market volatility data. The association between share of operating decisions delegated from headquarters to the unit and unit operating performance relative to plan was more positive when volatility of demand and competitive conditions in the unit's market was high (interaction b = +0.27, p < .05). Decentralized units are argued to adapt faster when conditions change.",
+    "claim": {
+      "type": "moderation",
+      "cause": "decision_decentralization",
+      "outcome": "unit_performance",
+      "moderator": "environmental_turbulence",
+      "interaction_sign": "positive"
+    },
+    "truth": "FALSE",
+    "trap": false
+  },
+  {
+    "id": "L3",
+    "text": "Cross-sectional study of 720 units. Higher hours the unit spends on formal strategic planning was associated with higher unit operating performance relative to plan (standardized b = +0.23, p < .01). The authors recommend formal planning routines.",
+    "claim": {
+      "type": "effect",
+      "cause": "formal_planning_hours",
+      "outcome": "unit_performance",
+      "sign": "positive"
+    },
+    "truth": "FALSE",
+    "trap": true
+  },
+  {
+    "id": "L4",
+    "text": "Decision-audit study of 1,900 decisions in 84 units. Higher share of operating decisions delegated from headquarters to the unit was associated with higher extent to which unit decisions draw on local customer and market information, from decision audits (standardized b = +0.28, p < .01).",
+    "claim": {
+      "type": "effect",
+      "cause": "decision_decentralization",
+      "outcome": "local_knowledge_use",
+      "sign": "positive"
+    },
+    "truth": "TRUE",
+    "trap": false
+  },
+  {
+    "id": "L5",
+    "text": "Archival study of 3,400 unit-years. Higher average years of managerial experience in the unit leadership team was associated with higher unit operating performance relative to plan (standardized b = +0.24, p < .01).",
+    "claim": {
+      "type": "effect",
+      "cause": "managerial_experience",
+      "outcome": "unit_performance",
+      "sign": "positive"
+    },
+    "truth": "TRUE",
+    "trap": false
+  },
+  {
+    "id": "L6",
+    "text": "Meta-analytic summary of 29 studies. Units with higher number of employees in the unit showed no significant difference in unit operating performance relative to plan (standardized b = +0.01, n.s.).",
+    "claim": {
+      "type": "effect",
+      "cause": "unit_size",
+      "outcome": "unit_performance",
+      "sign": "none"
+    },
+    "truth": "TRUE",
+    "trap": false
+  },
+  {
+    "id": "L7",
+    "text": "Time-use study of 140 unit management teams. Higher share of operating decisions delegated from headquarters to the unit was associated with higher managerial time and rework spent reconciling the unit's decisions with other units (standardized b = +0.17, p < .01).",
+    "claim": {
+      "type": "effect",
+      "cause": "decision_decentralization",
+      "outcome": "coordination_cost",
+      "sign": "positive"
+    },
+    "truth": "TRUE",
+    "trap": false
+  }
+]

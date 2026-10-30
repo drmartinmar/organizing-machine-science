@@ -1,0 +1,30 @@
+# Pilot: GPT-6 Astra via the Codex CLI backend (record mode; replayable from runs/pilot_codex/llm_cache.jsonl)
+name: pilot_codex
+backend:
+  name: codex
+  model: gpt-6-astra
+  reasoning_effort: medium
+  alt_model: gpt-5.6-terra
+  mode: record
+workers: 6
+worlds:
+  templates:
+  - turnover
+  - monitoring
+  - decentralization
+  variants:
+  - orthodox
+  - contrarian
+  seeds:
+  - 1
+  n_obs: 1200
+designs:
+- mechanical
+- pipeline
+- pipeline_hierarchy
+- solo
+- pipeline_polyarchy
+- pipeline_hierarchy_hetero
+- datafirst_hierarchy
+- two_theorists_isolated
+- two_theorists_connected

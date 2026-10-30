@@ -1,0 +1,245 @@
+{
+  "world_id": "turnover-orthodox-s1",
+  "template": "turnover",
+  "variant": "orthodox",
+  "setting": "work teams in a large multi-site manufacturing and services firm",
+  "unit": "team-year",
+  "research_question": "What determines team performance in this firm, and in particular how does team turnover affect team performance, through which mechanisms, and under what conditions?",
+  "variables": [
+    {
+      "name": "team_turnover",
+      "label": "Share of team members who left and were replaced during the year (standardized index)",
+      "role": "focal_cause"
+    },
+    {
+      "name": "team_performance",
+      "label": "Supervisor-rated team performance against annual targets (standardized index)",
+      "role": "focal_outcome"
+    },
+    {
+      "name": "knowledge_loss",
+      "label": "Loss of team-specific procedural knowledge, from quarterly skills audits (standardized index)",
+      "role": "mediator"
+    },
+    {
+      "name": "idea_novelty",
+      "label": "Novelty of the team's submissions to the firm's improvement program, rated by independent judges (standardized index)",
+      "role": "mediator"
+    },
+    {
+      "name": "routine_codification",
+      "label": "Degree to which the team's work procedures are documented in written routines (standardized index)",
+      "role": "moderator"
+    },
+    {
+      "name": "task_interdependence",
+      "label": "Degree to which members' tasks depend on one another's outputs (standardized index)",
+      "role": "moderator"
+    },
+    {
+      "name": "hiring_quality",
+      "label": "Quality of replacement hires, from structured assessment scores at entry (standardized index)",
+      "role": "moderator"
+    },
+    {
+      "name": "workload",
+      "label": "Average weekly workload per member relative to the firm norm (standardized index)",
+      "role": "covariate"
+    },
+    {
+      "name": "team_size",
+      "label": "Number of team members (standardized index)",
+      "role": "covariate"
+    },
+    {
+      "name": "budget_slack",
+      "label": "Unspent discretionary budget available to the team (standardized index)",
+      "role": "covariate"
+    },
+    {
+      "name": "training_investment",
+      "label": "Hours of formal training purchased for the team (standardized index)",
+      "role": "covariate"
+    }
+  ],
+  "edges": [
+    {
+      "cause": "hiring_quality",
+      "effect": "team_performance",
+      "coef": 0.157,
+      "focal": false
+    },
+    {
+      "cause": "workload",
+      "effect": "team_performance",
+      "coef": -0.228,
+      "focal": false
+    },
+    {
+      "cause": "budget_slack",
+      "effect": "team_performance",
+      "coef": 0.31,
+      "focal": false
+    },
+    {
+      "cause": "budget_slack",
+      "effect": "training_investment",
+      "coef": 0.552,
+      "focal": false
+    },
+    {
+      "cause": "task_interdependence",
+      "effect": "team_performance",
+      "coef": 0.063,
+      "focal": false
+    },
+    {
+      "cause": "team_turnover",
+      "effect": "knowledge_loss",
+      "coef": 0.604,
+      "focal": true
+    },
+    {
+      "cause": "knowledge_loss",
+      "effect": "team_performance",
+      "coef": -0.53,
+      "focal": true
+    },
+    {
+      "cause": "team_turnover",
+      "effect": "idea_novelty",
+      "coef": 0.152,
+      "focal": false
+    },
+    {
+      "cause": "idea_novelty",
+      "effect": "team_performance",
+      "coef": 0.089,
+      "focal": false
+    }
+  ],
+  "interactions": [
+    {
+      "cause": "team_turnover",
+      "moderator": "routine_codification",
+      "effect": "knowledge_loss",
+      "coef": -0.287,
+      "focal": true
+    },
+    {
+      "cause": "team_turnover",
+      "moderator": "task_interdependence",
+      "effect": "team_performance",
+      "coef": -0.3,
+      "focal": true
+    }
+  ],
+  "literature": [
+    {
+      "claim": {
+        "type": "effect",
+        "cause": "team_turnover",
+        "outcome": "team_performance",
+        "sign": "negative"
+      },
+      "design": "Panel of 212 manufacturing teams over four years.",
+      "mechanism": "The authors attribute the pattern to the loss of tacit, team-specific knowledge.",
+      "beta": null
+    },
+    {
+      "claim": {
+        "type": "effect",
+        "cause": "team_turnover",
+        "outcome": "knowledge_loss",
+        "sign": "positive"
+      },
+      "design": "Field study of 96 software teams with quarterly skills audits.",
+      "mechanism": "",
+      "beta": null
+    },
+    {
+      "claim": {
+        "type": "moderation",
+        "cause": "team_turnover",
+        "outcome": "team_performance",
+        "moderator": "routine_codification",
+        "interaction_sign": "positive"
+      },
+      "design": "Survey of 340 service teams in two retail chains.",
+      "mechanism": "Documented routines are argued to buffer teams against the disruption of member exit.",
+      "beta": null
+    },
+    {
+      "claim": {
+        "type": "effect",
+        "cause": "training_investment",
+        "outcome": "team_performance",
+        "sign": "positive"
+      },
+      "design": "Cross-sectional study of 1,105 teams in a logistics firm.",
+      "mechanism": "The authors recommend expanding formal training budgets.",
+      "beta": null
+    },
+    {
+      "claim": {
+        "type": "effect",
+        "cause": "workload",
+        "outcome": "team_performance",
+        "sign": "negative"
+      },
+      "design": "Two-wave survey of 180 hospital units.",
+      "mechanism": "",
+      "beta": null
+    },
+    {
+      "claim": {
+        "type": "effect",
+        "cause": "team_size",
+        "outcome": "team_performance",
+        "sign": "none"
+      },
+      "design": "Meta-analytic summary of 41 team studies.",
+      "mechanism": "",
+      "beta": null
+    },
+    {
+      "claim": {
+        "type": "effect",
+        "cause": "hiring_quality",
+        "outcome": "team_performance",
+        "sign": "positive"
+      },
+      "design": "Archival study of 2,300 hires in a professional services firm.",
+      "mechanism": "",
+      "beta": null
+    }
+  ],
+  "consensus": [
+    {
+      "type": "effect",
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "sign": "negative"
+    },
+    {
+      "type": "moderation",
+      "cause": "team_turnover",
+      "outcome": "team_performance",
+      "moderator": "routine_codification",
+      "interaction_sign": "positive"
+    }
+  ],
+  "trap_pairs": [
+    [
+      "training_investment",
+      "team_performance"
+    ]
+  ],
+  "designated_mediators": [
+    "knowledge_loss",
+    "idea_novelty"
+  ],
+  "n_obs": 1200,
+  "noise_sd": 1.0,
+  "seed": 1
+}

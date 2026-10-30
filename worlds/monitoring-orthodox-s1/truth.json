@@ -1,0 +1,951 @@
+{
+  "effects": [
+    {
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": "negative",
+      "magnitude": -0.3569
+    },
+    {
+      "cause": "monitoring_intensity",
+      "outcome": "routine_output",
+      "sign": "positive",
+      "magnitude": 0.316
+    },
+    {
+      "cause": "monitoring_intensity",
+      "outcome": "perceived_autonomy",
+      "sign": "negative",
+      "magnitude": -0.597
+    },
+    {
+      "cause": "monitoring_intensity",
+      "outcome": "trust_in_management",
+      "sign": "negative",
+      "magnitude": -0.373
+    },
+    {
+      "cause": "monitoring_intensity",
+      "outcome": "feedback_frequency",
+      "sign": "positive",
+      "magnitude": 0.414
+    },
+    {
+      "cause": "monitoring_intensity",
+      "outcome": "feedback_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "monitoring_intensity",
+      "outcome": "tech_investment",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "monitoring_intensity",
+      "outcome": "unit_budget",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "monitoring_intensity",
+      "outcome": "wellness_program",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "monitoring_intensity",
+      "outcome": "job_tenure",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "monitoring_intensity",
+      "outcome": "manager_span",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "creative_output",
+      "outcome": "monitoring_intensity",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "creative_output",
+      "outcome": "routine_output",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "creative_output",
+      "outcome": "perceived_autonomy",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "creative_output",
+      "outcome": "trust_in_management",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "creative_output",
+      "outcome": "feedback_frequency",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "creative_output",
+      "outcome": "feedback_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "creative_output",
+      "outcome": "tech_investment",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "creative_output",
+      "outcome": "unit_budget",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "creative_output",
+      "outcome": "wellness_program",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "creative_output",
+      "outcome": "job_tenure",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "creative_output",
+      "outcome": "manager_span",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_output",
+      "outcome": "monitoring_intensity",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_output",
+      "outcome": "creative_output",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_output",
+      "outcome": "perceived_autonomy",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_output",
+      "outcome": "trust_in_management",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_output",
+      "outcome": "feedback_frequency",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_output",
+      "outcome": "feedback_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_output",
+      "outcome": "tech_investment",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_output",
+      "outcome": "unit_budget",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_output",
+      "outcome": "wellness_program",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_output",
+      "outcome": "job_tenure",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "routine_output",
+      "outcome": "manager_span",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "perceived_autonomy",
+      "outcome": "monitoring_intensity",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "perceived_autonomy",
+      "outcome": "creative_output",
+      "sign": "positive",
+      "magnitude": 0.437
+    },
+    {
+      "cause": "perceived_autonomy",
+      "outcome": "routine_output",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "perceived_autonomy",
+      "outcome": "trust_in_management",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "perceived_autonomy",
+      "outcome": "feedback_frequency",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "perceived_autonomy",
+      "outcome": "feedback_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "perceived_autonomy",
+      "outcome": "tech_investment",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "perceived_autonomy",
+      "outcome": "unit_budget",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "perceived_autonomy",
+      "outcome": "wellness_program",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "perceived_autonomy",
+      "outcome": "job_tenure",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "perceived_autonomy",
+      "outcome": "manager_span",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "trust_in_management",
+      "outcome": "monitoring_intensity",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "trust_in_management",
+      "outcome": "creative_output",
+      "sign": "positive",
+      "magnitude": 0.335
+    },
+    {
+      "cause": "trust_in_management",
+      "outcome": "routine_output",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "trust_in_management",
+      "outcome": "perceived_autonomy",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "trust_in_management",
+      "outcome": "feedback_frequency",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "trust_in_management",
+      "outcome": "feedback_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "trust_in_management",
+      "outcome": "tech_investment",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "trust_in_management",
+      "outcome": "unit_budget",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "trust_in_management",
+      "outcome": "wellness_program",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "trust_in_management",
+      "outcome": "job_tenure",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "trust_in_management",
+      "outcome": "manager_span",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_frequency",
+      "outcome": "monitoring_intensity",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_frequency",
+      "outcome": "creative_output",
+      "sign": "none",
+      "magnitude": 0.07
+    },
+    {
+      "cause": "feedback_frequency",
+      "outcome": "routine_output",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_frequency",
+      "outcome": "perceived_autonomy",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_frequency",
+      "outcome": "trust_in_management",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_frequency",
+      "outcome": "feedback_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_frequency",
+      "outcome": "tech_investment",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_frequency",
+      "outcome": "unit_budget",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_frequency",
+      "outcome": "wellness_program",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_frequency",
+      "outcome": "job_tenure",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_frequency",
+      "outcome": "manager_span",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_quality",
+      "outcome": "monitoring_intensity",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_quality",
+      "outcome": "creative_output",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_quality",
+      "outcome": "routine_output",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_quality",
+      "outcome": "perceived_autonomy",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_quality",
+      "outcome": "trust_in_management",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_quality",
+      "outcome": "feedback_frequency",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_quality",
+      "outcome": "tech_investment",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_quality",
+      "outcome": "unit_budget",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_quality",
+      "outcome": "wellness_program",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_quality",
+      "outcome": "job_tenure",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "feedback_quality",
+      "outcome": "manager_span",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "tech_investment",
+      "outcome": "monitoring_intensity",
+      "sign": "positive",
+      "magnitude": 0.691
+    },
+    {
+      "cause": "tech_investment",
+      "outcome": "creative_output",
+      "sign": "none",
+      "magnitude": 0.0224
+    },
+    {
+      "cause": "tech_investment",
+      "outcome": "routine_output",
+      "sign": "positive",
+      "magnitude": 0.2184
+    },
+    {
+      "cause": "tech_investment",
+      "outcome": "perceived_autonomy",
+      "sign": "negative",
+      "magnitude": -0.4125
+    },
+    {
+      "cause": "tech_investment",
+      "outcome": "trust_in_management",
+      "sign": "negative",
+      "magnitude": -0.2577
+    },
+    {
+      "cause": "tech_investment",
+      "outcome": "feedback_frequency",
+      "sign": "positive",
+      "magnitude": 0.2861
+    },
+    {
+      "cause": "tech_investment",
+      "outcome": "feedback_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "tech_investment",
+      "outcome": "unit_budget",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "tech_investment",
+      "outcome": "wellness_program",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "tech_investment",
+      "outcome": "job_tenure",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "tech_investment",
+      "outcome": "manager_span",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_budget",
+      "outcome": "monitoring_intensity",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_budget",
+      "outcome": "creative_output",
+      "sign": "positive",
+      "magnitude": 0.335
+    },
+    {
+      "cause": "unit_budget",
+      "outcome": "routine_output",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_budget",
+      "outcome": "perceived_autonomy",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_budget",
+      "outcome": "trust_in_management",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_budget",
+      "outcome": "feedback_frequency",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_budget",
+      "outcome": "feedback_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_budget",
+      "outcome": "tech_investment",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_budget",
+      "outcome": "wellness_program",
+      "sign": "positive",
+      "magnitude": 0.65
+    },
+    {
+      "cause": "unit_budget",
+      "outcome": "job_tenure",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "unit_budget",
+      "outcome": "manager_span",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "wellness_program",
+      "outcome": "monitoring_intensity",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "wellness_program",
+      "outcome": "creative_output",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "wellness_program",
+      "outcome": "routine_output",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "wellness_program",
+      "outcome": "perceived_autonomy",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "wellness_program",
+      "outcome": "trust_in_management",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "wellness_program",
+      "outcome": "feedback_frequency",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "wellness_program",
+      "outcome": "feedback_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "wellness_program",
+      "outcome": "tech_investment",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "wellness_program",
+      "outcome": "unit_budget",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "wellness_program",
+      "outcome": "job_tenure",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "wellness_program",
+      "outcome": "manager_span",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "job_tenure",
+      "outcome": "monitoring_intensity",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "job_tenure",
+      "outcome": "creative_output",
+      "sign": "positive",
+      "magnitude": 0.158
+    },
+    {
+      "cause": "job_tenure",
+      "outcome": "routine_output",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "job_tenure",
+      "outcome": "perceived_autonomy",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "job_tenure",
+      "outcome": "trust_in_management",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "job_tenure",
+      "outcome": "feedback_frequency",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "job_tenure",
+      "outcome": "feedback_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "job_tenure",
+      "outcome": "tech_investment",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "job_tenure",
+      "outcome": "unit_budget",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "job_tenure",
+      "outcome": "wellness_program",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "job_tenure",
+      "outcome": "manager_span",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "manager_span",
+      "outcome": "monitoring_intensity",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "manager_span",
+      "outcome": "creative_output",
+      "sign": "none",
+      "magnitude": -0.0412
+    },
+    {
+      "cause": "manager_span",
+      "outcome": "routine_output",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "manager_span",
+      "outcome": "perceived_autonomy",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "manager_span",
+      "outcome": "trust_in_management",
+      "sign": "negative",
+      "magnitude": -0.123
+    },
+    {
+      "cause": "manager_span",
+      "outcome": "feedback_frequency",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "manager_span",
+      "outcome": "feedback_quality",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "manager_span",
+      "outcome": "tech_investment",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "manager_span",
+      "outcome": "unit_budget",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "manager_span",
+      "outcome": "wellness_program",
+      "sign": "none",
+      "magnitude": 0.0
+    },
+    {
+      "cause": "manager_span",
+      "outcome": "job_tenure",
+      "sign": "none",
+      "magnitude": 0.0
+    }
+  ],
+  "moderations": [
+    {
+      "cause": "monitoring_intensity",
+      "moderator": "feedback_quality",
+      "outcome": "creative_output",
+      "interaction_sign": "positive",
+      "magnitude": 0.251,
+      "focal": true
+    }
+  ],
+  "mediations": [
+    {
+      "cause": "tech_investment",
+      "mediator": "monitoring_intensity",
+      "outcome": "routine_output",
+      "indirect_sign": "positive",
+      "magnitude": 0.2184,
+      "focal": false
+    },
+    {
+      "cause": "tech_investment",
+      "mediator": "monitoring_intensity",
+      "outcome": "perceived_autonomy",
+      "indirect_sign": "negative",
+      "magnitude": -0.4125,
+      "focal": false
+    },
+    {
+      "cause": "tech_investment",
+      "mediator": "monitoring_intensity",
+      "outcome": "trust_in_management",
+      "indirect_sign": "negative",
+      "magnitude": -0.2577,
+      "focal": false
+    },
+    {
+      "cause": "tech_investment",
+      "mediator": "monitoring_intensity",
+      "outcome": "feedback_frequency",
+      "indirect_sign": "positive",
+      "magnitude": 0.2861,
+      "focal": false
+    },
+    {
+      "cause": "manager_span",
+      "mediator": "trust_in_management",
+      "outcome": "creative_output",
+      "indirect_sign": "negative",
+      "magnitude": -0.0412,
+      "focal": false
+    },
+    {
+      "cause": "monitoring_intensity",
+      "mediator": "perceived_autonomy",
+      "outcome": "creative_output",
+      "indirect_sign": "negative",
+      "magnitude": -0.2609,
+      "focal": true
+    },
+    {
+      "cause": "monitoring_intensity",
+      "mediator": "trust_in_management",
+      "outcome": "creative_output",
+      "indirect_sign": "negative",
+      "magnitude": -0.125,
+      "focal": true
+    }
+  ],
+  "focal": [
+    {
+      "type": "effect",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": "negative",
+      "magnitude": -0.3569
+    },
+    {
+      "type": "moderation",
+      "cause": "monitoring_intensity",
+      "moderator": "feedback_quality",
+      "outcome": "creative_output",
+      "interaction_sign": "positive",
+      "magnitude": 0.251
+    },
+    {
+      "type": "mediation",
+      "cause": "monitoring_intensity",
+      "mediator": "perceived_autonomy",
+      "outcome": "creative_output",
+      "indirect_sign": "negative",
+      "magnitude": -0.2609
+    },
+    {
+      "type": "mediation",
+      "cause": "monitoring_intensity",
+      "mediator": "trust_in_management",
+      "outcome": "creative_output",
+      "indirect_sign": "negative",
+      "magnitude": -0.125
+    },
+    {
+      "type": "effect",
+      "cause": "monitoring_intensity",
+      "outcome": "perceived_autonomy",
+      "sign": "negative",
+      "magnitude": -0.597
+    },
+    {
+      "type": "effect",
+      "cause": "perceived_autonomy",
+      "outcome": "creative_output",
+      "sign": "positive",
+      "magnitude": 0.437
+    },
+    {
+      "type": "effect",
+      "cause": "monitoring_intensity",
+      "outcome": "trust_in_management",
+      "sign": "negative",
+      "magnitude": -0.373
+    },
+    {
+      "type": "effect",
+      "cause": "trust_in_management",
+      "outcome": "creative_output",
+      "sign": "positive",
+      "magnitude": 0.335
+    }
+  ],
+  "trap_pairs": [
+    [
+      "wellness_program",
+      "creative_output"
+    ]
+  ],
+  "consensus": [
+    {
+      "type": "effect",
+      "cause": "monitoring_intensity",
+      "outcome": "creative_output",
+      "sign": "negative"
+    },
+    {
+      "type": "mediation",
+      "cause": "monitoring_intensity",
+      "mediator": "perceived_autonomy",
+      "outcome": "creative_output"
+    }
+  ],
+  "thresholds": {
+    "effect": 0.1,
+    "interaction": 0.08,
+    "mediation_edge": 0.1,
+    "mediation_focal": 0.05
+  }
+}

@@ -1,0 +1,9 @@
+name: smoke_mock
+backend:
+  name: mock
+workers: 2
+worlds:
+  templates: [turnover, monitoring, decentralization]
+  variants: [orthodox, contrarian]
+  seeds: [1]
+designs: [mechanical, solo, pipeline, pipeline_polyarchy, pipeline_hierarchy, datafirst_hierarchy, two_theorists_connected, two_theorists_isolated]
