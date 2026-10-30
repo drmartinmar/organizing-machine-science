@@ -61,6 +61,32 @@ Each world also contains at least one *unpublished* focal truth (a true mechanis
 
 Each world carries seven abstracts, L1–L7, built from a fixed slate of claims rendered into prose with fictitious sample descriptions and effect sizes consistent with the claimed sign. The slate is: the textbook main effect (L1); one mechanism leg (L2); a published moderation or mediation (L3); the trap association presented as causal (L4); a peripheral true effect (L5); a true null (L6); another peripheral effect (L7). The truth status of every abstract is *computed* by evaluating its claim against the world’s truth table, not asserted by the author, so the same slate yields, for example, L1 = TRUE in orthodox worlds and L1 = FALSE in contrarian worlds. Collectives see only the abstract IDs and texts (`literature_public.json`); the scorer sees the claims and statuses.
 
+### B.5 Example: the `turnover-contrarian-s1` world as the collective sees it
+
+*Research question (from the brief).* What determines team performance in this firm, and in particular how does team turnover affect team performance, through which mechanisms, and under what conditions?
+
+*Literature available to the collective* (the truth column is hidden from it):
+
+| ID | Abstract (as shown) | Truth in this world |
+|---|---|---|
+| L1 | Panel of 212 manufacturing teams over four years. Higher share of team members who left and were replaced during the year was associated with lower supervisor-rated team performance against annual targets (standardized b = -0.15, p < .01). The authors attribute the pattern to the loss of tacit, team-specific knowledge. | FALSE |
+| L2 | Field study of 96 software teams with quarterly skills audits. Higher share of team members who left and were replaced during the year was associated with higher loss of team-specific procedural knowledge, from quarterly skills audits (standardized b = +0.24, p < .01). | TRUE |
+| L3 | Survey of 340 service teams in two retail chains. The association between share of team members who left and were replaced during the year and supervisor-rated team performance against annual targets was more positive when degree to which the team's work procedures are documented in written routines was high (interaction b = +0.34, p < .05). Documented routines are argued to buffer teams against the disruption of member exit. | FALSE |
+| L4 | Cross-sectional study of 1,105 teams in a logistics firm. Higher hours of formal training purchased for the team was associated with higher supervisor-rated team performance against annual targets (standardized b = +0.21, p < .01). The authors recommend expanding formal training budgets. | FALSE (confounded trap) |
+| L5 | Two-wave survey of 180 hospital units. Higher average weekly workload per member relative to the firm norm was associated with lower supervisor-rated team performance against annual targets (standardized b = -0.24, p < .01). | TRUE |
+| L6 | Meta-analytic summary of 41 team studies. Units with higher number of team members showed no significant difference in supervisor-rated team performance against annual targets (standardized b = +0.03, n.s.). | TRUE |
+| L7 | Archival study of 2,300 hires in a professional services firm. Higher quality of replacement hires, from structured assessment scores at entry was associated with higher supervisor-rated team performance against annual targets (standardized b = +0.17, p < .01). | TRUE |
+
+*Focal truths the scorer expects* (none of the positive ones appears in the literature; L1 asserts the opposite sign):
+
+- effect: `team_turnover` → `team_performance` is **positive** (total effect +0.25)
+- moderation: the effect of `team_turnover` on `team_performance` becomes more **positive** as `hiring_quality` rises (total interaction +0.13)
+- mediation: `team_turnover` → `idea_novelty` → `team_performance` (indirect effect +0.28)
+- effect: `team_turnover` → `idea_novelty` is **positive** (total effect +0.64)
+- effect: `idea_novelty` → `team_performance` is **positive** (total effect +0.43)
+
+In the orthodox twin of this world the same codebook and the same seven abstracts appear, but L1 and L3 are true, the knowledge-loss path carries the effect, and the undiscovered truth is the task-interdependence moderation.
+
 ## C. Claim schema and scoring
 
 ### C.1 Schema
